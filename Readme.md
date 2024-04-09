@@ -35,8 +35,9 @@
       - [Interrogating the Functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
       - [Examining app.js code](#examining-appjs-code)
       - [What lies under views folder ?](#what-lies-under-views-folder-)
-      - [What is present is route folder ?](#what-is-present-is-route-folder-)
+      - [What is present in route folder ?](#what-is-present-in-route-folder-)
     - [Cleaning the code and adding design logic](#cleaning-the-code-and-adding-design-logic)
+      - [Analysing the above code and creating new folders](#analysing-the-above-code-and-creating-new-folders)
         - [References:](#references)
 
 
@@ -260,7 +261,7 @@ graph TD;
 
 ### Implementation of the design Part-A
 
-- In MVc architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
+- As discussed above we are to use MVC architecture of express node module. In MVc architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
 - Express frame work makes our job easy to keep all these components of the web developing environment by providing us separate folders to keep the work modular while working behind the scene providing the logic to interact with each other.
 
 
@@ -664,9 +665,10 @@ Overall, app.js sets up an Express application, configures middleware, defines r
 </html>
 ```
 
+
 Before we start to work we will also see what is present in our `route` folder.
 
-#### What is present is route folder ? 
+#### What is present in route folder ? 
 
 The route folder has two files containing the code of handling the navigation of home page and the users. We first look at the index.js or home page routing code.
 
@@ -704,19 +706,66 @@ a {
 ```
 - Express does not provide any script so the javascript folder is empty.
 
-
 > Note: So far we have examined the express skeleton structure and the code provided. The next step is to provide the logic for our intended website.
+
+
+<div class="page"/>
 
 Before going any further vscode snapshot is taken to show how work is done in it.
 
 ![vscode-01.jpg](public\\images\\docs\\vscode-01.jpg)
 
----
+<div class="page"/>
+
 
 ### Cleaning the code and adding design logic
 
 Our app has to follow the design of Part-A in which we need to have three pages showing homepage, login page and Signup page. They all have to be connected to each other as well.
-Starting from the home page: the contents of `index.ejs` are removed. A new folder is created in 
+
+1. Starting from the home page: the contents of `index.ejs` are removed. A new folder named `layout` is created in views folder and `header.ejs` template is created. The contents of the this file is shown below.
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Link to local Bootstrap CSS -->
+  <link rel="stylesheet" href="/bootstrap-5.0.2/css/bootstrap.min.css">
+  <!-- Link to Custom CSS -->
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <!-- bootstrap icons cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+```
+
+- The reason to create the head layout is that this app has three different pages so far and they all have to have the above code in those files. By creating the template we ony need to insert the template reference and they will be rendered.
+
+
+#### Analysing the above code and creating new folders
+
+- `<!doctype html>`: Declares the document type and version of HTML being used.
+- `<html lang="en">`: Defines the root element of the HTML document and specifies the language of the content (English).
+- `<head>`: Contains metadata about the HTML document, such as the title, character encoding, viewport settings, and links to external resources.
+  - `<title><%= title %></title>`: Sets the title of the HTML document dynamically using EJS syntax. The value of the `title` variable will be inserted here.
+  - `<meta charset="UTF-8">`: Defines the character encoding of the document as UTF-8, which supports a wide range of characters.
+  - `<meta name="viewport" content="width=device-width, initial-scale=1">`: Configures the viewport settings for responsive web design. It sets the width of the viewport to the width of the device and sets the initial zoom level to 1.
+  - `<link rel="icon" type="image/x-icon" href="/favicon.ico">`: Specifies the favicon (shortcut icon) for the website.
+  - `<link rel="stylesheet" href="/bootstrap-5.0.2/css/bootstrap.min.css">`: Links to the local Bootstrap CSS file, which provides styling for the HTML elements using Bootstrap.
+  - `<link rel="stylesheet" href="/stylesheets/styles.css">`: Links to a custom CSS file (`styles.css`) for additional styling specific to the application.
+  - `<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">`: Links to the Bootstrap Icons CDN (Content Delivery Network) for using icons in the application.
+
+The above sets up the basic structure and styling for an HTML document in this application, ensuring proper rendering and styling of the content. In above code bootstrap files are accessed locally thus  they are to be  downloaded in `public` folder. As mentioned earlier express framework looks for static files in the public directory. Custom styles and scripts are to be placed under this folder. Following folders are created under public folder and related files are downloaded from the [Bootstrap site](https://getbootstrap.com/docs/5.2/getting-started/download/). Vscode snapshot shows these folder and files.
+
+![bootstrap.jpg](public\\images\docs\\bootstrap.jpg)
+
+The contests of the  `style.css` provided by express are deleted. An `icons` folder is also created to keep the application related icons.
+
+
+
 
 
 
