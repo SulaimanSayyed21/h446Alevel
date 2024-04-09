@@ -1,16 +1,141 @@
-## What work you need to do to finish Sulaiman project
+# H446-03 – PROJECT CONTENTS
 
-1. Get the minimal app working on hosted environment and on phone if possible
-2. Keep the timing that is by Friday on 13th
-3. Keep all work under on main folder so that you do not need to open it from somewhere else.
-4. Keep the working project under this project too.
-5. keep writing the what yo u are doing in readme.md as you keep forgetting what you are doing. 
-6. Do not waste time in building images, copy paste and provide the references to the originals.
-7. Keep one format of your work do not follow what others have done than later on use the heading and arrange it so that it makes sense.
-8. Get Sulaiman to understand what is happening on Sunday at least once, as he will be asked to demonstrate as it appears to be the highest level of work of his capabilities.
+### TABLE OF CONTENTS
 
----
+- [H446-03 – PROJECT CONTENTS](#h446-03--project-contents)
+    - [TABLE OF CONTENTS](#table-of-contents)
+  - [Introduction:](#introduction)
+    - [Overview of the 11 Plus Examination](#overview-of-the-11-plus-examination)
+      - [Content of the Exam](#content-of-the-exam)
+      - [Who Takes It and Where? (Stakeholders)](#who-takes-it-and-where-stakeholders)
+      - [Why It's a Big Deal](#why-its-a-big-deal)
+      - [The reason to select this competition test exam](#the-reason-to-select-this-competition-test-exam)
+  - [ANALYSIS](#analysis)
+    - [Problem identification:](#problem-identification)
+    - [Introduction of Proposed Solution and Stakeholder Needs:](#introduction-of-proposed-solution-and-stakeholder-needs)
+    - [Describing and Justifying Computational Approach:](#describing-and-justifying-computational-approach)
+    - [Identifying and Justifying Specific Features:](#identifying-and-justifying-specific-features)
+    - [Implementing the Proposed Solution:](#implementing-the-proposed-solution)
+    - [Limitations of the proposed Solution:](#limitations-of-the-proposed-solution)
+    - [Justifying Hardware and Software Choices:](#justifying-hardware-and-software-choices)
+    - [Identifying and justifying measurable success criteria for the proposed solution:](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution)
+    - [Requirements for such a project](#requirements-for-such-a-project)
+      - [Why Node.js?](#why-nodejs)
+      - [How a simple nodejs server is created?](#how-a-simple-nodejs-server-is-created)
+      - [MVC ( MOdel-View-controller) architecture](#mvc--model-view-controller-architecture)
+      - [Key Principles](#key-principles)
+  - [Application design](#application-design)
+    - [Design: Part-A](#design-part-a)
+    - [Implementation of the design Part-A](#implementation-of-the-design-part-a)
+    - [Starting project](#starting-project)
+      - [Setting up express nodejs framework](#setting-up-express-nodejs-framework)
+      - [Generating the application skeleton](#generating-the-application-skeleton)
+      - [Initialising git and linking it to the GitHub repo](#initialising-git-and-linking-it-to-the-github-repo)
+    - [Analysing the express skeleton structure](#analysing-the-express-skeleton-structure)
+      - [Interrogating the Functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
+      - [Examining app.js code](#examining-appjs-code)
+      - [What lies under views folder ?](#what-lies-under-views-folder-)
+      - [What is present is route folder ?](#what-is-present-is-route-folder-)
+    - [Cleaning the code and adding desgin logic](#cleaning-the-code-and-adding-desgin-logic)
+        - [References:](#references)
 
+
+## Introduction:
+
+### Overview of the 11 Plus Examination 
+
+The 11 plus, or Eleven Plus, exam is a big deal for children in England and Northern Ireland when they're about 11 years old. It's like a ticket to selective secondary schools, such as grammar schools and some private ones.
+
+#### Content of the Exam
+
+Depending on where you take it, the test covers English, Math, verbal reasoning, and non-verbal reasoning. It's all about seeing how well one can solve problems and show better cognition abilities.
+
+#### Who Takes It and Where? (Stakeholders)
+
+The number of children taking the 11 plus changes a lot depending on where you are in the UK. Some places still use it to decide who gets into certain schools, but others have different systems.
+
+#### Why It's a Big Deal
+
+People talk a lot about the 11 plus because it's seen as a big deal for children's futures. The better School means the better education one gets and more chances available to learn and compete with the elite class in future where thousands of pounds fee is required.
+
+#### The reason to select this competition test exam
+
+I myself have undertaken this examination, as has one of my sisters. Within our community, it enjoys considerable popularity, with numerous students competing for placements in esteemed grammar schools. Presently, there is a scarcity of freely accessible practice materials online. While various websites, such as Bond 11 Plus: https://www.bond11plus.co.uk offer packages for online practice via their digital platforms, they typically require purchase. However, some platforms, like 11 Plus Guide: https://www.11plusguide.com permit the download of sample papers for manual practice. Additionally, I have compiled a list of other relevant online resources, along with several books and papers available in my personal collection. Notably, one of the frequently consulted books is published by NelSon-Thrones of Oxford University Press.
+The diverse content covered in the aforementioned examination offers significant opportunities for an A-Level project student to develop either a digital website or mobile application platform. These platforms would enable 11+ students to engage in online practice sessions for the examinations at no cost. Given the extensive range of subjects covered, including English language, Mathematics, and reasoning, the project's scope is vast and cannot be fully addressed within its confines. As such, I have elected to focus solely on Verbal Reasoning for the purpose of this project
+
+<div class="page"/>
+
+
+## ANALYSIS				
+
+### Problem identification:
+
+The problem at hand is the lack of accessible and comprehensive resources for students preparing for the 11+ Exams. While there are numerous books available, they may not always offer an interactive or cost-effective solution present in digital format for practice and collaboration to enhance the solution.
+
+### Introduction of Proposed Solution and Stakeholder Needs:
+
+1. My proposed solution aims to address these limitations by providing a free, interactive, and comprehensive digital platform for practising Verbal Reasoning questions at this stage.
+
+2. After engaging in discussions with stakeholders, including students, parents, and educators, and reflecting on my personal experience of taking these exams, it has become evident that there is a significant demand for accessible, engaging, and effective resources for 11+ exam preparation. To support this assertion, I offer an example from my own family, wherein my parents sought to provide us with ample assistance. However, as previously mentioned, both my sister and I encountered challenges in accessing the necessary support, highlighting the existing gap in available resources.
+
+### Describing and Justifying Computational Approach:
+
+1. Verbal Reasoning questions are inherently structured and can be systematically analysed by computational methods. Features such as identifying associations between words, categorizing word relationships (opposites, synonyms, etc.), and generating compound words lend themselves well to computational algorithms.
+2. Computational methods allow for the creation of dynamic and interactive question formats, personalized practice sessions, and adaptive learning experiences tailored to individual student needs.
+3. Additionally, computational approaches enable the scalability and accessibility of the solution, making it available to a wide audience regardless of geographical location or socioeconomic status.
+4. By leveraging computational methods, we can automate the generation of practice questions, provide instant feedback to students, and track their progress over time, enhancing the effectiveness and efficiency of exam preparation.
+5. By integrating computational methods into the solution, we can harness the power of technology to address the challenges of 11+ exam preparation, making it more engaging, accessible, and personalized for students.
+
+### Identifying and Justifying Specific Features:
+
+1. Comprehensive coverage of Verbal Reasoning topics.
+2.  Interactive question formats, including multiple-choice, matching, and fill-in-the-blank.
+3. Personalized practice sessions based on individual performance and areas of improvement.
+4. Progress tracking and performance analytics for students and parents.
+      
+### Implementing the Proposed Solution:
+
+1. Technologies such as HTML, CSS, and Bootstrap, can be used on frontend taking care of user interface (UI capabilities) while the back-end support can be provided using nodeJs technologies to provide server support or extensions such as Live Server can be used in conjunction with Vs-code. NPM can be used to handle project structure.
+2. JavaScript can be used to handle the computational logic, for example to find out if the selected answers are correct or wrong or reading the contents from the JSON files. It can be read from the file and stored in an arrays format for manipulation.
+3. Two approaches are possible one is to dynamically create all the contents by using JavaScript or designing the user interface and providing placeholders to be filled by JavaScript.
+4. Sounds files can be used to indicate the success or failure to engage the students in more interactive ways.
+5. Similarly data can be stored in JSON format which is the most popular choice when handled by JavaScript libraries.
+6. If the solution is to be implemented as a mobile app then further help can be taken form cross-platforms such as React native and Ionic.
+7. The better option for the purposed solution can Progressive Web Apps (PWAs) which provide a mobile app-like experience. They can be accessed through a web browser but offer features like offline support, push notifications and home screen installation. For this purpose Angular, React or vue.js can be a better choice.
+8. The digital solution can also be shared as a repository on an open collaborative platform such as GitHub: https://github.com or GitLab: https://gitlab.com enabling others to participate and improve the content.
+9. The solution will be hosted on cloud servers to ensure scalability and accessibility from any device with an internet connection.
+10. Compatibility with various devices, including desktops, laptops, tablets, and smartphones, will be ensured through responsive design using bootstrap.
+11. The platform will prioritize user-friendly interfaces and optimize performance for seamless user experience across different hardware and software configurations.
+
+### Limitations of the proposed Solution:
+
+1. While much has been proposed as a potential solution, several challenges lie ahead, particularly in tailoring the website or app for personalized use. This entails the incorporation of distinct logic for each individual user and the secure storage of their credentials within the database.
+2. Providing parents with the ability to monitor their children's progress necessitates the implementation of separate user accounts for students and parents. Furthermore, establishing a connection between these accounts while maintaining privacy requires careful consideration to ensure that sensitive data remains concealed.
+3. I plan to commence the project with a focus on simplicity to meet the requirements outlined in H446 OCR A Level Computer Science (NEA: Non-exam assessment). This approach will allow for a gradual progression, ensuring that the project remains manageable and aligned with the specified criteria.
+
+### Justifying Hardware and Software Choices:
+
+**What technologies are needed for a developer**:
+
+The hardware technologies required for a developer to create websites or PWAs do not necessitate specialized hardware, unlike certain machine learning applications that demand specific computational power. Instead, a standard desktop or laptop with operating systems such as Windows 10/11, Ubuntu (Linux distribution), or macOS on Apple machines will suffice. As for software selection, I plan to utilize the following  tools: 
+
+1. Vscode: https://code.visualstudio.com/ to write the code
+2. Microsoft Windows Terminal: https://apps.microsoft.com/detail/9n0dx20hk701?rtc=1&hl=en-gb&gl=GB to interact with git.
+3. PickPick: https://picpick.app/ to get the snapshot of the website
+4. Chrome Browser: https://www.google.com/chrome/ to display the result 
+5. Node.js and npm: https://nodejs.org/ to provide server side handling
+6. Git: https://git-scm.com/ to keep track the record of the repository
+7. GitHub:https://github.com/ to upload the repository on the clouds and free hosing.
+
+### Identifying and justifying measurable success criteria for the proposed solution:
+
+1. The success of the proposed website can be measured through various quantifiable criteria that directly reflect its effectiveness in addressing the identified problem and meeting stakeholder needs.
+2. Firstly, the website's user engagement metrics, such as the number of active users, session duration, and frequency of visits, can serve as indicators of its popularity and usefulness among students, parents, and other users.
+3. Secondly, the completion rates of practice sessions and quizzes within the website will gauge the extent to which users are actively utilizing its resources for exam preparation. 
+4. Thirdly, user satisfaction surveys and feedback mechanisms can provide valuable insights into the perceived value, usability, and overall satisfaction with the website's features and functionality.
+5. By establishing these measurable success criteria, we can objectively evaluate the impact and effectiveness of the website in supporting 11+ exam preparation and achieving its intended goals. 
+
+<div class="page"/>
 
 ### Requirements for such a project
 
@@ -86,13 +211,10 @@ If we see the above code closely there is not much difference except that expres
 
 #### MVC ( MOdel-View-controller) architecture
 
-- it is a design pattern commonly used in software development to organize code and separate concerns.
-
-- **Model**: The model represents the data and business logic of the application. It encapsulates the application's data and defines how it can be manipulated.In a database-driven web application, models often interact with the database to perform CRUD (Create, Read, Update, Delete) operations.View:
-
-- **View**: The view is responsible for presenting the user interface and displaying data to the user. It renders the model's data in a format suitable for presentation, such as HTML, XML, or JSON. Views are typically passive components that receive data from the controller and display it to the user. 
-
-- **Controller**: The controller acts as an intermediary between the model and the view. It handles user input and updates the model accordingly. Controllers contain the application's business logic, process user requests, and determine which view to render in response.
+1. it is a design pattern commonly used in software development to organize code and separate concerns.
+2. **Model**: The model represents the data and business logic of the application. It encapsulates the application's data and defines how it can be manipulated.In a database-driven web application, models often interact with the database to perform CRUD (Create, Read, Update, Delete) operations.View.
+3. **View**: The view is responsible for presenting the user interface and displaying data to the user. It renders the model's data in a format suitable for presentation, such as HTML, XML, or JSON. Views are typically passive components that receive data from the controller and display it to the user. 
+4. **Controller**: The controller acts as an intermediary between the model and the view. It handles user input and updates the model accordingly. Controllers contain the application's business logic, process user requests, and determine which view to render in response.
 
 #### Key Principles
 
@@ -103,12 +225,14 @@ If we see the above code closely there is not much difference except that expres
 
 Overall, MVC architecture provides a robust foundation for building complex software systems by promoting separation of concerns, modularity, and flexibility. It remains a popular choice for developing web applications due to its clear structure and well-defined responsibilities for each component. For this reason I have decided to use this pattern and develop this project.
 
-### Application design
+<div class="page"/>
+
+## Application design
 
 - Since the project promises to provide the full functional website its design is structured in steps. At first we only design the site to provide us the working websites that includes a home page providing the option of `Login` and `Signup` facilities. Once this stage is passed, testing is done,we will continue to the next stage.
 - The project also promises that such a project should be used on mobile devices, thus it would try to achieve this functionality using Progressive Web App technologies before going to the next stage.
 
-#### Design: Part-A
+### Design: Part-A
 
 - The first part is to achieve this goal to make a website that simply provide the user to Login or Register them to the website.
 
@@ -405,30 +529,29 @@ function onListening() {
 
 #### Interrogating the Functionality of the www Script
 
-**Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
+1. **Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
+2. **Module Dependencies**: The script requires necessary modules:
+    - `var app = require('../app');`: This imports the `app.js` from the root folder.
+    - `var debug = require('debug')('h446:server')`: This is used for debugging prupose providing the name for our root folder.
+    - `var http = require('http');`: To use the http object for the server to start it gets the handle to the node built in `http` module.
 
-**Module Dependencies**: The script requires necessary modules:
-   - `var app = require('../app');`: This imports the `app.js` from the root folder.
-   - `var debug = require('debug')('h446:server')`: This is used for debugging prupose providing the name for our root folder.
-   - `var http = require('http');`: To use the http object for the server to start it gets the handle to the node built in `http` module.
-  
- **Get Port**: The script attempts to obtain the port number from the environment variables. If not found, it defaults to port 3000. This port number is then set on the Express application.
+3. **Get Port**: The script attempts to obtain the port number from the environment variables. If not found, it defaults to port 3000. This port number is then set on the Express application.
 
-**Create HTTP Server**: The script creates an HTTP server using the `http.createServer()` method and passes the Express application (`app`) to it.
+4. **Create HTTP Server**: The script creates an HTTP server using the `http.createServer()` method and passes the Express application (`app`) to it.
 
-**Event Listeners**: 
-   - `server.on('error', onError)`: Listens for any errors that occur when starting the server.
-   - `server.on('listening', onListening)`: Listens for when the server starts listening for connections.
+5. **Event Listeners**: 
+    - `server.on('error', onError)`: Listens for any errors that occur when starting the server.
+    - `server.on('listening', onListening)`: Listens for when the server starts listening for connections.
 
-**Normalize Port Function**: This function attempts to normalize the provided port into a number, string, or false by using if logic and checking different possible situations.
+6. **Normalize Port Function**: This function attempts to normalize the provided port into a number, string, or false by using if logic and checking different possible situations.
 
-**Error Handling**: The `onError` function handles errors that occur when starting the server, such as permission issues or port conflicts. It also provides the logic by having a `switch` statement and displays the code using `console.error` function.
+7. **Error Handling**: The `onError` function handles errors that occur when starting the server, such as permission issues or port conflicts. It also provides the logic by having a `switch` statement and displays the code using `console.error` function.
 
-**Listening Event Handling**: The `onListening` function logs a message indicating that the server is listening on a specific port or pipe.
+8. **Listening Event Handling**: The `onListening` function logs a message indicating that the server is listening on a specific port or pipe. 
 
 > Note: in short express has provided much more sophisticated logic to handle the errors and encountering possible mistakes. The same task was earlier provided by simple logic as shown above under the heading "How a simple nodejs server is created.
 
-#### Examining app.js code
+#### Examining app.js code 
 
 - It is the main entry point for an Express application. It is where the application is configured, routes are defined, middleware is applied, and the server is started. Lets examine this code.
 
@@ -481,15 +604,15 @@ module.exports = app;
 3. An instance of Express application is created and stored in the variable `app` using `var app = express()`.
 4. Express is configured to use the EJS view engine. The views directory is set to `views`, and the view engine is set to `ejs`.
 5. Middleware functions are applied to the Express application using the `app.use()` method. in short wherever express uses `app.use()` this format is used to setup the middleware. All the above defined middleware `use` methods are handled by the express internally hese include:
-  - `logger('dev')`: Configures logging middleware with the 'dev' format..
-  - `app.use(express.json()) and app.use(express.urlencoded({ extended: false }))`: Middleware for parsing JSON and URL-encoded request bodies.
-  - `cookieParser()`: Parsing cookies attached to incoming requests.
-  - `express.static()`: Serving static files from the 'public' directory.
+    - `logger('dev')`: Configures logging middleware with the 'dev' format..
+    - `app.use(express.json()) and app.use(express.urlencoded({ extended: false }))`: Middleware for parsing JSON and URL-encoded request bodies.
+    - `cookieParser()`: Parsing cookies attached to incoming requests.
+    - `express.static()`: Serving static files from the 'public' directory.
 
 
 6. `app.use('/', indexRouter)`: Mounts the index router at the root URL ('/'). This route is to be handled by us or the developer to provide the logic what happens when the home page is served.
 Similarly `app.use('/users', usersRouter)`: Mounts the users router at the '/users' URL. It is up to us to use this or delete this logic.
-7. `app.use(function(req, res, next) { ... })`: Handles 404 errors by passing them to the next middleware. 
+1. `app.use(function(req, res, next) { ... })`: Handles 404 errors by passing them to the next middleware. 
 
 >Note: The function arguments `req` means the request and `res` means the response sent when receiving the request while `nex` represent what is to be done next, in above case it invokes the `createError(404)`method.
 
@@ -554,6 +677,7 @@ module.exports = router;
 In short this route serves as the handler for the home page ('/') of the Express application, rendering the index view template and passing it the title 'Express'. Having done with the route folder it takes us to the one more file provided by the express framework in `public/stylesheet/styles.css`. It is used to provide some styles, we are not going to use this file and contents of this file will be deleted.
 
 
+
 ```css
 body {
   padding: 50px;
@@ -571,5 +695,40 @@ a {
 
 ---
 
-###
+### Cleaning the code and adding desgin logic
+
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+<div class="page"/>
+
+##### References:
+
+[1]: 
+    1. Exam Papers Plus: https://exampapersplus.co.uk/
+    2. 11 Plus Swot: https://www.11plusswot.co.uk/
+    3. 11 Plus Leap: https://www.11plusleap.co.uk/
+    4. 11 Plus Lifeline: https://www.11pluslifeline.com/
+    5. Exam Ninja: https://www.examninja.co.uk/
+    6. 11 Plus Exams: https://www.11plus-exams.co.uk/
+    7. 11 Plus Tutors Academy: https://www.11plustutorslondon.co.uk/
+    8. Schofield & Sims: https://www.schofieldandsims.co.uk/
+[2]: 11+ Personal Tutor, Verbal Reasoning by Frances Down of Nelson Thrones
 

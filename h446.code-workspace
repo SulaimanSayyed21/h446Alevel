@@ -7,7 +7,7 @@
 	"settings": {
 		"workbench.colorTheme": "Monokai",
 		"markdown-pdf.styles": [
-			"public\\stylesheets\\markdown-pdf.css",
+			"pdf-output\\markdown-pdf.css",
 		],
 		"markdown-pdf.stylesRelativePathFile": true,
 		"markdown-pdf.highlightStyle": "a11y-light.css",
