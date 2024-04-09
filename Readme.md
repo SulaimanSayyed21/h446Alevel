@@ -1,37 +1,39 @@
-### What work you need to do to finish Sulaiman project
+## What work you need to do to finish Sulaiman project
 
-1. Get the minimal app working on hosted environmen and on phone if possible
+1. Get the minimal app working on hosted environment and on phone if possible
 2. Keep the timing that is by Friday on 13th
-3. Keep all work under on main folder so that you do not need to open it from somewher else.
+3. Keep all work under on main folder so that you do not need to open it from somewhere else.
 4. Keep the working project under this project too.
-5. keep wirting the what yo uare doing in readme.md as you keep forgetting what you are doing. 
+5. keep writing the what yo u are doing in readme.md as you keep forgetting what you are doing. 
 6. Do not waste time in building images, copy paste and provide the references to the originals.
 7. Keep one format of your work do not follow what others have done than later on use the heading and arrange it so that it makes sense.
-8. Get Sulaiman to uderstand what is happening on Sunday at least once, as he will be asked to demostrate as it appears to be the highest level of work of his capabilites.
-9. Get the 
+8. Get Sulaiman to understand what is happening on Sunday at least once, as he will be asked to demonstrate as it appears to be the highest level of work of his capabilities.
+
+---
+
 
 ### Requirements for such a project
 
-- Websites typically follow a client-server architecture, where the client refers to the user's web browser (such as Chrome, Firefox, or Safari), and the server refers to a remote computer that hosts the website's files and data. When a user visits a website, their browser sends a request to the server, asking for the website's content. These request uses HTTP verbs such as `GET` method for the page navigation.
-- Similarly when a user submits a form on a webpage (such as a login form, registration form, or search form), the browser sends a request to the server to process the form data. This request can use either the HTTP GET or POST method, depending on the form's configuration and the type of data being submitted.
-- Web pages often contain resources such as images, stylesheets, scripts, and fonts that are loaded asynchronously from the server. Each of these resources triggers a separate request to the server, allowing the browser to fetch and render them independently while the rest of the page loads.
-- Modern web applications frequently interact with remote APIs (Application Programming Interfaces) to retrieve data, perform actions, or integrate with external services. These API requests can be initiated from the client side using various techniques, such as AJAX, the fetch API, or client-side libraries/frameworks.
-- All the above usually refers to a term commonly known as `Client/Server` architecture.
 
-- **Client-Side Activities**: Client-side activities refer to tasks and operations that are performed within the user's web browser. This includes rendering HTML, executing JavaScript code, and handling user interactions such as clicks and form submissions. Client-side activities are responsible for creating the user interface and providing interactivity to the user.
-- **Server-Side Activities**: Server-side activities, on the other hand, are performed on the server, typically using server-side technologies like Node.js. These activities include processing user requests, executing business logic, interacting with databases, and generating dynamic content. Server-side activities are responsible for handling the backend operations of the application, such as user authentication, data validation, and database management.
-- **Role of Node.js in Client-Server Communication**:Node.js plays a crucial role in facilitating communication between the client-side and server-side components of web applications. It serves as the backend infrastructure for handling client requests, processing data, and sending responses back to the client. By leveraging the power of Node.js, developers can build fast, scalable, and real-time web applications that deliver a seamless user experience across different devices and platforms.
+1. Websites typically follow a client-server architecture, where the client refers to the user's web browser (such as Chrome, Firefox, or Safari), and the server refers to a remote computer that hosts the website's files and data. When a user visits a website, their browser sends a request to the server, asking for the website's content. These request uses HTTP verbs such as `GET` method for the page navigation.
+2. Similarly when a user submits a form on a webpage (such as a login form, registration form, or search form), the browser sends a request to the server to process the form data. This request can use either the HTTP GET or POST method, depending on the form's configuration and the type of data being submitted.
+3. Web pages often contain resources such as images, stylesheets, scripts, and fonts that are loaded asynchronously from the server. Each of these resources triggers a separate request to the server, allowing the browser to fetch and render them independently while the rest of the page loads.
+4. Modern web applications frequently interact with remote APIs (Application Programming Interfaces) to retrieve data, perform actions, or integrate with external services. These API requests can be initiated from the client side using various techniques, such as AJAX, the fetch API, or client-side libraries/frameworks.
+5. All the above usually refers to a term commonly known as `Client/Server` architecture.  
+6. **Client-Side Activities**: Client-side activities refer to tasks and operations that are performed within the user's web browser. This includes rendering HTML, executing JavaScript code, and handling user interactions such as clicks and form submissions. Client-side activities are responsible for creating the user interface and providing interactivity to the user.
+7. **Server-Side Activities**: Server-side activities, on the other hand, are performed on the server, typically using server-side technologies like Node.js. These activities include processing user requests, executing business logic, interacting with databases, and generating dynamic content. Server-side activities are responsible for handling the backend operations of the application, such as user authentication, data validation, and database management.
+8. **Role of Node.js in Client-Server Communication**:Node.js plays a crucial role in facilitating communication between the client-side and server-side components of web applications. It serves as the backend infrastructure for handling client requests, processing data, and sending responses back to the client. By leveraging the power of Node.js, developers can build fast, scalable, and real-time web applications that deliver a seamless user experience across different devices and platforms. 
 
 #### Why Node.js?
 
-- **JavaScript Everywhere**: With Node.js, developers can use JavaScript for both client-side and server-side development, enabling a consistent and unified codebase.
-- **Event-Driven Architecture**: Node.js utilizes an event-driven, non-blocking I/O model, which allows for efficient handling of concurrent requests and real-time applications.
-- **Vibrant Ecosystem**: Node.js has a large and active community, providing a wealth of libraries and tools to streamline development.
-- **Scalability**: Node.js applications can easily scale to handle large numbers of concurrent connections, making it suitable for building robust and scalable web applications.
+1. **JavaScript Everywhere**: With Node.js, developers can use JavaScript for both client-side and server-side development, enabling a consistent and unified codebase.
+2. **Event-Driven Architecture**: Node.js utilizes an event-driven, non-blocking I/O model, which allows for efficient handling of concurrent requests and real-time applications.
+3.**Vibrant Ecosystem**: Node.js has a large and active community, providing a wealth of libraries and tools to streamline development.
+4. **Scalability**: Node.js applications can easily scale to handle large numbers of concurrent connections, making it suitable for building robust and scalable web applications.
 
 #### How a simple nodejs server is created?
 
-- The following code creates  a simple nodejs server that is run locally for developing environment.
+The following code creates  a simple nodejs server that is run locally for developing environment.
 
 ```js
 // Import the 'http' module
@@ -53,12 +55,15 @@ server.listen(port, hostname, () => {
 });
 
 ```
-- The above code does the followings:
-    1. Require the built-in http module, which provides functionality for creating HTTP servers using `const http = require('http');`. Declaring some variables for the port and hostname and assigned them some values.
-    2. Uses the `http.createServer()` method to create a server instance. Pass a callback function to handle incoming requests.
-    3. Within the callback function, handle incoming HTTP requests. This involves reading request data, processing it, and sending back a response.
-    4. Specify the port number on which the server should listen for incoming requests.
-- Similarly the same can be done using a nodejs module called `express` since it provides number of functionalities to ease the job it is also known as express framework. Following code shows how the same job is done using express module.
+
+The above code does the followings:
+
+1. Require the built-in http module, which provides functionality for creating HTTP servers using `const http = require('http');`. Declaring some variables for the port and hostname and assigned them some values.
+2. Uses the `http.createServer()` method to create a server instance. Pass a callback function to handle incoming requests.
+3. Within the callback function, handle incoming HTTP requests. This involves reading request data, processing it, and sending back a response.
+4. Specify the port number on which the server should listen for incoming requests.
+
+Similarly the same can be done using a nodejs module called `express` since it provides number of functionalities to ease the job it is also known as express framework. Following code shows how the same job is done using express module.
 
 ```js 
 // Import the Express framework
@@ -77,7 +82,7 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 ```
-- If we see the above code closely there is not much difference except that express module is used and GET request is handled by a route. This is not we intend to achieve from express but we want our code to be modular and properly structured. For this purpose we use an MVC ( modal view controller ) architecture. Where components of a websites are treated separately.
+If we see the above code closely there is not much difference except that express module is used and GET request is handled by a route. This is not we intend to achieve from express but we want our code to be modular and properly structured. For this purpose we use an MVC ( modal view controller ) architecture where components of a websites are treated separately.
 
 #### MVC ( MOdel-View-controller) architecture
 
@@ -105,42 +110,42 @@ Overall, MVC architecture provides a robust foundation for building complex soft
 
 #### Design: Part-A
 
-- The first part is achieve this goal to make a website that simply provide the user to Login or Register them to the website.
+- The first part is to achieve this goal to make a website that simply provide the user to Login or Register them to the website.
 
 ```mermaid
 graph TD;
-    HomePage --> LoginPage;
-    HomePage --> SignupPage;
-    LoginPage --> HomePage;
-    SignupPage --> HomePage;
+    HomePage-->LoginPage;
+    HomePage-->SignupPage;
+    LoginPage-->HomePage;
+    SignupPage-->HomePage;
 ```
 
 ### Implementation of the design Part-A
 
 - In MVc architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
 - Express frame work makes our job easy to keep all these components of the web developing environment by providing us separate folders to keep the work modular while working behind the scene providing the logic to interact with each other.
-- 
 
 
-### Starting the project
+### Starting project
 
-1. Vscode has already been installed and necessary extensions are activated.
-2. Nodejs and npm has also been installed along with Git.
-3. To upload the work on the remote site I have chosen GitHub platform, and account with the user name SulaimanSayyed21 is already created.
-4. An empty remote repo with the same name is created to be linked with the local working machine.
-3. Setting up express 
+1. VSCode has been set up with the required extensions activated.
+2. Node.js, npm, and Git have been installed.
+3. GitHub has been chosen as the platform for uploading work, with an account under the username 'SulaimanSayyed21' already created.
+4. An empty remote repository with the same name has been created to connect with the local machine.
+5. The next step involves configuring the Express framework.
+
 
 #### Setting up express nodejs framework
 
-- Though the folder structured can be created manually but `express` provides a cli(command line interface) to ease the work.
+- Though the folder structured can be created manually but `express` provides a CLI (command line interface) to ease the work.
 - To use the express cli, it has been installed using `npm install -g express-generator`.
 - Express allows us to use different templating engine for the html code, I have chosen `ejs` as my template engine.
 
-#### Generating the application skeleton.
+#### Generating the application skeleton
 
 1. The command `express --view=ejs h446` creates a skeleton folder structure. The out put is shown below.
 
-```
+```txt
 > express --view=ejs h446                                       pwsh  12:53:12 
 
    create : h446\
@@ -168,7 +173,7 @@ graph TD;
      > SET DEBUG=h446:* & npm start
 
 ```
-- Following is the listing of this directory
+- Following is the listing of this directory.
 
 ```txt
 Directory: K:\projects\2024\express\h446
@@ -181,17 +186,24 @@ d----        08/04/2024     12:53                  views
 -a---        08/04/2024     12:53           1074   app.js
 -a---        08/04/2024     12:53            290   package.json
 ```
+
 - The application project folder name is provided above as `h446`. the above command also sets the html templating engine to be `ejs`.
-- git is initialised into the `h446` folder and contents are added and first commit is made.
+
+#### Initialising git and linking it to the GitHub repo
+
+1. First we initialised the `git`into the `h446` folder, using the following command.
+2. Second contents of the folder are added to staging area.
+3. The commit is made giving some comments.
 
 ```git
 > git init .
 > git aa 
 > git cm "initial commit: express app generated using express cli setting templating engine as ejs"
 ```
+
 > Note: in above command git aa and cm are git aliases set by me to ease the work, the details of these shortcuts  will be provided in the Appendix
 
-- git log shows the out put of repo state 
+- Taking a git log shows the out put of repo state.
 
 ```git
 > git log
@@ -199,6 +211,7 @@ commit 50e4c936f0a8cb1783dd76e199da7e1ac346f487 (HEAD -> main)
 Author: SulaimanSayyed21 <sullisayyed21@outlook.com>
 Date:   Mon Apr 8 12:59:25 2024 +0100
 ```
+
 - Link is established between local and remote repository using `git remote add origin https://github.com/SulaimanSayyed21/h446Alevel.git`.
 - Setting a branch name `git branch -M main`.
 - Pushing the local repo to remote using `git push -u origin main`.
@@ -218,9 +231,11 @@ To github.com-SulaimanSayyed21:SulaimanSayyed21/h446Alevel.git
 branch 'main' set up to track 'origin/main'.
 ```
 
-![github-01.jpg](/images/docs/github-01.jpg)
+- Having pushed the local repo to the remote, following is the snapshot of the remote repo.
 
-- express framework has created a `project.json` file which contents are shown below.
+![github-01.jpg](public\\images\\docs\\github-01.jpg)
+
+- Express framework has created a `project.json` file which contents are shown below.
 
 ```json
 {
@@ -257,12 +272,13 @@ GET / 200 2.621 ms - 207
 GET /stylesheets/style.css 200 2.111 ms - 111
 GET /favicon.ico 404 2.472 ms - 993
 ```
-- The server snapshot is shown below.
-
-![localhost-01.jpg](/images/docs/localhost-01.jpg)
 
 - The above information shows us that server is run from `./bin/www` directory amd different `Get` requests are made, the last one status shows `404` means that there was no `favicon` found. As the project goes along details will be provided of what is happening.
-- At this state we install another npm library called `nodemon` so that while we work the server is updated. The nodemon watches any live changes in the code and as the files are saved it updates the server wihtout letting us stop and restart the server.
+- The server snapshot is shown below. 
+
+![localhost-01.jpg](public\\images\\docs\\localhost-01.jpg)
+
+- At this state we install another npm library called `nodemon` so that while we work the server is updated. The nodemon watches any live changes in the code and as the files are saved it updates the server without letting us stop and restart the server.
 - To do so we use `npm i nodemon`. It can be installed globally or locally in this project. I have installed it globally as it helps me in other projects.
 - Adding a script in `project.json` file using this line of code `"dev":"nodemon --ext js,ejs,json,css ./bin/www"`. It lets us start the script using `npm run dev` where the word `dev` represents our development environment while the script `nodemon --ext js,ejs,json,css` are instructions given to nodemon to watch the changes in these file.
 - Staring the server using `npm run dev`, following is the output of this command.
@@ -270,7 +286,7 @@ GET /favicon.ico 404 2.472 ms - 993
 > If you clone this repo you will need to install nodemon using `npm install nodemon` to get the script working.
 
 ```txt
->npm run dev
+> npm run dev
 > h446@0.0.0 dev
 > nodemon --ext js,ejs,json,css ./bin/www
 
@@ -385,34 +401,34 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 ```
+---
 
-#### What does the www js above script do ?
+#### Interrogating the Functionality of the www Script
 
+**Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
 
-1. **Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
-
-2. **Module Dependencies**: The script requires necessary modules:
+**Module Dependencies**: The script requires necessary modules:
    - `var app = require('../app');`: This imports the `app.js` from the root folder.
    - `var debug = require('debug')('h446:server')`: This is used for debugging prupose providing the name for our root folder.
    - `var http = require('http');`: To use the http object for the server to start it gets the handle to the node built in `http` module.
+  
+ **Get Port**: The script attempts to obtain the port number from the environment variables. If not found, it defaults to port 3000. This port number is then set on the Express application.
 
-3. **Get Port**: The script attempts to obtain the port number from the environment variables. If not found, it defaults to port 3000. This port number is then set on the Express application.
+**Create HTTP Server**: The script creates an HTTP server using the `http.createServer()` method and passes the Express application (`app`) to it.
 
-4. **Create HTTP Server**: The script creates an HTTP server using the `http.createServer()` method and passes the Express application (`app`) to it.
-
-5. **Event Listeners**: 
+**Event Listeners**: 
    - `server.on('error', onError)`: Listens for any errors that occur when starting the server.
    - `server.on('listening', onListening)`: Listens for when the server starts listening for connections.
 
-6. **Normalize Port Function**: This function attempts to normalize the provided port into a number, string, or false by using if logic and checking different possible situations.
+**Normalize Port Function**: This function attempts to normalize the provided port into a number, string, or false by using if logic and checking different possible situations.
 
-7. **Error Handling**: The `onError` function handles errors that occur when starting the server, such as permission issues or port conflicts. It also provides the logic by having a `switch` statement and displays the code using `console.error` function.
+**Error Handling**: The `onError` function handles errors that occur when starting the server, such as permission issues or port conflicts. It also provides the logic by having a `switch` statement and displays the code using `console.error` function.
 
-8. **Listening Event Handling**: The `onListening` function logs a message indicating that the server is listening on a specific port or pipe.
+**Listening Event Handling**: The `onListening` function logs a message indicating that the server is listening on a specific port or pipe.
 
 > Note: in short express has provided much more sophisticated logic to handle the errors and encountering possible mistakes. The same task was earlier provided by simple logic as shown above under the heading "How a simple nodejs server is created.
 
-#### What does the app.js do ?
+#### Examining app.js code
 
 - It is the main entry point for an Express application. It is where the application is configured, routes are defined, middleware is applied, and the server is started. Lets examine this code.
 
@@ -464,13 +480,12 @@ module.exports = app;
 2. Next, it requires route files for handling different parts of the application. indexRouter and usersRouter are required from their respective route files (./routes/index and ./routes/users). The index routes represents our home page and can be accessed using `http:<URL>/` or `http:<url>index`, as we are using localhost on port 3000, we will get our home page using `localhost:3000` respectively.
 3. An instance of Express application is created and stored in the variable `app` using `var app = express()`.
 4. Express is configured to use the EJS view engine. The views directory is set to `views`, and the view engine is set to `ejs`.
-5. Middleware functions are applied to the Express application using the `app.use()` method. These include:
+5. Middleware functions are applied to the Express application using the `app.use()` method. in short wherever express uses `app.use()` this format is used to setup the middleware. All the above defined middleware `use` methods are handled by the express internally hese include:
   - `logger('dev')`: Configures logging middleware with the 'dev' format..
   - `app.use(express.json()) and app.use(express.urlencoded({ extended: false }))`: Middleware for parsing JSON and URL-encoded request bodies.
-  - cookieParser(): Parsing cookies attached to incoming requests.
-  - express.static(): Serving static files from the 'public' directory.
+  - `cookieParser()`: Parsing cookies attached to incoming requests.
+  - `express.static()`: Serving static files from the 'public' directory.
 
-> Note: in short wherever express uses `app.use()` this format is used to setup the middleware. All the above defined middleware `use` methods are handled by the express internally.
 
 6. `app.use('/', indexRouter)`: Mounts the index router at the root URL ('/'). This route is to be handled by us or the developer to provide the logic what happens when the home page is served.
 Similarly `app.use('/users', usersRouter)`: Mounts the users router at the '/users' URL. It is up to us to use this or delete this logic.
@@ -494,9 +509,9 @@ Overall, app.js sets up an Express application, configures middleware, defines r
 <pre><%= error.stack %></pre>
 ```
 
->Note: Since we are using ejs templating engine its notation `<% %> or <%- %> or <%= %>` is used in above code. We will leave this file as it is.
+> Note: Since we are using ejs templating engine its notation `<% %> or <%- %> or <%= %>` is used in above code. We will leave this file as it is.
 
-2. The second file is `index.ejs` which serves as our home page. Earlier when we ran our server the website snap shot shown above gives us the message defined in this page. Following is the code for this file. We do not intend to use this file and its contents will be deleted.
+2. The second file is `index.ejs` which serves as our home page. Earlier when we ran our server the website snap shot shown above gives us the message defined in this page. Following is the code for this file. We do not intend to use this file and its contents will be deleted. 
 
 ```html
 <!DOCTYPE html>
@@ -512,11 +527,11 @@ Overall, app.js sets up an Express application, configures middleware, defines r
 </html>
 ```
 
-- Before we start to work we will also see what is present in our `route` folder
+Before we start to work we will also see what is present in our `route` folder.
 
 #### What is present is route folder ? 
 
-- The route folder has two files containing the code of handling the navigation of home page and the users. We first look at the index.js or home page routing code.
+The route folder has two files containing the code of handling the navigation of home page and the users. We first look at the index.js or home page routing code.
 
 ```js
 var express = require('express');
@@ -530,15 +545,14 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-- The code begins by importing the express module and creating a new router instance using express.Router().
-- Next a route is defined using the get() method of the router object. This route handles `HTTP GET` requests to the root path ('/').
-- The route callback function takes three parameters req (request), res (response), and next.
-- Inside the route handler function, the `res.render()` method is used to render the index view template with some data. In this case, it sets the `title` variable to `Express`.
-- Finally, the router object is exported using `module.exports`, making it available for use in other parts of the application.
+1. The code begins by importing the express module and creating a new router instance using express.Router().
+2. ext a route is defined using the get() method of the router object. This route handles `HTTP GET` requests to the root path ('/').
+3. The route callback function takes three parameters req (request), res (response), and next.
+4. Inside the route handler function, the `res.render()` method is used to render the index view template with some data. In this case, it sets the `title` variable to `Express`.
+5. Finally, the router object is exported using `module.exports`, making it available for use in other parts of the application.
 
-In short this route serves as the handler for the home page ('/') of the Express application, rendering the index view template and passing it the title 'Express'.
+In short this route serves as the handler for the home page ('/') of the Express application, rendering the index view template and passing it the title 'Express'. Having done with the route folder it takes us to the one more file provided by the express framework in `public/stylesheet/styles.css`. It is used to provide some styles, we are not going to use this file and contents of this file will be deleted.
 
-- Having done with the route folder it takes us to the one more file provided by the express framework in `public/stylesheet/styles.css`. It is used to provide some styles, we are not going to use this file and contents of this file will be deleted.
 
 ```css
 body {
@@ -553,7 +567,9 @@ a {
 - Express does not provide any script so the javascript folder is empty.
 
 
-> Note: So far we have examined the express skeleton structure and the code provided. In the next step we are going to provide the logic for our intended website.
+> Note: So far we have examined the express skeleton structure and the code provided. The next step is to provide the logic for our intended website.
 
 ---
+
+###
 
