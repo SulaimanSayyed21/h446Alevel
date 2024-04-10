@@ -1,8 +1,7 @@
 # H446-03 – PROJECT CONTENTS
 
 ### TABLE OF CONTENTS
-
-- [H446-03 – PROJECT CONTENTS](#h446-03--project-contents)
+- [H446-03 – PROJECT CONTENTS](#h446-03-%E2%80%93-project-contents)
     - [TABLE OF CONTENTS](#table-of-contents)
   - [Introduction:](#introduction)
     - [Overview of the 11 Plus Examination](#overview-of-the-11-plus-examination)
@@ -22,7 +21,7 @@
     - [Requirements for such a project](#requirements-for-such-a-project)
       - [Why Node.js?](#why-nodejs)
       - [How a simple nodejs server is created?](#how-a-simple-nodejs-server-is-created)
-      - [MVC ( MOdel-View-controller) architecture](#mvc--model-view-controller-architecture)
+      - [MVC ( MOdel-View-Controller) architecture](#mvc--model-view-controller-architecture)
       - [Key Principles](#key-principles)
   - [Application design](#application-design)
     - [Design: Part-A](#design-part-a)
@@ -32,16 +31,23 @@
       - [Generating the application skeleton](#generating-the-application-skeleton)
       - [Initialising git and linking it to the GitHub repo](#initialising-git-and-linking-it-to-the-github-repo)
     - [Analysing the express skeleton structure](#analysing-the-express-skeleton-structure)
-      - [Interrogating the Functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
+      - [Interrogating the functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
       - [Examining app.js code](#examining-appjs-code)
-      - [What lies under views folder ?](#what-lies-under-views-folder-)
-      - [What is present in route folder ?](#what-is-present-in-route-folder-)
+      - [What lies under views folder ?](#what-lies-under-views-folder)
+      - [What is present in route folder ?](#what-is-present-in-route-folder)
     - [Cleaning the code and adding design logic](#cleaning-the-code-and-adding-design-logic)
       - [Analysing the above code and creating new folders](#analysing-the-above-code-and-creating-new-folders)
+      - [Creating homepage header](#creating-homepage-header)
+      - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
+      - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
+    - [Adding Login and Signup pages to the website](#adding-login-and-signup-pages-to-the-website)
+    - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
         - [References:](#references)
 
 
-## Introduction:
+<div class="page"/>
+
+## Introduction: 
 
 ### Overview of the 11 Plus Examination 
 
@@ -210,7 +216,7 @@ app.listen(port, () => {
 ```
 If we see the above code closely there is not much difference except that express module is used and GET request is handled by a route. This is not we intend to achieve from express but we want our code to be modular and properly structured. For this purpose we use an MVC ( modal view controller ) architecture where components of a websites are treated separately.
 
-#### MVC ( MOdel-View-controller) architecture
+#### MVC ( MOdel-View-Controller) architecture
 
 1. it is a design pattern commonly used in software development to organize code and separate concerns.
 2. **Model**: The model represents the data and business logic of the application. It encapsulates the application's data and defines how it can be manipulated.In a database-driven web application, models often interact with the database to perform CRUD (Create, Read, Update, Delete) operations.View.
@@ -257,6 +263,7 @@ graph TD;
 - These three pages initial sketch is shown in the following diagram.
 
 ![app-design-01](public\\images\\docs\\app-design-01.jpg)
+*figure-1*
 
 
 ### Implementation of the design Part-A
@@ -269,7 +276,7 @@ graph TD;
 
 1. VSCode has been set up with the required extensions activated.
 2. Node.js, npm, and Git have been installed.
-3. GitHub has been chosen as the platform for uploading work, with an account under the username 'SulaimanSayyed21' already created.
+3. GitHub has been chosen as the platform for uploading work, with an account under the username '`SulaimanSayyed21` already created.
 4. An empty remote repository with the same name has been created to connect with the local machine.
 5. The next step involves configuring the Express framework.
 
@@ -285,7 +292,7 @@ graph TD;
 1. The command `express --view=ejs h446` creates a skeleton folder structure. The out put is shown below.
 
 ```txt
-> express --view=ejs h446                                       pwsh  12:53:12 
+> express --view=ejs h446
 
    create : h446\
    create : h446\public\
@@ -326,7 +333,7 @@ d----        08/04/2024     12:53                  views
 -a---        08/04/2024     12:53            290   package.json
 ```
 
-- The application project folder name is provided above as `h446`. the above command also sets the html templating engine to be `ejs`.
+- The application project folder name is provided above as `h446`. The above command also sets the html templating engine to be `ejs`.
 
 #### Initialising git and linking it to the GitHub repo
 
@@ -340,7 +347,7 @@ d----        08/04/2024     12:53                  views
 > git cm "initial commit: express app generated using express cli setting templating engine as ejs"
 ```
 
-> Note: in above command git aa and cm are git aliases set by me to ease the work, the details of these shortcuts  will be provided in the Appendix
+> Note: in above command git aa and cm are git aliases set to ease the work, the details of these shortcuts  will be provided in the Appendix.
 
 - Taking a git log shows the out put of repo state.
 
@@ -373,6 +380,7 @@ branch 'main' set up to track 'origin/main'.
 - Having pushed the local repo to the remote, following is the snapshot of the remote repo.
 
 ![github-01.jpg](public\\images\\docs\\github-01.jpg)
+*figure-2*
 
 - Express framework has created a `project.json` file which contents are shown below.
 
@@ -412,17 +420,16 @@ GET /stylesheets/style.css 200 2.111 ms - 111
 GET /favicon.ico 404 2.472 ms - 993
 ```
 
-- The above information shows us that server is run from `./bin/www` directory amd different `Get` requests are made, the last one status shows `404` means that there was no `favicon` found. As the project goes along details will be provided of what is happening.
-- The server snapshot is shown below. 
+- The above information shows us that server is run from `./bin/www` directory and different `GET` requests are made, the last one status shows `404` means that there was no `favicon` found. As the project goes along details will be provided of what is happening.
+- The server running on port 3000 snapshot is shown below. 
 
-![localhost-01.jpg](public\\images\\docs\\localhost-01.jpg)
+![localhost-01.jpg](public\\images\\docs\\localhost-01.jpg) 
+*figure-3*
 
-- At this state we install another npm library called `nodemon` so that while we work the server is updated. The nodemon watches any live changes in the code and as the files are saved it updates the server without letting us stop and restart the server.
+- At this state we install another npm library called `nodemon` so that while we work the server is updated automatically. The nodemon watches any live changes in the code and as the files are saved it updates the server without letting us stop and restart the server.
 - To do so we use `npm i nodemon`. It can be installed globally or locally in this project. I have installed it globally as it helps me in other projects.
 - Adding a script in `project.json` file using this line of code `"dev":"nodemon --ext js,ejs,json,css ./bin/www"`. It lets us start the script using `npm run dev` where the word `dev` represents our development environment while the script `nodemon --ext js,ejs,json,css` are instructions given to nodemon to watch the changes in these file.
 - Staring the server using `npm run dev`, following is the output of this command.
-
-> If you clone this repo you will need to install nodemon using `npm install nodemon` to get the script working.
 
 ```txt
 > npm run dev
@@ -542,7 +549,7 @@ function onListening() {
 ```
 ---
 
-#### Interrogating the Functionality of the www Script
+#### Interrogating the functionality of the www Script
 
 1. **Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
 2. **Module Dependencies**: The script requires necessary modules:
@@ -564,7 +571,7 @@ function onListening() {
 
 8. **Listening Event Handling**: The `onListening` function logs a message indicating that the server is listening on a specific port or pipe. 
 
-> Note: in short express has provided much more sophisticated logic to handle the errors and encountering possible mistakes. The same task was earlier provided by simple logic as shown above under the heading "How a simple nodejs server is created.
+> Note: in short express has provided much more sophisticated logic to handle the errors and encountering possible mistakes. The same task was earlier provided by simple logic as shown above under the heading "How a simple nodejs server is created".
 
 #### Examining app.js code 
 
@@ -714,6 +721,7 @@ a {
 Before going any further vscode snapshot is taken to show how work is done in it.
 
 ![vscode-01.jpg](public\\images\\docs\\vscode-01.jpg)
+*figure-4*
 
 <div class="page"/>
 
@@ -761,25 +769,369 @@ Our app has to follow the design of Part-A in which we need to have three pages 
 The above sets up the basic structure and styling for an HTML document in this application, ensuring proper rendering and styling of the content. In above code bootstrap files are accessed locally thus  they are to be  downloaded in `public` folder. As mentioned earlier express framework looks for static files in the public directory. Custom styles and scripts are to be placed under this folder. Following folders are created under public folder and related files are downloaded from the [Bootstrap site](https://getbootstrap.com/docs/5.2/getting-started/download/). Vscode snapshot shows these folder and files.
 
 ![bootstrap.jpg](public\\images\docs\\bootstrap.jpg)
+*figure-5*
 
 The contests of the  `style.css` provided by express are deleted. An `icons` folder is also created to keep the application related icons.
 
+> Note: A local commit is made and contents arre pushed to the github.
+
+```git
+> git lol
+
+2c104d9 (HEAD -> main)  bootstrap folder is added and files are downloaded, also layout folder is created and header.ejs is written
+ffeff25 Readme.md updated, design diagrams added
+7500e32 normal commit: Readme updated, table of contents added
+60388d4 documentation done in Readme.md and output taken in pdf-output
+cbf038a (origin/main)  vscode worksapce is added, Readme.pdf genertated automatically by the extension, one image added.
+1e05319  nodemon installed globally, script added in package.json fi.e, readme.md added, server is working
+50e4c93 initial commit: express app generated using express cli setting templating engine as ejs
+
+> git push origin main
+
+Enumerating objects: 52, done.
+Counting objects: 100% (52/52), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (35/35), done.
+Writing objects: 100% (42/42), 945.49 KiB | 4.22 MiB/s, done.
+Total 42 (delta 9), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (9/9), completed with 1 local object.
+To github.com-SulaimanSayyed21:SulaimanSayyed21/h446Alevel.git
+   cbf038a..2c104d9  main -> main
+```
+
+- Following is a snap shot of remote github showing the current changes.
+
+![github-02.jpg](public\\images\\docs\\github-02.jpg)
+*figure-6*
+
+
+#### Creating homepage header
+
+> Note: header.ejs name is changed to head.ejs as head and header represent different sections of html page .
+
+- All pages of our application shares the header and footer, though footer is same but header differs. The home page offers user to login or to Signup option we first write this template.
+- The home page would contain this format.
+
+```txt
+head template
+header template
+main section of the home page
+footer template
+```
+
+- Creating `loginheader.ejs` template in `layout` folder under `views`. Following are the contents of `loginheader.ejs` template.
+
+```html
+<body>
+    <header>
+      <div class="container">
+          <div class="row">
+            <div class="col">
+              <h3>
+                Verbal Reasoning
+              </h3>
+            </div>
+            <div class="col-auto">
+              <a href="/login" class="anchor"> Login</a>
+              <a href="/signup" class="anchor"> Signup</a>
+            </div>
+          </div>
+        </div>
+    </header>
+```
+- Similarly `footer.ejs` template is also created under the same folder. The contents are shown below.
+  
+```html
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>A Level Project by Sulaiman Sayyed</h3>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+```
+- Now we need to add these layout templates into our home page which is `index.ejs` file which is also an ejs template. The contents are shown below.
+
+```html
+<%- include('layout/head.ejs'); %>
+  <%- include('layout/loginheader.ejs'); %>
+    <main>
+    </main>
+    <%- include('layout/footer.ejs'); %>
+      <script src="bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>
+      </body>
+
+      </html>
+```
+
+- Running our server using `npm run dev` and it is started on port 3000.
+- When the port is open in chrome, it shows the following error on the webpage.
+
+![error-01.jpg](public\\images\\docs\\error-01.jpg)
+*figure-7*
+
+- It is to be noted that what happens when the page is not found a `404` page is shown, since express provides the logic to show the error output handling in www script where the server is run, it outputs its logic on the webpage which is convenient for the developer. The error shows that it does not find the file `footer.ejs`.
+- Found the typo in the file name, it was `foter` changed to `footer.ejs`. The following is displayed on `localhost:3000`.
+
+![localhost-02.jpg](public\\images\\docs\\localhost-02.jpg) 
+*figure-8*
+
+- The above result shows that the home page is displayed successfully on the given port. But the desired result is not achieved yet. The reason being that we have not supplied our styles. Before we write the styles for the home page we would examine what is written in above layouts.
+
+1. **index.ejs** contents: This `index.ejs` file is an EJS (Embedded JavaScript) template used to render the homepage of an Express.js application. The code is examined below.
+
+- `<%- include('layout/head.ejs'); %>`: Includes the content of the `head.ejs` file located in the `layout` directory. This contains the HTML head section, including metadata, CSS links, and the opening `<body>` tag.
+- `<%- include('layout/loginheader.ejs'); %>`: Includes the content of the `loginheader.ejs` file located in the `layout` directory. It represents the header section of the homepage, which  includes navigation links to login and Signup pages.
+- `<main></main>`: Defines the main content section of the homepage. At this stage it is empty.
+- `<%- include('layout/footer.ejs'); %>`: Includes the content of the `footer.ejs` file located in the `layout` directory. This represents the footer section of the homepage, which may include links, copyright information, or other footer content.
+- `<script src="bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>`: Loads the Bootstrap JavaScript file (`bootstrap.bundle.min.js`) from the local `bootstrap-5.0.2` directory. This script provides functionality such as dropdowns, modals, and other Bootstrap components.
+- `</body>` and `</html>`: Closes the HTML body and HTML document tags, respectively.
+
+2. **loginheader.ejs** contents: The `loginheader.ejs` file represents the header section of a webpage.
+
+- `<body>`: The opening `<body>` tag, which signifies the start of the HTML body section.
+- `<header>`: Defines the header section of the webpage, usually containing navigation links or brand name along with brand logo or icon.
+
+The following three lines contains CSS ( Cascading Style Sheets ) classes, since bootstrap responsive design is used, its `container` class is used.
+- `<div class="container">`: Creates a container to hold the header content, ensuring proper alignment and spacing.
+- `<div class="row">`: Defines a row within the container to organize content horizontally using the Bootstrap grid system.
+- `<div class="col">`: Creates a column within the row to hold the branding or title of the webpage.
+- `<h3>`: Defines a level 3 heading element (`<h3>`) to display some text. In this case, it represents the name of the website `Verbal Reasoning`.
+- `<div class="col-auto">`: This class allows the contents to adjust their width based on content.
+  - `<a href="/login" class="anchor"> Login</a>`: Defines an anchor (`<a>`) element representing a navigation link to the login page. The `href` attribute specifies the URL to navigate to when clicked, and the `class="anchor"` class will be used for styling purposes which has yet been written. 
+  - `<a href="/signup" class="anchor"> Signup</a>`: Another anchor element representing a navigation link to the signup page. Similar to the login link, it has an `href` attribute pointing to the signup page and a `class="anchor"` class for styling which is to be written.
+
+- At this stage, it would be a better idea to examine how HTML tags, elements or headings are constructed. Every HTML tag or element is treated as an object, which has its properties. These properties, in turn, may include attributes." For example in `head.ejs` file a meta tag is used `<meta name="viewport" content="width=device-width, initial-scale=1.0">`. The `<meta>` is an HTML object and has many properties, among them are `name`, `content` and `initial-scale` in turn these are assigned specific attributes. This is how HTML object or elements are constructed.
+
+- Similarly the `footer.ejs` contents are same and have been discussed above, with one exception that it shows the different text or message.
+
+
+#### Applying styles to home page using styles.css
+
+- As we have seen in figure-8 that our footer is not aligned to the bottom of the page. The reason being that the header or the footer tags are HTML semantics tags which allows user to use them in their code to convey the meaning of the HTML elements, it is the job of the developer to provide its styles. Following code is written in `styles.css`
+  
+```css
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #b4b4e5;
+  color: #171717;
+  padding: 0px;
+  text-align: center;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Distribute items horizontally */
+  height:50px;
+ 
+}
+
+footer {
+  background-color: #b4b4e5;
+  color: #171717;
+  padding: 0px;
+  text-align: center;
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Distribute items horizontally */ 
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height:70px;
+}
+```
+
+- When above styles are applied the shape of our application is shown in the figure below.
+
+![localhost-03](public\\images\\docs\\localhost-03.jpg) 
+*figure-9*
+
+- The comments presented in the styles defines the code reason. The footer is attached to the bottom using `position:fixed` styles while both header and the footer are given their heights as well.
+- From the figure-9 above it can be seen that both `Login` and `Signup` text is shown but does not have any styles, since both of them are provided with a class name "anchor", its styles are written now. Following styles are applied to the CSS class `.anchor`.
+  
+```css
+.anchor{
+  font-size: 18px;
+  background-color: #b4b4e5;
+  color: #171717;
+  padding: 0px 15px 0px 15px; /* top, right, bottom, left */
+
+}
+```
+- The padding values makes sure that there is some distance present between the items.
+
+
+#### Applying bootstrap icons in header
+
+- Since the page is presented to the user to login or register, it is a good idea to have some icons presented here. Three different icons are used in loginheader template, their respective classes are shown below.
+
+```html
+<body>
+  <header>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3>
+              <span class="bi bi-lock-fill"></span>
+              Verbal Reasoning
+            </h3>
+          </div>
+          <div class="col-auto">
+            <a href="/login" class="anchor"><i class="bi bi-key-fill"></i> Login</a>
+            <a href="/signup" class="anchor"><i class="bi bi-arrow-bar-up"></i> Signup</a>
+          </div>
+        </div>
+      </div>
+  </header>
+```
+
+- The state of the application is shown below in figure-10.
+
+![localhost-05](public\\images\\docs\\localhost-05.jpg) 
+*figure-10*
+
+- To make sure that our design is responsive we move the size of the window by dragging and enlarging to the full screen size, it is noted that the contents are behaving as designed. The text in header and footer always aligned to the center of the container. It is shown in the next figure.
+
+![localhost-06](public\\images\\docs\\localhost-06.jpg) 
+*figure-11*
+
+
+> Note: Application home page is successfully implemented using bootstrap class to control the styles and ejs templating engine to write html and rendering them by express server.
+
+- Before moving ahead to the next page design, a `favicon` will be added to the website and the title of the website will be changed dynamically. In figure-11 it can be seen that the application tab has no icon and the title is still shown `Express`.
+- Created an online icon for the tab of size `16X16` and saved as `favicon.ico` in the root of the website which is a public directory from where it is rendered by express.
+- To change the title of the page we edit the homepage router file contents. As it is the `index.ejs` which is rendered when users goes to our website, in express the route that handles this request in present in our `routes` folder named `index.js`. The modified contents are shown below.
+
+```js
+var express = require('express');
+var router = express.Router();
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Verbal Reasoning for 11+'}); /* title is changed to 11+ */ 
+});
+
+module.exports = router;
+```
+
+The following figure shows the different title and favicon in the title of the webpage.
+
+![localhost-07](public\\images\\docs\\localhost-07.jpg)
+
+*figure-12*
+
+---
+
+### Adding Login and Signup pages to the website
+
+- Two files are created `login.ejs` and `signup.ejs` in `views` folder where home page layout `index.ejs` is already present.
+- Following the design shown in figure-1, first a template file named `normalheader.ejs`is created which will be injected in both login and signup template.
+- The contents of the `normalheader.ejs` is shown below.
+
+```html
+<body>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h3><i class="bi bi-lock-fill"></i>Verbal Reasoning</h3>
+          </div>
+        </div>
+      </div>
+    </header>
+```
+
+- The above code does not show either login or signup options as it is rendered within these pages.
+- Initially The contents of the `login.ejs` is shown below.
+  
+```html
+<%- include('layout/head.ejs'); %>
+    <body>
+        <%- include('layout/normalheader.ejs'); %>
+        <div class="container">
+            <div>
+                <h1>Login</h1>
+            </div>
+        </div>
+        <%- include('layout/footer.ejs'); %>
+    </body>
+</html>
+```
+- Though the contents of the page is created but its route is not present in the route directory. Therefore a file name `login.js` is created in `routes` folder. The contents to handle the incoming GET request when user press the Login option from the home page is shown below.
+
+```js
+var express = require('express');
+var router = express.Router();
+
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+  res.render('login',{ title: 'Login' });
+});
+
+module.exports = router;
+```
+
+- Though the route logic is provided but we have to make an entry into `app.js` so that it knows about this route. There are two entries made, first `loginRouter` is declared at the top along with already predefine `indexRouter`, using `var loginRouter = require('./routes/login');` then adding the middleware part by telling `app.js` to use this logic `app.use('/', loginRouter);`. In the above code it can be seen when this page is displayed, the title value is also provided and it will be updated automatically.
+- At this stage server is running and shows the login page.
+
+![localhost-08](public\\images\\docs\\localhost-08.jpg)
+*figure-11*
+
+- Now we further modify the above file and add form contents to be filled by the user. Contents are shown below.
+
+```html
+<%- include('layout/head.ejs'); %>
+<body>
+<%- include('layout/normalheader.ejs'); %>
+<div class="container">
+<div>
+<h1>Login</h1>
+<!-- LOGIN FORM -->
+<form action="/login" method="post">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="username" placeholder="Enter your name" required
+       autocomplete="off" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="useremail" placeholder="Enter your email" required
+       autocomplete="off" class="form-control">
+  </div>
+  <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-warning btn-lg">Login</button>
+</form>
+<hr>
+<p>Need an account? <a href="/signup">Signup</a> Or go <a href="/">home</a>.</p>
+</div>
+</div>
+<%- include('layout/footer.ejs'); %>
+</body>
+</html>
+```
+
+- Following is a snapshot of the localhost showing login page.
+
+![localhost-09](public\\images\\docs\\localhost-09.jpg)
+*figure-12*
+
+- In above snapshot, the fields of the form grows in full screen mode, to avoid this happening boot strap classes `col-sm-6` in the div just below the container. Also to provide the border to its parent container making a CSS class `.form-border`. By making this amendment lengths of the form fields are controlled.
+
+![localhost-10](public\\images\\docs\\localhost-10.jpg)
+*figure-13*
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+### How to clone this repository on local machine 
 
 
 
