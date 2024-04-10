@@ -1,71 +1,69 @@
-# H446-03 – PROJECT CONTENTS
+# H446-03 – PROJECT CONTENTS <!-- omit from toc -->
 
 ### TABLE OF CONTENTS
-- [H446-03 – PROJECT CONTENTS](#h446-03-%E2%80%93-project-contents)
-    - [TABLE OF CONTENTS](#table-of-contents)
-  - [Introduction:](#introduction)
-    - [Overview of the 11 Plus Examination](#overview-of-the-11-plus-examination)
-      - [Content of the Exam](#content-of-the-exam)
-      - [Who Takes It and Where? (Stakeholders)](#who-takes-it-and-where-stakeholders)
-      - [Why It's a Big Deal](#why-its-a-big-deal)
-      - [The reason to select this competition test exam](#the-reason-to-select-this-competition-test-exam)
-  - [ANALYSIS](#analysis)
-    - [Problem identification:](#problem-identification)
-    - [Introduction of Proposed Solution and Stakeholder Needs:](#introduction-of-proposed-solution-and-stakeholder-needs)
-    - [Describing and Justifying Computational Approach:](#describing-and-justifying-computational-approach)
-    - [Identifying and Justifying Specific Features:](#identifying-and-justifying-specific-features)
-    - [Implementing the Proposed Solution:](#implementing-the-proposed-solution)
-    - [Limitations of the proposed Solution:](#limitations-of-the-proposed-solution)
-    - [Justifying Hardware and Software Choices:](#justifying-hardware-and-software-choices)
-    - [Identifying and justifying measurable success criteria for the proposed solution:](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution)
-    - [Requirements for such a project](#requirements-for-such-a-project)
-      - [Why Node.js?](#why-nodejs)
-      - [How a simple nodejs server is created?](#how-a-simple-nodejs-server-is-created)
-      - [MVC ( MOdel-View-Controller) architecture](#mvc--model-view-controller-architecture)
-      - [Key Principles](#key-principles)
-  - [Application design](#application-design)
-    - [Design: Part-A](#design-part-a)
-    - [Implementation of the design Part-A](#implementation-of-the-design-part-a)
-    - [Starting project](#starting-project)
-      - [Setting up express nodejs framework](#setting-up-express-nodejs-framework)
-      - [Generating the application skeleton](#generating-the-application-skeleton)
-      - [Initialising git and linking it to the GitHub repo](#initialising-git-and-linking-it-to-the-github-repo)
-    - [Analysing the express skeleton structure](#analysing-the-express-skeleton-structure)
-      - [Interrogating the functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
-      - [Examining app.js code](#examining-appjs-code)
-      - [What lies under views folder ?](#what-lies-under-views-folder)
-      - [What is present in route folder ?](#what-is-present-in-route-folder)
-    - [Cleaning the code and adding design logic](#cleaning-the-code-and-adding-design-logic)
-      - [Analysing the above code and creating new folders](#analysing-the-above-code-and-creating-new-folders)
-      - [Creating homepage header](#creating-homepage-header)
-      - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
-      - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
-    - [Adding Login and Signup pages to the website](#adding-login-and-signup-pages-to-the-website)
-    - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
-        - [References:](#references)
+- [Introduction: 1.0](#introduction-10)
+  - [Overview of the 11 Plus Examination 1.1](#overview-of-the-11-plus-examination-11)
+    - [Content of the Exam 1.1.2](#content-of-the-exam-112)
+    - [Who Takes It and Where? (Stakeholders) 1.1.3](#who-takes-it-and-where-stakeholders-113)
+    - [Why It's a Big Deal 1.1.4](#why-its-a-big-deal-114)
+    - [The reason to select this competition test exam 1.1.5](#the-reason-to-select-this-competition-test-exam-115)
+- [ANALYSIS 2.0](#analysis-20)
+  - [Problem identification 2.1](#problem-identification-21)
+  - [Introduction of Proposed Solution and Stakeholder Needs 2.1](#introduction-of-proposed-solution-and-stakeholder-needs-21)
+  - [Describing and Justifying Computational Approach:](#describing-and-justifying-computational-approach)
+  - [Identifying and Justifying Specific Features:](#identifying-and-justifying-specific-features)
+  - [Implementing the Proposed Solution:](#implementing-the-proposed-solution)
+  - [Limitations of the proposed Solution:](#limitations-of-the-proposed-solution)
+  - [Justifying Hardware and Software Choices:](#justifying-hardware-and-software-choices)
+  - [Identifying and justifying measurable success criteria for the proposed solution:](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution)
+  - [Requirements for such a project](#requirements-for-such-a-project)
+    - [Why Node.js?](#why-nodejs)
+    - [How a simple nodejs server is created?](#how-a-simple-nodejs-server-is-created)
+    - [MVC ( MOdel-View-Controller) architecture](#mvc--model-view-controller-architecture)
+    - [Key Principles](#key-principles)
+- [Application design](#application-design)
+  - [Design: Part-A](#design-part-a)
+  - [Implementation of the design Part-A](#implementation-of-the-design-part-a)
+  - [Starting project](#starting-project)
+    - [Setting up express nodejs framework](#setting-up-express-nodejs-framework)
+    - [Generating the application skeleton](#generating-the-application-skeleton)
+    - [Initialising git and linking it to the GitHub repo](#initialising-git-and-linking-it-to-the-github-repo)
+  - [Analysing the express skeleton structure](#analysing-the-express-skeleton-structure)
+    - [Interrogating the functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
+    - [Examining app.js code](#examining-appjs-code)
+    - [What lies under views folder ?](#what-lies-under-views-folder-)
+    - [What is present in route folder ?](#what-is-present-in-route-folder-)
+  - [Cleaning the code and adding design logic](#cleaning-the-code-and-adding-design-logic)
+    - [Analysing the above code and creating new folders](#analysing-the-above-code-and-creating-new-folders)
+    - [Creating homepage header](#creating-homepage-header)
+    - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
+    - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
+  - [Adding Login and Signup pages to the website](#adding-login-and-signup-pages-to-the-website)
+  - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
+      - [References:](#references)
 
 
 <div class="page"/>
 
-## Introduction: 
+## Introduction: 1.0
 
-### Overview of the 11 Plus Examination 
+### Overview of the 11 Plus Examination 1.1
 
 The 11 plus, or Eleven Plus, exam is a big deal for children in England and Northern Ireland when they're about 11 years old. It's like a ticket to selective secondary schools, such as grammar schools and some private ones.
 
-#### Content of the Exam
+#### Content of the Exam 1.1.2
 
 Depending on where you take it, the test covers English, Math, verbal reasoning, and non-verbal reasoning. It's all about seeing how well one can solve problems and show better cognition abilities.
 
-#### Who Takes It and Where? (Stakeholders)
+#### Who Takes It and Where? (Stakeholders) 1.1.3
 
 The number of children taking the 11 plus changes a lot depending on where you are in the UK. Some places still use it to decide who gets into certain schools, but others have different systems.
 
-#### Why It's a Big Deal
+#### Why It's a Big Deal 1.1.4
 
 People talk a lot about the 11 plus because it's seen as a big deal for children's futures. The better School means the better education one gets and more chances available to learn and compete with the elite class in future where thousands of pounds fee is required.
 
-#### The reason to select this competition test exam
+#### The reason to select this competition test exam 1.1.5
 
 I myself have undertaken this examination, as has one of my sisters. Within our community, it enjoys considerable popularity, with numerous students competing for placements in esteemed grammar schools. Presently, there is a scarcity of freely accessible practice materials online. While various websites, such as Bond 11 Plus: https://www.bond11plus.co.uk offer packages for online practice via their digital platforms, they typically require purchase. However, some platforms, like 11 Plus Guide: https://www.11plusguide.com permit the download of sample papers for manual practice. Additionally, I have compiled a list of other relevant online resources, along with several books and papers available in my personal collection. Notably, one of the frequently consulted books is published by NelSon-Thrones of Oxford University Press.
 The diverse content covered in the aforementioned examination offers significant opportunities for an A-Level project student to develop either a digital website or mobile application platform. These platforms would enable 11+ students to engage in online practice sessions for the examinations at no cost. Given the extensive range of subjects covered, including English language, Mathematics, and reasoning, the project's scope is vast and cannot be fully addressed within its confines. As such, I have elected to focus solely on Verbal Reasoning for the purpose of this project
@@ -73,13 +71,13 @@ The diverse content covered in the aforementioned examination offers significant
 <div class="page"/>
 
 
-## ANALYSIS				
+## ANALYSIS 2.0
 
-### Problem identification:
+### Problem identification 2.1
 
 The problem at hand is the lack of accessible and comprehensive resources for students preparing for the 11+ Exams. While there are numerous books available, they may not always offer an interactive or cost-effective solution present in digital format for practice and collaboration to enhance the solution.
 
-### Introduction of Proposed Solution and Stakeholder Needs:
+### Introduction of Proposed Solution and Stakeholder Needs 2.1
 
 1. My proposed solution aims to address these limitations by providing a free, interactive, and comprehensive digital platform for practising Verbal Reasoning questions at this stage.
 
@@ -222,6 +220,20 @@ If we see the above code closely there is not much difference except that expres
 2. **Model**: The model represents the data and business logic of the application. It encapsulates the application's data and defines how it can be manipulated.In a database-driven web application, models often interact with the database to perform CRUD (Create, Read, Update, Delete) operations.View.
 3. **View**: The view is responsible for presenting the user interface and displaying data to the user. It renders the model's data in a format suitable for presentation, such as HTML, XML, or JSON. Views are typically passive components that receive data from the controller and display it to the user. 
 4. **Controller**: The controller acts as an intermediary between the model and the view. It handles user input and updates the model accordingly. Controllers contain the application's business logic, process user requests, and determine which view to render in response.
+
+- Following is a basic flow of an Express application
+
+```mermaid
+graph TD;
+    Client-->ExpressApp;
+    ExpressApp-->View;
+    ExpressApp-->RouteRequest;
+    RouteRequest-->HandleRequest;
+    HandleRequest-->RetrieveData;
+    RetrieveData-->RenderHTML;
+    RenderHTML-->SendHTTPResponse;
+    SendHTTPResponse-->Client;
+```
 
 #### Key Principles
 
@@ -876,7 +888,7 @@ footer template
 - It is to be noted that what happens when the page is not found a `404` page is shown, since express provides the logic to show the error output handling in www script where the server is run, it outputs its logic on the webpage which is convenient for the developer. The error shows that it does not find the file `footer.ejs`.
 - Found the typo in the file name, it was `foter` changed to `footer.ejs`. The following is displayed on `localhost:3000`.
 
-![localhost-02.jpg](public\\images\\docs\\localhost-02.jpg) 
+![localhost-02.jpg](public\\images\\docs\\localhost-02.jpg)
 *figure-8*
 
 - The above result shows that the home page is displayed successfully on the given port. But the desired result is not achieved yet. The reason being that we have not supplied our styles. Before we write the styles for the home page we would examine what is written in above layouts.
@@ -1022,7 +1034,6 @@ module.exports = router;
 The following figure shows the different title and favicon in the title of the webpage.
 
 ![localhost-07](public\\images\\docs\\localhost-07.jpg)
-
 *figure-12*
 
 ---
@@ -1030,7 +1041,7 @@ The following figure shows the different title and favicon in the title of the w
 ### Adding Login and Signup pages to the website
 
 - Two files are created `login.ejs` and `signup.ejs` in `views` folder where home page layout `index.ejs` is already present.
-- Following the design shown in figure-1, first a template file named `normalheader.ejs`is created which will be injected in both login and signup template.
+- Following the design shown in [figure-1](#*figure-1*), first a template file named `normalheader.ejs`is created which will be injected in both login and signup template.
 - The contents of the `normalheader.ejs` is shown below.
 
 ```html
@@ -1128,10 +1139,53 @@ module.exports = router;
 ![localhost-10](public\\images\\docs\\localhost-10.jpg)
 *figure-13*
 
+- Signup page is not added yet, if it is clicked express server sends the request to get it since it is not present we get the error. The developing setup shows this scenario.
+
+![terminal-output-01](public\\images\\docs\\terminal-output-01.jpg)
+*figure-13*
+
+To add the Signup page following steps are taken:
+  1. Informs `app.js` to use this route, by declaring a `signupRouter = require('./routes/signup');` variable and assigning the `./routes/signup` by giving its directory address.
+  2. A middleware `app.use('/', signupRouter);` is added in `app.js` to inform that this route is to be used for signup request
+  3. A new file is created under `routes` folder named `signup.js` to handle the request. The code renders the `signup.ejs` template and sends the response back to the browser with the template content along with the title of the page `Signup`.
+  4. A new file `signup.ejs` is created and the contents are provided, since they are same as of `login.ejs` they are not discussed in detail. It differs in only one way that it also adds the `Confirm password` label. and field.
+ 
+```js 
+var express = require('express');
+var router = express.Router();
+/* GET Signup page. */
+router.get('/signup', function(req, res, next) {
+  res.render('signup',{ title: 'Signup' });
+});
+module.exports = router;
+```
+
+The snapshot of the signup page is shown below.
+
+![localhost-11](public\\images\\docs\\localhost-11.jpg)
+*figure-14*
 
 
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 ### How to clone this repository on local machine 
+
 
 
 
