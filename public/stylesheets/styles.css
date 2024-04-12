@@ -37,7 +37,9 @@ footer {
   padding: 0px 15px 0px 15px; /* top, right, bottom, left */
 }
 
+
 .form-border{
 
   border: 1px solid #ccc;
+  border-radius: 4px;
 }

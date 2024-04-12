@@ -21,6 +21,11 @@
 		"markdown-pdf.headerTemplate": "<div style=\"font-size: 9px; margin-left: 25.4mm;text-align:center;color:lightgrey\"> <span>Candidate Name: Sulaiman Ahmed Sayyed</span></div> <div style=\"font-size: 9px; margin-left: auto; margin-right: 50mm;color:lightgrey\">Candidate Number:</div>",
 		"markdown-pdf.footerTemplate": "<div style=\"font-size: 9px; margin: 0 auto;\">Page <span class='pageNumber'></span> of <span class='totalPages'></span></div>",
 		"files.autoSave": "onFocusChange",
-		"markdown-pdf.mermaidServer": "https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js"
-	}
+		"markdown-pdf.mermaidServer": "https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js",
+		"[markdown]": {
+			"editor.defaultFormatter": "unifiedjs.vscode-remark"
+		}
+	},
+		
+	  
 }
