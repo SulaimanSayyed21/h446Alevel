@@ -13,7 +13,7 @@
   - [Introduction of Proposed Solution and Stakeholder Needs 2.2](#introduction-of-proposed-solution-and-stakeholder-needs-22)
   - [Describing and Justifying Computational Approach](#describing-and-justifying-computational-approach)
   - [Identifying and Justifying Specific Features](#identifying-and-justifying-specific-features)
-  - [Implementing the Proposed Solution](#implementing-the-proposed-solution)
+  - [How to implement the Proposed Solution](#how-to-implement-the-proposed-solution)
   - [Limitations of the proposed Solution](#limitations-of-the-proposed-solution)
   - [Justifying Hardware and Software Choices](#justifying-hardware-and-software-choices)
   - [Identifying and justifying measurable success criteria for the proposed solution](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution)
@@ -26,7 +26,7 @@
   - [Design: Part-A](#design-part-a)
   - [Design Part-B](#design-part-b)
 - [Implementation of the design Part-A](#implementation-of-the-design-part-a)
-  - [Starting project](#starting-project)
+  - [Starting project application setup](#starting-project-application-setup)
     - [Setting up express nodejs framework](#setting-up-express-nodejs-framework)
     - [Generating the application skeleton](#generating-the-application-skeleton)
     - [Initialising git and linking it to the GitHub repo](#initialising-git-and-linking-it-to-the-github-repo)
@@ -35,18 +35,20 @@
     - [Examining app.js code](#examining-appjs-code)
     - [What lies under views folder ?](#what-lies-under-views-folder-)
     - [Examining route folder ?](#examining-route-folder-)
-  - [Cleaning the code and adding design logic](#cleaning-the-code-and-adding-design-logic)
+  - [Implementing Design Part-A Logic Step-1: Creating Home Page](#implementing-design-part-a-logic-step-1-creating-home-page)
     - [Analysing the above code and creating new folders](#analysing-the-above-code-and-creating-new-folders)
     - [Creating homepage header](#creating-homepage-header)
     - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
     - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
-  - [Adding Login and Signup pages to the website](#adding-login-and-signup-pages-to-the-website)
+    - [Adding Login and Signup pages](#adding-login-and-signup-pages)
 - [What is Progressive Web Application?](#what-is-progressive-web-application)
   - [Creating mongodb account](#creating-mongodb-account)
   - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
   - [References](#references)
     - [Compiled list of 11+ Websites](#compiled-list-of-11-websites)
-- [Appendix](#appendix)
+- [Appendix-A](#appendix-a)
+  - [Vscode extension used](#vscode-extension-used)
+- [Appendix-B](#appendix-b)
 
 <div class="page"/>
 ## Introduction: 1.0
@@ -124,7 +126,7 @@ In summary, the proposed solution aims to bridge the gap by providing a free, in
 
 [//]: # ( delete which can not be implemented )
 
-### Implementing the Proposed Solution
+### How to implement the Proposed Solution
 
 1. Technologies such as HTML, CSS, and Bootstrap will be used on front end taking care of the user interface (UI capabilities) while the back-end support will be provided using nodeJs technology and its vast libraries to provide server support. NPM is be used to handle project structure and installation of node modules.
 2. Templating engine will also be used to ease the job of reinventing the wheel when it comes to write HTML code.JavaScript will be used to handle the computational logic, for example, to find out if the selected answers are correct or wrong. It can also be used in reading the contents from the JSON files where practice and mock data can be stored and rendered.
@@ -276,7 +278,7 @@ Overall, MVC architecture provides a robust foundation for building complex soft
 
 ## Project Application Design
 
- First of all it should be developed in a local repository which can be linked to online server. Since the project application promises to provide the full functional website as a digital platform hosted in a cloud server, its design and implementation consist of many steps. It is divided into four design parts, design part-A design part-B and so on. They are further divided into different steps.
+It is to be designed in a local repository which can be linked to online server. Since the project application promises to provide the full functional website as a digital platform hosted in a cloud server, its design and implementation consist of many steps. It is divided into four design parts, design part-A design part-B and so on. They are further divided into different steps.
 
 1. Design Part-A consist of making a user interface then providing interaction between them and testing the website.
 2. Design Part-B consist of making the website to work as [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app). 
@@ -315,32 +317,40 @@ graph TD
 
 **Step-3**: Add a database to store and retrieve the user data locally and online. [Mongodb](https://www.mongodb.com/) database is chosen for this purpose.
 
-**Step-4**: It is to be tested to make sure it is working, to do so either [Postman](https://www.postman.com/),[insomnia](https://insomnia.rest/) or Vscode extension name [thunderclient](https://www.thunderclient.com/) will be used to design, debug and test APIs. 
+**Step-4**: It is to be tested to make sure it passes all HTTP requests made by the user, to do so either [Postman](https://www.postman.com/),[insomnia](https://insomnia.rest/) or Vscode extension name [thunderclient](https://www.thunderclient.com/) will be used to design, debug and test APIs.
+
+---
 
 ### Design Part-B
 
-**Step-5**: The website is to be implemented as
-1. Step-3: If the user is able to interact with the website, it is to be implemented as a PWA so that it can be installed and fully functional on hand-held devices.
-2. Step-4: Once the above goals are achieved, it should continue to implement and store the user credentials locally and online securely.
-3. Step-5: Testing is to be done to check all request are made from the clients are recieved and successfully responded using available solution.
-4. Step-6: Once user successfully logs in, one should be directed to the page where Verbal Reasoning question and answer can be practised. Here another user interface is to be presented to the user to interact with so a new GUI is to be designed and tested.
-5. Continue writing .....
+**Step-1**: The website is to be implemented as Progressive Web application and tested on hand-held devices. It has to pass full criteria to be the candidate for PWA. Testing is to be done using available technologies.
+
+- Write down what is to come here ! 
 
 - At first we only design the user interface for the user to login or register to the website.the site to provide us the working websites that includes a home page providing the option of `Login` and `Signup` facilities. Once this stage is passed, testing is done,we will continue to the next stage.
 - The project also promises that such a project should be used on mobile devices, thus it would try to achieve this functionality using Progressive Web App technologies before going to the next stage.
+
+---
 
 ## Implementation of the design Part-A
 
 - As discussed above we are to use the MVC architecture of express node module. In MVC architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
 - Express frame work makes our job easy to keep all these components of the web developing environment by providing us separate folders to keep the work modular while working behind the scene providing the logic to interact with each other.
 
-### Starting project
+### Starting project application setup
 
-1. VSCode has been set up with the required extensions activated.
-2. Node.js, npm, and Git have been installed.
-3. GitHub has been chosen as the platform for uploading work, with an account under the username '`SulaimanSayyed21` already created.
-4. An empty remote repository with the same name has been created to connect with the local machine.
-5. The next step involves configuring the Express framework.
+1. Windows 10/11 machines are used equipped with dual processors running 16 threads with a raid setup consisting of four VSCode has been set up with the required extensions activated. Extensions used are shown in [Appendix-A](#appendix-a).
+
+    ![local-machine.png](public\\images\\docs\\local-machine.jpg)
+
+2. VSCode has been set up with the required extensions activated. Extensions used are shown in [Appendix-A](#appendix-a).
+3. Node.js, npm, and Git have been installed.
+  
+    ![version.png](public\\images\\docs\\version.jpg)
+
+4. GitHub has been chosen as the platform for uploading work, with an account under the username '`SulaimanSayyed21` already created.
+5. An empty online remote repository with the same name has been created to connect with the local machine.
+6. The next step involves configuring the Express framework.
 
 #### Setting up express nodejs framework
 
@@ -409,7 +419,7 @@ d----        08/04/2024     12:53                  views
 > git cm "initial commit: express app generated using express cli setting templating engine as ejs"
 ```
 
-- Note: in above command `git aa` and `git cm` are git aliases set to ease the work, the details of these shortcuts is provided in the [Appendix](#appendix).
+- Note: in above command `git aa` and `git cm` are git aliases set to ease the work, the details of these shortcuts is provided in the [Appendix-B](#appendix-b).
 
 - Taking a git log shows the out put of repo state.
 
@@ -779,7 +789,7 @@ Before going any further vscode snapshot is taken to show how work is done in it
 
 <div class="page"/>
 
-### Cleaning the code and adding design logic
+### Implementing Design Part-A Logic Step-1: Creating Home Page
 
 Our app has to follow the design of Part-A in which we need to have three pages showing homepage, login page and Signup page. They all have to be connected to each other as well.
 
@@ -962,7 +972,7 @@ The following 1,2 and numbered 3 lines contains CSS ( Cascading Style Sheets ) c
 6. `<a href="/login" class="anchor"> Login</a>`: Defines an anchor (`<a>`) element representing a navigation link to the login page. The `href` attribute specifies the URL to navigate to when clicked, and the `class="anchor"` class will be used for styling purposes which has yet been written.
 7. `<a href="/signup" class="anchor"> Signup</a>`: Another anchor element representing a navigation link to the signup page. Similar to the login link, it has an `href` attribute pointing to the signup page and a `class="anchor"` class for styling which is to be written.
 
- At this stage, it would be a better idea to examine how HTML tags, elements or headings are constructed. Every HTML tag or element is treated as an object, which has its properties. These properties, in turn, may include attributes." For example in `head.ejs` file a meta tag is used `<meta name="viewport" content="width=device-width, initial-scale=1.0">`. The `<meta>` is an HTML object and has many properties, among them are `name`, `content` and `initial-scale` in turn these are assigned specific attributes. This is how HTML object or elements are constructed.
+ At this stage, it would be a better idea to examine how HTML tags, elements or headings are constructed. Every HTML tag or element is treated as an object, which has its properties. These properties, in turn, may include attributes." For example, in `head.ejs` file a meta tag is used `<meta name="viewport" content="width=device-width, initial-scale=1.0">`. The `<meta>` is an HTML object and has many properties, among them are `name`, `content` and `initial-scale` in turn these are assigned specific attributes. This is how HTML object or elements are constructed.
 
 - Similarly the `footer.ejs` contents are same and have been discussed above, with one exception that it shows the different text or message.
 
@@ -1061,7 +1071,7 @@ footer {
 
 - Before moving ahead to the next page design, a `favicon` will be added to the website and the title of the website will be changed dynamically. In figure-11 it can be seen that the application tab has no icon and the title is still shown `Express`.
 - Created an online icon for the tab of size `16X16` and saved as `favicon.ico` in the root of the website which is a public directory from where it is rendered by express.
-- To change the title of the page we edit the homepage router file contents. As it is the `index.ejs` which is rendered when users goes to our website, in express the route that handles this request in present in our `routes` folder named `index.js`. The modified contents are shown below.
+- To change the title of the page we edit the homepage router file contents. As it is the `index.ejs` which is rendered when users goes to our website, in express the route that handles this request is present in our `routes` folder named `index.js`. The modified contents are shown below.
 
 ```js
 var express = require('express');
@@ -1082,7 +1092,7 @@ The following figure shows the different title and favicon in the title of the w
 
 ---
 
-### Adding Login and Signup pages to the website
+#### Adding Login and Signup pages
 
 - Two files are created `login.ejs` and `signup.ejs` in `views` folder where home page layout `index.ejs` is already present.
 - Following the design shown in [figure-1](#design-part-a), first a template file named `normalheader.ejs`is created which will be injected in both login and signup template.
@@ -1208,7 +1218,35 @@ module.exports = router;
 ![localhost-11](public\\images\\docs\\localhost-11.jpg)<br>
 *figure-17*
 
-- Part-A of the design which consist of providing a user interface is achieved. Since it is promised htat the website is also to be implemented as PWA, in the next part the requirments to make this website a PWA will be achieved.
+> Note: Upon visual inspection a mistake is detected, the above page wrongly shows the `Confirm Password` label and filed, it is corrected and made sure the this code is present in `login.ejs` layout and not in `signup.js`. the corrected pages are shown below.
+
+![localhost-12](public\\images\\docs\\localhost-12.jpg)<br>
+*figure-18*
+
+- A commit is made indicating the changes. First we take the state of our stage using `git st`shown below and make a commit.
+
+```git
+git st                             pwsh  17:16:52 On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Readme.md
+        modified:   views/login.ejs
+        modified:   views/signup.ejs
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed) 
+        public/images/docs/local-machine.jpg
+        public/images/docs/localhost-12.jpg
+        public/images/docs/version.jpg
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+- Part-A of the design which consist of providing a user interface is achieved. Since it is promised that the website is also to be implemented as PWA, in the next part the requirements to make this website a PWA will be achieved.
   
 ## What is Progressive Web Application?
 
@@ -1257,7 +1295,19 @@ module.exports = router;
 
 <div class="page"/>
 
-## Appendix
+## Appendix-A  
+
+### Vscode extension used
+
+1. [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
+2. [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+3. [Markdwon All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+4. [Markdown PDF](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf)
+5. [MarkdwonLint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+6. [Vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf)
+7. [Monokai Pro](https://marketplace.visualstudio.com/items?itemName=monokai.theme-monokai-pro-vscode)
+
+## Appendix-B
 
 - Git aliases
   
@@ -1303,3 +1353,4 @@ lss = log --stat --summary
 lol = log --oneline
 logg = log --graph --decorate --oneline --all
 ```
+
