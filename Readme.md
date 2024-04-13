@@ -1311,12 +1311,72 @@ const collection = mongoose.model('credentials', loginSchema);
 module.exports = collection;
 ```
 
+- The code `mongoose.model('credentials', loginSchema);` using the `mongoose` library add `loginSchema`. The collection name of our `vrusers` database  `credentials` is also passed to be used with.
+- The handle or reference is provided to a variable name `collection` which is exported to be used in other modules, where it will be required.
+
 > Note: So far we have setup a database system locally and online, crated a database name `vrusers` with one collection named `credentials`. Now the code logic is to be added into our app so that when user enters the detail to register, it is added into our local or online database.
 
 #### Handling incoming POST request when submit button is pressed
 
 - In our application views and routes are present a modal has also been created yet we do not have controller. It is time to implement MVC architecture fully to keep the code modular and maintainable this approach also adheres to the separation of concern principle where each component  (routes, controllers, models) has its specific role and responsibility.
+- A `controllers` folder is created and two files are added `loginController.js and signupController.js`.
+- When `Submit` button is pressed by the user, a Post request is sent to `/signup` route or `/login` route depending where it is pressed from. The above two files will handle these POST requests.
+- No user exist initially, they need to register first so starting with `signupController.js` a modal is imported to work with on the top along with another module which will be used to provide hashing to the password. Following shows the contents of a `signupController.js`
 
+```js
+// Singup controller
+
+var bcrypt = require('bcrypt');
+var collection = require('../model/users');
+
+// Handler function that deals with POST
+const handlePostRequest = async (req, res) => {
+  console.log('Entered in signup controller:');
+  try {
+    // Validate input fields
+    const { username, useremail, password } = req.body;
+    if (!username || !useremail || !password) {
+      return res.status(400).send("Please provide all required fields.");
+    }
+
+    // Check if user or email already exists
+    const existingUser = await collection.findOne({ name: username });
+    const existingEmail = await collection.findOne({ email: useremail });
+    if (existingUser) {
+      return res.status(400).send("User already exists. Please choose a different username.");
+    }
+    if (existingEmail) {
+      return res.status(400).send("Email already exists. Please choose a different email.");
+    }
+
+    // Hash password and save user data
+    const saltRounds = 10; // Number of salt rounds for bcrypt
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    const userData = await collection.create({
+      name: username,
+      email: useremail,
+      password: hashedPassword
+    });
+    console.log("User registered:", userData);
+    res.redirect('login', { title: 'Login' });
+  } catch (error) {
+    console.error("Error during signup:", error);
+    res.status(500).send("An error occurred during signup. Please try again later.");
+  }
+};
+
+module.exports = {
+  handlePostRequest,
+};
+```
+
+- An asynchronous function named `handlePostRequest` is created, it does five jobs:
+
+1. First check if incoming data present in POST `req.body` exists or not if not sent `400` notification with the message. To check the data mongoose api `findOne` is used.
+2. Second checks both user name and email, if exists again sends the message back to the user.
+3. Third by using `bcrypt` node module hashed the password with recommended 10 rounds.
+4. Then using mongodb api on `collection` model apply `create` function using all parameters. This `create` function adds the data into the database collection named `credentials`.
+5. Once a user is registered, it is directed to `login` page again to login into the site. Errors are handled accordingly.
 
 
 
