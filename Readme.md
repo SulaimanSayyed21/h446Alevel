@@ -41,6 +41,9 @@
     - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
     - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
     - [Adding Login and Signup pages](#adding-login-and-signup-pages)
+  - [Implementing Design Part-A Logic Step-2: Setting up Database locally and online](#implementing-design-part-a-logic-step-2-setting-up-database-locally-and-online)
+    - [Adding a user schema for the database](#adding-a-user-schema-for-the-database)
+    - [Handling incoming POST request when submit button is pressed](#handling-incoming-post-request-when-submit-button-is-pressed)
 - [What is Progressive Web Application?](#what-is-progressive-web-application)
   - [Creating mongodb account](#creating-mongodb-account)
   - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
@@ -297,10 +300,12 @@ graph TD;
 
 These three pages initial sketch is designed and  shown in the following diagram.
 
-![app-design-01](public\\images\\docs\\app-design-01.jpg)<br>
+![app-design-01](images\\docs\\app-design-01.jpg)<br>
 *figure-1*
 
-**Step-2**: Make its part interactive so that communication is enabled among different pages using HTTP protocol. Following flow diagram shows such an interaction which happens through this protocol.
+**Step-2**: Adding a database to store and retrieve the user data locally and online. [Mongodb](https://www.mongodb.com/) database is chosen for this purpose.
+
+**Step-3**: Make its part interactive so that communication is enabled among different pages using HTTP protocol. Following flow diagram shows such an interaction which happens through this protocol.
 
 ```mermaid
 graph TD
@@ -315,7 +320,6 @@ graph TD
     G -->|Failure| B
 ```
 
-**Step-3**: Add a database to store and retrieve the user data locally and online. [Mongodb](https://www.mongodb.com/) database is chosen for this purpose.
 
 **Step-4**: It is to be tested to make sure it passes all HTTP requests made by the user, to do so either [Postman](https://www.postman.com/),[insomnia](https://insomnia.rest/) or Vscode extension name [thunderclient](https://www.thunderclient.com/) will be used to design, debug and test APIs.
 
@@ -341,12 +345,12 @@ graph TD
 
 1. Windows 10/11 machines are used equipped with dual processors running 16 threads with a raid setup consisting of four VSCode has been set up with the required extensions activated. Extensions used are shown in [Appendix-A](#appendix-a).
 
-    ![local-machine.png](public\\images\\docs\\local-machine.jpg)
+    ![local-machine.png](images\\docs\\local-machine.jpg)
 
 2. VSCode has been set up with the required extensions activated. Extensions used are shown in [Appendix-A](#appendix-a).
 3. Node.js, npm, and Git have been installed.
   
-    ![version.png](public\\images\\docs\\version.jpg)
+    ![version.png](images\\docs\\version.jpg)
 
 4. GitHub has been chosen as the platform for uploading work, with an account under the username '`SulaimanSayyed21` already created.
 5. An empty online remote repository with the same name has been created to connect with the local machine.
@@ -451,7 +455,7 @@ branch 'main' set up to track 'origin/main'.
 
 - Having pushed the local repo to the remote, following is the snapshot of the remote repo.
 
-![github-01.jpg](public\\images\\docs\\github-01.jpg)<br>
+![github-01.jpg](images\\docs\\github-01.jpg)<br>
 *figure-2*
 
 - Express framework has created a `project.json` file which contents are shown below.
@@ -496,7 +500,7 @@ GET /favicon.ico 404 2.472 ms - 993
 - The above information shows us that server is run from `./bin/www` directory and different `GET` requests are made, the last one status shows `404` means that there was no `favicon` found. As the project goes along details will be provided of what is happening.
 - The server running on port 3000 snapshot is shown below.
 
-![localhost-01.jpg](public\\images\\docs\\localhost-01.jpg)<br>
+![localhost-01.jpg](images\\docs\\localhost-01.jpg)<br>
 *figure-3*
 
 - At this state we install another npm library called `nodemon` so that while we work the server is updated automatically. The nodemon watches any live changes in the code and as the files are saved it updates the server without letting us stop and restart the server.
@@ -784,7 +788,7 @@ a {
 
 Before going any further vscode snapshot is taken to show how work is done in it.
 
-![vscode-01.jpg](public\\images\\docs\\vscode-01.jpg)<br>
+![vscode-01.jpg](images\\docs\\vscode-01.jpg)<br>
 *figure-4*
 
 <div class="page"/>
@@ -863,7 +867,7 @@ To github.com-SulaimanSayyed21:SulaimanSayyed21/h446Alevel.git
 
 - Following is a snap shot of remote github showing the current changes.
 
-![github-02.jpg](public\\images\\docs\\github-02.jpg)<br>
+![github-02.jpg](images\\docs\\github-02.jpg)<br>
 *figure-6*
 
 #### Creating homepage header
@@ -933,13 +937,13 @@ footer template
 - Running our server using `npm run dev` and it is started on port 3000.
 - When the port is open in chrome, it shows the following error on the webpage.
 
-![error-01.jpg](public\\images\\docs\\error-01.jpg)<br>
+![error-01.jpg](images\\docs\\error-01.jpg)<br>
 *figure-7*
 
 - It is to be noted that what happens when the page is not found a `404` page is shown, since express provides the logic to show the error output handling in www script where the server is run, it outputs its logic on the webpage which is convenient for the developer. The error shows that it does not find the file `footer.ejs`.
 - Found the typo in the file name, it was `foter` changed to `footer.ejs`. The following is displayed on `localhost:3000`.
 
-![localhost-02.jpg](public\\images\\docs\\localhost-02.jpg)<br>
+![localhost-02.jpg](images\\docs\\localhost-02.jpg)<br>
 *figure-8*
 
 The above result shows that the home page is displayed successfully on the given port. But the desired result is not achieved yet. The reason being that we have not supplied our styles. Before we write the styles for the home page we would examine what is written in above layouts.
@@ -1015,7 +1019,7 @@ footer {
 
 - When above styles are applied the shape of our application is shown in the figure below.
 
-![localhost-03](public\\images\\docs\\localhost-03.jpg)<br>
+![localhost-03](images\\docs\\localhost-03.jpg)<br>
 *figure-9*
 
 - The comments presented in the styles defines the code reason. The footer is attached to the bottom using `position:fixed` styles while both header and the footer are given their heights as well.
@@ -1059,12 +1063,12 @@ footer {
 
 - The state of the application is shown below in figure-10.
 
-![localhost-05](public\\images\\docs\\localhost-05.jpg)<br>
+![localhost-05](images\\docs\\localhost-05.jpg)<br>
 *figure-10*
 
 - To make sure that our design is responsive we move the size of the window by dragging and enlarging to the full screen size, it is noted that the contents are behaving as designed. The text in header and footer always aligned to the center of the container. It is shown in the next figure.
 
-![localhost-06](public\\images\\docs\\localhost-06.jpg)
+![localhost-06](images\\docs\\localhost-06.jpg)<br>
 *figure-11*
 
 > Note: Application home page is successfully implemented using bootstrap class to control the styles and ejs templating engine to write html and rendering them by express server.
@@ -1087,7 +1091,7 @@ module.exports = router;
 
 The following figure shows the different title and favicon in the title of the webpage.
 
-![localhost-07](public\\images\\docs\\localhost-07.jpg)<br>
+![localhost-07](images\\docs\\localhost-07.jpg)<br>
 *figure-12*
 
 ---
@@ -1145,7 +1149,7 @@ module.exports = router;
 - Though the route logic is provided but we have to make an entry into `app.js` so that it knows about this route. There are two entries made, first `loginRouter` is declared at the top along with already predefine `indexRouter`, using `var loginRouter = require('./routes/login');` then adding the middleware part by telling `app.js` to use this logic `app.use('/', loginRouter);`. In the above code it can be seen when this page is displayed, the title value is also provided and it will be updated automatically.
 - At this stage server is running and shows the login page.
 
-![localhost-08](public\\images\\docs\\localhost-08.jpg)<br>
+![localhost-08](images\\docs\\localhost-08.jpg)<br>
 *figure-13*
 
 - Now we further modify the `login.ejs` file and add form contents to be filled by the user. Contents are shown below.
@@ -1183,17 +1187,17 @@ module.exports = router;
 
 - Following is a snapshot of the localhost showing login page.
 
-![localhost-09](public\\images\\docs\\localhost-09.jpg)<br>
+![localhost-09](images\\docs\\localhost-09.jpg)<br>
 *figure-14*
 
 - In above snapshot, the fields of the form grows in full screen mode, to avoid this happening boot strap classes `col-sm-6` in the div just below the container. Also to provide the border to its parent container making a CSS class `.form-border`. By making this amendment lengths of the form fields are controlled.
 
-![localhost-10](public\\images\\docs\\localhost-10.jpg)<br>
+![localhost-10](images\\docs\\localhost-10.jpg)<br>
 *figure-15*
 
 - Signup page is not added yet, if it is clicked express server sends the request to get it since it is not present we get the error. The developing setup shows this scenario by telling us `404` error.
 
-![terminal-output-01](public\\images\\docs\\terminal-output-01.jpg)
+![terminal-output-01](images\\docs\\terminal-output-01.jpg)<br>
 *figure-16*
 
 To add the Signup page following steps are taken:
@@ -1215,15 +1219,15 @@ module.exports = router;
 
 - The above shows the `signup.js` router contents while the snapshot of the signup page is shown below.
 
-![localhost-11](public\\images\\docs\\localhost-11.jpg)<br>
+![localhost-11](images\\docs\\localhost-11.jpg)<br>
 *figure-17*
 
-> Note: Upon visual inspection a mistake is detected, the above page wrongly shows the `Confirm Password` label and filed, it is corrected and made sure the this code is present in `login.ejs` layout and not in `signup.js`. the corrected pages are shown below.
+> Note: Upon visual inspection a mistake is detected, the above page wrongly shows the `Confirm Password` label and filed, it is corrected and made sure the this code is present in `login.ejs` layout and not in `signup.js`. The corrected pages are shown below.
 
-![localhost-12](public\\images\\docs\\localhost-12.jpg)<br>
+![localhost-12](images\\docs\\localhost-12.jpg)<br>
 *figure-18*
 
-- A commit is made indicating the changes. First we take the state of our stage using `git st`shown below and make a commit.
+- A commit is made indicating the changes. First we take the state of our stage using `git st` shown below and make a commit. Also removed `.form-group` classes and unnecessary `divs` from both files.
 
 ```git
 git st                             pwsh  17:16:52 On branch main
@@ -1246,7 +1250,84 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-- Part-A of the design which consist of providing a user interface is achieved. Since it is promised that the website is also to be implemented as PWA, in the next part the requirements to make this website a PWA will be achieved.
+- Design Part-A step-1 is achieved which consisted of providing a user interface. 
+
+### Implementing Design Part-A Logic Step-2: Setting up Database locally and online
+
+- Mongodb server and clients utilities are installed on the local machine. Two client utilities are installed one is a mongo shell called `mongosh` and second one is GUI called `Compass`.
+- Both are shown to be running in the following figure. Mongo shell can be opened in Compass or separately
+
+![mongosh-compass.jpg](images\\docs\\mongosh-compass.jpg)<br>
+*figure-19*
+
+- An online account is created using a usr name `sullisayyed21@outlook.com` with a  cluster name `usersName0` shown below.
+
+![atlas-online.jpg](images\\docs\\atlas-online.jpg)<br>
+*figure-20*
+
+- A database named `vrusers` is created locally and online. This database contains a collection name `credentials` where the details of the user will be added.
+- A Database user is added giving a role of admin to handle with this database online, password and user name is set.
+- At first newly created database name `vrusers's` collection is empty. It is to be filled when user register on the site.
+- To connect to a local mongodb server the address is provided from `Compass` client utility it is `mongodb://localhost:27017/vrusers`. As it can be seen that we are providing the database name `vrusers` in the end of the URL to connect to the right address.
+- Similarly to connect to online server, the online Atlas server has provided the connection string it is shown below.
+
+```txt
+`mongodb+srv://<user>:<password>@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0`
+```
+
+- In the above string user and password fields to be filled in our application, this string also points to the database we intend to use.
+
+#### Adding a user schema for the database
+
+- To do so a `schema` is to be created which provided a skeleton of the fields that are to be created. This is our modal in terms of express `MVC` architecture.
+- For this purpose we create a folder name `modal` under `h446` working directory and in this modal a file name `user.js` is created which will represent the modal. Following are the contents of the `user.js`:
+
+```js
+var mongoose = require("mongoose");
+
+var loginSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        lowercase: true,
+        unique: true,
+        index: true
+    },
+    email: {
+        type: String,
+        required: true,
+        lowercase: true,
+        unique: true,
+        index: true
+    },
+    password: {
+        type: String,
+        required: true
+    }
+}, { timestamps: true });
+
+const collection = mongoose.model('credentials', loginSchema);
+
+module.exports = collection;
+```
+
+> Note: So far we have setup a database system locally and online, crated a database name `vrusers` with one collection named `credentials`. Now the code logic is to be added into our app so that when user enters the detail to register, it is added into our local or online database.
+
+#### Handling incoming POST request when submit button is pressed
+
+- In our application views and routes are present a modal has also been created yet we do not have controller. It is time to implement MVC architecture fully to keep the code modular and maintainable this approach also adheres to the separation of concern principle where each component  (routes, controllers, models) has its specific role and responsibility.
+
+
+
+
+
+
+
+
+
+
+
+
   
 ## What is Progressive Web Application?
 
@@ -1275,6 +1356,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ### How to clone this repository on local machine 
 
 ---
+
+> Change github-02 add new without bookmarks shown.
 
 <div class="page"/>
 
