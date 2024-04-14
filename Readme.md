@@ -41,9 +41,17 @@
     - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
     - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
     - [Adding Login and Signup pages](#adding-login-and-signup-pages)
+    - [Testing UI](#testing-ui)
+    - [Testing Page loading performance](#testing-page-loading-performance)
   - [Implementing Design Part-A Logic Step-2: Setting up Database locally and online](#implementing-design-part-a-logic-step-2-setting-up-database-locally-and-online)
+    - [Establishing database connection from the application](#establishing-database-connection-from-the-application)
     - [Adding a user schema for the database](#adding-a-user-schema-for-the-database)
     - [Handling incoming POST request when submit button is pressed](#handling-incoming-post-request-when-submit-button-is-pressed)
+    - [Registering user from the signup page](#registering-user-from-the-signup-page)
+      - [Testing registration process](#testing-registration-process)
+    - [Logging the user](#logging-the-user)
+    - [Testing Login procedure](#testing-login-procedure)
+    - [Registering the user on online data base](#registering-the-user-on-online-data-base)
 - [What is Progressive Web Application?](#what-is-progressive-web-application)
   - [Creating mongodb account](#creating-mongodb-account)
   - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
@@ -834,7 +842,7 @@ Our app has to follow the design of Part-A in which we need to have three pages 
 
 The above sets up the basic structure and styling for an HTML document in this application, ensuring proper rendering and styling of the content. In above code bootstrap files are accessed locally thus  they are to be  downloaded in `public` folder. As mentioned earlier express framework looks for static files in the public directory. Custom styles and scripts are to be placed under this folder. Following folders are created under public folder and related files are downloaded from the [Bootstrap site](https://getbootstrap.com/docs/5.2/getting-started/download/). Vscode snapshot shows these folder and files.
 
-![bootstrap.jpg](public\\images\docs\\bootstrap.jpg)<br>
+![bootstrap.jpg](images\docs\\bootstrap.jpg)<br>
 *figure-5*
 
 The contests of the  `style.css` provided by express are deleted. An `icons` folder is also created to keep the application related icons.
@@ -1250,7 +1258,45 @@ Untracked files:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-- Design Part-A step-1 is achieved which consisted of providing a user interface. 
+- Design Part-A step-1 is achieved which consisted of providing a user interface.
+
+#### Testing UI
+
+- Three browsers `Google chrome, Microsoft edge and mozilla firefox are used`.
+  
+1. When home page  is seen in full width using above browsers, they all show contents are displayed in the center and both Login and Signup links are displayed with icon.
+2. When the size is changed horizontally to the minimum width, `Edge and Chrome` displays the header text in one line but `firefox` behaves differently as shown in the following figure.
+
+![ui-testing-01.jpg](images\\docs\\ui-testing-01.jpg)<br>
+
+- To avoid it happening the `.anchor` class property ` padding: 0px 10px 0px 10px; /* top, right, bottom, left */` values were chaged from `15` to `10`. The problem is corrected. as shown below.
+
+![ui-testing-02.jpg](images\\docs\\ui-testing-02.jpg)<br>
+
+1. Both Login and Signup pages are displayed correctly in all three above browsers
+
+![ui-testing-login-03.jpg](images\\docs\\ui-testing-login-03.jpg)<br>
+
+![ui-testing-signup-03.jpg](images\\docs\\ui-testing-signup-03.jpg)<br>
+
+
+| Testing              | Issues |
+| -------------------- | ------ |
+| 1. Visuals elements  | No     |
+| 2. Layout            | No     |
+| 3. Consistency       | No     |
+| 4. Responsive design | No     |
+
+
+#### Testing Page loading performance
+
+Using developers tool provided by chrome, all three pages were loaded and network tab is used to see the performance, there were no bottleneck issues were found, the load time varies from `54ms to 93ms` when page is cached and without cache from `150ms to 180ms`. Following figure shows the Network tab activity fo the Login page from developers tools.
+
+![performance-testing-01.jpg](images\\docs\\performance-testing-01.jpg)<br>
+
+The following page shows the `performance tab` from Google chrome devlopers tools. At the bottom section summary informs how much time it has taken to laod the pages.
+
+![performance-testing-02.jpg](images\\docs\\performance-testing-02.jpg)<br>
 
 ### Implementing Design Part-A Logic Step-2: Setting up Database locally and online
 
@@ -1272,14 +1318,93 @@ no changes added to commit (use "git add" and/or "git commit -a")
 - Similarly to connect to online server, the online Atlas server has provided the connection string it is shown below.
 
 ```txt
-`mongodb+srv://<user>:<password>@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0`
+mongodb+srv://<user>:<password>@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0
 ```
 
 - In the above string user and password fields to be filled in our application, this string also points to the database we intend to use.
+- To connect the application to a local or online server node `mongoose` module is installed in the project using `npm i mongoose`.
+- Though local and online server are setup to be used yet no code is present in our app to start the mongoose service from the application. To do so first we need to provide configuration settings. To do so, a file name `connection.js` is created in a new folder called `dbconfig`. Following are the contents of `connection.js`
+
+```js
+// connection.js
+
+const mongoose = require("mongoose");
+
+// Load env variable from .env file
+require('dotenv').config();
+//console.log(process.env);
+
+connectMongoDb = function () {
+    try {
+        const uri = process.env.MONGODB_URI 
+        if (!uri) {
+            throw new Error("MONGODB_URI environment variable is not defined");
+        }
+        mongoose.set('strictQuery', false);
+        const connect = mongoose.connect(uri);
+        console.log(`Connected to  MongoDB database!`);
+    } catch (error) {
+        console.error("Mongo Error:", error);
+    }
+}
+// Exporting the whole function to be used in another module.
+module.exports = connectMongoDb;
+```
+
+- The above code provide the logic to connect the application to the local or online Database server. This function is exported to be used in application and started from the `app.js` file.
+
+> Note: The string provided by the mongodb Atlas online app is not to be exposed on GitHUb, as it can be seen by others. So to avoid this it is stored in an `.env` file which is not pushed to the GitHUb. To avoid it being pushed, its entry is made in `.gitignore` file. When a Web App is hosted in the clouds on any platform, it is provided directly to that host.
+
+- To store the database connection string securely nodejs library `dotenv` is used by first installing it into our project using `npm i dotenv`. The first line in above code `require('dotenv').config()` automatically loads the variable ( connection string ) from the `.env` file into local machine's running `process.env`.
+- The connection string is stored in `.env` file as shown below.
+
+```txt
+MONGODB_URI='mongodb+srv://sulli:21March2004@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0'
+```
+
+- Since for testing and development process a local host string is used which is later on replaced by the above.
+
+```txt
+MONGODB_URI='mongodb://localhost:27017/vrusers'
+```
+
+#### Establishing database connection from the application
+
+To start the mongoose server from our application two lines are added at the top section of  `app.js` file and one in the middle. To start this service  `connectMongoDb();` function is used. This function is exported exported by `dbconfig/connection.js` file and it is loaded or required in `app.js`.
+
+```js
+// app.js
+
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+require('dotenv').config(); // new lines added
+var connectMongoDb = require('./dbconfig/connection'); // new lines added
+```
+
+- Following message is shown on the terminal assuring that successful connection is established.
+
+```txt
+> h446@0.0.0 dev
+> nodemon --ext js,ejs,json,css ./bin/www
+
+[nodemon] 3.1.0
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,ejs,json,css
+[nodemon] starting `node ./bin/www`
+Connected to online MongoDB database!
+[nodemon] restarting due to changes...
+[nodemon] starting `node ./bin/www`
+Connected to  MongoDB database!
+
+```
 
 #### Adding a user schema for the database
 
-- To do so a `schema` is to be created which provided a skeleton of the fields that are to be created. This is our modal in terms of express `MVC` architecture.
+- The structure of the database depends upon the schema and it is to be added in our application. To do so a `schema` is to be created which provided a skeleton of the fields that are to be created. This is our modal in terms of express `MVC` architecture.
 - For this purpose we create a folder name `modal` under `h446` working directory and in this modal a file name `user.js` is created which will represent the modal. Following are the contents of the `user.js`:
 
 ```js
@@ -1314,23 +1439,23 @@ module.exports = collection;
 - The code `mongoose.model('credentials', loginSchema);` using the `mongoose` library add `loginSchema`. The collection name of our `vrusers` database  `credentials` is also passed to be used with.
 - The handle or reference is provided to a variable name `collection` which is exported to be used in other modules, where it will be required.
 
-> Note: So far we have setup a database system locally and online, crated a database name `vrusers` with one collection named `credentials`. Now the code logic is to be added into our app so that when user enters the detail to register, it is added into our local or online database.
+> Note: So far we have setup a database system locally and online, crated a database name `vrusers` with one collection named `credentials`. The application connection has been established. Now the code logic is to be added into the app so that when user enters the detail to register, it is added into our local or online database.
 
 #### Handling incoming POST request when submit button is pressed
 
 - In our application views and routes are present a modal has also been created yet we do not have controller. It is time to implement MVC architecture fully to keep the code modular and maintainable this approach also adheres to the separation of concern principle where each component  (routes, controllers, models) has its specific role and responsibility.
 - A `controllers` folder is created and two files are added `loginController.js and signupController.js`.
-- When `Submit` button is pressed by the user, a Post request is sent to `/signup` route or `/login` route depending where it is pressed from. The above two files will handle these POST requests.
-- No user exist initially, they need to register first so starting with `signupController.js` a modal is imported to work with on the top along with another module which will be used to provide hashing to the password. Following shows the contents of a `signupController.js`
+- When `Submit` button is pressed by the user, a Post request is sent to `/signup` route or `/login` route depending where it is pressed from. The above two files will handle these POST requests. A new module name `bcrypt` is to be used to provide the hashing mechanisms, so it is installed using `npm i bcrypt`.
+- No user exist initially, they need to register first so starting with `signupController.js` a modal is imported to work with on the top along with another module which will be used for hashing the password to make is secured. Following shows the contents of a `signupController.js`
 
 ```js
-// Singup controller
+// Signup controller
 
 var bcrypt = require('bcrypt');
 var collection = require('../model/users');
 
 // Handler function that deals with POST
-const handlePostRequest = async (req, res) => {
+const handleRegisterRequest = async (req, res) => {
   console.log('Entered in signup controller:');
   try {
     // Validate input fields
@@ -1358,7 +1483,7 @@ const handlePostRequest = async (req, res) => {
       password: hashedPassword
     });
     console.log("User registered:", userData);
-    res.redirect('login', { title: 'Login' });
+    res.render('login', { title: 'Login' });
   } catch (error) {
     console.error("Error during signup:", error);
     res.status(500).send("An error occurred during signup. Please try again later.");
@@ -1366,11 +1491,11 @@ const handlePostRequest = async (req, res) => {
 };
 
 module.exports = {
-  handlePostRequest,
+  handleRegisterRequest
 };
 ```
 
-- An asynchronous function named `handlePostRequest` is created, it does five jobs:
+- In the above code, asynchronous function named `handlePostRequest` is created, it does five jobs:
 
 1. First check if incoming data present in POST `req.body` exists or not if not sent `400` notification with the message. To check the data mongoose api `findOne` is used.
 2. Second checks both user name and email, if exists again sends the message back to the user.
@@ -1378,17 +1503,186 @@ module.exports = {
 4. Then using mongodb api on `collection` model apply `create` function using all parameters. This `create` function adds the data into the database collection named `credentials`.
 5. Once a user is registered, it is directed to `login` page again to login into the site. Errors are handled accordingly.
 
-
-
-
-
-
-
-
-
-
-
+- For the above function to work, we need to inform the `signup` route to delegate the responsibility of handling POST request to this function so a new line `router.post(/'signup', signupController.handleRegisterRequest)` is injected into `signup.js` route.
   
+![localdatabase-empty](images\\docs\\localdatabase-empty.jpg)<br>
+*figure-21*
+
+#### Registering user from the signup page
+
+- The app is running on port 3000, and first user signs up to the site, when submit button is pressed, the data is entered successfully into local database name `vrusers`. MonogoDB is a non relational database that records what is called `documents` in `collections`. Here first document is created, it is shown below.
+
+![data-added-01](images\\docs\\data-added-01.jpg)<br>
+*figure-21*
+
+> Note: The application uses `console.log()` extensively to make sure that when code is executed, it keeps the programmers well informs of the activities. The code shown above in `signupController.js` also uses `console.log()` function to log the data on console, it is shown below.
+
+```txt
+Entered in signup controller:
+User registered: {
+  name: 'sulaiman sayyed',
+  email: 'sullisayyed21@outlook.com',
+  password: '$2b$10$MolVGPwSF963lib.c9PRg.ZSTJ8YG0eVJ5p3B6lzwOgaJNI.o04Z6',
+  _id: new ObjectId('661b2739ade0a28f9a1352c8'),
+  createdAt: 2024-04-14T00:45:45.301Z,
+  updatedAt: 2024-04-14T00:45:45.301Z,
+  __v: 0
+}
+POST /signup 200 144.009 ms - 2270
+```
+
+- The hash password is shown as it has been hashed by the code. The code having shown the data on console takes the user to `login` page so that one can login to the site.
+
+##### Testing registration process
+
+1. When the same name is tried to register 
+
+#### Logging the user
+
+To handle POST request coming from login page,  `login.js` route is amended to delegates all incoming POST request to `loginController`. It is done by adding the following code.
+
+```js
+// login route
+
+var express = require('express');
+var router = express.Router();
+var loginController = require('../controllers/loginController'); //new line added
+/* GET login page. */
+router.get('/login', function (req, res, next) {
+  res.render('login', { title: 'Login' });
+});
+
+/* Delegate the responsibility to the login controller*/
+router.post('/login', loginController.handleRegisterRequest); // new line added
+module.exports = router;
+```
+
+- The code to handle POST requests is shown below in `loginController.js`
+
+```js
+// Login Controller
+
+var bcrypt = require('bcrypt');
+var collection = require('../modal/user');
+
+const handleLoginRequest = async (req, res) => {
+  console.log("Entered In login controller");
+  try {
+    const checkUser = await collection.findOne({ name: req.body.username });
+    if (!checkUser) {
+      return res.redirect('/login?error=user_not_found');
+    }
+
+    const checkEmail = await collection.findOne({ email: req.body.useremail });
+    if (!checkEmail) {
+      return res.redirect('/login?error=email_not_found');
+    }
+
+    try {
+      const isPasswordMatch = await bcrypt.compare(req.body.password, checkUser.password);
+      if (isPasswordMatch) {
+        return res.render('dashboard', { title: 'Dashboard' });
+
+      } else {
+        return res.redirect('/login?error=wrong_password');
+      }
+    } catch (error) {
+      console.error("Error comparing passwords:", error);
+      return res.send('Error during login. Please try again.');
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    return res.send('Error during login. Please try again.');
+  }
+};
+
+module.exports = {
+  handleLoginRequest
+};
+```
+
+#### Testing Login procedure
+
+The above code using mongoose module library uses `findOne()` methods to find the user name and email in the data base against the message coming in the `req.body.username`. If it fails it sends back the proper message in the header to inform the user of what information is wrong. Similarly the module `bcrypt.compare()` API compares the entered password with the password already present in the database and gives the result. Errors are shown to the user in the address bar.
+
+```txt
+http://localhost:3000/login?error=user_not_found
+http://localhost:3000/login?error=email_not_found
+http://localhost:3000/login?error=wrong_password
+```
+
+- When login procedure is completed, the `dashboard` page is rendered. A new template `dashboard.ejs` is created in a `views` folder.  Also, a new route is created under `route` folder named `dashboard.js` both contents are shown below.
+
+```html
+// dashboard.ejs
+
+<%- include('layout/head.ejs'); %>
+    <body>
+        <%- include('layout/normalheader.ejs'); %>
+            <body>
+                <h1> Welcome to Application Dashboard!</h1>
+                <%- include('layout/footer.ejs'); %>
+            </body>
+            </html>
+```
+
+```js
+// dashboard route
+var express = require('express');
+var router = express.Router();
+
+/* GET dashboard page. */
+router.get('/dashboard', function (req, res, next) {
+    console.log('Entered in dashboard Router');
+  res.render('dashboard', { title: 'Dashboard' });
+});
+
+module.exports = router;
+```
+  
+
+#### Registering the user on online data base
+
+- The connection string in `.evn` file is changed to point to the online database name `vruser` and a new user is added. By using `console.log()`, it is printed to console to make sure that local machine register the environment variable. The log below shows it is successfully loaded into the machine environment. The message `connected to online Mongo database is shown`.
+
+
+```txt
+LOCALAPPDATA: 'C:\\Users\\books\\AppData\\Local',
+  LOGONSERVER: '\\\\SAS-DESKTOP',
+  MONGODB_URI: 'mongodb+srv://sulli:21March@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0',
+  NODE: 'C:\\Program Files\\nodejs\\node.exe',
+  NODE_EXE: 'C:\\Program Files\\nodejs\\\\node.exe',
+  NPM_CLI_JS: 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+  npm_command: 'run-script',
+  XML_CATALOG_FILES: 'file:///W:/miniconda3/etc/xml/catalog',
+  _CONDA_EXE: 'W:\\miniconda3\\Scripts\\conda.exe',
+  _CONDA_ROOT: 'W:\\miniconda3'
+
+Connected to  online MongoDB database!
+```
+
+- Following figure shows the newly added data to online database. This time in name field `Sulaiman` is entered. The project name online is also changed to `VERBAl-REASONING` separately.
+
+![online-data-added-02.jpg](images\\docs\online-data-added-02.jpg);
+
+- Upon successful registration it is redirected to login page where the same credentials were entered and it takes us to dashboard page.
+
+> Note: In this phase both local and online database were shown to be connected by using different environment string saved in `.env` file. The user were registered locally and online and the dashboard page is successfully rendered.
+
+
+
+
+
+
+
+
+
+
+
+
+- MONGODB_URI='mongodb://localhost:27017/vrusers'
+
+
 ## What is Progressive Web Application?
 
 - Details and references start providing References
@@ -1409,7 +1703,7 @@ module.exports = {
 8. It has asked me to connect to my database name `usersName0`, I have chosen to `allow acces from Anywhere` but it has asked me my ipaddress and automatically add `Current IP Address (86.157.81.90/32) added!
 9. Visit Network Access to modify your settings.` It has also provided me SULAIMAN'S ORG-2024-04-10>PROJECT 0` link.
 10. It has provided me with a sample data base that is not used of me.
-11. I have created a databse name `credentials` with `Clustered Index Collection` and it has give me an object `{ "id":1}`.
+11. I have created a database name `credentials` with `Clustered Index Collection` and it has give me an object `{ "id":1}`.
 
 ---
 

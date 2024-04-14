@@ -1,10 +1,10 @@
-// Singup controller
+// Signup controller
 
 var bcrypt = require('bcrypt');
-var collection = require('../model/users');
+var collection = require('../modal/user');
 
 // Handler function that deals with POST
-const registerUserPostRequest = async (req, res) => {
+const handleRegisterRequest = async (req, res) => {
   console.log('Entered in signup controller:');
   try {
     // Validate input fields
@@ -40,5 +40,5 @@ const registerUserPostRequest = async (req, res) => {
 };
 
 module.exports = {
-  handlePostRequest,
+  handleRegisterRequest
 };
