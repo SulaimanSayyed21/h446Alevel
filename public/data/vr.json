@@ -1,0 +1,54 @@
+{
+    "topics": [
+        {
+            "id": "_1",
+            "title": "Opposites",
+            "description": "Choosing Opposites"
+        },
+        {
+            "id": "_2",
+            "title": "Similar to",
+            "description": "Choosing Similar To"
+        },
+        {
+            "id": "_3",
+            "title": "Group-Opposites",
+            "description": "Choosing Opposites from groups"
+        },
+        {
+            "id": "_4",
+            "title": "Group-Similar to",
+            "description": "Choosing Similar to from groups"
+        },
+        {
+            "id": "_5",
+            "title": "Pair-Similar",
+            "description": "Underline the pair of words most similar in meaning"
+        },
+        {
+            "id": "_6",
+            "title": "Rhyme-opposites",
+            "description": "Rhyming with Opposite Words"
+        },
+        {
+            "id": "_7",
+            "title": "Rhyme-Similar",
+            "description": "Rhyming with Similar Words"
+        },
+        {
+            "id": "_8",
+            "title": "Heading-Similar",
+            "description": "Write similar words under the heading"
+        },
+        {
+            "id": "_9",
+            "title": "Not_present",
+            "description": "empty"
+        },
+        {
+            "id": "_10",
+            "title": "NOt_present",
+            "description": "empty"
+        }
+    ]
+}

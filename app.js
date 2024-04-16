@@ -10,6 +10,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
+var dashboardRouter = require('./routes/dashboard');
+var practiceRouter = require('./routes/practice');
 
 var app = express();
 
@@ -26,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/', loginRouter);
 app.use('/', signupRouter);
+app.use('/', dashboardRouter);
+app.use('/', practiceRouter);
 app.use('/users', usersRouter);
 
 // Start the mongoose server

@@ -3,51 +3,53 @@
 ## TABLE OF CONTENTS <!-- omit from toc -->
 
 - [Introduction: 1.0](#introduction-10)
-  - [Overview of the 11 Plus Examination 1.1](#overview-of-the-11-plus-examination-11)
-    - [Content of the Exam 1.1.2](#content-of-the-exam-112)
-    - [Who Takes It and Where? (Stakeholders) 1.1.3](#who-takes-it-and-where-stakeholders-113)
-    - [Why It's a Big Deal 1.1.4](#why-its-a-big-deal-114)
-    - [The reason to select this competition test exam 1.1.5](#the-reason-to-select-this-competition-test-exam-115)
+  - [Overview of the 11 Plus Examination  1.1](#overview-of-the-11-plus-examination--11)
+    - [Content of the Exam 1.2](#content-of-the-exam-12)
+    - [Who Takes It and Where? (Stakeholders) 1.3](#who-takes-it-and-where-stakeholders-13)
+    - [Why It's a Big Deal 1.4](#why-its-a-big-deal-14)
+    - [The reason to select this competition test exam 1.5](#the-reason-to-select-this-competition-test-exam-15)
 - [ANALYSIS 2.0](#analysis-20)
   - [Problem identification 2.1](#problem-identification-21)
   - [Introduction of Proposed Solution and Stakeholder Needs 2.2](#introduction-of-proposed-solution-and-stakeholder-needs-22)
-  - [Describing and Justifying Computational Approach](#describing-and-justifying-computational-approach)
-  - [Identifying and Justifying Specific Features](#identifying-and-justifying-specific-features)
-  - [How to implement the Proposed Solution](#how-to-implement-the-proposed-solution)
-  - [Limitations of the proposed Solution](#limitations-of-the-proposed-solution)
-  - [Justifying Hardware and Software Choices](#justifying-hardware-and-software-choices)
-  - [Identifying and justifying measurable success criteria for the proposed solution](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution)
-  - [Requirements for such a project](#requirements-for-such-a-project)
-    - [Why Node.js?](#why-nodejs)
-    - [How a simple nodejs server is created?](#how-a-simple-nodejs-server-is-created)
-    - [MVC ( MOdel-View-Controller) architecture](#mvc--model-view-controller-architecture)
-    - [Key Principles](#key-principles)
-- [Project Application Design](#project-application-design)
-  - [Design: Part-A](#design-part-a)
-  - [Design Part-B](#design-part-b)
-- [Implementation of the design Part-A](#implementation-of-the-design-part-a)
-  - [Starting project application setup](#starting-project-application-setup)
-    - [Setting up express nodejs framework](#setting-up-express-nodejs-framework)
-    - [Generating the application skeleton](#generating-the-application-skeleton)
-    - [Initialising git and linking it to the GitHub repo](#initialising-git-and-linking-it-to-the-github-repo)
-  - [Analysing the express skeleton structure](#analysing-the-express-skeleton-structure)
-    - [Interrogating the functionality of the www Script](#interrogating-the-functionality-of-the-www-script)
-    - [Examining app.js code](#examining-appjs-code)
-    - [What lies under views folder ?](#what-lies-under-views-folder-)
-    - [Examining route folder ?](#examining-route-folder-)
-  - [Implementing Design Part-A Logic Step-1: Creating Home Page](#implementing-design-part-a-logic-step-1-creating-home-page)
-    - [Analysing the above code and creating new folders](#analysing-the-above-code-and-creating-new-folders)
-    - [Creating homepage header](#creating-homepage-header)
-    - [Applying styles to home page using styles.css](#applying-styles-to-home-page-using-stylescss)
-    - [Applying bootstrap icons in header](#applying-bootstrap-icons-in-header)
-    - [Adding Login and Signup pages](#adding-login-and-signup-pages)
-    - [Testing UI](#testing-ui)
-    - [Testing Page loading performance](#testing-page-loading-performance)
-  - [Implementing Design Part-A Logic Step-2: Setting up Database locally and online](#implementing-design-part-a-logic-step-2-setting-up-database-locally-and-online)
-    - [Establishing database connection from the application](#establishing-database-connection-from-the-application)
-    - [Adding a user schema for the database](#adding-a-user-schema-for-the-database)
-    - [Handling incoming POST request when submit button is pressed](#handling-incoming-post-request-when-submit-button-is-pressed)
-    - [Registering user from the signup page](#registering-user-from-the-signup-page)
+  - [Describing and Justifying Computational Approach 2.3](#describing-and-justifying-computational-approach-23)
+  - [Identifying and Justifying Specific Features 2.4](#identifying-and-justifying-specific-features-24)
+  - [How to implement the Proposed Solution 2.5](#how-to-implement-the-proposed-solution-25)
+  - [Limitations of the proposed Solution 2.6](#limitations-of-the-proposed-solution-26)
+  - [Justifying Hardware and Software Choices 2.7](#justifying-hardware-and-software-choices-27)
+  - [Identifying and justifying measurable success criteria for the proposed solution 2.8](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution-28)
+  - [Requirements for such a project 2.9](#requirements-for-such-a-project-29)
+    - [Why Node.js? 2.9.1](#why-nodejs-291)
+    - [How a simple nodejs server is created? 2.9.2](#how-a-simple-nodejs-server-is-created-292)
+    - [MVC ( MOdel-View-Controller) architecture 2.9.3](#mvc--model-view-controller-architecture-293)
+    - [Key Principles 2.9.4](#key-principles-294)
+- [Project Application Design 3.0](#project-application-design-30)
+  - [Design: Part-A 3.1](#design-part-a-31)
+  - [Design: Part-B 3.2](#design-part-b-32)
+  - [Design: Part-C 3.3](#design-part-c-33)
+- [Working on the design Part-A  4.0](#working-on-the-design-part-a--40)
+  - [Starting project application setup 4.1](#starting-project-application-setup-41)
+    - [Setting up express nodejs framework 4.1.1](#setting-up-express-nodejs-framework-411)
+    - [Generating the application skeleton 4.1.2](#generating-the-application-skeleton-412)
+    - [Initialising git and linking it to the GitHub repo 4.1.3](#initialising-git-and-linking-it-to-the-github-repo-413)
+  - [Analysing the express skeleton structure 4.2](#analysing-the-express-skeleton-structure-42)
+    - [Interrogating the functionality of the www Script 4.2.1](#interrogating-the-functionality-of-the-www-script-421)
+    - [Examining app.js code 4.2.2](#examining-appjs-code-422)
+    - [What lies under views folder ? 4.2.3](#what-lies-under-views-folder--423)
+    - [Examining route folder 4.2.4](#examining-route-folder-424)
+  - [Implementing Design Part-A Step-1: Creating Home Page 4.3](#implementing-design-part-a-step-1-creating-home-page-43)
+    - [Analysing the above code and creating new folders 4.3.1](#analysing-the-above-code-and-creating-new-folders-431)
+    - [Creating homepage header 4.3.2](#creating-homepage-header-432)
+    - [Applying styles to home page using styles.css 4.3.3](#applying-styles-to-home-page-using-stylescss-433)
+    - [Applying bootstrap icons in header 4.3.4](#applying-bootstrap-icons-in-header-434)
+    - [Adding Login and Signup pages 4.3.5](#adding-login-and-signup-pages-435)
+    - [Testing UI 4.3.6](#testing-ui-436)
+    - [Evaluating UI 4.3.7](#evaluating-ui-437)
+    - [Testing Page loading performance 4.3.8](#testing-page-loading-performance-438)
+  - [Implementing Design Part-A  Step-2: Setting up Database locally and online 4.4](#implementing-design-part-a--step-2-setting-up-database-locally-and-online-44)
+    - [Establishing database connection from the application 4.4.1](#establishing-database-connection-from-the-application-441)
+    - [Adding a user schema for the database 4.4.2](#adding-a-user-schema-for-the-database-442)
+    - [Handling incoming POST request when submit button is pressed 4.4.3](#handling-incoming-post-request-when-submit-button-is-pressed-443)
+    - [Registering user from the signup page 4.4.4](#registering-user-from-the-signup-page-444)
       - [Testing registration process](#testing-registration-process)
     - [Logging the user](#logging-the-user)
     - [Testing Login procedure](#testing-login-procedure)
@@ -64,23 +66,23 @@
 <div class="page"/>
 ## Introduction: 1.0
 
-### Overview of the 11 Plus Examination 1.1
+### Overview of the 11 Plus Examination  1.1
 
 The 11 plus, or Eleven Plus, exam is a big deal for children in England and Northern Ireland when they're about 11 years old. It's like a ticket to selective secondary schools, such as grammar schools and some private ones.
 
-#### Content of the Exam 1.1.2
+#### Content of the Exam 1.2
 
 Depending on where you take it, the test covers `English, Math, verbal reasoning, and non-verbal reasoning`. It's all about seeing how well one can solve problems and show better cognition abilities.
 
-#### Who Takes It and Where? (Stakeholders) 1.1.3
+#### Who Takes It and Where? (Stakeholders) 1.3
 
 The number of children taking the 11-plus exams changes a lot depending on where you are in the UK. Some places still use it to decide who gets into certain schools, but others have different systems.
 
-#### Why It's a Big Deal 1.1.4
+#### Why It's a Big Deal 1.4
 
 People talk a lot about the 11-plus because it's seen as a big deal for children's futures. A better School means a better education one gets and more chances available to learn and compete with the elite class in the future where thousands of pounds fee is required.
 
-#### The reason to select this competition test exam 1.1.5
+#### The reason to select this competition test exam 1.5
 
 I have undertaken this examination, as has one of my sisters. Within our community, it enjoys considerable popularity, with numerous students competing for placements in esteemed grammar schools. Presently, freely accessible practice materials are scarce online. While various websites, such as [Bond 11 Plus](https://www.bond11plus.co.uk) offer packages for online practice via their digital platforms, they typically require purchase. However, some platforms, like [11 Plus Guide](https://www.11plusguide.com) permit the download of sample papers for manual practice. Additionally, I have [compiled a list](#compiled-list-of-11-websites) of other relevant online resources, along with several books and papers available in my personal collection. Notably, one of the frequently consulted books is published by NelSon-Thrones of Oxford University Press[^1](#references).
 
@@ -92,33 +94,34 @@ The diverse content covered in the aforementioned examination offers significant
 
 ### Problem identification 2.1
 
-The prevailing challenge in this area lies in the scarcity of accessible and comprehensive resources for students preparing for the 11+ Exams. While traditional textbooks exist, they often lack interactivity and cost-effectiveness in digital formats. Furthermore, existing platforms typically require students to purchase packages, limiting access based on financial constraints. There  exist  no platform where those who can contribute time and resources  to help  11+ students digitally as no such repository online is present.
+The prevailing challenge in this area lies in the scarcity of accessible and comprehensive resources for students preparing for the 11+ Exams. While traditional textbooks exist, they often lack interactivity and cost-effectiveness in digital formats. Furthermore, existing platforms typically require students to purchase packages, limiting access based on financial constraints. 
+
+> Note: There  exist  no platform where those who can contribute time and resources  to help  11+ students digitally as no such repository online is present.
 
 ### Introduction of Proposed Solution and Stakeholder Needs 2.2
 
-To address this issue, a proposed solution focuses on creating a robust digital platform specifically tailored for 11+ Verbal Reasoning practices. While other areas may be equally important, this project intentionally focuses solely on Verbal Reasoning to remain within the scope of an A-Level project. Here are the key features and benefits of this solution:
+To address this issue, a proposed solution focuses on creating a digital platform specifically tailored for 11+ Verbal Reasoning practices. While other areas may be equally important, this project intentionally focuses solely on Verbal Reasoning to remain within the scope of an A-Level project. Here are the key features and benefits of this solution:
 
-1. **Comprehensive Content**: The platform will offer a curated selection of Verbal Reasoning exercises, covering various question types encountered in the 11+ Exams. By concentrating on Verbal Reasoning, we ensure depth and specificity, allowing students to enhance their critical thinking and language skills effectively.
+1. The platform will focus on Verbal Reasoning exercises for 11+ Exams. Students can improve critical thinking and language skills.
+2. Unlike traditional textbooks, the digital solution lets students actively participate. They solve problems, get instant feedback, and track their progress. It’s a better learning experience!
 
-2. **Interactive Learning**: Unlike static textbooks, the digital solution will provide an engaging experience. Students can actively participate in solving problems, receive instant feedback, and track their progress including timed challenges, detailed explanations, and helpful hints, which will enhance the learning experience."
+3. Unlike static textbooks, the digital solution will provide an engaging experience. Students can actively participate and receive instant feedback, and track their progress including timed challenges, detailed explanations, and helpful hints, which will enhance the learning experience."
 
-3. **Cost-Free Access**: The commitment to accessibility means that all content will be available to students at no cost. By eliminating the need for expensive subscriptions or purchases, a wider audience can benefit from the platform.
+4. The commitment to accessibility means that all content will be available to students at no cost. By eliminating the need for expensive subscriptions or purchases, a wider audience can benefit from the platform.
 
-4. **Mobile-Friendly**: Recognizing the prevalence of handheld devices, the platform will be designed for seamless use on mobile phones and tablets. Students can practice Verbal Reasoning questions anytime, anywhere, without desktop constraints. Additionally, the solution will be optimized for both online and offline modes, ensuring uninterrupted learning even in areas with limited internet connectivity.
+5. Recognizing the prevalence of handheld devices, the platform will be designed for seamless use on mobile phones and tablets. Students can practice Verbal Reasoning questions anytime, anywhere, without desktop constraints. Additionally, the solution will be optimized for both online and offline modes, ensuring uninterrupted learning even in areas with limited internet connectivity.
 
-5. **Collaborative Repository**: Beyond content consumption, the platform will foster collaboration. Educators, programmers, and subject matter experts can contribute additional materials, share insights, and enhance the repository. For instance, psychology professionals could design exercises to improve memory and cognition, while educators with expertise in focus enhancement strategies could contribute valuable insights.
+6. Beyond content consumption, the platform will foster collaboration. Educators, programmers, and subject matter experts can contribute additional materials, share insights, and enhance the repository. For instance, psychology professionals could design exercises to improve memory and cognition, while educators with expertise in focus enhancement strategies could contribute valuable insights.
 
-6. **Analytical Solutions**: In addition to practice exercises, the platform will offer analytical solutions. Students can explore detailed explanations, learn problem-solving techniques, and gain deeper insights into the reasoning behind correct awers. This analytical approach encourages a holistic understanding of Verbal Reasoning concepts.
+7. In addition to practice exercises, the platform will offer analytical solutions. Students can explore detailed explanations, learn problem-solving techniques, and gain deeper insights into the reasoning behind correct answers. This analytical approach encourages a holistic understanding of Verbal Reasoning concepts.
 
-In summary, the proposed solution aims to bridge the gap by providing a free, interactive, and comprehensive digital platform exclusively focused on Verbal Reasoning practice for 11+ Exams. Leveraging technology, collaboration, and accessibility, this initiative seeks to empower students on their educational journey. This solution is not going to be a static website built by any Static Site Generators
+In summary, the proposed solution aims to bridge the gap by providing a free, interactive, and comprehensive digital platform exclusively focused on Verbal Reasoning practice for 11+ Exams. Leveraging technology, collaboration, and accessibility, this initiative seeks to empower students on their educational journey. 
 
-
-
-
+> Note: This solution is not going to be a static website built by any Static Site Generators
 
 [//]: # (After engaging in discussions with stakeholders, including students, parents, and educators, and reflecting on my personal experience of taking these exams, it has become evident that there is a significant demand for accessible, engaging, and effective resources for 11+ exam preparation. To support this assertion, I offer an example from my own family, wherein my parents sought to provide us with ample assistance. However, as previously mentioned, both my sister and I encountered challenges in accessing the necessary support, highlighting the existing gap in available resources.)
 
-### Describing and Justifying Computational Approach
+### Describing and Justifying Computational Approach 2.3
 
 1. Verbal Reasoning questions are inherently structured and can be systematically analysed by computational methods.
 2. Computational methods allow for the creation of dynamic and interactive question formats, personalized practice sessions, and adaptive learning experiences tailored to individual student needs.
@@ -126,44 +129,42 @@ In summary, the proposed solution aims to bridge the gap by providing a free, in
 4. By leveraging computational methods, we can automate the generation of practice questions, provide instant feedback to students, and track their progress over time, enhancing the effectiveness and efficiency of exam preparation.
 5. By integrating computational methods into the solution, we can harness the power of technology to address the challenges of 11+ exam preparation, making it more engaging, accessible, and personalized for students.
 
-### Identifying and Justifying Specific Features
+### Identifying and Justifying Specific Features 2.4
 
 1. Comprehensive coverage of Verbal Reasoning topics.
 2. Designing interactive question formats dynamically using JavaScript in conjunction with HTML and CSS.
 3. These question formats can include  `multiple-choice, matching, fill-in-the-blank, underlining, choosing words from groups and pairs`.
 4. More complex question formats can be designed for example presenting users with more than two categories and asking them to select a number of words belonging to a specific category.
-5. -> Personalized practice sessions based on individual performance and areas of improvement.
-6. -> Progress tracking and performance analytics for students and parents.
 
-[//]: # ( delete which can not be implemented )
+### How to implement the Proposed Solution 2.5
 
-### How to implement the Proposed Solution
+1. The front end of the app will utilize technologies like HTML, CSS, and Bootstrap to handle the user interface (UI). For server support, Node.js and its extensive libraries will be employed on the back end. Project structure and module installation will be managed using NPM.
+2. A templating engine will simplify HTML code creation, while JavaScript will manage computational logic such as verifying selected answers. JavaScript can also read content from JSON files containing practice and mock data.
+3. To streamline Node.js development, the `express` module will be utilized, though alternative frameworks like `React Angular` are viable options.
+4. When creating test or exercise content, two approaches are feasible: dynamically generating content with JavaScript or designing the user interface with placeholders filled by JavaScript logic.
+5. Sound files may enhance user interaction by signaling success or failure.
+6. Data will be stored in JSON format, commonly used with JavaScript libraries.
+7. The solution will be device-agnostic, prioritizing compatibility with all devices rather than specific mobile app technologies like Swift or Java.
+8. Utilizing Progressive Web Apps (PWAs) will offer a mobile app-like experience, accessible through web browsers with features like offline support, push notifications, and home screen installation.
+9. The digital solution will be developed in a Git repository, facilitating collaboration and improvement through platforms like GitHub or GitLab.
+10. Cloud servers will host the solution to ensure scalability and accessibility from any internet-connected device.
+11. MongoDB, a non-SQL database, will store user credentials. MongoDB Atlas services will be utilized to create an online database for this purpose.
+12. Responsive design using Bootstrap will guarantee compatibility across various devices, including desktops, laptops, tablets, and smartphones.
+13. User-friendly interfaces and optimized performance will be prioritized to deliver a seamless user experience across different hardware and software configurations.
 
-1. Technologies such as HTML, CSS, and Bootstrap will be used on front end taking care of the user interface (UI capabilities) while the back-end support will be provided using nodeJs technology and its vast libraries to provide server support. NPM is be used to handle project structure and installation of node modules.
-2. Templating engine will also be used to ease the job of reinventing the wheel when it comes to write HTML code.JavaScript will be used to handle the computational logic, for example, to find out if the selected answers are correct or wrong. It can also be used in reading the contents from the JSON files where practice and mock data can be stored and rendered.
-3. To ease the work of nodejs, one of its module `express` will be used. Though other framework like React among many  can be used.
-4. When it comes to creating the contents of the test or exercises to be practice, two approaches are possible one is to dynamically create all the contents by using JavaScript or designing the user interface and providing placeholders to be filled by JavaScript logic.
-5. Sound files can be used to indicate the success or failure to engage the students in more interactive ways.
-6. Similarly data can be stored in JSON format which is the most popular choice when handled by JavaScript libraries.
-7. Since it is promised to provide the solution available to hand-held devices to all available devices. No specific technologies for designing a mobile app will be used such as Swift for ios or Java for android.
-8. The purposed solution uses Progressive Web Apps (PWAs) which provide a mobile app-like experience. They can be accessed through a web browser but offer features like installation on mobile devices, offline support, push notifications and home screen installation.
-9. The digital solution is planned to be written in a Git repository which can be shared on an open collaborative platform such as [GitHub](https://github.com) or [GitLab](https://gitlab.com) enabling others to participate and improve the content.
-10. The solution will be hosted on cloud servers to ensure scalability and accessibility from any device with an internet connection.
-11. To store users credentials Mongodb non sql data base is selected. An online database will be created for this purpose using MongoDB atlas services.
-12. Compatibility with various devices, including desktops, laptops, tablets, and smartphones, will be ensured through responsive design using bootstrap.
-13. The platform will prioritize user-friendly interfaces and optimize performance for seamless user experience across different hardware and software configurations.
-
-### Limitations of the proposed Solution
+### Limitations of the proposed Solution 2.6
 
 1. While much has been proposed as a potential solution, several challenges lie ahead, particularly in tailoring the website or app for personalized use. This entails the incorporation of distinct logic for each individual user and the secure storage of their credentials within the database.
-2. Providing parents with the ability to monitor their children's progress necessitates the implementation of separate user accounts for students and parents. Furthermore, establishing a connection between these accounts while maintaining privacy requires careful consideration to ensure that sensitive data remains concealed.
-3. I plan to commence the project with a focus on simplicity to meet the requirements outlined in H446 OCR A Level Computer Science (NEA: Non-exam assessment). This approach will allow for a gradual progression, ensuring that the project remains manageable and aligned with the specified criteria.
+2. Though There exist many open-source platform, like `GitLab, GitHub( no longer an open source ) and  Bitbucket` that offers features for managing code repositories yet publishing the repository on clounds to make it available online requires funding.
+3. Some platform offers a small chuck of their cloud space to be used and here it is hoped that such an applicatio can enter and find a place.
 
-### Justifying Hardware and Software Choices
+> Note: I plan to commence the project with a focus on simplicity to meet the requirements outlined in H446 OCR A Level Computer Science (NEA: Non-exam assessment). This approach will allow for a gradual progression, ensuring that the project remains manageable and aligned with the specified criteria.
+
+### Justifying Hardware and Software Choices 2.7
 
 **What technologies are needed for a developer**:
 
-The hardware technologies required for a developer to create websites or PWAs do not necessitate specialized hardware, unlike certain machine learning applications that demand specific computational power. Instead, a standard desktop or laptop with operating systems such as Windows 10/11, Ubuntu (Linux distribution), or macOS on Apple machines will suffice. As for software selection, I plan to utilize the following tools.
+The hardware technologies required  to create websites or PWAs do not necessitate specialized hardware, unlike certain machine learning applications that demand specific computational power. Instead, a standard desktop or laptop with operating systems such as Windows 10/11, Ubuntu (Linux distribution), or macOS on Apple machines will suffice. As for software selection, following tools tools will be used mainly.
 
 1. [Vscode](https://code.visualstudio.com/) to write the code.
 2. [Microsoft Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701?rtc=1&hl=en-gb&gl=GB) to interact with git.
@@ -172,8 +173,9 @@ The hardware technologies required for a developer to create websites or PWAs do
 5. [Node.js and npm](https://nodejs.org/) to provide server side handling.
 6. [Git](https://git-scm.com/) to keep track the record of the repository.
 7. [GitHub](https://github.com/) to upload the repository on the clouds and free hosing.
+8. [Mongoose Database]([https://](https://www.mongodb.com/)) to store user credentials safely.
 
-### Identifying and justifying measurable success criteria for the proposed solution
+### Identifying and justifying measurable success criteria for the proposed solution 2.8
 
 1. The success of the proposed website can be measured through various quantifiable criteria that directly reflect its effectiveness in addressing the identified problem and meeting stakeholder needs.
 2. Firstly, the website's user engagement metrics, such as the number of active users, session duration, and frequency of visits, can serve as indicators of its popularity and usefulness among students, parents, and other users.
@@ -183,7 +185,7 @@ The hardware technologies required for a developer to create websites or PWAs do
 
 <div class="page"/>
 
-### Requirements for such a project
+### Requirements for such a project 2.9
 
 1. Websites typically follow a client-server architecture, where the client refers to the user's web browser (such as Chrome, Firefox, or Safari), and the server refers to a remote computer that hosts the website's files and data. When a user visits a website, their browser sends a request to the server, asking for the website's content. These request uses HTTP verbs such as `GET` method for the page navigation.
 2. Similarly when a user submits a form on a webpage (such as a login form, registration form, or search form), the browser sends a request to the server to process the form data. This request can use either the HTTP GET or POST method, depending on the form's configuration and the type of data being submitted.
@@ -194,14 +196,14 @@ The hardware technologies required for a developer to create websites or PWAs do
 7. **Server-Side Activities**: Server-side activities, on the other hand, are performed on the server, typically using server-side technologies like Node.js. These activities include processing user requests, executing business logic, interacting with databases, and generating dynamic content. Server-side activities are responsible for handling the backend operations of the application, such as user authentication, data validation, and database management.
 8. **Role of Node.js in Client-Server Communication**:Node.js plays a crucial role in facilitating communication between the client-side and server-side components of web applications. It serves as the backend infrastructure for handling client requests, processing data, and sending responses back to the client. By leveraging the power of Node.js, developers can build fast, scalable, and real-time web applications that deliver a seamless user experience across different devices and platforms.
 
-#### Why Node.js?
+#### Why Node.js? 2.9.1
 
 1. **JavaScript Everywhere**: With Node.js, developers can use JavaScript for both client-side and server-side development, enabling a consistent and unified codebase.
 2. **Event-Driven Architecture**: Node.js utilizes an event-driven, non-blocking I/O model, which allows for efficient handling of concurrent requests and real-time applications.
 3. **Vibrant Ecosystem**: Node.js has a large and active community, providing a wealth of libraries and tools to streamline development.
 4. **Scalability**: Node.js applications can easily scale to handle large numbers of concurrent connections, making it suitable for building robust and scalable web applications.
 
-#### How a simple nodejs server is created?
+#### How a simple nodejs server is created? 2.9.2
 
 The following code creates  a simple nodejs server that is run locally for developing environment.
 
@@ -255,7 +257,7 @@ app.listen(port, () => {
 
 If we see the above code closely there is not much difference except that express module is used and GET request is handled by a route. This is not we intend to achieve from express but we want our code to be modular and properly structured. For this purpose we use an MVC ( modal view controller ) architecture where components of a websites are treated separately.
 
-#### MVC ( MOdel-View-Controller) architecture
+#### MVC ( MOdel-View-Controller) architecture 2.9.3
 
 1. it is a design pattern commonly used in software development to organize code and separate concerns.
 2. **Model**: The model represents the data and business logic of the application. It encapsulates the application's data and defines how it can be manipulated.In a database-driven web application, models often interact with the database to perform CRUD (Create, Read, Update, Delete) operations.View.
@@ -276,7 +278,7 @@ graph TD;
     SendHTTPResponse-->Client;
 ```
 
-#### Key Principles
+#### Key Principles 2.9.4
 
 1. Separation of Concerns: MVC separates the application logic into distinct components, making it easier to understand, maintain, and extend.
 2. Modularity: Each component (model, view, controller) can be developed, tested, and modified independently, promoting code reusability and scalability.
@@ -287,14 +289,21 @@ Overall, MVC architecture provides a robust foundation for building complex soft
 
 <div class="page"/>
 
-## Project Application Design
+## Project Application Design 3.0
 
-It is to be designed in a local repository which can be linked to online server. Since the project application promises to provide the full functional website as a digital platform hosted in a cloud server, its design and implementation consist of many steps. It is divided into four design parts, design part-A design part-B and so on. They are further divided into different steps.
+It is to be designed in a local repository which can be linked to online server. Since the project application promises to provide the full functional website as a digital platform hosted in a cloud server, its design and implementation consist of many steps. It is divided into four design parts. They are further divided into several steps.
 
 1. Design Part-A consist of making a user interface then providing interaction between them and testing the website.
 2. Design Part-B consist of making the website to work as [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app). 
 
-### Design: Part-A
+### Design: Part-A 3.1
+
+The Part-A consist of four separate stages, they are referred here as steps. Ste-2 and Step-3 overlaps eachother.
+
+1. GUI interface.
+2. Setting up database for the project.
+3. Making UI elements interactive by connecting to the database.
+4. Testing interaction between pages and database.
 
 **Step-1**: The website shows an interface to the user to interact with so that one can login or register. Here a GUI ( Graphical User Interface ) for this purpose is designed.
 
@@ -311,9 +320,9 @@ These three pages initial sketch is designed and  shown in the following diagram
 ![app-design-01](images\\docs\\app-design-01.jpg)<br>
 *figure-1*
 
-**Step-2**: Adding a database to store and retrieve the user data locally and online. [Mongodb](https://www.mongodb.com/) database is chosen for this purpose.
+**Step-2**: Setting up database locally and online to store and retrieve the user credentials. [Mongodb](https://www.mongodb.com/) database is chosen for this purpose.
 
-**Step-3**: Make its part interactive so that communication is enabled among different pages using HTTP protocol. Following flow diagram shows such an interaction which happens through this protocol.
+**Step-3**: Make UI parts interactive so that communication is enabled among different pages using HTTP protocol. Following flow diagram shows such an interaction which happens through this protocol.
 
 ```mermaid
 graph TD
@@ -328,12 +337,17 @@ graph TD
     G -->|Failure| B
 ```
 
-
-**Step-4**: It is to be tested to make sure it passes all HTTP requests made by the user, to do so either [Postman](https://www.postman.com/),[insomnia](https://insomnia.rest/) or Vscode extension name [thunderclient](https://www.thunderclient.com/) will be used to design, debug and test APIs.
+**Step-4**: Application is to be tested to make sure it passes all HTTP requests made by the user, to do so either [Postman](https://www.postman.com/),[insomnia](https://insomnia.rest/) or Vscode extension name [thunderclient](https://www.thunderclient.com/) will be used to debug and test APIs.
 
 ---
 
-### Design Part-B
+### Design: Part-B 3.2 
+
+- Designing the UI for the dashboard page. This is where the user will be redirected once successfully logged in to the website.
+- This page will offer users to practice Verbal Reasoning question and answers. Choose different topics and lesson and eventually be logged out.
+
+
+### Design: Part-C 3.3
 
 **Step-1**: The website is to be implemented as Progressive Web application and tested on hand-held devices. It has to pass full criteria to be the candidate for PWA. Testing is to be done using available technologies.
 
@@ -344,12 +358,12 @@ graph TD
 
 ---
 
-## Implementation of the design Part-A
+## Working on the design Part-A  4.0
 
 - As discussed above we are to use the MVC architecture of express node module. In MVC architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
 - Express frame work makes our job easy to keep all these components of the web developing environment by providing us separate folders to keep the work modular while working behind the scene providing the logic to interact with each other.
 
-### Starting project application setup
+### Starting project application setup 4.1
 
 1. Windows 10/11 machines are used equipped with dual processors running 16 threads with a raid setup consisting of four VSCode has been set up with the required extensions activated. Extensions used are shown in [Appendix-A](#appendix-a).
 
@@ -364,13 +378,13 @@ graph TD
 5. An empty online remote repository with the same name has been created to connect with the local machine.
 6. The next step involves configuring the Express framework.
 
-#### Setting up express nodejs framework
+#### Setting up express nodejs framework 4.1.1
 
 - Though the folder structure can be created manually but `express` provides a CLI (command line interface) to ease the work.
 - To use the express cli, it has been installed using `npm install -g express-generator`.
 - Express allows us to use different templating engine for the html code, I have chosen `ejs` as my template engine.
 
-#### Generating the application skeleton
+#### Generating the application skeleton 4.1.2
 
 1. The command `express --view=ejs h446` creates a skeleton folder structure. The out put is shown below.
 
@@ -419,7 +433,7 @@ d----        08/04/2024     12:53                  views
 
 - The application project folder name is provided above as `h446`. The above command also sets the html templating engine to be `ejs`.
 
-#### Initialising git and linking it to the GitHub repo
+#### Initialising git and linking it to the GitHub repo 4.1.3
 
 1. First we initialised the `git`into the `h446` folder, using the following command.
 2. Second contents of the folder are added to staging area.
@@ -534,7 +548,7 @@ GET /favicon.ico 404 2.472 ms - 993
 
 > Note: So far we have created a nodejs express skeleton app that gives us a server which is running on the local machine on the port 3000. No code for the required app is written.
 
-### Analysing the express skeleton structure
+### Analysing the express skeleton structure 4.2
 
 - The first job for us to understand and analyse how express server is working. Where and how our webpages to be written, where are styles and JavaScript code along with other static files such as images if we have any, are to be placed.
 - Second writing the logic or code for our application. Also deciding in which folder it has to go and how to provide the logic for express to understand what we intend to do so that it can work accordingly.
@@ -631,7 +645,7 @@ function onListening() {
 }
 ```
 
-#### Interrogating the functionality of the www Script
+#### Interrogating the functionality of the www Script 4.2.1
 
 1. **Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
 2. **Module Dependencies**: The script requires necessary modules:
@@ -655,11 +669,13 @@ function onListening() {
 
 > Note: in short express has provided much more sophisticated logic to handle the errors and encountering possible mistakes. The same task was earlier provided by simple logic as shown above under the heading "How a simple nodejs server is created".
 
-#### Examining app.js code
+#### Examining app.js code 4.2.2
 
 - It is the main entry point for an Express application. It is where the application is configured, routes are defined, middleware is applied, and the server is started. Lets examine this code.
 
 ```js
+// app.js 
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -703,8 +719,8 @@ app.use(function(err, req, res, next) {
 module.exports = app;
 ```
 
-1. The code begins by requiring necessary modules such as`http-errors, express, path, cookie-parser, and logger`. These modules are used for handling errors, creating the Express application, working with file paths, parsing cookies, and logging requests. This is how the node application works using CommonJs model syntax. In contrast to CommonJs ES6 uses `import/export` syntax to achieve the same goal.
-2. Next, it requires route files for handling different parts of the application. indexRouter and usersRouter are required from their respective route files (./routes/index and ./routes/users). The index routes represents our home page and can be accessed using `http:<URL>/` or `http:<url>index`, as we are using localhost on port 3000, we will get our home page using `localhost:3000` respectively.
+1. The code begins by requiring necessary modules such as `http-errors, express, path, cookie-parser, and logger`. These modules are used for handling errors, creating the Express application, working with file paths, parsing cookies, and logging requests. This is how the node application works using CommonJs model syntax. In contrast to CommonJs ES6 uses `import/export` syntax to achieve the same goal.
+2. Next, it requires route files for handling different parts of the application. indexRouter and usersRouter are required from their respective route files `(./routes/index)` and `(./routes/users)`. The index routes represents our home page and can be accessed using `http:<URL>/` or `http:<url>index`, as we are using localhost on port 3000, we will get our home page using `localhost:3000` respectively.
 3. An instance of Express application is created and stored in the variable `app` using `var app = express()`.
 4. Express is configured to use the EJS view engine. The views directory is set to `views`, and the view engine is set to `ejs`.
 5. Middleware functions are applied to the Express application using the `app.use()` method. in short wherever express uses `app.use()` this format is used to setup the middleware. All the above defined middleware `use` methods are handled by the express internally these include:
@@ -713,7 +729,7 @@ module.exports = app;
     - `cookieParser()`: Parsing cookies attached to incoming requests.
     - `express.static()`: Serving static files from the 'public' directory.
 
-6. `app.use('/', indexRouter)`: Mounts the index router at the root URL ('/'). This route is to be handled by us or the developer to provide the logic what happens when the home page is served.
+6. `app.use('/', indexRouter)`: Mounts the index router at the root URL `('/')`. This route is to be handled by us or the developer to provide the logic what happens when the home page is served.
 Similarly `app.use('/users', usersRouter)`: Mounts the users router at the '/users' URL. While `app.use(function(req, res, next) { ... })`: Handles 404 errors by passing them to the next middleware. 
 
 > Note: The function arguments `req` means the request and `res` means the response sent when receiving the request while `nex` represent what is to be done next, in above case it invokes the `createError(404)`method.
@@ -724,7 +740,7 @@ Similarly `app.use('/users', usersRouter)`: Mounts the users router at the '/use
 
 Overall, app.js sets up an Express application, configures middleware, defines routes, and handles errors to create a robust web server.
 
-#### What lies under views folder ?
+#### What lies under views folder ? 4.2.3
 
 1. As mentioned earlier it is this folder which represents the front end of our website. Express provides us with two files. One is `error.js` which contains nothing but three lines logic to show the error messages and express uses this file to show an error if encounters. The code is shown below.
 2. Since we are using ejs templating engine its notation `<% %> or <%- %> or <%= %>` is used in above code. We will leave this file as it is.
@@ -738,6 +754,8 @@ Overall, app.js sets up an Express application, configures middleware, defines r
 The second file is `index.ejs` which serves as our home page. Earlier when we ran our server the website snap shot shown above gives us the message defined in this page. Following is the code for this file. We do not intend to use this file and its contents will be deleted.
 
 ```html
+// index.ejs 
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -753,11 +771,13 @@ The second file is `index.ejs` which serves as our home page. Earlier when we ra
 
 Before we start to work we will also see what is present in our `route` folder.
 
-#### Examining route folder ?
+#### Examining route folder 4.2.4
 
-The route folder has two files containing the code of handling the navigation of home page and the users. We first look at the index.js or home page routing code.
+The route folder has two files containing the code of handling the navigation of home page and the users. We first look at the `index.js` or home page routing code.
 
 ```js
+// index.js 
+
 var express = require('express');
 var router = express.Router();
 
@@ -778,6 +798,8 @@ module.exports = router;
 In short this route serves as the handler for the home page ('/') of the Express application, rendering the index view template and passing it the title 'Express'. Having done with the route folder it takes us to the one more file provided by the express framework in `public/stylesheet/styles.css`. It is used to provide some styles, we are not going to use this file and contents of this file will be deleted.
 
 ```css
+// styles.css
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -801,13 +823,16 @@ Before going any further vscode snapshot is taken to show how work is done in it
 
 <div class="page"/>
 
-### Implementing Design Part-A Logic Step-1: Creating Home Page
+### Implementing Design Part-A Step-1: Creating Home Page 4.3
 
-Our app has to follow the design of Part-A in which we need to have three pages showing homepage, login page and Signup page. They all have to be connected to each other as well.
+The application should adhere to the layout outlined in Part-A, comprising three distinct pages: the homepage, login page, and signup page. Each page should seamlessly link to the others, ensuring smooth navigation between them.
+
 
 1. Starting from the home page: the contents of `index.ejs` are removed. A new folder named `layout` is created in views folder and `header.ejs` template is created. The contents of the this file is shown below.
 
 ```html
+// index.js 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -827,7 +852,7 @@ Our app has to follow the design of Part-A in which we need to have three pages 
 
 - The reason to create the head layout is that this app has three different pages so far and they all have to have the above code in those files. By creating the template we ony need to insert the template reference and they will be rendered.
 
-#### Analysing the above code and creating new folders
+#### Analysing the above code and creating new folders 4.3.1
 
 - `<!doctype html>`: Declares the document type and version of HTML being used.
 - `<html lang="en">`: Defines the root element of the HTML document and specifies the language of the content (English).
@@ -878,7 +903,7 @@ To github.com-SulaimanSayyed21:SulaimanSayyed21/h446Alevel.git
 ![github-02.jpg](images\\docs\\github-02.jpg)<br>
 *figure-6*
 
-#### Creating homepage header
+#### Creating homepage header 4.3.2
 
 > Note: header.ejs name is changed to head.ejs as head and header represent different sections of html page .
 
@@ -895,6 +920,7 @@ footer template
 - Creating `loginheader.ejs` template in `layout` folder under `views`. Following are the contents of `loginheader.ejs` template.
 
 ```html
+// loginheader.ejs 
 <body>
     <header>
       <div class="container">
@@ -916,6 +942,7 @@ footer template
 - Similarly `footer.ejs` template is also created under the same folder. The contents are shown below.
   
 ```html
+// footer.ejs
 <footer>
     <div class="container">
         <div class="row">
@@ -931,6 +958,8 @@ footer template
 - Now we need to add these layout templates into our home page which is `index.ejs` file which is also an ejs template. The contents are shown below.
 
 ```html
+//index.js
+
 <%- include('layout/head.ejs'); %>
   <%- include('layout/loginheader.ejs'); %>
     <main>
@@ -988,7 +1017,7 @@ The following 1,2 and numbered 3 lines contains CSS ( Cascading Style Sheets ) c
 
 - Similarly the `footer.ejs` contents are same and have been discussed above, with one exception that it shows the different text or message.
 
-#### Applying styles to home page using styles.css
+#### Applying styles to home page using styles.css 4.3.3 
 
 - As we have seen in figure-8 that our footer is not aligned to the bottom of the page. The reason being that the header or the footer tags are HTML semantics tags which allows user to use them in their code to convey the meaning of the HTML elements, it is the job of the developer to provide its styles. Following code is written in `styles.css`
   
@@ -1045,11 +1074,12 @@ footer {
 
 - The padding values makes sure that there is some distance present between the items.
 
-#### Applying bootstrap icons in header
+#### Applying bootstrap icons in header 4.3.4
 
 - Since the page is presented to the user to login or register, it is a good idea to have some icons presented here. Three different icons are used in loginheader template, their respective classes are shown below.
 
 ```html
+//loginheader.ejs
 <body>
   <header>
     <div class="container">
@@ -1086,6 +1116,8 @@ footer {
 - To change the title of the page we edit the homepage router file contents. As it is the `index.ejs` which is rendered when users goes to our website, in express the route that handles this request is present in our `routes` folder named `index.js`. The modified contents are shown below.
 
 ```js
+// index.js
+
 var express = require('express');
 var router = express.Router();
 
@@ -1104,13 +1136,15 @@ The following figure shows the different title and favicon in the title of the w
 
 ---
 
-#### Adding Login and Signup pages
+#### Adding Login and Signup pages 4.3.5 
 
 - Two files are created `login.ejs` and `signup.ejs` in `views` folder where home page layout `index.ejs` is already present.
 - Following the design shown in [figure-1](#design-part-a), first a template file named `normalheader.ejs`is created which will be injected in both login and signup template.
 - The contents of the `normalheader.ejs` is shown below.
 
 ```html
+// normalheader.ejs
+
 <body>
     <header>
       <div class="container">
@@ -1127,6 +1161,8 @@ The following figure shows the different title and favicon in the title of the w
 - Initially The contents of the `login.ejs` is shown below.
   
 ```html
+// login.ejs
+
 <%- include('layout/head.ejs'); %>
     <body>
         <%- include('layout/normalheader.ejs'); %>
@@ -1143,6 +1179,8 @@ The following figure shows the different title and favicon in the title of the w
 - Though the contents of the page is created but its route is not present in the route directory. Therefore a file name `login.js` is created in `routes` folder. The contents to handle the incoming GET request when user press the Login option from the home page is shown below.
 
 ```js
+// login.js
+
 var express = require('express');
 var router = express.Router();
 
@@ -1163,6 +1201,8 @@ module.exports = router;
 - Now we further modify the `login.ejs` file and add form contents to be filled by the user. Contents are shown below.
 
 ```html
+// login.ejs
+
 <%- include('layout/head.ejs'); %>
 <body>
 <%- include('layout/normalheader.ejs'); %>
@@ -1216,6 +1256,8 @@ To add the Signup page following steps are taken:
   4. A new file `signup.ejs` is created and the contents are provided, since they are same as of `login.ejs` they are not discussed in detail. It differs in only one way that it also adds the `Confirm password` label and field.
 
 ```js
+// signup.js
+
 var express = require('express');
 var router = express.Router();
 /* GET Signup page. */
@@ -1260,7 +1302,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 - Design Part-A step-1 is achieved which consisted of providing a user interface.
 
-#### Testing UI
+#### Testing UI 4.3.6 
 
 - Three browsers `Google chrome, Microsoft edge and mozilla firefox are used`.
   
@@ -1268,17 +1310,22 @@ no changes added to commit (use "git add" and/or "git commit -a")
 2. When the size is changed horizontally to the minimum width, `Edge and Chrome` displays the header text in one line but `firefox` behaves differently as shown in the following figure.
 
 ![ui-testing-01.jpg](images\\docs\\ui-testing-01.jpg)<br>
+*figure-19 - Home page*
 
 - To avoid it happening the `.anchor` class property ` padding: 0px 10px 0px 10px; /* top, right, bottom, left */` values were chaged from `15` to `10`. The problem is corrected. as shown below.
 
 ![ui-testing-02.jpg](images\\docs\\ui-testing-02.jpg)<br>
+*figure-20 - Home page*
 
-1. Both Login and Signup pages are displayed correctly in all three above browsers
+ Checking Login and Signup pages. They are displayed correctly in all three  browsers as shwon below.
 
 ![ui-testing-login-03.jpg](images\\docs\\ui-testing-login-03.jpg)<br>
+*figure-21 - Login page*
 
 ![ui-testing-signup-03.jpg](images\\docs\\ui-testing-signup-03.jpg)<br>
+*figure-22 - Signup page*
 
+#### Evaluating UI 4.3.7 
 
 | Testing              | Issues |
 | -------------------- | ------ |
@@ -1288,7 +1335,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 | 4. Responsive design | No     |
 
 
-#### Testing Page loading performance
+#### Testing Page loading performance 4.3.8
 
 Using developers tool provided by chrome, all three pages were loaded and network tab is used to see the performance, there were no bottleneck issues were found, the load time varies from `54ms to 93ms` when page is cached and without cache from `150ms to 180ms`. Following figure shows the Network tab activity fo the Login page from developers tools.
 
@@ -1298,7 +1345,9 @@ The following page shows the `performance tab` from Google chrome devlopers tool
 
 ![performance-testing-02.jpg](images\\docs\\performance-testing-02.jpg)<br>
 
-### Implementing Design Part-A Logic Step-2: Setting up Database locally and online
+<div class="page"/>
+
+### Implementing Design Part-A  Step-2: Setting up Database locally and online 4.4 
 
 - Mongodb server and clients utilities are installed on the local machine. Two client utilities are installed one is a mongo shell called `mongosh` and second one is GUI called `Compass`.
 - Both are shown to be running in the following figure. Mongo shell can be opened in Compass or separately
@@ -1353,13 +1402,13 @@ module.exports = connectMongoDb;
 
 - The above code provide the logic to connect the application to the local or online Database server. This function is exported to be used in application and started from the `app.js` file.
 
-> Note: The string provided by the mongodb Atlas online app is not to be exposed on GitHUb, as it can be seen by others. So to avoid this it is stored in an `.env` file which is not pushed to the GitHUb. To avoid it being pushed, its entry is made in `.gitignore` file. When a Web App is hosted in the clouds on any platform, it is provided directly to that host.
+> Note: The string provided by the mongodb Atlas online app is not to be exposed on GitHub, as it can be seen by others. So to avoid this it is stored in an `.env` file which is not pushed to the GitHub. To avoid it being pushed, its entry is made in `.gitignore` file. When a Web App is hosted in the clouds on any platform, it is provided directly to that host.
 
 - To store the database connection string securely nodejs library `dotenv` is used by first installing it into our project using `npm i dotenv`. The first line in above code `require('dotenv').config()` automatically loads the variable ( connection string ) from the `.env` file into local machine's running `process.env`.
 - The connection string is stored in `.env` file as shown below.
 
 ```txt
-MONGODB_URI='mongodb+srv://sulli:21March2004@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0'
+MONGODB_URI='mongodb+srv://sulli:21March@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0'
 ```
 
 - Since for testing and development process a local host string is used which is later on replaced by the above.
@@ -1368,7 +1417,7 @@ MONGODB_URI='mongodb+srv://sulli:21March2004@usersname0.r4rl0vd.mongodb.net/vrus
 MONGODB_URI='mongodb://localhost:27017/vrusers'
 ```
 
-#### Establishing database connection from the application
+#### Establishing database connection from the application 4.4.1
 
 To start the mongoose server from our application two lines are added at the top section of  `app.js` file and one in the middle. To start this service  `connectMongoDb();` function is used. This function is exported exported by `dbconfig/connection.js` file and it is loaded or required in `app.js`.
 
@@ -1382,6 +1431,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config(); // new lines added
 var connectMongoDb = require('./dbconfig/connection'); // new lines added
+...........
+connectMongoDb(); // connects the application to database server
 ```
 
 - Following message is shown on the terminal assuring that successful connection is established.
@@ -1402,12 +1453,14 @@ Connected to  MongoDB database!
 
 ```
 
-#### Adding a user schema for the database
+#### Adding a user schema for the database 4.4.2 
 
 - The structure of the database depends upon the schema and it is to be added in our application. To do so a `schema` is to be created which provided a skeleton of the fields that are to be created. This is our modal in terms of express `MVC` architecture.
 - For this purpose we create a folder name `modal` under `h446` working directory and in this modal a file name `user.js` is created which will represent the modal. Following are the contents of the `user.js`:
 
 ```js
+// user.js 
+
 var mongoose = require("mongoose");
 
 var loginSchema = new mongoose.Schema({
@@ -1441,7 +1494,7 @@ module.exports = collection;
 
 > Note: So far we have setup a database system locally and online, crated a database name `vrusers` with one collection named `credentials`. The application connection has been established. Now the code logic is to be added into the app so that when user enters the detail to register, it is added into our local or online database.
 
-#### Handling incoming POST request when submit button is pressed
+#### Handling incoming POST request when submit button is pressed 4.4.3 
 
 - In our application views and routes are present a modal has also been created yet we do not have controller. It is time to implement MVC architecture fully to keep the code modular and maintainable this approach also adheres to the separation of concern principle where each component  (routes, controllers, models) has its specific role and responsibility.
 - A `controllers` folder is created and two files are added `loginController.js and signupController.js`.
@@ -1495,7 +1548,7 @@ module.exports = {
 };
 ```
 
-- In the above code, asynchronous function named `handlePostRequest` is created, it does five jobs:
+In the above code, asynchronous function named `handlePostRequest` is created, it does five jobs:
 
 1. First check if incoming data present in POST `req.body` exists or not if not sent `400` notification with the message. To check the data mongoose api `findOne` is used.
 2. Second checks both user name and email, if exists again sends the message back to the user.
@@ -1508,7 +1561,7 @@ module.exports = {
 ![localdatabase-empty](images\\docs\\localdatabase-empty.jpg)<br>
 *figure-21*
 
-#### Registering user from the signup page
+#### Registering user from the signup page 4.4.4
 
 - The app is running on port 3000, and first user signs up to the site, when submit button is pressed, the data is entered successfully into local database name `vrusers`. MonogoDB is a non relational database that records what is called `documents` in `collections`. Here first document is created, it is shown below.
 
@@ -1665,7 +1718,7 @@ Connected to  online MongoDB database!
 
 ![online-data-added-02.jpg](images\\docs\online-data-added-02.jpg);
 
-- Upon successful registration it is redirected to login page where the same credentials were entered and it takes us to dashboard page.
+Upon successful registration it is redirected to login page where the same credentials were entered and it takes us to dashboard page.
 
 > Note: In this phase both local and online database were shown to be connected by using different environment string saved in `.env` file. The user were registered locally and online and the dashboard page is successfully rendered.
 

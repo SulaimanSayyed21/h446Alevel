@@ -1,0 +1,65 @@
+<%- include('layout/head.ejs'); %>
+    <%- include('layout/practice.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Playground' }) %>
+        <!-- Content Section -->
+        <main id="accordion-page" class="container">
+            <!-- pladce holder for message -->
+            <div class="accordion-topic"><label for="topic" id="topicid">Choose The topic</label></div>
+            <!-- create four button to show the lessons -->
+            <div class="row">
+                <div class="mx-auto">
+                    <div class="d-flex align-items-center justify-content-evenly">
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="accordion mt-4">
+                <% for (let i=1; i <=10; i++) { %>
+                    <div class="accordion-item" id="accord-item-<%= i %>">
+                        <h2 class="accordion-header" id="heading<%= i %>">
+                            <button id="q-<%= i %>" class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapse<%= i %>" aria-expanded="true"
+                                aria-controls="collapse<%= i %>">
+                                <!-- placeholder for question -->
+                            </button>
+                        </h2>
+                        <div id="collapse<%= i %>" class="accordion-collapse collapse"
+                            aria-labelledby="heading<%= i %>">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                    <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option1">
+                                        <label for="q-<%= i %>-option1"><!-- placeholder --></label>
+                                    </li>
+                                    <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option2">
+                                        <label for="q-<%= i %>-option2"><!-- placeholder --></label>
+                                    </li>
+                                    <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option3">
+                                        <label for="q-<%= i %>-option3"><!-- placeholder --></label>
+                                    </li>
+                                    <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option4">
+                                        <label for="q-<%= i %>-option4"><!-- placeholder --></label>
+                                    </li>
+                                    <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option5">
+                                        <label for="q-<%= i %>-option5"><!-- placeholder --></label>
+                                    </li>
+                                    <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option6">
+                                        <label for="q-<%= i %>-option6"><!-- placeholder --></label>
+                                    </li>
+                                    <!-- Add more options as needed -->
+                                </ul>
+                                <button id="answer-q-<%= i %>-btn" class="btn btn-primary mt-3"
+                                    onclick="checkAnswer('q-<%= i %>')">Answer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </main>
+        <br><br>
+        <%- include('layout/footer.ejs'); %>
+            <!-- Link to JavaScript file -->
+            <script src="../bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+            <script src="../javascripts/topics.js" type="text/javascript"></script>
+            <script src="../javascripts/practice.js" type="text/javascript"></script>
+            </body>
+
+            </html>

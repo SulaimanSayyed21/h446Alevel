@@ -13,6 +13,7 @@ header {
   align-items: center; /* Vertically center items */
   justify-content: space-between; /* Distribute items horizontally */
   height:50px;
+  position: relative;
  
 }
 
@@ -42,4 +43,74 @@ footer {
 
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+
+/**************************************************************************/
+/* Following styles are used in practice.js */
+.div-ui-custom{
+  margin-top: 12px;
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Style for checkbox labels */
+.list-group-item label {
+  margin-bottom: 0; /* Remove default margin */
+  margin-left: 40%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: x-large;
+  
+}
+
+/*************************************/
+/* For navbar changing background color */
+
+/*bg-custom {
+  /* background-color: #19194f;
+  color: #983c3c; To keep text centered */
+
+ .navbar { 
+  margin: 0 auto; /
+ }
+
+
+ /***********************************/
+ /* used in practice.ejs*/
+
+ .accordion-topic {
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #171717;
+  padding: 0px;
+  text-align: center;
+  align-items: center; /* Vertically center items */
+  justify-content: space-between; /* Distribute items horizontally */
+  height:30px;
+  background: #E7F1FF;
+  border-radius: 10px;
+ }
+
+
+ /*************************************/
+ /* dasheader.ejs property is set      */
+
+
+ .dropdown-menu {
+  background-color: #bcc5ee; /* Set your desired background color */
+}
+
+.dropdown-menu a {
+  color: rgb(42, 4, 79); /* Set your desired text color */
+}
+
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1; /* Set your desired hover background color */
 }

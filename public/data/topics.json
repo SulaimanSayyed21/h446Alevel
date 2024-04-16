@@ -1,0 +1,1218 @@
+{
+    "topics": [
+        {
+            "id": "_1",
+            "title": "Opposites",
+            "description": "choose  the most opposites in meaning",
+            "lessons": [
+                {
+                    "lesson_number": 1,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "ability",
+                                "capable",
+                                "inability",
+                                "liability",
+                                "real"
+                            ],
+                            "answer": [
+                                "ability",
+                                "inability"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "concise",
+                                "compact",
+                                "truth",
+                                "broad",
+                                "lengthy"
+                            ],
+                            "answer": [
+                                "concise",
+                                "lengthy"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "hot",
+                                "boiling",
+                                "cool",
+                                "freezing",
+                                "warmth"
+                            ],
+                            "answer": [
+                                "boiling",
+                                "freezing"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "windy",
+                                "abaundant",
+                                "challange",
+                                "rest",
+                                "scrace"
+                            ],
+                            "answer": [
+                                "abaundant",
+                                "scrace"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "live",
+                                "enjoy",
+                                "dead",
+                                "alive",
+                                "sad"
+                            ],
+                            "answer": [
+                                "alive",
+                                "dead"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "free",
+                                "comfort",
+                                "captive",
+                                "difficlut",
+                                "shackle"
+                            ],
+                            "answer": [
+                                "free",
+                                "captive"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "shallow",
+                                "cowardice",
+                                "closed",
+                                "courage",
+                                "opaque"
+                            ],
+                            "answer": [
+                                "cowardice",
+                                "courage"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "intentional",
+                                "certain",
+                                "separate",
+                                "inseprable",
+                                "accidental"
+                            ],
+                            "answer": [
+                                "intentional",
+                                "accidental"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "harmful",
+                                "substance",
+                                "knowledge",
+                                "lovely",
+                                "ignorance"
+                            ],
+                            "answer": [
+                                "knowledge",
+                                "ignorance"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "leader",
+                                "first",
+                                "follower",
+                                "end",
+                                "win"
+                            ],
+                            "answer": [
+                                "follower",
+                                "leader"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "lesson_number": 2,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "compliment",
+                                "implement",
+                                "tidy",
+                                "insult",
+                                "neat"
+                            ],
+                            "answer": [
+                                "compliment",
+                                "insult"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "leisure",
+                                "compulsory",
+                                "insure",
+                                "center",
+                                "voluntary"
+                            ],
+                            "answer": [
+                                "compulsory",
+                                "voluntary"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "vowel",
+                                "owl",
+                                "consonant",
+                                "letters",
+                                "alphabet"
+                            ],
+                            "answer": [
+                                "vowel",
+                                "consonant"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "tragedy",
+                                "suspense",
+                                "thriller",
+                                "comedy",
+                                "horror"
+                            ],
+                            "answer": [
+                                "tragedy",
+                                "comedy"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "defeat",
+                                "battel",
+                                "war",
+                                "victory",
+                                "fight"
+                            ],
+                            "answer": [
+                                "defeat",
+                                "victory"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "suffixes",
+                                "desperate",
+                                "deep",
+                                "after",
+                                "hopeful"
+                            ],
+                            "answer": [
+                                "desperate",
+                                "hopeful"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "flip",
+                                "arrogant",
+                                "humble",
+                                "fly",
+                                "flew"
+                            ],
+                            "answer": [
+                                "arrogant",
+                                "humble"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "snappy",
+                                "courteous",
+                                "civilized",
+                                "discourteous",
+                                "humanity"
+                            ],
+                            "answer": [
+                                "courteous",
+                                "discourteous"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "history",
+                                "affable",
+                                "origin",
+                                "peak",
+                                "rude"
+                            ],
+                            "answer": [
+                                "affable",
+                                "rude"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "angel",
+                                "division",
+                                "devine",
+                                "evil",
+                                "unity"
+                            ],
+                            "answer": [
+                                "division",
+                                "unity"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "lesson_number": 3,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "compile",
+                                "gather",
+                                "admit",
+                                "insult",
+                                "deny"
+                            ],
+                            "answer": [
+                                "admit",
+                                "deny"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "ally",
+                                "enemy",
+                                "answer",
+                                "center",
+                                "decline"
+                            ],
+                            "answer": [
+                                "enemy",
+                                "ally"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "borrow",
+                                "fast",
+                                "round",
+                                "lend",
+                                "jet"
+                            ],
+                            "answer": [
+                                "lend",
+                                "borrow"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "bent",
+                                "carved",
+                                "bow",
+                                "straight",
+                                "lay"
+                            ],
+                            "answer": [
+                                "bent",
+                                "straight"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "sweet",
+                                "battle",
+                                "war",
+                                "victory",
+                                "bitter"
+                            ],
+                            "answer": [
+                                "sweet",
+                                "bitter"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "encourage",
+                                "enrage",
+                                "sadden",
+                                "praise",
+                                "blame"
+                            ],
+                            "answer": [
+                                "praise",
+                                "blame"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "pressed",
+                                "arrogant",
+                                "cursed",
+                                "blessed",
+                                "framed"
+                            ],
+                            "answer": [
+                                "cursed",
+                                "blessed"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "calm",
+                                "windy",
+                                "humble",
+                                "cloudy",
+                                "rainy"
+                            ],
+                            "answer": [
+                                "calm",
+                                "windy"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "troubled",
+                                "polite",
+                                "cheerful",
+                                "peak",
+                                "dreary"
+                            ],
+                            "answer": [
+                                "cheerful",
+                                "dreary"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "dull",
+                                "common",
+                                "dense",
+                                "dig",
+                                "rare"
+                            ],
+                            "answer": [
+                                "common",
+                                "rare"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "lesson_number": 4,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "rude",
+                                "ajar",
+                                "closed",
+                                "insult",
+                                "regret"
+                            ],
+                            "answer": [
+                                "closed",
+                                "ajar"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "right",
+                                "demand",
+                                "read",
+                                "supply",
+                                "feed"
+                            ],
+                            "answer": [
+                                "supply",
+                                "demand"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "fade",
+                                "wade",
+                                "brighten",
+                                "brighton",
+                                "hate"
+                            ],
+                            "answer": [
+                                "brighten",
+                                "fade"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "harras",
+                                "timid",
+                                "gloomy",
+                                "rough",
+                                "gentle"
+                            ],
+                            "answer": [
+                                "rough",
+                                "gentle"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "feeble",
+                                "room",
+                                "piece",
+                                "strong",
+                                "war"
+                            ],
+                            "answer": [
+                                "strong",
+                                "feeble"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "immense",
+                                "small",
+                                "dirty",
+                                "grim",
+                                "slow"
+                            ],
+                            "answer": [
+                                "immense",
+                                "small"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "young",
+                                "healthy",
+                                "patient",
+                                "diseased",
+                                "quick"
+                            ],
+                            "answer": [
+                                "healthy",
+                                "diseased"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "brilliant",
+                                "courteous",
+                                "trival",
+                                "coward",
+                                "hero"
+                            ],
+                            "answer": [
+                                "coward",
+                                "hero"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "mean",
+                                "landlord",
+                                "junior",
+                                "senior",
+                                "rude"
+                            ],
+                            "answer": [
+                                "junior",
+                                "senior"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "wrapped",
+                                "closing",
+                                "frightened",
+                                "illegal",
+                                "lawful"
+                            ],
+                            "answer": [
+                                "illegal",
+                                "lawful"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "_2",
+            "title": "Similar-to",
+            "description": "choose the most similar in meaning",
+            "lessons": [
+                {
+                    "lesson_number": 1,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "gather",
+                                "collect",
+                                "admit",
+                                "insult",
+                                "deny"
+                            ],
+                            "answer": [
+                                "gather",
+                                "collect"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "ally",
+                                "friend",
+                                "answer",
+                                "center",
+                                "decline"
+                            ],
+                            "answer": [
+                                "ally",
+                                "friend"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "borrow",
+                                "loan",
+                                "round",
+                                "lend",
+                                "jet"
+                            ],
+                            "answer": [
+                                "borrow",
+                                "loan"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "curved",
+                                "bent",
+                                "bow",
+                                "straight",
+                                "lay"
+                            ],
+                            "answer": [
+                                "curved",
+                                "bent"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "victory",
+                                "triumph",
+                                "war",
+                                "win",
+                                "bitter"
+                            ],
+                            "answer": [
+                                "victory",
+                                "triumph"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "encourage",
+                                "inspire",
+                                "sadden",
+                                "praise",
+                                "blame"
+                            ],
+                            "answer": [
+                                "encourage",
+                                "inspire"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "arrogant",
+                                "proud",
+                                "cursed",
+                                "blessed",
+                                "framed"
+                            ],
+                            "answer": [
+                                "arrogant",
+                                "proud"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "peaceful",
+                                "calm",
+                                "windy",
+                                "cloudy",
+                                "rainy"
+                            ],
+                            "answer": [
+                                "peaceful",
+                                "calm"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "happy",
+                                "joyful",
+                                "cheerful",
+                                "peak",
+                                "dreary"
+                            ],
+                            "answer": [
+                                "happy",
+                                "joyful"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "ordinary",
+                                "average",
+                                "dense",
+                                "dig",
+                                "scarce"
+                            ],
+                            "answer": [
+                                "ordinary",
+                                "average"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "lesson_number": 2,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "example",
+                                "tired",
+                                "addictive",
+                                "exhaustive",
+                                "real"
+                            ],
+                            "answer": [
+                                "tired",
+                                "exhaustive"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "dear",
+                                "cheap",
+                                "expensive",
+                                "slow",
+                                "tailor"
+                            ],
+                            "answer": [
+                                "dear",
+                                "expensive"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "dark",
+                                "still",
+                                "water",
+                                "turn",
+                                "aqua"
+                            ],
+                            "answer": [
+                                "aqua",
+                                "water"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "scared",
+                                "attentive",
+                                "ghost",
+                                "afraid",
+                                "bored"
+                            ],
+                            "answer": [
+                                "scared",
+                                "afraid"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "fox",
+                                "wolf",
+                                "clever",
+                                "vixen",
+                                "lamb"
+                            ],
+                            "answer": [
+                                "fox",
+                                "vixen"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "imprisoned",
+                                "comfort",
+                                "captive",
+                                "difficlut",
+                                "angels"
+                            ],
+                            "answer": [
+                                "imprisoned",
+                                "captive"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "role",
+                                "muddy",
+                                "closed",
+                                "courage",
+                                "opaque"
+                            ],
+                            "answer": [
+                                "muddy",
+                                "opaque"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "broke",
+                                "generous",
+                                "separate",
+                                "penniless",
+                                "frugal"
+                            ],
+                            "answer": [
+                                "broke",
+                                "penniless"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "harmful",
+                                "substance",
+                                "damaging",
+                                "view",
+                                "ignorance"
+                            ],
+                            "answer": [
+                                "harmful",
+                                "damaging"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "mobile",
+                                "naughty",
+                                "reason",
+                                "ending",
+                                "mischievous"
+                            ],
+                            "answer": [
+                                "naughty",
+                                "mischievous"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "lesson_number": 3,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "accompany",
+                                "renovate",
+                                "educate",
+                                "accomplish",
+                                "achieve"
+                            ],
+                            "answer": [
+                                "accomplish",
+                                "achieve"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "complete",
+                                "almost",
+                                "nearly",
+                                "enquiry",
+                                "voluntary"
+                            ],
+                            "answer": [
+                                "almost",
+                                "nearly"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "facial",
+                                "racial",
+                                "obvious",
+                                "idle",
+                                "apparent"
+                            ],
+                            "answer": [
+                                "obvious",
+                                "apparent"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "passion",
+                                "tragedy",
+                                "content",
+                                "ardour",
+                                "service"
+                            ],
+                            "answer": [
+                                "passion",
+                                "ardour"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "famous",
+                                "linger",
+                                "aroma",
+                                "fragrance",
+                                "fight"
+                            ],
+                            "answer": [
+                                "aroma",
+                                "fragrance"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "inside",
+                                "awful",
+                                "upright",
+                                "terrible",
+                                "swindle"
+                            ],
+                            "answer": [
+                                "terrible",
+                                "awful"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "corrode",
+                                "believable",
+                                "sit",
+                                "plausible",
+                                "hop"
+                            ],
+                            "answer": [
+                                "believable",
+                                "plausible"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "day",
+                                "night",
+                                "light",
+                                "stomach",
+                                "belly"
+                            ],
+                            "answer": [
+                                "stomach",
+                                "belly"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "bid",
+                                "tender",
+                                "mixed",
+                                "solution",
+                                "feud"
+                            ],
+                            "answer": [
+                                "tender",
+                                "bid"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "custom",
+                                "business",
+                                "tread",
+                                "commerce",
+                                "phanthom"
+                            ],
+                            "answer": [
+                                "business",
+                                "commerce"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "lesson_number": 4,
+                    "questions": [
+                        {
+                            "id": "q-1",
+                            "words": [
+                                "flop",
+                                "success",
+                                "footer",
+                                "chief",
+                                "main"
+                            ],
+                            "answer": [
+                                "chief",
+                                "main"
+                            ]
+                        },
+                        {
+                            "id": "q-2",
+                            "words": [
+                                "down",
+                                "dawn",
+                                "drowned",
+                                "immersed",
+                                "busy"
+                            ],
+                            "answer": [
+                                "immersed",
+                                "busy"
+                            ]
+                        },
+                        {
+                            "id": "q-3",
+                            "words": [
+                                "social",
+                                "disinterested",
+                                "familiar",
+                                "bored",
+                                "communal"
+                            ],
+                            "answer": [
+                                "disinterested",
+                                "bored"
+                            ]
+                        },
+                        {
+                            "id": "q-4",
+                            "words": [
+                                "error",
+                                "ordinary",
+                                "content",
+                                "mundane",
+                                "special"
+                            ],
+                            "answer": [
+                                "ordinary",
+                                "mundane"
+                            ]
+                        },
+                        {
+                            "id": "q-5",
+                            "words": [
+                                "stale",
+                                "battel",
+                                "drab",
+                                "victory",
+                                "dull"
+                            ],
+                            "answer": [
+                                "drab",
+                                "dull"
+                            ]
+                        },
+                        {
+                            "id": "q-6",
+                            "words": [
+                                "shabby",
+                                "new",
+                                "cite",
+                                "common",
+                                "quote"
+                            ],
+                            "answer": [
+                                "quote",
+                                "cite"
+                            ]
+                        },
+                        {
+                            "id": "q-7",
+                            "words": [
+                                "collect",
+                                "share",
+                                "fuss",
+                                "gather",
+                                "fun"
+                            ],
+                            "answer": [
+                                "collect",
+                                "gather"
+                            ]
+                        },
+                        {
+                            "id": "q-8",
+                            "words": [
+                                "harmony",
+                                "comic",
+                                "confine",
+                                "freedom",
+                                "restrict"
+                            ],
+                            "answer": [
+                                "confine",
+                                "restrict"
+                            ]
+                        },
+                        {
+                            "id": "q-9",
+                            "words": [
+                                "avoid",
+                                "comply",
+                                "apply",
+                                "conform",
+                                "measure"
+                            ],
+                            "answer": [
+                                "comply",
+                                "conform"
+                            ]
+                        },
+                        {
+                            "id": "q-10",
+                            "words": [
+                                "same",
+                                "difuse",
+                                "opposite",
+                                "confuse",
+                                "contrary"
+                            ],
+                            "answer": [
+                                "contrary",
+                                "opposite"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "_3",
+            "title": "Group-pposites",
+            "description": "Choosing Opposites from groups"
+        },
+        {
+            "id": "_4",
+            "title": "Group-imilar-to",
+            "description": "Choosing Similar to from groups"
+        },
+        {
+            "id": "_5",
+            "title": "Pair-imilar",
+            "description": "Underline the pair of words most similar in meaning"
+        },
+        {
+            "id": "_6",
+            "title": "Rhyme-opposites",
+            "description": "Rhyming with Opposite Words"
+        },
+        {
+            "id": "_7",
+            "title": "Rhyme-similar",
+            "description": "Rhyming with dimilar words"
+        },
+        {
+            "id": "_8",
+            "title": "Heading-similar",
+            "description": "Write similar words under the heading"
+        },
+        {
+            "id": "_9",
+            "title": "Not_present",
+            "description": "empty"
+        },
+        {
+            "id": "_10",
+            "title": "Not_present",
+            "description": "empty"
+        }
+    ]
+}

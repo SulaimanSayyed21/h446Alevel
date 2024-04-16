@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 // Load env variable from .env file
 require('dotenv').config();
-console.log(process.env);
+//console.log(process.env);
 
 connectMongoDb = function () {
     try {

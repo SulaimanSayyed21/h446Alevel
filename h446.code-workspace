@@ -5,14 +5,14 @@
 		}
 	],
 	"settings": {
-		"workbench.colorTheme": "Monokai",
+		"workbench.colorTheme": "Monokai Pro (Filter Octagon)",
 		"markdown-pdf.styles": [
 			"pdf-output\\markdown-pdf.css",
 		],
 		"markdown-pdf.stylesRelativePathFile": true,
 		//"markdown-pdf.highlightStyle": "a11y-dark.css",
-		//"markdown-pdf.highlightStyle": "a11y-light.css",
-		"markdown-pdf.highlightStyle": "color-brewer.css",
+		"markdown-pdf.highlightStyle": "a11y-light.css",
+		//"markdown-pdf.highlightStyle": "color-brewer.css",
 		"markdown-pdf.margin.left": "20mm",
 		"markdown-pdf.margin.bottom": "15mm",
 		"markdown-pdf.margin.right": "10mm",
@@ -27,7 +27,8 @@
 		"markdown-pdf.mermaidServer": "https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js",
 		"[markdown]": {
 			"editor.defaultFormatter": "yzhang.markdown-all-in-one"
-		}
+		},
+		"CodeGPT.apiKey": "CodeGPT Plus Beta"
 	},
 		
 }
