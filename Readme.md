@@ -54,6 +54,8 @@
     - [Logging the user](#logging-the-user)
     - [Testing Login procedure](#testing-login-procedure)
     - [Registering the user on online data base](#registering-the-user-on-online-data-base)
+  - [Implementing Design Part-B:](#implementing-design-part-b)
+- [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
 - [What is Progressive Web Application?](#what-is-progressive-web-application)
   - [Creating mongodb account](#creating-mongodb-account)
   - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
@@ -1716,7 +1718,7 @@ Connected to  online MongoDB database!
 
 - Following figure shows the newly added data to online database. This time in name field `Sulaiman` is entered. The project name online is also changed to `VERBAl-REASONING` separately.
 
-![online-data-added-02.jpg](images\\docs\online-data-added-02.jpg);
+![online-data-added-02.jpg](images\\docs\\online-data-added-02.jpg);
 
 Upon successful registration it is redirected to login page where the same credentials were entered and it takes us to dashboard page.
 
@@ -1727,13 +1729,191 @@ Upon successful registration it is redirected to login page where the same crede
 
 
 
+---
+
+### Implementing Design Part-B: 
+
+```mermaid
+stateDiagram
+    [*] --> AppStarted
+    AppStarted --> LoginOrRegister
+    LoginOrRegister --> Dashboard
+    Dashboard --> Practice
+    Dashboard --> Test
+```
+
+
+- When user successfully logged in, it is redirected to `Dashboard` page. This page will take him to either to practice the test or or to take a test.
+  
+![playground-01.jpg](images\\docs\\playground-01.jpg)<br>
+
+- The above diagram shows different phases of the practice page which is labelled as `Playground`.
+- It consist of UI design consisting of `header` as in other previous pages and a footer. There is a dropdown menu present in the header which shwos the list of topic available to practice. Just below the header a messge is shown with some instructions about the lesson being displayed.
+-  When a topic is choosen by the user , it adds four buttons to display the lessons, and when lesson is pressed accordion is used to display different questions which are scrollable and presents the choice to the user.
+-  At the bottom there is an answer button which tells if the user has bee successful or not.
+-  
+
+
+## Implementing Designing Part-C: Making the Web App a PWA
+
+To make a web application a [progressive web app](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps), following steps are taken.
+  
+1. A `manifest.json` file is added at the root of the websites, in express the webpages are served from the public folder. To inform the application that a `manifest.json` file is to be used in app. This is known as attaching manifest to PWA. its entry is made in the head section.The following snippets shows the snippet.
+
+```html
+// layout/head.ejs 
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Link to manifest.json -->
+  <link rel="manifest" href="/manifest.json">
+  <!-- Link to local Bootstrap CSS -->
+  <link rel="stylesheet" href="/bootstrap-5.0.2/css/bootstrap.min.css">
+  <!-- Link to Custom CSS -->
+  <link rel="stylesheet" href="/stylesheets/styles.css">
+  <!-- bootstrap icons cdn link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+```
+  
+The  contents fo manifest.json are  shown below.
+
+```json
+{
+    "name": "Verbal Reasoning for 11+",
+    "short_name": "11+",
+    "lang": "en",
+    "description": "it is made in express node js frame work and acts as a  Progressive Web App too",
+    "icons": [
+        {
+            "src": "/icon/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icon/favicon.ico",
+            "type": "image/ico",
+            "sizes": "16x16"
+        },
+        {
+            "src": "/icon/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/icon/icon-144x144.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "maskable"
+        }
+    ],
+    "start_url": "/",
+    "id": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3367D6",
+    "orientation": "portrait"
+}
+```
+- It takes the application long and short name along with other details of icons which are needed for hand-held devices and some other details including the entry point of the application and suitable background and foreground color information.
+
+2. A service worker is required for the application to make it work with cache and in offline mode and it makes the web app installable as well. A service worker is javascript file that keeps the instruction of making the above requirements available.
+3. It is named as `sw.js` or `service-worker.js` and kept in the root directory of the web page. It runs separately in the background.
+4. There are two ways to add or inject the information that it needs either enter all the details in javascript code to work or use Google provided tool called [Workbox](https://developer.chrome.com/docs/workbox/)) which is recommended.
+
+4. When we run the app, and the contents are shown on localhost, it often tried to use the cache and tries to find out the `sw.js` file in the root of the website since it is not present, express frame work rightly displays the `404` message as shown in the following figure.
+
+![sw.jpg](images\\docs\\sw.jpg)<br>
+
+5. A new file `sw.js` is created and kept in the root directory. Initially it is empty since we use Google work-box to handle all the internal details, it still require to have information about the files names, and staic asstests to be chached and the strategies to be used for caching.
+6. Following is the content of the `sw.js` file.
+
+```js
+// sw.js
+
+importScripts(
+    'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
+  );
+  // Precache manifest
+const precacheManifest = [
+    //  icon paths to be cached
+    '/icon/icon-192x192.png',
+    '/icon/icon-512x512.png',
+  ]; 
+  // Set up Workbox to precache assets
+  workbox.precaching.precacheAndRoute(precacheManifest);
+  // Cache icon requests
+  workbox.routing.registerRoute(
+    ({ request }) => request.destination === 'image' &&
+      request.url.includes('/icon/'),
+    new workbox.strategies.CacheFirst()
+  );
+
+  workbox.routing.registerRoute(
+    ({ request }) => request.destination === 'script' || request.destination === 'style',
+    new workbox.strategies.StaleWhileRevalidate()
+  );
+  workbox.routing.registerRoute(
+    ({ request }) => request.mode === 'navigate',
+    new workbox.strategies.NetworkFirst()
+  );
+  workbox.routing.registerRoute(
+    ({ url }) => url.pathname === '/',
+    new workbox.strategies.CacheFirst()
+);
+workbox.routing.registerRoute(
+    ({ url }) => url.pathname.startsWith('/login'),
+    new workbox.strategies.StaleWhileRevalidate()
+);
+workbox.routing.registerRoute(
+    ({ url }) => url.pathname.startsWith('/signup'),
+    new workbox.strategies.CacheFirst()
+);
+```
+
+There are three mains job done above.
+
+1. First create an array of precaching assets, where icons to be cached are defined, then get the `workbox` service to use it.
+2. Tell `Workbox` about all the routes used in the application. They are one by one declared above.
+3. `Workbox` is informed what caching mechanisms to use. There are many ways a `Workbox` service can provide caching mechanisms. The above uses `CacheFirst(), NetworkFirst(), StaleWhileRevalidate()`. They do the job as they say by the name of their functions. Having inject the service worker, express frame work notification changes from `404` to `200` indicating the success in finding the file in root of the application.
+4. To make the the application pass WPA criteria, SEO (search engine optimisation ) information are added in the `head` section of the home page, along with some other detials.
+
+```html
+<!-- For SEO -->
+  <meta name="author" content="Sulaiman Ahmed Sayyed">
+  <meta name="description" content="11+ app for verbal reasoining to help students prepare for this exam">
+```
+
+  
 
 
 
 
 
 
-- MONGODB_URI='mongodb://localhost:27017/vrusers'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
 
 
 ## What is Progressive Web Application?

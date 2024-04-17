@@ -40,6 +40,19 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+  // Register the service worker
+  navigator.serviceWorker.register('./sw.js')
+      .then((registration) => {
+          console.log('Service worker registered:', registration);
+      })
+      .catch((error) => {
+          console.error('Service worker registration failed:', error);
+      });
+}
+
+
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development

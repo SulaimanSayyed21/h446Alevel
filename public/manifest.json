@@ -1,0 +1,61 @@
+{
+    "name": "Verbal Reasonnign for 11+",
+    "short_name": "11+",
+    "lang": "en",
+    "description": "Verbal reasoning application for studetns to enhance their mental activity and cognition. This application focuses mainly on exam taken in UK for strudents who wants to get admission in Grammar school for better education.",
+    "icons": [
+        {
+            "src": "/icons/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/favicon.ico",
+            "type": "image/ico",
+            "sizes": "16x16"
+        },
+        {
+            "src": "/icons/icon-72x72.png",
+            "type": "image/png",
+            "sizes": "72x72"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/icons/icon-144x144.png",
+            "type": "image/png",
+            "sizes": "144x144",
+            "purpose": "maskable"
+        }
+    ],
+    "start_url": "/?source=pwa",
+    "id": "/?source=pwa",
+    "display_override": [
+        "fullscreen",
+        "minimal-ui"
+    ],
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3367D6",
+    "orientation": "portrait",
+    "screesshots": [
+        {
+            "src": "images/screenshot-mobile.png",
+            "sizes": "640x1136",
+            "type": "image/png",
+            "platform": "web",
+            "form_factor": "mobile"
+        },
+        {
+            "src": "images/screenshot-desktop.png",
+            "sizes": "1920x1080",
+            "type": "image/png",
+            "platform": "web",
+            "form_factor": "desktop"
+        }
+    ]
+}
