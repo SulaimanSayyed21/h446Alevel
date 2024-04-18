@@ -5,16 +5,18 @@ importScripts(
   // Precache manifest
 const precacheManifest = [
     //  icon paths to be cached
+    './',
+    './login',
+    './signup',
     '/practice',
     '/stylesheets/styles.css',
-    '/javascripts/topic.js',
+    '/javascripts/topics.js',
     '/javascripts/practice.js',
-    '/app.js',
     '/favicon.ico',
-    '/icon/icon-192x192.png',
-    '/icon/icon-512x512.png',
-    '/icon/icon-72x72.png',
-    '/icon/1con-144x144.png'
+    '/icons/icon-192x192.png',
+    '/icons/icon-512x512.png',
+    '/icons/icon-72x72.png',
+    '/icons/icon-144x144.png'
   ];
   
   // Set up Workbox to precache assets
@@ -61,4 +63,8 @@ workbox.routing.registerRoute(
 workbox.routing.registerRoute(
     ({ url }) => url.pathname.startsWith('/practice'),
     new workbox.strategies.CacheFirst()
+);
+workbox.routing.registerRoute(
+  ({ url }) => url.pathname.startsWith('/test'),
+  new workbox.strategies.CacheFirst()
 );

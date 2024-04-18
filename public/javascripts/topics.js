@@ -1,81 +1,89 @@
+// topics.js
 
-// topics js
-
-// It avoides list being appended to previously added itets
-function refreshDropdown() {
+// Function to clear the dropdown list
+function clearDropdownList() {
   const topicsList = document.getElementById('topicsList');
-  topicsList.innerHTML = ''; // Clear the contents of the dropdown list
+  topicsList.innerHTML = '';
 }
 
-// Function to create buttons dynamically
-function createButtons(topic, title) {
-  // Set the right context in the meassage bar
-  const placeHoder = document.getElementById('topicid');
-  const description = topic.description;
-  placeHoder.textContent = description;
+// Function to create a button element
+function createButton(text, onClick) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.classList.add('btn', 'btn-outline-secondary');
+  button.textContent = text;
+  button.addEventListener('click', onClick);
+  return button;
+}
 
-// Getting handle to parents container where children to be appended  
+// Function to handle button click events
+function handleButtonClick(topic, title, lessonNumber) {
+  console.log("Topic: " + topic.title + " Lesson number: " + lessonNumber);
+  populateQuestions(topic, title, lessonNumber);
+}
+
+// Function to create buttons dynamically for each lesson
+function createLessonButtons(topic, title) {
   const buttonContainer = document.querySelector('.d-flex');
-  // Clear previous buttons
-  buttonContainer.innerHTML = '';
-  topic.lessons.forEach((lessons) => {
-    // Create a button element
-    const button = document.createElement('button');
-    
-    //setting  button attributes
-    button.type = 'button';
-    button.classList.add('btn', 'btn-outline-secondary');
+  buttonContainer.innerHTML = ''; // Clear previous buttons
 
-    // Getting which lesson to be added on button
-    button.textContent = "Lesson " + lessons.lesson_number;
-
-    // Attach event lister to the button
-    button.addEventListener('click', (event) => {
-
-      console.log("Topic: " + topic.title + " Lesson number: " + lessons.lesson_number);
-      // delegate the responsibility to pratice.js 
-      // This function passes the JSON object with lessoan name and title being clicked
-      populateQuestions(topic, title, lessons.lesson_number);
-
-      //console.log("Button clicked. Topic ID:", topicId, "Lesson Number:", lessonNumber);
+  // Check if lessons array exists and has length
+  if (topic.lessons && topic.lessons.length > 0) {
+    // Change the message on message bar
+  // Set the right context in the meassage bar
+  var message = document.getElementById('topicid');
+  //const description = topic.description;
+  message.textContent = topic.description;
+    topic.lessons.forEach((lesson) => {
+      const buttonText = "Lesson " + lesson.lesson_number;
+      const onClick = () => handleButtonClick(topic, title, lesson.lesson_number);
+      const button = createButton(buttonText, onClick);
+      buttonContainer.appendChild(button);
     });
-    // Append button to the container
-    buttonContainer.appendChild(button);
-  });
+  } else {
+    // If lessons array is undefined or empty, display "Lesson Not Implemented" button
+    const noLessonButton = createButton("Lesson Not Implemented", () => {
+    });
+    buttonContainer.appendChild(noLessonButton);
+  }
 }
 
-// Fetch the JSON file
-function fetchTopics() {
-  fetch('./data/topics.json')
+// Function to create list items for each topic
+function createTopicListItem(topic, title) {
+  const listItem = document.createElement('li');
+  const link = document.createElement('a');
+  link.classList.add('dropdown-item');
+  link.href = '#';
+  link.textContent = topic.title;
+  link.addEventListener('click', () => createLessonButtons(topic, title));
+  listItem.appendChild(link);
+  return listItem;
+}
+
+// Function to fetch topics data from JSON file
+function fetchTopicsData() {
+  return fetch('./data/topics.json')
     .then(response => response.json())
-    .then(data => {
-      const topicsList = document.getElementById('topicsList');
-      topicsList.innerHTML = ''; // Clear the contents of the dropdown list
-
-      data.topics.forEach(topic => {
-        
-        //Getting referenced to the elements
-        const listItem = document.createElement('li');
-        const link = document.createElement('a');
-        link.classList.add('dropdown-item');
-        link.href = '#';
-        link.textContent = topic.title;
-        
-        // Add event listener to the the list items
-        link.addEventListener('click', () => {     
-
-          // invoking a helper button to do the job
-          createButtons(topic, link.textContent);
-          console.log("Link " + link.textContent + " is pressed");
-          
-        });
-        // Appendign children
-        listItem.appendChild(link);
-        topicsList.appendChild(listItem);
-      });
-    })
-    .catch(error => console.error('Error fetching JSON:', error));
+    .catch(error => {
+      console.error('Error fetching JSON:', error);
+      return { topics: [] };
+    });
 }
 
-// Call fetchTopics() to fetch and populate the dropdown initially
-fetchTopics();
+// Function to populate the dropdown list with topics
+async function populateDropdown() {
+  clearDropdownList();
+  try {
+    const data = await fetchTopicsData();
+    const topicsList = document.getElementById('topicsList');
+    data.topics.forEach(topic => {
+      const listItem = createTopicListItem(topic, topic.title);
+      topicsList.appendChild(listItem);
+    });
+  } catch (error) {
+    console.error('Error populating dropdown:', error);
+  }
+}
+
+// Call populateDropdown() to fetch and populate the dropdown initially
+populateDropdown();

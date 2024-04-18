@@ -12,6 +12,7 @@ var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var dashboardRouter = require('./routes/dashboard');
 var practiceRouter = require('./routes/practice');
+var testRouter = require('./routes/test');
 
 var app = express();
 
@@ -24,12 +25,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(__dirname + '/views/'));
 
 app.use('/', indexRouter);
 app.use('/', loginRouter);
 app.use('/', signupRouter);
 app.use('/', dashboardRouter);
 app.use('/', practiceRouter);
+app.use('/', testRouter);
 app.use('/users', usersRouter);
 
 // Start the mongoose server
@@ -39,18 +42,6 @@ connectMongoDb();
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
-  // Register the service worker
-  navigator.serviceWorker.register('./sw.js')
-      .then((registration) => {
-          console.log('Service worker registered:', registration);
-      })
-      .catch((error) => {
-          console.error('Service worker registration failed:', error);
-      });
-}
-
 
 
 // error handler

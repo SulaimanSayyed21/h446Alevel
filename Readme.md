@@ -56,6 +56,11 @@
     - [Registering the user on online data base](#registering-the-user-on-online-data-base)
   - [Implementing Design Part-B:](#implementing-design-part-b)
 - [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
+  - [Writing the logic to attach the application with the service worker](#writing-the-logic-to-attach-the-application-with-the-service-worker)
+  - [Creating a service worker : Service worker vs client/server architecture](#creating-a-service-worker--service-worker-vs-clientserver-architecture)
+  - [Creating and attaching manifest file](#creating-and-attaching-manifest-file)
+  - [Watching Chrome behaviour after registering the service worker](#watching-chrome-behaviour-after-registering-the-service-worker)
+    - [Passing Google service requirements for PWA](#passing-google-service-requirements-for-pwa)
 - [What is Progressive Web Application?](#what-is-progressive-web-application)
   - [Creating mongodb account](#creating-mongodb-account)
   - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
@@ -64,6 +69,7 @@
 - [Appendix-A](#appendix-a)
   - [Vscode extension used](#vscode-extension-used)
 - [Appendix-B](#appendix-b)
+- [Appendix-C](#appendix-c)
 
 <div class="page"/>
 ## Introduction: 1.0
@@ -1342,10 +1348,11 @@ no changes added to commit (use "git add" and/or "git commit -a")
 Using developers tool provided by chrome, all three pages were loaded and network tab is used to see the performance, there were no bottleneck issues were found, the load time varies from `54ms to 93ms` when page is cached and without cache from `150ms to 180ms`. Following figure shows the Network tab activity fo the Login page from developers tools.
 
 ![performance-testing-01.jpg](images\\docs\\performance-testing-01.jpg)<br>
-
+*figure-23*
 The following page shows the `performance tab` from Google chrome devlopers tools. At the bottom section summary informs how much time it has taken to laod the pages.
 
 ![performance-testing-02.jpg](images\\docs\\performance-testing-02.jpg)<br>
+*figure-24*
 
 <div class="page"/>
 
@@ -1355,12 +1362,15 @@ The following page shows the `performance tab` from Google chrome devlopers tool
 - Both are shown to be running in the following figure. Mongo shell can be opened in Compass or separately
 
 ![mongosh-compass.jpg](images\\docs\\mongosh-compass.jpg)<br>
-*figure-19*
+*figure-25*
+
+
 
 - An online account is created using a usr name `sullisayyed21@outlook.com` with a  cluster name `usersName0` shown below.
 
 ![atlas-online.jpg](images\\docs\\atlas-online.jpg)<br>
-*figure-20*
+*figure-26*
+
 
 - A database named `vrusers` is created locally and online. This database contains a collection name `credentials` where the details of the user will be added.
 - A Database user is added giving a role of admin to handle with this database online, password and user name is set.
@@ -1550,7 +1560,7 @@ module.exports = {
 };
 ```
 
-In the above code, asynchronous function named `handlePostRequest` is created, it does five jobs:
+In the above code, [asynchronous](#appendix-c) function named `handlePostRequest` is created, it does five jobs:
 
 1. First check if incoming data present in POST `req.body` exists or not if not sent `400` notification with the message. To check the data mongoose api `findOne` is used.
 2. Second checks both user name and email, if exists again sends the message back to the user.
@@ -1561,14 +1571,14 @@ In the above code, asynchronous function named `handlePostRequest` is created, i
 - For the above function to work, we need to inform the `signup` route to delegate the responsibility of handling POST request to this function so a new line `router.post(/'signup', signupController.handleRegisterRequest)` is injected into `signup.js` route.
   
 ![localdatabase-empty](images\\docs\\localdatabase-empty.jpg)<br>
-*figure-21*
+*figure-26*
 
 #### Registering user from the signup page 4.4.4
 
 - The app is running on port 3000, and first user signs up to the site, when submit button is pressed, the data is entered successfully into local database name `vrusers`. MonogoDB is a non relational database that records what is called `documents` in `collections`. Here first document is created, it is shown below.
 
 ![data-added-01](images\\docs\\data-added-01.jpg)<br>
-*figure-21*
+*figure-27*
 
 > Note: The application uses `console.log()` extensively to make sure that when code is executed, it keeps the programmers well informs of the activities. The code shown above in `signupController.js` also uses `console.log()` function to log the data on console, it is shown below.
 
@@ -1698,36 +1708,32 @@ module.exports = router;
 
 #### Registering the user on online data base
 
-- The connection string in `.evn` file is changed to point to the online database name `vruser` and a new user is added. By using `console.log()`, it is printed to console to make sure that local machine register the environment variable. The log below shows it is successfully loaded into the machine environment. The message `connected to online Mongo database is shown`.
+- The connection string in `.evn` file is changed to point to the online database name `vruser` and a new user is added. By using `console.log()`, it is printed to console to make sure that local machine register the environment variable. The log below, third line shows it is successfully loaded into the machine environment. The message `connected to online Mongo database is shown`.
 
 
 ```txt
 LOCALAPPDATA: 'C:\\Users\\books\\AppData\\Local',
-  LOGONSERVER: '\\\\SAS-DESKTOP',
-  MONGODB_URI: 'mongodb+srv://sulli:21March@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0',
-  NODE: 'C:\\Program Files\\nodejs\\node.exe',
-  NODE_EXE: 'C:\\Program Files\\nodejs\\\\node.exe',
-  NPM_CLI_JS: 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
-  npm_command: 'run-script',
-  XML_CATALOG_FILES: 'file:///W:/miniconda3/etc/xml/catalog',
-  _CONDA_EXE: 'W:\\miniconda3\\Scripts\\conda.exe',
-  _CONDA_ROOT: 'W:\\miniconda3'
+LOGONSERVER: '\\\\SAS-DESKTOP',
+MONGODB_URI: 'mongodb+srv://sulli:21March@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0',
+NODE: 'C:\\Program Files\\nodejs\\node.exe',
+NODE_EXE: 'C:\\Program Files\\nodejs\\\\node.exe',
+NPM_CLI_JS: 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+npm_command: 'run-script',
+XML_CATALOG_FILES: 'file:///W:/miniconda3/etc/xml/catalog',
+_CONDA_EXE: 'W:\\miniconda3\\Scripts\\conda.exe',
+_CONDA_ROOT: 'W:\\miniconda3'
 
 Connected to  online MongoDB database!
 ```
 
-- Following figure shows the newly added data to online database. This time in name field `Sulaiman` is entered. The project name online is also changed to `VERBAl-REASONING` separately.
+- Following figure shows the newly added data to online database. This time in name field `Sulaiman` is entered. The project name online is also changed to `VERBAL-REASONING` separately.
 
 ![online-data-added-02.jpg](images\\docs\\online-data-added-02.jpg);
+*figure-28*
 
 Upon successful registration it is redirected to login page where the same credentials were entered and it takes us to dashboard page.
 
 > Note: In this phase both local and online database were shown to be connected by using different environment string saved in `.env` file. The user were registered locally and online and the dashboard page is successfully rendered.
-
-
-
-
-
 
 ---
 
@@ -1742,23 +1748,138 @@ stateDiagram
     Dashboard --> Test
 ```
 
-
 - When user successfully logged in, it is redirected to `Dashboard` page. This page will take him to either to practice the test or or to take a test.
   
 ![playground-01.jpg](images\\docs\\playground-01.jpg)<br>
+*figure-29*
 
 - The above diagram shows different phases of the practice page which is labelled as `Playground`.
 - It consist of UI design consisting of `header` as in other previous pages and a footer. There is a dropdown menu present in the header which shwos the list of topic available to practice. Just below the header a messge is shown with some instructions about the lesson being displayed.
--  When a topic is choosen by the user , it adds four buttons to display the lessons, and when lesson is pressed accordion is used to display different questions which are scrollable and presents the choice to the user.
+-  When a topic is chosen by the user , it adds four buttons to display the lessons, and when lesson is pressed accordion is used to display different questions which are scrollable and presents the choice to the user.
 -  At the bottom there is an answer button which tells if the user has bee successful or not.
--  
+
 
 
 ## Implementing Designing Part-C: Making the Web App a PWA
 
 To make a web application a [progressive web app](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps), following steps are taken.
-  
-1. A `manifest.json` file is added at the root of the websites, in express the webpages are served from the public folder. To inform the application that a `manifest.json` file is to be used in app. This is known as attaching manifest to PWA. its entry is made in the head section.The following snippets shows the snippet.
+
+1. Providing the code that register the service worker file.
+2. Creating the service worker file named `sw.js`.
+3. Writing the contents of the service worker file, so that it knows what to be done.
+4. Creating a `manifest.json` file for a service worker to understand the assets of the application.
+5. Informing the header of the home page about the `manifest.json` file so that it knows that this app is to be used as PWA.
+
+### Writing the logic to attach the application with the service worker
+
+
+A new file `register-service-worker.js` is created under the `public/javascripts` directory. The contents are shown below.
+
+```js
+// register-service-worker.js
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => {
+                console.log('Service worker registered:', reg);
+            })
+            .catch(err => {
+                console.error('Service worker registration failed:', err);
+            });
+    });
+}
+```
+
+The above code register the running application using an arrow [`=>`](#appendix-c) function expression with a service worker file `sw.js`. It is not yet present and can be noticed. When the application or express framework is started from the terminal the activities are shown there, the application  now tries to find this file  `sw.js` file in the root of the website since it is not present, express frame work rightly displays the `404` message as shown in the following figure.
+
+![sw-01jpg](images\\docs\\sw-01.jpg)<br>
+*figure-30*
+
+
+A new file name `sw.js` is created under `public` directory. This file sits in the middle and by sitting here, in between the server and client side it comes between them and handles request going to network and decides what can be served from the cache instead of going to server.
+
+### Creating a service worker : Service worker vs client/server architecture
+
+So far in this  application the request and response between the client and server was happening directly. From now on this file takes the responsibility to serve the pages so that it can take help form cache mechanisms. In this file, instructions are written about what pages are to be cached, and what service to be provided and how to provide them. As it is said earlier that in order to use the cache mechanisms, the code is to be written in `sw.js` file. But recently [Google](https://developer.chrome.com/docs/workbox/))  has provided a service called `workbox-sw.js` which can be used in conjunction with the local service worker easing the burden to write all the logic.  Following graph shows this scenario.
+
+```mermaid
+graph TD;
+    subgraph Browser
+        A(Client Application) -- Register --> B[Local Service Worker]
+        B[Local Service Worker] -- Register --> C[Google workbox]
+    end
+
+    subgraph Service Worker
+        B -- Fetch & Cache Assets --> C[Google Workbox]
+        C -- Serve Cached Assets --> A
+        A -- Intercept Requests --> B
+        B -- Proxy Requests --> C
+        B -- No Cache Found --> D[Server]
+    end
+
+    subgraph Server
+        D -- Serve Data --> A
+    end
+```
+
+Following are the contents of `sw.js` in the beginning
+
+```js
+// sw.js
+
+importScripts(
+    'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
+  );
+  // Precache manifest
+const precacheManifest = [
+    //  icon paths to be cached
+    '/icon/icon-192x192.png',
+    '/icon/icon-512x512.png',
+  ]; 
+  // Set up Workbox to precache assets
+  workbox.precaching.precacheAndRoute(precacheManifest);
+  // Cache icon requests
+  workbox.routing.registerRoute(
+    ({ request }) => request.destination === 'image' &&
+      request.url.includes('/icon/'),
+    new workbox.strategies.CacheFirst()
+  );
+
+// other routes to be used by the service worker.
+  workbox.routing.registerRoute(
+    ({ request }) => request.destination === 'script' || request.destination === 'style',
+    new workbox.strategies.StaleWhileRevalidate()
+  );
+  workbox.routing.registerRoute(
+    ({ request }) => request.mode === 'navigate',
+    new workbox.strategies.NetworkFirst()
+  );
+  workbox.routing.registerRoute(
+    ({ url }) => url.pathname === '/',
+    new workbox.strategies.CacheFirst()
+);
+workbox.routing.registerRoute(
+    ({ url }) => url.pathname.startsWith('/login'),
+    new workbox.strategies.StaleWhileRevalidate()
+);
+workbox.routing.registerRoute(
+    ({ url }) => url.pathname.startsWith('/signup'),
+    new workbox.strategies.CacheFirst()
+);
+```
+There are three mains job done above after importing the `Workbox` from `workbox-dcn`
+
+1. First create an array of precaching assets, where icons to be cached are defined, then get the `workbox` service to use it.
+2. Tell `Workbox` about all the routes used in the application. They are one by one declared above.
+3. `Workbox` is informed what caching mechanisms to use. There are many ways a `Workbox` service can provide caching mechanisms. The above uses `CacheFirst(), NetworkFirst(), StaleWhileRevalidate()`. They do the job as they say by the name of their functions. Having inject the service worker, express frame work notification changes from `404` to `200` indicating the success in finding the file in root of the application.
+
+Though the details of the assests to be cached are provided in the service worker yet this informatin is noth enough. Service worker needs to know where are these assest present in the local folder, along with other deatils required by the PWA. All these information are kept in a file named `manifest.json`.
+
+
+### Creating and attaching manifest file
+
+A `manifest.json` file is added at the root of the client site which is `public` directory to inform the application that a `manifest.json` file is to be used in this  application. This is known as `attaching manifest to PWA`. To do so its entry is made in the head section of the home page .The following snippets shows its contents.
 
 ```html
 // layout/head.ejs 
@@ -1822,79 +1943,39 @@ The  contents fo manifest.json are  shown below.
     "orientation": "portrait"
 }
 ```
-- It takes the application long and short name along with other details of icons which are needed for hand-held devices and some other details including the entry point of the application and suitable background and foreground color information.
 
-2. A service worker is required for the application to make it work with cache and in offline mode and it makes the web app installable as well. A service worker is javascript file that keeps the instruction of making the above requirements available.
-3. It is named as `sw.js` or `service-worker.js` and kept in the root directory of the web page. It runs separately in the background.
-4. There are two ways to add or inject the information that it needs either enter all the details in javascript code to work or use Google provided tool called [Workbox](https://developer.chrome.com/docs/workbox/)) which is recommended.
-
-4. When we run the app, and the contents are shown on localhost, it often tried to use the cache and tries to find out the `sw.js` file in the root of the website since it is not present, express frame work rightly displays the `404` message as shown in the following figure.
-
-![sw.jpg](images\\docs\\sw.jpg)<br>
-
-5. A new file `sw.js` is created and kept in the root directory. Initially it is empty since we use Google work-box to handle all the internal details, it still require to have information about the files names, and staic asstests to be chached and the strategies to be used for caching.
-6. Following is the content of the `sw.js` file.
-
-```js
-// sw.js
-
-importScripts(
-    'https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js'
-  );
-  // Precache manifest
-const precacheManifest = [
-    //  icon paths to be cached
-    '/icon/icon-192x192.png',
-    '/icon/icon-512x512.png',
-  ]; 
-  // Set up Workbox to precache assets
-  workbox.precaching.precacheAndRoute(precacheManifest);
-  // Cache icon requests
-  workbox.routing.registerRoute(
-    ({ request }) => request.destination === 'image' &&
-      request.url.includes('/icon/'),
-    new workbox.strategies.CacheFirst()
-  );
-
-  workbox.routing.registerRoute(
-    ({ request }) => request.destination === 'script' || request.destination === 'style',
-    new workbox.strategies.StaleWhileRevalidate()
-  );
-  workbox.routing.registerRoute(
-    ({ request }) => request.mode === 'navigate',
-    new workbox.strategies.NetworkFirst()
-  );
-  workbox.routing.registerRoute(
-    ({ url }) => url.pathname === '/',
-    new workbox.strategies.CacheFirst()
-);
-workbox.routing.registerRoute(
-    ({ url }) => url.pathname.startsWith('/login'),
-    new workbox.strategies.StaleWhileRevalidate()
-);
-workbox.routing.registerRoute(
-    ({ url }) => url.pathname.startsWith('/signup'),
-    new workbox.strategies.CacheFirst()
-);
-```
-
-There are three mains job done above.
-
-1. First create an array of precaching assets, where icons to be cached are defined, then get the `workbox` service to use it.
-2. Tell `Workbox` about all the routes used in the application. They are one by one declared above.
-3. `Workbox` is informed what caching mechanisms to use. There are many ways a `Workbox` service can provide caching mechanisms. The above uses `CacheFirst(), NetworkFirst(), StaleWhileRevalidate()`. They do the job as they say by the name of their functions. Having inject the service worker, express frame work notification changes from `404` to `200` indicating the success in finding the file in root of the application.
-4. To make the the application pass WPA criteria, SEO (search engine optimisation ) information are added in the `head` section of the home page, along with some other detials.
+Starting from the `manifest.json`, it takes the application long and short name along with other details of icons which are needed for wide and small hand-held devices. Some other details including the entry point of the application and suitable background and foreground color information are provided. The service worker `sw.js` reads these instructions for the application to make it work with cache and in offline mode and it makes the PWA  installable as well. To make the the application pass WPA criteria, SEO (search engine optimisation ) information are added in the `head` section of the home page, along with some other detials.
 
 ```html
 <!-- For SEO -->
   <meta name="author" content="Sulaiman Ahmed Sayyed">
-  <meta name="description" content="11+ app for verbal reasoining to help students prepare for this exam">
+  <meta name="description" content="11+ app for verbal reasoning to help students prepare for this exam">
 ```
 
+> Note: The contents of the `sw.js` and `manifest.json` are much longer than the code snippets shown above. They can be seen in online repository.
+
+### Watching Chrome behaviour after registering the service worker
+
+- When application is started in a browser using developer mode, number of things can be observed. Following shows the message along with `workbox` service responding to different requests.
+
+![sw-02.jpg](images\\docs\\sw-02.jpg)<br>
+*figure-32*
+
+[//]: # ( Complete your work here ! )
+
+
+#### Passing Google service requirements for PWA
+
+1. When the application is tested in `incognito mode`
   
 
 
 
+
+<!-- // Set the right context in the meassage bar
+  const placeHoder = document.getElementById('topicid');
+  const description = topic.description;
+  placeHoder.textContent = description; -->
 
 
 
@@ -2024,3 +2105,11 @@ lol = log --oneline
 logg = log --graph --decorate --oneline --all
 ```
 
+## Appendix-C
+
+1. **Arrow function expression**: is a short form of conventional function expression used in javascript.
+
+  ```js
+
+  ```
+2. **Asynchronous function**: It is a part of `promised` based APIs, it works in conjuntion with `await` returning a new proimse. As the name suggest this function is designed to be used in places where a thread is not to be blocked because some job has not been finished, so the code inside the function can wait.

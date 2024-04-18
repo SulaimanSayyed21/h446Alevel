@@ -3,7 +3,7 @@
         {
             "id": "_1",
             "title": "Opposites",
-            "description": "choose  the most opposites in meaning",
+            "description": "Choose  the most opposites words in meaning",
             "lessons": [
                 {
                     "lesson_number": 1,
@@ -590,7 +590,7 @@
         {
             "id": "_2",
             "title": "Similar-to",
-            "description": "choose the most similar in meaning",
+            "description": "Choose the most similar words in meaning",
             "lessons": [
                 {
                     "lesson_number": 1,
@@ -1177,12 +1177,14 @@
         {
             "id": "_3",
             "title": "Group-pposites",
-            "description": "Choosing Opposites from groups"
+            "description": "Choosing Opposites from groups",
+            "lessons": []
         },
         {
             "id": "_4",
             "title": "Group-imilar-to",
-            "description": "Choosing Similar to from groups"
+            "description": "Choosing Similar to from groups",
+            "lessons": []
         },
         {
             "id": "_5",

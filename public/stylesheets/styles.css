@@ -4,38 +4,63 @@ body {
   padding: 0;
 }
 
+/* Default header styles */
 header {
   background-color: #b4b4e5;
   color: #171717;
-  padding: 0px;
+  font-size: 1rem; 
+  padding: 0px 0;
   text-align: center;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Distribute items horizontally */
-  height:50px;
-  position: relative;
- 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%;
+  bottom: 0;
+  height:60px;
+  position:relative;
 }
+
+/* Default styles for the header */
+header {
+  font-size: 1rem; /* Default font size */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  header {
+    font-size: 0.9rem; /* Decrease font size for smaller screens */
+  }
+}
+
+/* Additional media query for even smaller screens */
+@media screen and (max-width: 576px) {
+  header {
+    font-size: 0.8rem; /* Further decrease font size for very small screens */
+  }
+}
+
+
 
 footer {
   background-color: #b4b4e5;
   color: #171717;
   padding: 0px;
   text-align: center;
-  display: flex; /* Use flexbox */
-  align-items: center; /* Vertically center items */
-  justify-content: space-between; /* Distribute items horizontally */ 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
   width: 100%;
   position: fixed;
   bottom: 0;
   height:70px;
-}
+} 
 
 .anchor{
   font-size: 18px;
   background-color: #b4b4e5;
   color: #171717;
-  padding: 0px 10px 0px 10px; /* top, right, bottom, left */
+  margin: 0 auto;
+  padding: 0px 2px 0px 2px; /* top, right, bottom, left */
 }
 
 
@@ -68,16 +93,6 @@ footer {
   
 }
 
-/*************************************/
-/* For navbar changing background color */
-
-/*bg-custom {
-  /* background-color: #19194f;
-  color: #983c3c; To keep text centered */
-
- .navbar { 
-  margin: 0 auto; /
- }
 
 
  /***********************************/
@@ -113,4 +128,30 @@ footer {
 
 .dropdown-menu a:hover {
   background-color: #f1f1f1; /* Set your desired hover background color */
+}
+
+/*************************************/
+/* practice.ejs                      */
+
+/* Default styles for the label */
+
+
+
+/* Default styles for the label */
+.accordion-topic label {
+  font-size: 1rem; /* Default font size */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .accordion-topic label {
+    font-size: 0.9rem; /* Decrease font size for smaller screens */
+  }
+}
+
+/* Additional media query for even smaller screens */
+@media screen and (max-width: 576px) {
+  .accordion-topic label {
+    font-size: 0.8rem; /* Further decrease font size for very small screens */
+  }
 }
