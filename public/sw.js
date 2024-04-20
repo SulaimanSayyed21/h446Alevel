@@ -5,13 +5,14 @@ importScripts(
   // Precache manifest
 const precacheManifest = [
     //  icon paths to be cached
-    './',
-    './login',
-    './signup',
-    '/practice',
+    //'./',
+    // './login',
+    // './signup',
+    // '/practice',
+    // '/test',
     '/stylesheets/styles.css',
-    '/javascripts/topics.js',
-    '/javascripts/practice.js',
+    // '/javascripts/topicScript.js',
+    // '/javascripts/practiceScript.js',
     '/favicon.ico',
     '/icons/icon-192x192.png',
     '/icons/icon-512x512.png',

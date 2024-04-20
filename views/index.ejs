@@ -1,14 +1,36 @@
 <%- include('layout/head.ejs'); %>
   <%- include('layout/loginheader.ejs'); %>
     <main>
-      
-      <div class="col-auto">
-        <a href="/dashboard" class="anchor">Dashboard</a>
-      </div>
+      <section class="content-section" id="portfolio">
+        <div class="container px-4 px-lg-5">
+          <div class="content-section-heading text-center">
+            <h3 class="text-secondary mb-0"> 11-Plus</h3>
+            <h2 class="mb-5">Question and Answers</h2>
+          </div>
+          <div class="row gx-0">
+            <div class="col-lg-6">
+              <a class="portfolio-item" href="#!"></a>
+
+              <img class="img-fluid" src="/images/portfolio-4.jpg" alt="..." />
+              <div class="caption">
+                <div class="caption-content"><br><br>
+                  <div class="h2">Login or Go to Dashboard! </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="masthead d-flex align-items-center">
+          <div class="container px-4 px-lg-5 text-center">
+               <a class="btn btn-primary btn-xl" href="/dashboard">Dashboard</a>
+          </div>
+        </div>
+      </section>
     </main>
+    <!-- Call to Action-->
     <%- include('layout/footer.ejs'); %>
       <script src="bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>
-      <script src="javascripts/register-service-worker.js"></script>
+      <!-- <script src="javascripts/register-service-worker.js"></script> -->
       </body>
 
       </html>

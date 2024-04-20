@@ -14,7 +14,7 @@ connectMongoDb = function () {
         }
         mongoose.set('strictQuery', false);
         const connect = mongoose.connect(uri);
-        console.log(`Connected to  online MongoDB database!`);
+        console.log(`Connected to  local MongoDB database!`);
     } catch (error) {
         console.error("Mongo Error:", error);
     }

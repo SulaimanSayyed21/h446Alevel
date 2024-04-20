@@ -14,6 +14,7 @@ var dashboardRouter = require('./routes/dashboard');
 var practiceRouter = require('./routes/practice');
 var testRouter = require('./routes/test');
 
+
 var app = express();
 
 // view engine setup
@@ -33,6 +34,7 @@ app.use('/', signupRouter);
 app.use('/', dashboardRouter);
 app.use('/', practiceRouter);
 app.use('/', testRouter);
+
 app.use('/users', usersRouter);
 
 // Start the mongoose server

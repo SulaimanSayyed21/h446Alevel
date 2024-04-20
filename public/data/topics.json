@@ -1189,32 +1189,38 @@
         {
             "id": "_5",
             "title": "Pair-imilar",
-            "description": "Underline the pair of words most similar in meaning"
+            "description": "Underline the pair of words most similar in meaning",
+            "lessons": []
         },
         {
             "id": "_6",
             "title": "Rhyme-opposites",
-            "description": "Rhyming with Opposite Words"
+            "description": "Rhyming with Opposite Words",
+            "lessons": []
         },
         {
             "id": "_7",
             "title": "Rhyme-similar",
-            "description": "Rhyming with dimilar words"
+            "description": "Rhyming with dimilar words",
+            "lessons": []
         },
         {
             "id": "_8",
             "title": "Heading-similar",
-            "description": "Write similar words under the heading"
+            "description": "Write similar words under the heading",
+            "lessons": []
         },
         {
             "id": "_9",
             "title": "Not_present",
-            "description": "empty"
+            "description": "empty",
+            "lessons": []
         },
         {
             "id": "_10",
             "title": "Not_present",
-            "description": "empty"
+            "description": "empty",
+            "lessons": []
         }
     ]
 }
