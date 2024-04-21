@@ -11,6 +11,13 @@ router.get('/test', function (req, res, next) {
   res.render('test', { Title: 'Test page' });
 });
 
+// POST method handling
+router.post('/test', function(req,res,next){
+  const testData = req.body;
+  res.status(200).json({ message: 'Test submitted successfully'});
+  console.log('testData received from the client :' + Object.toString(testData));
+});
+
 module.exports = router;
 // let questions = [];
 // 

@@ -1,8 +1,11 @@
 node_modules
 temp
 pdf-output
-
-.env
 images
+
+
+# files to exclude
+.env
+notes.md
 
 

@@ -52,12 +52,9 @@
                                         <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option5">
                                             <label for="q-<%= i %>-option5">words<!-- placeholder --></label>
                                         </li>
-                                        <li class="list-group-item"><input type="checkbox" id="q-<%= i %>-option6">
-                                            <label for="q-<%= i %>-option6">words<!-- placeholder --></label>
-                                        </li>
                                         <!-- Add more options as needed -->
                                     </ul>
-                                    <button id="answer-q-<%= i %>-btn" class="btn btn-primary mt-3 answer-btn"
+                                    <button id="answer-q-<%= i %>-btn" class="btn btn-outline-secondary mt-3 answer-btn"
                                         onclick="checkAnswer('q-<%= i %>')">Answer</button>
                                 </div>
                             </div>
@@ -69,9 +66,9 @@
             <br><br>
             <hr>
             <!-- Timer display -->
-            <div class="mb-4">
+            <!-- <div class="mb-4">
                 <p>Time remaining: <span id="timer">300</span> seconds</p>
-            </div>
+            </div> -->
 
 
             </main>
@@ -82,30 +79,9 @@
             </footer>
             <!-- Link to JavaScript file -->
             <script src="../bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-            <script src="../javascripts/recordtestScript.js" type="text/javascript"></script>
-            <script src="../javascripts/testScript.js" type="text/javascript"></script>
             <script src="../javascripts/topicScript.js" type="text/javascript"></script>
-
-            <!-- <script>
-                let timeRemaining = 300; // 5 minutes in seconds
-
-                function updateTimer() {
-                    const timerElement = document.getElementById('timer');
-                    timerElement.textContent = timeRemaining;
-                    if (timeRemaining > 0) {
-                        timeRemaining--;
-                        setTimeout(updateTimer, 1000);
-                    } else {
-                        // Disable form elements when time is up
-                        document.querySelectorAll('input[type="checkbox"]').forEach(input => {
-                            input.disabled = true;
-                        });
-                    }
-                }
-
-                updateTimer();
-            </script>
-            <script src="bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script> -->
+            <script src="../javascripts/testScript.js" type="text/javascript"></script>
+            <script src="../javascripts/recordtestScript.js" type="text/javascript"></script>
         </body>
 
         </html>

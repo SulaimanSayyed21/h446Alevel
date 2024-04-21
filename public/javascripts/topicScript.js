@@ -17,7 +17,7 @@ function createButton(text, onClick, id) {
   return button;
 }
 
-// Function to handle button click events
+// Function to handle for lessons' button click events
 function handleButtonClick(topic, title, lessonNumber) {
   console.log("Topic: " + topic.title + " Lesson number: " + lessonNumber);
   populateQuestions(topic, title, lessonNumber);
@@ -52,6 +52,7 @@ function createGenerateQuestionButton(topic, title) {
   const generateQuestionsButton = document.createElement('button');
   generateQuestionsButton.textContent = 'Generate Questions';
   generateQuestionsButton.id = 'generate-questions-btn'; // Add an id to the button
+  //It is handled in testScript
   generateQuestionsButton.addEventListener('click', () => handleGenerateQuestions(topic, title));
   const buttonContainer = document.querySelector('.d-flex');
   buttonContainer.appendChild(generateQuestionsButton);

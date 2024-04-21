@@ -7,9 +7,11 @@ let correctAnswer = [];
 let selectedLabels = [];
 let userScore = {};
 const timeStamp = {};
-const questionRecords = [];
+const testData = [];
 // Keep track of answered questions
-const answeredQuestions = new Set();
+const answeredQuestions = new Set(); // needed so same anwer can not be added twice
+let timerInterval; // Reference to timer
+let date;  // 
 
 /* Function to see if options selected by the user with 
 * question id are correct or not */
@@ -29,7 +31,7 @@ function checkWithSelectedLabels(selectedLabels, questionId) {
     const isCorrect = correctAnswers.some(item => {
         if (compareArrays(item.answer, selectedLabels)) {
             console.log('it is correct answer ! ');
-        } {
+        } else {
             console.log('it is not a correct answer !');
         }
         //item.includes(selectedLabels);
@@ -43,24 +45,6 @@ function checkWithSelectedLabels(selectedLabels, questionId) {
 
     return isCorrect;
 }
-// // Get the array of correct answers for the original question ID from the questions map
-// const correctAnswers = questionsMap[originalQuestionId];
-
-// console.log(correctAnswers); // does not print ? because it is an object contianing two arrays
-// console.log (selectedLabels);
-// console.log('correct Answer includes the selected labels :' + correctAnswers.includes(selectedLabels));
-
-// correctAnswers.forEach(items => {
-//     console.log(items.answer); 
-// });
-//  //isCorrect = correctAnswers.every(correctAnswer => selectedLabels.includes(correctAnswer));
-//  isCorrect = correctAnswers.some(correctAnswer => correctAnswer.words.some(word => selectedLabels.includes(word)));
-// console.log(isCorrect);
-// // Push the result (true/false) to the results array
-// results.push(isCorrect);
-// });
-
-
 
 // Function to handle the click event of the "Answer" button
 function checkAnswer(questionId) {
@@ -85,7 +69,11 @@ function getSelectedLabels() {
     });
 }
 
-// Function to handle a correct answer
+function handleIncorrectAnswer(questionId){
+    // will be implemented later on 
+    console.log('doing nothing!');
+}
+
 // Function to handle a correct answer
 function handleCorrectAnswer(questionId) {
     console.log('Handling correct answer for question', questionId);
@@ -97,28 +85,19 @@ function handleCorrectAnswer(questionId) {
     // Increment the user's score for this question
     userScore[questionId]++;
     // Record the attempt
-    questionRecords[questionId] = {
+    testData[questionId] = {
         isCorrect: true, // Assuming it's correct
+        score: userScore,
         username: '', // Replace with actual username
         points: '', // Replace with actual points
     };
 }
 
-
-// Function to handle an incorrect answer
-function handleIncorrectAnswer(answerButton) {
-    console.log('handling with incorrect answer');
-
-    // send the message to close the accordion
-    // playFailureSound();
-    // resetLabelsAndAnswers();
-}
-
 // Function to reset labels and answers
-function resetLabelsAndAnswers() {
-    selectedLabels = [];
-    correctAnswer = [];
-}
+// function resetLabelsAndAnswers() {
+//     selectedLabels = [];
+//     correctAnswer = [];
+// }
 
 // Function to compare two arrays
 function compareArrays(arr1, arr2) {
@@ -186,69 +165,16 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     checkbox.addEventListener('change', handleCheckboxChange);
 });
 
-// Get all answer buttons
-// document.querySelectorAll('.answer-btn').forEach((button) => {
-//     button.addEventListener('click', () => {
-//         console.log('answer button is pressed-----------!');
-//         // Find the parent accordion item
-//         const accordionItem = button.closest('.accordion-item');
 
-//         // Check if the accordion item is already collapsed
-//         if (accordionItem.classList.contains('show')) {
-//             // Collapse the accordion item
-//             // const collapse = new bootstrap.Collapse(accordionItem);
-//             // collapse.hide();
-//             // Close other accordion items
-//             const expandedItemId = accordionItem.querySelector('.accordion-collapse').getAttribute('id');
-//             closeOtherAccordionItems(expandedItemId);
-//         }
-//     });
-// });
-
-//Use event delegation to attach the event listener to a parent element
-// document.addEventListener('click', function(event) {
-//     // Check if the clicked element is an answer button
-//     if (event.target.classList.contains('answer-btn')) {
-//         console.log('answer button is pressed!');
-//         // Find the parent accordion item
-//         const accordionItem = event.target.closest('.accordion-item');
-
-//         // Check if the accordion item is already collapsed
-//         if (!accordionItem.classList.contains('collapsed')) {
-//             // Collapse the accordion item
-//             const collapse = new bootstrap.Collapse(accordionItem);
-//             collapse.hide();
-//         }
-//     }
-// });
-
-// Add event listener to the parent container of answer buttons (replace 'parentContainer' with the actual parent container)
-// const parentContainer = document.querySelector('.parent-container');
-// parentContainer.addEventListener('click', (event) => {
-//     const button = event.target.closest('.answer-btn');
-//     if (button) {
-//         console.log('Answer button is pressed!');
-//         // Find the parent accordion item
-//         const accordionItem = button.closest('.accordion-item');
-
-//         // Check if the accordion item is already expanded
-//         if (accordionItem.classList.contains('show')) {
-//             // Close other accordion items
-//             const expandedItemId = accordionItem.querySelector('.accordion-collapse').getAttribute('id');
-//             closeOtherAccordionItems(expandedItemId);
-//         }
-//     }
-// });
-
-
+// Select the button by its id
 startTestButton = document.getElementById('start-test-btn');
 
-//const startTestButton = document.getElementById('start-test-btn'); // Select the button by its id
+// Get the handle to submit button
 const submitTestButton = document.getElementById('submit-test-btn');
 // Add event listeners to buttons
 submitTestButton.addEventListener('click', handleSubmitTestButtonClick);
 
-
+// Get the reference to timer element
 const timerElement = document.getElementById('timer');
 //let timeRemaining = 300; // 5 minutes in seconds
 
@@ -257,7 +183,7 @@ const timerElement = document.getElementById('timer');
 function updateTimer() {
     let timeRemaining = 300; // 5 minutes in seconds
     const timerElement = document.getElementById('timer');
-    const timerInterval = setInterval(() => {
+    timerInterval = setInterval(() => {
         if (timeRemaining > 0) {
             timerElement.textContent = timeRemaining;
             timeRemaining--;
@@ -266,14 +192,42 @@ function updateTimer() {
             submitTest();
         }
     }, 1000);
-    //clear all questions.
+}
+
+function handleSubmitTestButtonClick() {
+    // Stop the timer by clearing the interval
+    clearInterval(timerInterval);
+
+    // Implement your logic for submitting the test
+    console.log('Submitting the test...');
+
+    // Disable the submit button to prevent multiple clicks
+    const submitTestButton = document.getElementById('submit-test-btn');
+    submitTestButton.disabled = true;
+
+    // Submit the test data to the server or perform any other required action
+    submitTest(testData);
+
+    // Optionally, display a confirmation message to the user
+    console.log('Test submitted successfully.');
+}
+
+// Function to enable all buttions in accordion
+function enableAnswerButton() {
+    const answerButtons = document.querySelectorAll('[id^="answer-q"]');
+
+    // Loop through each button and enable them all
+    answerButtons.forEach(button => {
+        button.disabled = false;
+    });
 }
 
 
 // Function to handle the click event of the "Start Test" button
 function handleStartTestButtonClick(topic, title) {
-    // Implement your logic for starting the test
-    const startTime = new Date();
+    // Firest enable all the button in accordion 
+    enableAnswerButton();
+    date = new Date();
 
     topics = topic;
     lessonName = title;
@@ -296,28 +250,49 @@ function handleStartTestButtonClick(topic, title) {
     //updateTimer(); // Start the timer
 }
 
-function handleGenerateQuestionClick() {
-
-}
-
-// Function to handle the click event of the "Submit Test" button
-function handleSubmitTestButtonClick() {
-    // Stop the timer
-    
-    submitTest(); // Submit the test data to the server
-}
-
 // Function to submit the test data to the server
 function submitTest() {
+    console.log('Submitting test data to server');
+    submitTestToServer(testData);
 
-    console.log('Submitting test data...');
+}
+
+function submitTestToServer(testData) {
+    // Define the URL to which you want to send the POST request
+    const url = '/test';
+
+    // Define the request options
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Specify the content type as JSON
+        },
+        body: JSON.stringify(testData) // Convert the test data object to JSON string
+    };
+
+    // Make the POST request using fetch
+    fetch(url, options)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            console.log('Test submitted successfully:', data);
+            // Optionally, perform any action after successful submission
+            // Reload the page
+           // window.location.reload();
+        })
+        .catch(error => {
+            console.error('Error submitting test:', error);
+            // Optionally, handle errors
+        });
+}
 
     // Implement your logic to collect the user's answers and submit them to the server
     // For example:
     // 1. Collect the user's answers from the checkboxes
     // 2. Prepare the test data to send to the server (e.g., an array of objects containing question IDs and selected answers)
     // 3. Send an HTTP POST request to the server endpoint (e.g., '/test') with the test data
-
-}
-
 

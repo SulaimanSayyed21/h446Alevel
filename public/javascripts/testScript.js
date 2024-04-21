@@ -96,7 +96,7 @@ function populateQuestions(randomQuestions) {
             checkbox.nextElementSibling.textContent = words[i]; // Set the label text
             console.log(words[i] + " populated:");
         }
-    });  
+    });
 }
 
 
@@ -110,12 +110,23 @@ function handleGenerateQuestions(topic, title) {
         questionsGenereated = true;
         const buttonTemp = document.getElementById('generate-questions-btn');
         buttonTemp.disabled = true;
+        disableAnswerButtons();
     } catch (error) {
         console.log('error in populating questions');
     }
 }
 
+//Functin to disable answer button in accordion.
+function disableAnswerButtons() {
+    // Select all buttons with ids starting with "answer-q"
+    const answerButtons = document.querySelectorAll('[id^="answer-q"]');
 
-handleGenerateQuestions(topic, title);
+    // Loop through each button and disable it
+    answerButtons.forEach(button => {
+        button.disabled = true;
+    });
+}
+
+//handleGenerateQuestions(topic, title);
 
 // End of file
