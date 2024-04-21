@@ -14,8 +14,10 @@ var dashboardRouter = require('./routes/dashboard');
 var practiceRouter = require('./routes/practice');
 var testRouter = require('./routes/test');
 
-
 var app = express();
+
+// Set the port number
+var port = process.env.PORT || 3000; // Use the environment variable PORT if available, otherwise use port 3000
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,7 +47,6 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
@@ -55,6 +56,11 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+
+// Listen on the specified port
+app.listen(port, function() {
+  console.log('Server listening on port ' + port);
 });
 
 module.exports = app;

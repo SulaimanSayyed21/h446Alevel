@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon --ext js,ejs,json,css ./bin/www",
-    "start": "node ./bin/www"
+    "start": "node app.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
