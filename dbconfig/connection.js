@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 
 // Load env variable from .env file
 require('dotenv').config();
-//console.log(process.env);
+console.log(process.env.MONGODB_URI);
 
 connectMongoDb = function () {
     try {
@@ -14,7 +14,7 @@ connectMongoDb = function () {
         }
         mongoose.set('strictQuery', false);
         const connect = mongoose.connect(uri);
-        console.log(`Connected to  local MongoDB database!`);
+        console.log(`Connected to  online MongoDB database!`);
     } catch (error) {
         console.error("Mongo Error:", error);
     }
