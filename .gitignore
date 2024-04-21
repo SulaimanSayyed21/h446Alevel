@@ -1,11 +1,17 @@
+# dircectories to be exculded
 node_modules
 temp
 pdf-output
 images
+.vscode
 
 
 # files to exclude
 .env
 notes.md
+package-lock.json
+h446Alevel.md
+markdownlint.json
+h446.code-workspace
 
 
