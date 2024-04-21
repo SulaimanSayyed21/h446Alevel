@@ -282,7 +282,7 @@ function submitTestToServer(testData) {
             console.log('Test submitted successfully:', data);
             // Optionally, perform any action after successful submission
             // Reload the page
-           // window.location.reload();
+            window.location.reload();
         })
         .catch(error => {
             console.error('Error submitting test:', error);
