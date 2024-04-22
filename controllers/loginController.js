@@ -1,5 +1,4 @@
 // Login Controller
-
 var bcrypt = require('bcrypt');
 var collection = require('../modal/user');
 
@@ -10,7 +9,6 @@ const handleLoginRequest = async (req, res) => {
     if (!checkUser) {
       return res.redirect('/login?error=user_not_found');
     }
-
     const checkEmail = await collection.findOne({ email: req.body.useremail });
     if (!checkEmail) {
       return res.redirect('/login?error=email_not_found');
@@ -20,8 +18,6 @@ const handleLoginRequest = async (req, res) => {
       const isPasswordMatch = await bcrypt.compare(req.body.password, checkUser.password);
       if (isPasswordMatch) {
         return res.render('dashboard', { title: 'Dashboard' });
-       
-
       } else {
         return res.redirect('/login?error=wrong_password');
       }
@@ -34,7 +30,6 @@ const handleLoginRequest = async (req, res) => {
     return res.send('Error during login. Please try again.');
   }
 };
-
 module.exports = {
   handleLoginRequest
 };
