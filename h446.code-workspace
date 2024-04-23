@@ -5,7 +5,7 @@
 		}
 	],
 	"settings": {
-		"workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+		"workbench.colorTheme": "Default Light+",
 		"markdown-pdf.styles": [
 			"pdf-output\\markdown-pdf.css",
 		],

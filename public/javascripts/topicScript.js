@@ -9,6 +9,7 @@ function clearDropdownList() {
 // Function to create a button with specified text, click handler, and ID
 function createButton(text, onClick, id) {
   const button = document.createElement('button');
+  button.classList.add('btn', 'btn-outline-secondary', 'flex-fill');
   button.textContent = text;
   button.addEventListener('click', onClick);
   if (id) {
@@ -65,10 +66,8 @@ function createLessonButtons(topic, title) {
   // Set the topic description
   const descriptionElement = document.getElementById('topicid');
   descriptionElement.textContent = topic.description;
-
   const hasFourLessons = topic.lessons && topic.lessons.length === 4;
   const isTestPage = document.getElementById('testPage');
-
   if (hasFourLessons) {
     if (!isTestPage) {
       createLessonButtonsForFourLessons(topic, title);

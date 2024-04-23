@@ -1,11 +1,10 @@
-// Refactored practice.js
+//practiceScript.js
 
-// Constants
-let  topics = {};
-let lessonName;
-let lessonNumber;
-let correctAnswer = [];
-let selectedLabels = [];
+let  topics = {}; // to hold the reference to the data object
+let lessonName;  // to hold the lesson name being passed
+let lessonNumber; // to hold the lesson number
+let correctAnswer = []; // to hold answer given in data or file
+let selectedLabels = []; // to hold user selection
 
 // Function to populate questions in the accordion
 function populateQuestions(topic, title, clickedLesson) {
@@ -165,40 +164,4 @@ document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
     checkbox.addEventListener('change', handleCheckboxChange);
 });
 
-// // Function to handle the start test button click event
-// document.getElementById('start-test-btn').addEventListener('click', handleStartTestButtonClick);
-
-// // Function to handle the submit test button click event
-// document.getElementById('submit-test-btn').addEventListener('click', handleSubmitTestButtonClick);
-
-// // Function to handle the start test button click event
-// function handleStartTestButtonClick() {
-//     this.disabled = true;
-//     updateTimer();
-// }
-
-// // Function to update the timer
-// function updateTimer() {
-//     let timeRemaining = 300; // 5 minutes in seconds
-//     const timerElement = document.getElementById('timer');
-//     const timerInterval = setInterval(() => {
-//         if (timeRemaining > 0) {
-//             timerElement.textContent = timeRemaining;
-//             timeRemaining--;
-//         } else {
-//             clearInterval(timerInterval);
-//             submitTest();
-//         }
-//     }, 1000);
-// }
-
-// // Function to handle the submit test button click event
-// function handleSubmitTestButtonClick() {
-//     submitTest();
-// }
-
-// // Function to submit the test data to the server
-// function submitTest() {
-//     // Implement your logic to collect the user's answers and submit them to the server
-//     console.log('Submitting test data...');
-// }
+// End of file.
