@@ -2198,7 +2198,7 @@ function handleGenerateQuestions(topic, title) {
 }
 ```
 
-2. This question in turns call `generateRandomQuestions` shown below.
+2. This function in turns call `generateRandomQuestions` shown below.
 
 ```js
 // Define a function to generate questions for a given topic ID
@@ -2257,6 +2257,25 @@ try { var lessons = [];
 }
 ```
 
+It is this function which does number of jobs, the pseudocode is shown below.
+
+```txt 
+Activity: Generating Random Questions
+
+1. User triggers random question generation.
+2. Call shuffleArray(lessons) to shuffle the lessons array.
+3. Initialize selectedQuestions array.
+4. Loop over shuffled lessons:
+   a. Call shuffleArray(lesson.questions) to shuffle the questions array.
+   b. Select the first 10 unique questions.
+   c. Check if each question is unique.
+   d. If unique, push the question to the selectedQuestions array.
+5. Ensure there are only 20 unique questions.
+6. Push the unique questions to the questionsMap.
+7. Return the shuffledUniqueQuestions array.
+
+```
+
 Using developer mode and logging output following figures are acquired to show what hapens during questions being generated.
 
 ![test-01.jpg](images\\docs\\test-01.jpg)<br>
@@ -2265,8 +2284,7 @@ The above shows that the lessons are present in memory as it is, when they were 
 
 ![test-02.jpg](images\\docs\\test-02.jpg)<br>
 
-The above shows that lessons have been shuffled. Next each lesson is taken and its questions are shuffled. Following figure shows the state before being shuffled and after shuffling.
-
+Next each lesson is taken and its questions are shuffled. 
 
 ##### Shuffling Questions present in each lesson 4.5.2.2
 
@@ -2274,10 +2292,9 @@ To hold the shuffled questions a local variable named `shuffledQuestions` is use
 
 ![test-04.jpg](images\\docs\\test-04.jpg)<br>
 
-Next these questions are to be stored in a new array, so a global varibale `slectedQuestions[]` is used to hold these questions, a pool of all fourty questions is created where all questions are shuffled completely as shown in the figure below. They no longer belong to any unique lesson but by being having a uniqe `Key:value` format the array would contain `id:q-1` at least four times so are other questions id being repreated four times.
+These questions are to be stored in a new array, so a global varibale `slectedQuestions[]` is used to hold these questions, a pool of all fourty questions is created where all questions are shuffled completely as shown in the figure below. They no longer belong to any unique lesson but by being having a uniqe `Key:value` format the array would contain `id:q-1` at least four times so are other questions id being repreated four times.
 
 ![test-05.jpg](images\\docs\\test-05.jpg)<br>
-
 
 ##### Selecting 20 unique question from the pool 4.5.2.3
 
@@ -2307,6 +2324,7 @@ The above concern comes when we have to find the correct answer as previously wh
 To populate the questions into accordion following function is used.
 
 ```js
+// testScript.js
 function populateQuestions(randomQuestions) {
     // Initialize an object to store the mapping between shuffled and original question IDs
     randomQuestions.forEach((question, index) => {
@@ -2338,7 +2356,7 @@ The above function runs a `forEach` loop and before inserting the values makes s
 ![test-09.jpg](images\\docs\\test-09.jpg)<br>
 
 
-
+All the questions have been populated into bootstrap accordion compoent.
 
 
 

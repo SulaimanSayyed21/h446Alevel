@@ -5,7 +5,7 @@ body {
 }
 
 /* Default header styles */
-header {
+/* header {
   background-color: #b4b4e5;
   color: #171717;
   font-size: 1rem; 
@@ -18,12 +18,24 @@ header {
   bottom: 0;
   height:60px;
   position:relative;
+} */
+
+header {
+  background-color: #b4b4e5;
+  color: #171717;
+  font-size: 1rem; 
+  padding: 0px 0;
+  text-align: center;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  width: 100%;
+  height: 50px; /* Adjust the height as needed */
+  position: fixed; /* Change position to fixed */
+  top: 0; /* Position the header at the top of the viewport */
+  z-index: 1000; /* Ensure header appears above other content */
 }
 
-/* Default styles for the header */
-header {
-  font-size: 1rem; /* Default font size */
-}
 
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
@@ -52,17 +64,30 @@ footer {
   width: 100%;
   position: fixed;
   bottom: 0;
-  height:70px;
+  height:50px;
 } 
 
-.anchor{
+.anchor {
+  display: inline-block;
   font-size: 18px;
   background-color: #b4b4e5;
   color: #171717;
-  margin: 0 auto;
-  padding: 0px 2px 0px 2px; /* top, right, bottom, left */
+  margin: 0 5px; /* Adjust margin as needed */
+  padding: 0px 10px 0px 0px; /* top, right, bottom, left */
 }
 
+.header-text {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: auto;
+}
+
+.message {
+  /* Adjust z-index to ensure it appears above the header */
+  z-index: 1;
+  /* Add padding or margin to create space below the header */
+  padding-top: 50px; /* Adjust as needed */
+}
 
 .form-border{
 
@@ -147,11 +172,17 @@ footer {
   .accordion-topic label {
     font-size: 0.9rem; /* Decrease font size for smaller screens */
   }
+  .lessons {
+    font-size: 0.9rem;
+  }
 }
 
 /* Additional media query for even smaller screens */
 @media screen and (max-width: 576px) {
   .accordion-topic label {
     font-size: 0.8rem; /* Further decrease font size for very small screens */
+  }
+  .lessons {
+    font-size: 0.8rem;
   }
 }

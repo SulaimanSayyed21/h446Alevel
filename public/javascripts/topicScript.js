@@ -8,8 +8,9 @@ function clearDropdownList() {
 
 // Function to create a button with specified text, click handler, and ID
 function createButton(text, onClick, id) {
-  const button = document.createElement('button');
-  button.classList.add('btn', 'btn-outline-secondary', 'flex-fill');
+  const button = document.createElement('a');
+  button.href = '#';
+  button.classList.add('btn', 'btn-outline-secondary', 'flex-fill', 'lessons');
   button.textContent = text;
   button.addEventListener('click', onClick);
   if (id) {
@@ -26,7 +27,9 @@ function handleButtonClick(topic, title, lessonNumber) {
 
 // Functin to create four lessons on practice page
 function createLessonButtonsForFourLessons(topic, title) {
-  const buttonContainer = document.querySelector('.d-flex');
+  const buttonGroup = document.createElement('div');
+  buttonGroup.classList.add('btn-group', 'd-flex');
+
   const lessons = topic.lessons;
 
   lessons.forEach((lesson) => {
@@ -34,30 +37,50 @@ function createLessonButtonsForFourLessons(topic, title) {
     const onClick = () => handleButtonClick(topic, title, lesson.lesson_number);
     const buttonId = `lesson-${lesson.lesson_number}-btn`;
     const button = createButton(buttonText, onClick, buttonId);
-    buttonContainer.appendChild(button);
+    buttonGroup.appendChild(button);
+    const buttonContainer = document.querySelector('.d-flex');
+    buttonContainer.appendChild(buttonGroup);
   });
 }
 
-// Function to create startTest button on test page
+// Function to create startTest button on test page using anchor tag
 function createStartTestButton(topic, title) {
-  const startTestButton = document.createElement('button');
+  const buttonGroup = document.createElement('div');
+  buttonGroup.classList.add('btn-group', 'd-flex');
+
+  const startTestButton = document.createElement('a');
+  startTestButton.href = '#';
   startTestButton.textContent = 'Start Test';
-  startTestButton.id = 'start-test-btn'; // Add an id to the button
+  startTestButton.id = 'start-test-btn'; // Add an id to the anchor
+  startTestButton.classList.add('btn', 'btn-outline-secondary', 'flex-fill' , 'lessons');
   startTestButton.addEventListener('click', () => handleStartTestButtonClick(topic, title));
+
+  buttonGroup.appendChild(startTestButton);
+
   const buttonContainer = document.querySelector('.d-flex');
-  buttonContainer.appendChild(startTestButton);
+  buttonContainer.appendChild(buttonGroup);
 }
 
-// Function to create genereate questions button
+// Function to create generate questions button using anchor tag
 function createGenerateQuestionButton(topic, title) {
-  const generateQuestionsButton = document.createElement('button');
+  const buttonGroup = document.createElement('div');
+  buttonGroup.classList.add('btn-group', 'd-flex');
+
+  const generateQuestionsButton = document.createElement('a');
+  generateQuestionsButton.href = '#';
   generateQuestionsButton.textContent = 'Generate Questions';
-  generateQuestionsButton.id = 'generate-questions-btn'; // Add an id to the button
-  //It is handled in testScript
+  generateQuestionsButton.id = 'generate-questions-btn'; // Add an id to the anchor
+  generateQuestionsButton.classList.add('btn', 'btn-outline-secondary', 'flex-fill');
+  // It is handled in testScript
   generateQuestionsButton.addEventListener('click', () => handleGenerateQuestions(topic, title));
+
+  buttonGroup.appendChild(generateQuestionsButton);
+
   const buttonContainer = document.querySelector('.d-flex');
-  buttonContainer.appendChild(generateQuestionsButton);
+  buttonContainer.appendChild(buttonGroup);
 }
+
+
 
 // Function to create lesson buttons dynamically
 function createLessonButtons(topic, title) {
