@@ -2317,7 +2317,7 @@ When questions are populated, they are populated as present in `uniqueQuestions`
 | Question-3                | q-9                         |
 
 
-The above concern comes when we have to find the correct answer as previously when in practice page, questions were not shuffled and order was same so by comparing the first accordion to the first key in an array and comparing the answer have no issues. Similarly in test page 20 questions are presented, these questions contains two different sets of questions answer represented by the same `key:value` pair. To address this issue two global variables were dcalard and used `qustionsMap, questionIdMapping`. The array `questionMap` holds the set of array represented by the same `id:value`.
+The above concern comes when we have to find the correct answer as previously when in practice page, questions were not shuffled and order was same so by comparing the first accordion to the first key in an array and comparing the answer have no issues. Similarly in test page 20 questions are presented, these questions contains two different sets of questions answer represented by the same `key:value` pair. To address this issue two global variables were dcalard and used `qustionsMap, questionIdMapping`. The array `questionMap` holds the set of array represented by the same `id:value`. This map is searched when finding the correct answer by first getting the original question id from the `questionIdMapping`.
 
 ![test-08.jpg](images\\docs\\test-08.jpg)<br>
 

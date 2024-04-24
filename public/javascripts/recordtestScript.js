@@ -5,6 +5,7 @@ let lessonName;
 let lessonNumber;
 let correctAnswer = [];
 let selectedLabels = [];
+const users = {};
 let userScore = {};
 const timeStamp = {};
 const testData = [];
@@ -12,53 +13,114 @@ const testData = [];
 const answeredQuestions = new Set(); // needed so same anwer can not be added twice
 let timerInterval; // Reference to timer
 let date;  // 
+let startTestButtonClicked = false;
 
 /* Function to see if options selected by the user with 
 * question id are correct or not */
 
+// function checkWithSelectedLabels(selectedLabels, questionId) {
+//     // Initialize an array to store the results of each question
+//     const results = [];
+//     // Get the original question ID using the mapping object saved in another script
+//     const originalQuestionId = questionIdMapping[questionId];
+//     console.log('currrent ' + questionId + ' was mapped to -->' + originalQuestionId);
+
+//     // Get the array of correct answers for the original question ID from the questions map
+//     // It returns an arrays with two objects containing duplicate keys
+//     const correctAnswers = questionsMap[originalQuestionId];
+
+//     // Check if any correct answer matches selected labels
+//     const isCorrect = correctAnswers.some(item => {
+//         if (compareArrays(item.answer, selectedLabels)) {
+  
+//         } else {
+            
+//         }
+//     });
+
+//     return isCorrect;
+// }
+
 function checkWithSelectedLabels(selectedLabels, questionId) {
-    // Initialize an array to store the results of each question
-    const results = [];
     // Get the original question ID using the mapping object saved in another script
     const originalQuestionId = questionIdMapping[questionId];
-    console.log('currrent ' + questionId + ' was mapped to -->' + originalQuestionId);
+    console.log('Question ' + questionId + ' was mapped to original question ID: ' + originalQuestionId);
 
     // Get the array of correct answers for the original question ID from the questions map
-    // It returns an arrays with two objects containing duplicate keys
     const correctAnswers = questionsMap[originalQuestionId];
 
     // Check if any correct answer matches selected labels
-    const isCorrect = correctAnswers.some(item => {
-        if (compareArrays(item.answer, selectedLabels)) {
-            console.log('it is correct answer ! ');
-        } else {
-            console.log('it is not a correct answer !');
-        }
-        //item.includes(selectedLabels);
-    });
-
-
-    // Calculate the time taken to anser 
-    //const endTime = new Date();
-    //const timeTaken = (endTime - startTime) /1000
-    //Assign points
+    const isCorrect = correctAnswers.some(item => compareArrays(item.answer, selectedLabels));
 
     return isCorrect;
 }
+
+//Calculate the time taken to anser 
+    //const endTime = new Date();
+    //const timeTaken = (endTime - startTime) /1000
+    //Assign points
 
 // Function to handle the click event of the "Answer" button
 function checkAnswer(questionId) {
     // 1. get selected labels and save them in selectedLabels[]
     getSelectedLabels();
-
     // call helper function passing user selected values with the question id
     if (isCorrect = checkWithSelectedLabels(selectedLabels, questionId)) {
-        //console.log('Yes, it is correct');
+        console.log('isCorrect :' + isCorrect);
+        console.log('It is correct answer');
         handleCorrectAnswer(questionId);
     } else {
         handleIncorrectAnswer();
     }
 }
+
+
+// Function to handle a correct answer
+function handleCorrectAnswer(username, questionId) {
+    console.log(`Handling correct answer for question ${questionId} by ${username}`);
+
+    // Initialize user data if not exists
+    if (!users[username]) {
+        users[username] = {};
+    }
+
+    // Check if the question has already been answered
+    if (answeredQuestions.has(questionId)) {
+        console.log(`Question ${questionId} has already been answered.`);
+        return;
+    }
+
+    // Check if the question has already been answered
+    if (users[username][questionId]) {
+        console.log(`Question ${questionId} has already been answered by ${username}.`);
+        return;
+    }
+
+    // Record the attempt
+    users[username][questionId] = {
+        isCorrect: true, // Yes
+        attempts: 1, // Number of attempts
+        // Add more fields as needed
+    };
+
+    // Update score
+    updateScore(username);
+}
+
+// Function to update user's score based on progress
+function updateScore(username) {
+    // Calculate user's score based on progress data
+    let score = 0;
+    for (const questionId in users[username]) {
+        if (users[username][questionId].isCorrect) {
+            score++;
+        }
+    }
+
+    // Update user's score
+    users[username].score = score;
+}
+
 
 // Function to get the selected labels
 function getSelectedLabels() {
@@ -69,19 +131,25 @@ function getSelectedLabels() {
     });
 }
 
-function handleIncorrectAnswer(questionId){
+function handleIncorrectAnswer(questionId) {
     // will be implemented later on 
     console.log('doing nothing!');
+    // Make as set to keep recored of which questions were wrong!
 }
 
 // Function to handle a correct answer
 function handleCorrectAnswer(questionId) {
     console.log('Handling correct answer for question', questionId);
-    // Check if the question has already been answered
-    if (answeredQuestions.has(questionId)) {
-        console.log(`Question ${questionId} has already been answered.`);
-        return;
-    }
+   // Check if the question has already been answered
+   if (answeredQuestions.has(questionId)) {
+    console.log(`Question ${questionId} has already been answered.`);
+    return;
+}
+    // if (answeredQuestions.has(questionId)) {
+    //     console.log(`Question ${questionId} has already been answered.`);
+    //     return;
+    // }
+
     // Increment the user's score for this question
     userScore[questionId]++;
     // Record the attempt
@@ -222,34 +290,42 @@ function enableAnswerButton() {
     });
 }
 
-
+//---------------------------------------------------------------------------------
 // Function to handle the click event of the "Start Test" button
 function handleStartTestButtonClick(topic, title) {
-    // Firest enable all the button in accordion 
-    enableAnswerButton();
-    date = new Date();
 
-    topics = topic;
-    lessonName = title;
+    // check to see if it has not been pressed before !
 
-    console.log('Starting the test...');
-    console.log("Function call 1:");
+    if (!startTestButtonClicked) {
+        startTestButtonClicked = true;
+        // Firest enable all the button in accordion 
+
+        enableAnswerButton();
+        date = new Date();
+
+        topics = topic;
+        lessonName = title;
+
+        console.log('Starting the test...');
+        console.log("Function call 1:");
 
 
-    updateTimer(); // Start the timer
-    const tempStartTestButton = document.getElementById('start-test-btn');
-    tempStartTestButton.disabled = true; // Disable the button to prevent multiple clicks
-    console.log(`test button gets disabled`);
-    const submitTestButton = document.getElementById('submit-test-btn');
-    if (submitTestButton.disabled) {
-        submitTestButton.disabled = false;
+        updateTimer(); // Start the timer
+        //const tempStartTestButton = document.getElementById('start-test-btn');
+        // tempStartTestButton.disabled = true; // Disable the button to prevent multiple clicks
+        // console.log(`test button gets disabled`);
+        const submitTestButton = document.getElementById('submit-test-btn');
+        if (submitTestButton.disabled) {
+            submitTestButton.disabled = false;
+        }
+
     }
-
-
     //startTest(); // Invoke the startTest function
     //updateTimer(); // Start the timer
+    console.log('Test is in progress!');
 }
 
+//-----------------------------------------------------------------------
 // Function to submit the test data to the server
 function submitTest() {
     console.log('Submitting test data to server');
@@ -290,9 +366,9 @@ function submitTestToServer(testData) {
         });
 }
 
-    // Implement your logic to collect the user's answers and submit them to the server
-    // For example:
-    // 1. Collect the user's answers from the checkboxes
-    // 2. Prepare the test data to send to the server (e.g., an array of objects containing question IDs and selected answers)
-    // 3. Send an HTTP POST request to the server endpoint (e.g., '/test') with the test data
+// Implement your logic to collect the user's answers and submit them to the server
+// For example:
+// 1. Collect the user's answers from the checkboxes
+// 2. Prepare the test data to send to the server (e.g., an array of objects containing question IDs and selected answers)
+// 3. Send an HTTP POST request to the server endpoint (e.g., '/test') with the test data
 

@@ -18,17 +18,17 @@ function generateRandomQuestions(topicData, title) {
 
         // First shuffle the array 
 
-       // console.log('In generateRandomQuestions : before shuffling');
+        // console.log('In generateRandomQuestions : before shuffling');
         console.log(lessons);
         const shuffledLessons = shuffleArray(lessons);
-       // console.log('After shuffling ')
-       // console.log(shuffledLessons);
+        // console.log('After shuffling ')
+        // console.log(shuffledLessons);
         //console.log();
         const selectedQuestions = [];
 
         // Iterate over each lesson 
         for (let i = 0; i < shuffledLessons.length; i++) {
-            console.log('Topic : ' +  title + ' Lesson Number : ' +  shuffledLessons[i].lesson_number);
+            console.log('Topic : ' + title + ' Lesson Number : ' + shuffledLessons[i].lesson_number);
             console.log('questins are shuffled');
             const lesson = shuffledLessons[i];
             console.log('Questions: before shuffling');
@@ -42,8 +42,8 @@ function generateRandomQuestions(topicData, title) {
                 // Check if the answer is not already present in the selected questions
                 if (!selectedQuestions.some(q => q.answer === question.answer)) {
                     selectedQuestions.push(question);
-                }else {
-                        console.log('duplicate tried to be pushed!!!!!!!!1');
+                } else {
+                    console.log('duplicate tried to be pushed!!!!!!!!1');
                 }
             });
             console.log('Questions are being inserted!');
@@ -57,7 +57,7 @@ function generateRandomQuestions(topicData, title) {
             const question = selectedQuestions[i];
             if (!uniqueQuestions.some(q => q.answer === question.answer)) {
                 uniqueQuestions.push(question);
-            }else{
+            } else {
                 console.log(' Same questin is being pushed !!!');
             }
             if (uniqueQuestions.length === 20) {
@@ -97,7 +97,7 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     console.log('After shuffling :');
-     console.log(array);
+    console.log(array);
     return array;
 }
 
@@ -113,7 +113,7 @@ function populateQuestions(randomQuestions) {
         console.log(questionNumber);
         questionButton.textContent = `Question-${questionNumber}`;
         // Store the mapping between shuffled and original question IDs
-        questionIdMapping[questionId] = '---> ' + question.id;
+        questionIdMapping[questionId] = question.id;
         // Loop through each word in the words array
         // Also construct correct id value
         for (let i = 0; i < words.length; i++) {
@@ -130,20 +130,23 @@ function populateQuestions(randomQuestions) {
 function handleGenerateQuestions(topic, title) {
     //clearPreviousData() if needed! 
     //console.log('In handleGenerateQuestions :')
-   // console.log(topic);
-    try {
-        const randomQuestions = generateRandomQuestions(topic, title);
-        console.log(' Questions have been genreated : ');
-        console.log(randomQuestions);
-        console.log(' Questions present in map ');
-        console.log(questionsMap);
-        populateQuestions(randomQuestions);
-        questionsGenereated = true;
-        const buttonTemp = document.getElementById('generate-questions-btn');
-        buttonTemp.disabled = true;
-        disableAnswerButtons();
-    } catch (error) {
-        console.log('error in populating questions');
+    // console.log(topic);
+    if (!questionsGenereated) {
+        try {
+            const randomQuestions = generateRandomQuestions(topic, title);
+            console.log(' Questions have been genreated : ');
+            console.log(randomQuestions);
+            console.log(' Questions present in map ');
+            console.log(questionsMap);
+            populateQuestions(randomQuestions);
+            questionsGenereated = true;
+            //const buttonTemp = document.getElementById('generate-questions-btn');
+            //buttonTemp.disabled = true;
+            // disable all answer buttons untill test starts.
+            disableAnswerButtons();
+        } catch (error) {
+            console.log('error in populating questions');
+        }
     }
 }
 
