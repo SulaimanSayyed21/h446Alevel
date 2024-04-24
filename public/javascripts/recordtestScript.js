@@ -15,31 +15,6 @@ let timerInterval; // Reference to timer
 let date;  // 
 let startTestButtonClicked = false;
 
-/* Function to see if options selected by the user with 
-* question id are correct or not */
-
-// function checkWithSelectedLabels(selectedLabels, questionId) {
-//     // Initialize an array to store the results of each question
-//     const results = [];
-//     // Get the original question ID using the mapping object saved in another script
-//     const originalQuestionId = questionIdMapping[questionId];
-//     console.log('currrent ' + questionId + ' was mapped to -->' + originalQuestionId);
-
-//     // Get the array of correct answers for the original question ID from the questions map
-//     // It returns an arrays with two objects containing duplicate keys
-//     const correctAnswers = questionsMap[originalQuestionId];
-
-//     // Check if any correct answer matches selected labels
-//     const isCorrect = correctAnswers.some(item => {
-//         if (compareArrays(item.answer, selectedLabels)) {
-  
-//         } else {
-            
-//         }
-//     });
-
-//     return isCorrect;
-// }
 
 function checkWithSelectedLabels(selectedLabels, questionId) {
     // Get the original question ID using the mapping object saved in another script
@@ -55,10 +30,6 @@ function checkWithSelectedLabels(selectedLabels, questionId) {
     return isCorrect;
 }
 
-//Calculate the time taken to anser 
-    //const endTime = new Date();
-    //const timeTaken = (endTime - startTime) /1000
-    //Assign points
 
 // Function to handle the click event of the "Answer" button
 function checkAnswer(questionId) {
@@ -160,6 +131,9 @@ function handleCorrectAnswer(questionId) {
         points: '', // Replace with actual points
     };
 }
+
+  //const endTime = new Date();
+//const timeTaken = (endTime - startTime) /1000
 
 // Function to reset labels and answers
 // function resetLabelsAndAnswers() {
