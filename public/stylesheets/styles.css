@@ -105,7 +105,7 @@ footer {
 
 .btn {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-align: center;
 }
 
@@ -126,7 +126,7 @@ footer {
  .accordion-topic {
   font-size: large;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #171717;
   padding: 0px;
   text-align: center;

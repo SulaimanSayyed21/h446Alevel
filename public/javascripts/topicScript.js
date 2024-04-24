@@ -52,7 +52,7 @@ function createStartTestButton(topic, title) {
   startTestButton.href = '#';
   startTestButton.textContent = 'Start Test';
   startTestButton.id = 'start-test-btn'; // Add an id to the anchor
-  startTestButton.classList.add('btn', 'btn-outline-secondary', 'flex-fill' , 'lessons');
+  startTestButton.classList.add('btn', 'btn-outline-danger', 'flex-fill' , 'lessons');
   startTestButton.addEventListener('click', () => handleStartTestButtonClick(topic, title));
 
   buttonGroup.appendChild(startTestButton);
