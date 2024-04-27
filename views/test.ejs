@@ -1,10 +1,8 @@
 <%- include('layout/head.ejs'); %>
     <%- include('layout/practiceheader.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Take the test' }) %>
-
         <body>
             <!-- Main content -->
             <main id="accordion-page" class="container message">
-
                 <div class="accordion-topic" id="testPage"><label for="topic" id="topicid">Choose The topic</label>
                 </div>
                 <!-- pladce holder for message -->
@@ -18,7 +16,7 @@
                 <hr>
                 <!-- Timer display -->
                 <div class="mb-4">
-                    <p>Time remaining: <span id="timer">300</span> seconds</p>
+                   <p>Welcome <%= username %>, Generate questions first, then take a test! Time remaining: <span id="timer-1" class="clock">00:00</span> seconds</p>
                 </div>
 
 
@@ -63,7 +61,7 @@
                 </div>
                 <button id="submit-test-btn" class="btn btn-primary mt-3" onclick="">Submit</button>
             <div class="mb-4">
-                <p>Time remaining: <span id="timer">300</span> seconds</p>
+                <p>Time remaining: <span id="timer-2" class="clock">00:00</span></p>
             </div>
         </main>
             <hr>
@@ -74,11 +72,18 @@
             </div> 
             <br><br>
             <%- include('layout/footer.ejs'); %>
+            
             <!-- Link to JavaScript file -->
             <script src="../bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
             <script src="../javascripts/topicScript.js" type="text/javascript"></script>
             <script src="../javascripts/testScript.js" type="text/javascript"></script>
             <script src="../javascripts/recordtestScript.js" type="text/javascript"></script>
+            
+            <script>
+                const username = "<%= username %>"; // Retrieve username from EJS template
+                recordtestScript.initialise(username); // Pass username to your client-side script
+            </script>
+            
         </body>
 
         </html>

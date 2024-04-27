@@ -18,7 +18,21 @@ var loginSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    testsTaken : [{
+        timeStamp: { type: Date, default: Date.now },
+        totalScore : { type: Number, required: true },
+        results: [{ 
+            questionId: {type : String, required: true },
+            score: { type : Number, required: true },
+        }],
+    }],
+    results : [{
+        timeStamp: { type: Date, default: Date.now },
+        totalScore : { type: Number, required: true },
+        points: [Number] 
+    }]
+
 }, { timestamps: true });
 
 const collection = mongoose.model('credentials', loginSchema);

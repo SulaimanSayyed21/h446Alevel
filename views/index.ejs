@@ -1,33 +1,18 @@
 <%- include('layout/head.ejs'); %>
-  <%- include('layout/loginheader.ejs',{iconClass: 'bi bi-lock-fill', headerTitle: 'Verbal Reasoning' }); %>
+  <%- include('layout/loginheader.ejs',{iconClass: 'bi bi-lock-fill' , headerTitle: 'Verbal Reasoning' }); %>
     <main>
-      <section class="content-section" id="portfolio">
-        <div class="container px-4 px-lg-5">
-          <div class="content-section-heading text-center">
-            <hr>
-            <hr>
-            <h3 class="text-secondary mb-0"> 11-Plus</h3>
-            <h2 class="mb-5">Question and Answers</h2>
-          </div>
-          <div class="row gx-0">
-            <div class="col-lg-6">
-              <a class="portfolio-item" href="#!"></a>
-
-              <!-- <img class="img-fluid" src="/images/portfolio-4.jpg" alt="..." /> -->
-              <div class="caption">
-                <div class="caption-content"><br><br>
-                  <!-- <div class="h2">Login or Go to Dashboard! </div> -->
-                </div>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">Practice</h5>
+                <p class="card-text">Not ready for login? Do practice only</p>
+                <a href="/dashboard" class="btn btn-primary">Dashboard</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="masthead d-flex align-items-center">
-          <div class="container px-4 px-lg-5 text-center">
-               <a class="btn btn-primary btn-xl" href="/dashboard">Dashboard</a>
-          </div>
-        </div>
-      </section>
     </main>
     <!-- Call to Action-->
     <%- include('layout/footer.ejs'); %>

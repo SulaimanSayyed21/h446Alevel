@@ -6,7 +6,10 @@ var loginController = require('../controllers/loginController');
 
 /* GET login page. */
 router.get('/login', function (req, res, next) {
-  res.render('login', { title: 'Login' });
+  // check to see if the user is already logged in 
+  const loggedIn = req.session.username ? true : false;
+
+  res.render('login', { title: 'Login', loggedIn: loggedIn });
 });
 
 /* Delegate the responsibility to the login controller*/

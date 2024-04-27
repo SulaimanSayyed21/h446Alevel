@@ -17,7 +17,12 @@ const handleLoginRequest = async (req, res) => {
     try {
       const isPasswordMatch = await bcrypt.compare(req.body.password, checkUser.password);
       if (isPasswordMatch) {
-        return res.render('dashboard', { title: 'Dashboard' });
+        //store username in session
+        const username =  req.body.username;
+        req.session.username = username;
+        console.log(`${username} has logged in :` );
+       // res.send('Logged in successfully');
+        return res.render('dashboard', { title: 'Dashboard' , username: username });
       } else {
         return res.redirect('/login?error=wrong_password');
       }

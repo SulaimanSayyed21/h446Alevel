@@ -8,6 +8,7 @@ images
 
 # files to exclude
 .env
+.envall
 notes.md
 package-lock.json
 delteme.md

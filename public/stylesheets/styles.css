@@ -37,6 +37,8 @@ header {
 }
 
 
+
+
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   header {
@@ -81,6 +83,11 @@ footer {
   font-weight: bold;
   margin-right: auto;
 }
+.logout {
+ /* //display: inline-flex; */
+  margin-left: 50px;
+  margin-right: auto;
+ }
 
 .message {
   /* Adjust z-index to ensure it appears above the header */
@@ -93,9 +100,13 @@ footer {
 
   border: 1px solid #ccc;
   border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
-
+main {
+  padding-top:30px;
+}
 /**************************************************************************/
 /* Following styles are used in practice.js */
 .div-ui-custom{
@@ -117,7 +128,6 @@ footer {
   font-size: x-large;
   
 }
-
 
 
  /***********************************/
@@ -185,4 +195,21 @@ footer {
   .lessons {
     font-size: 0.8rem;
   }
+}
+
+
+/* Style for the active (clicked) accordion header */
+.accordion-button.active {
+  background-color: #ffc107; /* Change to your desired color */
+  color: #333; /* Change text color if needed */
+}
+
+/* Style for the answered accordion header */
+.accordion-button.answered {
+  background-color: #28a745; /* Change to your desired color */
+  color: #fff; /* Change text color if needed */
+}
+
+.clock {
+  color: red;
 }

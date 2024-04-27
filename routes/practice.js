@@ -4,8 +4,9 @@ var router = express.Router();
 /* GET practice page. */
 router.get('/practice', function (req, res, next) {
     console.log('Entered in practice Router');
-//  res.render('practice', { title: 'Practice',data:data});
-  res.render('practice', {title: 'Practice'});
+    // check to see if the user is already logged in 
+       const loggedIn = req.session.username ? true : false;
+    res.render('practice', {title: 'Practice', loggedIn: loggedIn , showLogout : false});
 });
 
 module.exports = router;

@@ -54,17 +54,17 @@
     - [Logging the user 4.4.5](#logging-the-user-445)
       - [Testing Login procedure 4.4.5.1](#testing-login-procedure-4451)
     - [Registering the user on online database 4.4.6](#registering-the-user-on-online-database-446)
-  - [Implementing Design Part-B:  4.5](#implementing-design-part-b--45)
+  - [Implementing Design Part-B Step-1: Creating practice page 4.5](#implementing-design-part-b-step-1-creating-practice-page-45)
     - [Designing and implementing the practice page 4.5.1](#designing-and-implementing-the-practice-page-451)
       - [Populating questions from the topic.json file 4.5.1.1](#populating-questions-from-the-topicjson-file-4511)
-    - [Desigining and implementing the test page 4.5.2](#desigining-and-implementing-the-test-page-452)
-      - [Shuffling lessons 4.5.2.1](#shuffling-lessons-4521)
-      - [Shuffling Questions present in each lesson 4.5.2.2](#shuffling-questions-present-in-each-lesson-4522)
-      - [Selecting 20 unique question from the pool 4.5.2.3](#selecting-20-unique-question-from-the-pool-4523)
-      - [Populating questions 4.5.2.4](#populating-questions-4524)
-  - [](#)
-- [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
-  - [Writing the logic to attach the application with the service worker](#writing-the-logic-to-attach-the-application-with-the-service-worker)
+    - [Interacting with user activities 4.5.2](#interacting-with-user-activities-452)
+  - [Implementing Design Part-B Step-2: Creating test page 4.6](#implementing-design-part-b-step-2-creating-test-page-46)
+    - [Shuffling lessons 4.6.1](#shuffling-lessons-461)
+    - [Shuffling Questions present in each lesson 4.6.2](#shuffling-questions-present-in-each-lesson-462)
+    - [Selecting 20 unique question from the pool 4.6.3](#selecting-20-unique-question-from-the-pool-463)
+    - [Populating questions 4.6.4](#populating-questions-464)
+    - [The state of the repository](#the-state-of-the-repository)
+  - [Implementing Design Part-B Step 3: Deling with test page interacton 4.7](#implementing-design-part-b-step-3-deling-with-test-page-interacton-47)
   - [Creating a service worker : Service worker vs client/server architecture](#creating-a-service-worker--service-worker-vs-clientserver-architecture)
   - [Creating and attaching manifest file](#creating-and-attaching-manifest-file)
   - [Watching Chrome behaviour after registering the service worker](#watching-chrome-behaviour-after-registering-the-service-worker)
@@ -78,6 +78,8 @@
   - [Appendix-B](#appendix-b)
   - [Appendix-C](#appendix-c)
 - [Appendix-D](#appendix-d)
+- [Appendix-E](#appendix-e)
+- [Appendix-f](#appendix-f)
 
 <div class="page"/>
 
@@ -362,9 +364,9 @@ graph TD
 
 ### Design: Part-B 3.2 
 
-- Designing the UI for the dashboard page. This is where the user will be redirected once successfully logged in to the website.
-- This page will offer users to practice Verbal Reasoning question and answers or to take a test.
+- Designing  other UI pages including dashboard, practice and test page. The dashboad page is where the user will be redirected once successfully logged into the website. From here choice is given to either use practice activities or take a test.
 - While practicing user is presented different topics to choose from, in turn each topic would have 1-4 lessons, where each lesson is comprised of 10 questions and answer format data locally saved in JSON format.
+- It is also divided in different step as well.
 
 
 ### Design: Part-C 3.3
@@ -1752,7 +1754,7 @@ Upon successful registration it is redirected to login page where the same crede
 <dev class="page"/>
 
 
-### Implementing Design Part-B:  4.5
+### Implementing Design Part-B Step-1: Creating practice page 4.5
 
 When user successfully logged in, it is redirected to `Dashboard` page. This page will take him to either to practice the test or or to take a test. It only contains tow links to take the user to other pages. Its design and details are not given below and can be see in online repo. The following state digram shows the simple scenario.
 
@@ -1901,6 +1903,7 @@ function fetchTopicsData() {
 When user clciks on topic item, it goes through number of activities and either create four buttons for the lessons or if does not find the lesson says not implmented. The code snippets from `topicScript.js` shown below. All code for the app can be downloaded from the online repository.
 
 ```js
+// topicScript.js
 // Function to create lesson buttons dynamically
 function createLessonButtons(topic, title) {
   const buttonContainer = document.querySelector('.d-flex');
@@ -1921,6 +1924,38 @@ function createLessonButtons(topic, title) {
     const noLessonButton = createButton("Lesson Not Implemented", () => { });
     buttonContainer.appendChild(noLessonButton);
   }
+}
+```
+- To create four lesson buttons for each lesson follwoing function is used. This function takes help from other helper function both are shown below.
+  
+```js
+// topicScript.js
+// Functin to create four lessons on practice page
+function createLessonButtonsForFourLessons(topic, title) {
+  const buttonGroup = document.createElement('div');
+  buttonGroup.classList.add('btn-group', 'd-flex');
+  const lessons = topic.lessons;
+  lessons.forEach((lesson) => {
+    const buttonText = "Lesson " + lesson.lesson_number;
+    const onClick = () => handleButtonClick(topic, title, lesson.lesson_number);
+    const buttonId = `lesson-${lesson.lesson_number}-btn`;
+    const button = createButton(buttonText, onClick, buttonId);
+    buttonGroup.appendChild(button);
+    const buttonContainer = document.querySelector('.d-flex');
+    buttonContainer.appendChild(buttonGroup);
+  });
+}
+// Function to create a button with specified text, click handler, and ID
+function createButton(text, onClick, id) {
+  const button = document.createElement('button');
+  button.href = '#';
+  button.classList.add('btn', 'btn-outline-secondary', 'flex-fill', 'lessons');
+  button.textContent = text;
+  button.addEventListener('click', onClick);
+  if (id) {
+    button.id = id;
+  }
+  return button;
 }
 ```
 
@@ -2038,12 +2073,13 @@ const populateQuestion = (question) => {
 };
 ```
 
-What is done first is that for the clickedLesson, its data is referenced using `const clickedLessonData = topic.lessons[clickedLesson - 1];`. To get to first lesson we need to choose `topic.lessons[0]` that is the first elment of the array `lesson[0]`. As the argument `clickedLesson` represents the `lesson_number`. And to get to the first lesson being number `1` is represented by the index zero in an array, this substraction is done `clickedLesson-1`.
+#### Interacting with user activities 4.5.2
+
+In above fundtion a reference to the button clicked is passed with this argument `clickedLesson`. By using this information only specific data can be  referenced using `const clickedLessonData = topic.lessons[clickedLesson - 1];` instead of going through the whole data. To get to first lesson we need to choose `topic.lessons[0]` that is the first elment of the array `lesson[0]`. As the argument `clickedLesson` represents the `lesson_number`. And to get to the first lesson being number `1` is represented by the index zero in an array, this substraction is done `clickedLesson-1`.
 
 Then by iterating all the questions present in clicked lesson, the data is read and populated in the accordion. The tric used to access to the right place holder is to use the correct `question.id` from the data and constructing checkboxId using a loop. Once it is constructed, the code `checkbox.nextElementSibling.textContent = words[i];` does the assignment of the words present in an array `words`.
 
 When all the questions are populated, user can start to do the activity, for example in topic one being `opposites`, it is asked to selected two most opposites words. The anser can be checked promptly by clicking the anser button as a succes or failure sound and the color of the answer button gets triggered. The rest of the code for `practiceScript.js` is shown below.
-
 
 ```js
 //practice.js
@@ -2165,7 +2201,7 @@ checkbox.addEventListener('change', handleCheckboxChange);
 // End of file.
 ```
 
-#### Desigining and implementing the test page 4.5.2
+### Implementing Design Part-B Step-2: Creating test page 4.6
 
 - There is no change in practice and test page except when the script `topicScript.js` finds out that the call is coming from the `test.ejs` template, two buttons are drawn one to generate the questions and the other one is to start the test.
 - When taking a test 20 questions are  presented instead of 10 and when Answer button is pressed no indicatin is given the choice being right or wrong.
@@ -2178,7 +2214,7 @@ checkbox.addEventListener('change', handleCheckboxChange);
 - Since we have four lessons for each topic and each lesson has 10 question. Total questions available to the generator functions are `40` where duplicate keys are present. For example, each lesson has first question being represented as `id:q-1` woud be repeated four times so are others.
 - Out of fourty questions only 20 unique questions are chosen. It is also made sure that one questins which has been picked up randomly does not get to be chosen again.
 
-##### Shuffling lessons 4.5.2.1
+#### Shuffling lessons 4.6.1
 
 1. When `Generate Questions` button is pressed, the call comes to `testScript.js` fucntion `handleGenerateQuestions` shown below. 
 
@@ -2286,7 +2322,7 @@ The above shows that the lessons are present in memory as it is, when they were 
 
 Next each lesson is taken and its questions are shuffled. 
 
-##### Shuffling Questions present in each lesson 4.5.2.2
+#### Shuffling Questions present in each lesson 4.6.2
 
 To hold the shuffled questions a local variable named `shuffledQuestions` is used in a for loop which runs four times, as only four lessons being present. The following figure shows the state before and after shuffling.
 
@@ -2296,7 +2332,7 @@ These questions are to be stored in a new array, so a global varibale `slectedQu
 
 ![test-05.jpg](images\\docs\\test-05.jpg)<br>
 
-##### Selecting 20 unique question from the pool 4.5.2.3
+#### Selecting 20 unique question from the pool 4.6.3
 
 Now only 20 questions are to be selected from the the pool, a local variable `uniqueQuestions[]` is decalred  and first 20 questions have been chosen.
 
@@ -2306,7 +2342,7 @@ Following shows 20 slected questions where each question with the same id is rep
 
 ![test-06.jpg](images\\docs\\test-06.jpg)<br>
 
-##### Populating questions 4.5.2.4
+#### Populating questions 4.6.4
 
 When questions are populated, they are populated as present in `uniqueQuestions` array shown above. The very first element presnet in this array at `index[0]` is `q-4` which is going to be populated in the first accordion where this question is represented as `q-1`. According to the figure above the second and thrid accordion would have `q-2 and q-9` contents present in coming accordion being represented as `Question-2 and Question-3` labels.
 
@@ -2356,29 +2392,60 @@ The above function runs a `forEach` loop and before inserting the values makes s
 ![test-09.jpg](images\\docs\\test-09.jpg)<br>
 
 
-All the questions have been populated into bootstrap accordion compoent.
+All the questions have been populated into bootstrap accordion compoent for the test page. Here is how the application test page renders.
+
+![localhost-14.jpg](images\\docs\\localhost-14.jpg)<br>
+
+#### The state of the repository
+
+- Since the basic application structure has been designed and working. A new git branch is checkedout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working proplery with no issues, it is merges with the main which is supposed to be running in the cloud.
+- Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
+
+```git
+git br
+  dev
+* issue/implement-session
+  issue/test-button-fix
+  main
+```
+
+- The above inofrms that there are four total branches and the head is on `issue/implement-session`. This is the brach we are working to solve the sessin issue.
+- The other branch `issue/test-button-fex` was checked out earlier to fix buttons shown on practice page not rendering well on some hand deld device. The solution was implmented so that intead of using button element an  anchor element was used to make it more light weight. Ammendments made in the code is shown in [appendix-E](#appendix-e).
 
 
+### Implementing Design Part-B Step 3: Deling with test page interacton 4.7
+
+When user starts to take a test, first 20 questions are generated randomly and start button is pressed. As the user selects different options and press enter and goes on doing it until all questions are attempted or time runs out and in this case data is submitted automaticlly.
+
+- To provide this logic the first information nedded is about the user who is logged in. And from this point score can be assigned to him and records can be maintanined. To deale with the infomatin about the user who is logged in and who is logged out, a technolgoy called `sessions` come into play. 
+- Sessions are request which are sent from the client to the server in a given time period. Since the activites happens using HTTP protocol and it is a stateless protocal, neither cleint nor server know abut them. And to deal with issues sessions are sued. Session allows server to keep track of the user activites. Storing informatin about the user can also be achieved by using what is called `cookies` but it is easily accessible by anyone so sessions are used to store sensitive information.
+-   To achieve this facility a node module called `express-session` is to be  installed.
 
 
+- Before it is done, since the basic application structure has been designed and working. A new git branch is checkedout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working proplery with no issues, it is merges with the main which is supposed to be running in the cloud.
+- Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
+
+```git
+git br
+  dev
+* issue/implement-session
+  issue/test-button-fix
+  main
+```
 
 
+  
+- A new module `express-session` is installed and main application `app.js` is informed by injecting this code.
 
-
-
-
+```js
+const session = require('express-session');
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true
+}));
 ---
 
-### 
-
-
-
-
-
-
-
-
----
 
 <div class='page'/>
 
@@ -2717,3 +2784,25 @@ logg = log --graph --decorate --oneline --all
 | `element.addEventListener()`| Registers an event listener on the specified element,vent occurs. |
 | `element.appendChild()`     | Appends a node as the last child of a specified parent node.       |
 | `element.innerHTML`         | Gets or sets the HTML or XML markup contained within the element.  |
+
+
+---
+
+## Appendix-E
+
+```txt
+In topicScript.js button were initially created using `button` elements at four different palces, the button element is replaced with `a` anchor to make them light weight.
+
+1. const startTestButton = document.createElement('a');
+2. const button = document.createElement('a');
+3. const generateQuestionsButton = document.createElement('a');
+4. const link = document.createElement('a');
+```
+
+## Appendix-f
+
+| username | email          | password  |
+| -------- | -------------- | --------- |
+| Jack     | jack@mail.com  | jack1234  |
+| Jill     | jill@mail.com  | jill1234  |
+| Marry    | marry@mail.com | marry1234 |

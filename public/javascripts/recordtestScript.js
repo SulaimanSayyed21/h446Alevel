@@ -1,97 +1,175 @@
 // recordtestScript.js
 
-let topics = {};
-let lessonName;
-let lessonNumber;
-let correctAnswer = [];
-let selectedLabels = [];
-const users = {};
-let userScore = {};
-const timeStamp = {};
-const testData = [];
+// Global variables neede --------------------------
+let topics = {}; // reference to json object passed
+let lessonName; // To hold lesson name
+let correctAnswer = []; // hold original answers
+let selectedLabels = []; // user selected labels
+let answer = {}; // to hold user's answer
 // Keep track of answered questions
-const answeredQuestions = new Set(); // needed so same anwer can not be added twice
+const answeredQuestions = new Set(); 
 let timerInterval; // Reference to timer
-let date;  // 
-let startTestButtonClicked = false;
+let userName; // need so correct user db updated
+let  points = []; // store 1 or 0
+let totalScore = 0; // test score
+//-----------------------------------------------------
 
-
-function checkWithSelectedLabels(selectedLabels, questionId) {
-    // Get the original question ID using the mapping object saved in another script
-    const originalQuestionId = questionIdMapping[questionId];
-    console.log('Question ' + questionId + ' was mapped to original question ID: ' + originalQuestionId);
-
-    // Get the array of correct answers for the original question ID from the questions map
-    const correctAnswers = questionsMap[originalQuestionId];
-
-    // Check if any correct answer matches selected labels
-    const isCorrect = correctAnswers.some(item => compareArrays(item.answer, selectedLabels));
-
-    return isCorrect;
+// To initialise from the test file
+const recordtestScript = {
+    initialise: function (username) {
+        userName = username;
+    }
 }
-
 
 // Function to handle the click event of the "Answer" button
 function checkAnswer(questionId) {
-    // 1. get selected labels and save them in selectedLabels[]
+   // A small click is needed
+    playClickSound(); 
+    // get user selected labels
     getSelectedLabels();
-    // call helper function passing user selected values with the question id
-    if (isCorrect = checkWithSelectedLabels(selectedLabels, questionId)) {
-        console.log('isCorrect :' + isCorrect);
-        console.log('It is correct answer');
-        handleCorrectAnswer(questionId);
+    // Only deals question if it hasn't been clicked before.
+    if(!answeredQuestions.has(questionId)) {
+        //first add it to set
+        answeredQuestions.add(questionId);
+    // helper function passing user selected with the question id
+    const isCorrect = checkWithSelectedLabels(selectedLabels, questionId);
+    // Push 1 being correct else 0 and increment the score or leave
+    isCorrect ? (points.push(1), totalScore++) : (points.push(0), totalScore);
     } else {
-        handleIncorrectAnswer();
+    /* do not do anything it has already been handled,
+     In digital test it is not allwed
+     as it needs to improve attentin to detail.*/
     }
 }
 
+// Function to compare answers
+function checkWithSelectedLabels(selectedLabels, questionId) {
+    // Get the original question ID using the mapping object saved in another script
+    const originalQuestionId = questionIdMapping[questionId];
+    console.log(questionId + ' was mapped to original qId: ' + originalQuestionId);
+    // Get the array of correct answers for the original qid from the questions map
+    const correctAnswers = questionsMap[originalQuestionId];
+    // Check if any correct answer matches selected labels
+    const isCorrect = correctAnswers.some(item =>
+         compareArrays(item.answer, selectedLabels)
+    );
+    return isCorrect;
+}
 
-// Function to handle a correct answer
-function handleCorrectAnswer(username, questionId) {
-    console.log(`Handling correct answer for question ${questionId} by ${username}`);
+// helper function
+function construcTestData() {
+    const timeStamp = new Date();
+    const answers = [{ timeStamp, totalScore, points }];
+    return answers;
+}
 
-    // Initialize user data if not exists
-    if (!users[username]) {
-        users[username] = {};
+//------------------------------------------------------------
+// handle click event of the "Start Test" button
+function handleStartTestButtonClick(topic, title) {
+    // check to see if it has not been pressed before !
+    let startTestButtonClicked = false;
+      if (!startTestButtonClicked) {
+            startTestButtonClicked = true;
+        // Firest enable all the button in accordion 
+        enableAnswerButton();
+        topics = topic;
+        lessonName = title;
+        console.log('Starting test...');
+        startTimer(5); // Start the timer
+        // const submitTestButton = document.getElementById('submit-test-btn');
+        // if (submitTestButton.disabled) {
+        //     submitTestButton.disabled = false;
+        // }
     }
+    //startTest(); // Invoke the startTest function
+    //updateTimer(); // Start the timer
+    //console.log('Test is in progress!' + getUserName() + ' is logged in');
+}
 
-    // Check if the question has already been answered
-    if (answeredQuestions.has(questionId)) {
-        console.log(`Question ${questionId} has already been answered.`);
-        return;
-    }
 
-    // Check if the question has already been answered
-    if (users[username][questionId]) {
-        console.log(`Question ${questionId} has already been answered by ${username}.`);
-        return;
-    }
+//------------------------------------------------------------
+function handleSubmitTestButtonClick() {
+    // Stop the timer by clearing the interval
+    clearInterval(timerInterval);
 
-    // Record the attempt
-    users[username][questionId] = {
-        isCorrect: true, // Yes
-        attempts: 1, // Number of attempts
-        // Add more fields as needed
+    // Implement your logic for submitting the test
+    console.log('Submitting the test...');
+
+    // Disable the submit button to prevent multiple clicks
+    const submitTestButton = document.getElementById('submit-test-btn');
+    submitTestButton.disabled = true;
+    // Gather result values to submit
+    const results = construcTestData();
+    submitTestToServer(results); // Wait for the result before proceeding   
+    console.log('Test submitted successfully by ' + userName);
+}
+
+// Submit result with POST method
+async function submitTestToServer(answers) {
+    //  send the POST request
+    const url = '/test';
+    //  options to set , needs application/json
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userName, answers }) // Convert the number to a JSON string
     };
-
-    // Update score
-    updateScore(username);
-}
-
-// Function to update user's score based on progress
-function updateScore(username) {
-    // Calculate user's score based on progress data
-    let score = 0;
-    for (const questionId in users[username]) {
-        if (users[username][questionId].isCorrect) {
-            score++;
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
         }
+        const data = await response.json();
+        console.log('Test submitted successfully:', data);
+        window.location.reload(); //  reload the page after submission
+    } catch (error) {
+        console.error('Error submitting test:', error);
+        throw error; // Propagate the error for better error handling
     }
-
-    // Update user's score
-    users[username].score = score;
 }
 
+
+// Function to start the timer with a specified duration
+function startTimer(durationInMinutes) {
+    let totalSeconds = durationInMinutes * 60;
+
+    // Update the display every second
+    timerInterval = setInterval(function() {
+        // Calculate minutes and seconds
+        let minutes = Math.floor(totalSeconds / 60);
+        let seconds = totalSeconds % 60;
+
+        // Format the time
+        const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        // Get all elements with the timer class
+        const timerElements = document.querySelectorAll('.clock');
+
+        // Update the content of each timer element
+        timerElements.forEach(function(timerElement) {
+            timerElement.innerText = formattedTime;
+        });
+
+        // Stop the timer if time runs out
+        if (totalSeconds <= 0) {
+            clearInterval(timerInterval);
+            console.log('Time iss up!');
+            handleSubmitTestButtonClick()
+        }
+        // Decrement totalSeconds
+        totalSeconds--;
+    }, 1000); // Update every second
+}
+
+function enableAnswerButton() {
+    const answerButtons = document.querySelectorAll('[id^="answer-q"]');
+    // Loop through each button and enable them all
+    answerButtons.forEach(button => {
+        button.disabled = false;
+    });
+}
 
 // Function to get the selected labels
 function getSelectedLabels() {
@@ -101,45 +179,6 @@ function getSelectedLabels() {
         selectedLabels.push(checkbox.labels[0].textContent);
     });
 }
-
-function handleIncorrectAnswer(questionId) {
-    // will be implemented later on 
-    console.log('doing nothing!');
-    // Make as set to keep recored of which questions were wrong!
-}
-
-// Function to handle a correct answer
-function handleCorrectAnswer(questionId) {
-    console.log('Handling correct answer for question', questionId);
-   // Check if the question has already been answered
-   if (answeredQuestions.has(questionId)) {
-    console.log(`Question ${questionId} has already been answered.`);
-    return;
-}
-    // if (answeredQuestions.has(questionId)) {
-    //     console.log(`Question ${questionId} has already been answered.`);
-    //     return;
-    // }
-
-    // Increment the user's score for this question
-    userScore[questionId]++;
-    // Record the attempt
-    testData[questionId] = {
-        isCorrect: true, // Assuming it's correct
-        score: userScore,
-        username: '', // Replace with actual username
-        points: '', // Replace with actual points
-    };
-}
-
-  //const endTime = new Date();
-//const timeTaken = (endTime - startTime) /1000
-
-// Function to reset labels and answers
-// function resetLabelsAndAnswers() {
-//     selectedLabels = [];
-//     correctAnswer = [];
-// }
 
 // Function to compare two arrays
 function compareArrays(arr1, arr2) {
@@ -184,6 +223,12 @@ function closeOtherAccordionItems(expandedItemId) {
     });
 }
 
+// Function to play a success sound
+function playClickSound() {
+    const click = new Audio("./sounds/click.wav");
+    click.play();
+}
+
 // Function to handle checkbox change event
 function handleCheckboxChange(event) {
     const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -192,157 +237,24 @@ function handleCheckboxChange(event) {
     }
 }
 
+// Register necessary event listeners----------------------
 
-// Event listeners
-
-document.querySelectorAll('.accordion-button').forEach((button) => {
+document.querySelectorAll('.accordion-button')
+    .forEach((button) => {
     button.addEventListener('click', handleAccordionExpand);
 });
 
-document.querySelectorAll('.accordion-item').forEach((item) => {
+document.querySelectorAll('.accordion-item')
+    .forEach((item) => {
     item.addEventListener('hidden.bs.collapse', handleAccordionCollapse);
 });
 
-document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+document.querySelectorAll('input[type="checkbox"]')
+    .forEach((checkbox) => {
     checkbox.addEventListener('change', handleCheckboxChange);
 });
 
-
-// Select the button by its id
-startTestButton = document.getElementById('start-test-btn');
-
 // Get the handle to submit button
-const submitTestButton = document.getElementById('submit-test-btn');
-// Add event listeners to buttons
-submitTestButton.addEventListener('click', handleSubmitTestButtonClick);
-
-// Get the reference to timer element
-const timerElement = document.getElementById('timer');
-//let timeRemaining = 300; // 5 minutes in seconds
-
-
-// Function to update the timer
-function updateTimer() {
-    let timeRemaining = 300; // 5 minutes in seconds
-    const timerElement = document.getElementById('timer');
-    timerInterval = setInterval(() => {
-        if (timeRemaining > 0) {
-            timerElement.textContent = timeRemaining;
-            timeRemaining--;
-        } else {
-            clearInterval(timerInterval);
-            submitTest();
-        }
-    }, 1000);
-}
-
-function handleSubmitTestButtonClick() {
-    // Stop the timer by clearing the interval
-    clearInterval(timerInterval);
-
-    // Implement your logic for submitting the test
-    console.log('Submitting the test...');
-
-    // Disable the submit button to prevent multiple clicks
-    const submitTestButton = document.getElementById('submit-test-btn');
-    submitTestButton.disabled = true;
-
-    // Submit the test data to the server or perform any other required action
-    submitTest(testData);
-
-    // Optionally, display a confirmation message to the user
-    console.log('Test submitted successfully.');
-}
-
-// Function to enable all buttions in accordion
-function enableAnswerButton() {
-    const answerButtons = document.querySelectorAll('[id^="answer-q"]');
-
-    // Loop through each button and enable them all
-    answerButtons.forEach(button => {
-        button.disabled = false;
-    });
-}
-
-//---------------------------------------------------------------------------------
-// Function to handle the click event of the "Start Test" button
-function handleStartTestButtonClick(topic, title) {
-
-    // check to see if it has not been pressed before !
-
-    if (!startTestButtonClicked) {
-        startTestButtonClicked = true;
-        // Firest enable all the button in accordion 
-
-        enableAnswerButton();
-        date = new Date();
-
-        topics = topic;
-        lessonName = title;
-
-        console.log('Starting the test...');
-        console.log("Function call 1:");
-
-
-        updateTimer(); // Start the timer
-        //const tempStartTestButton = document.getElementById('start-test-btn');
-        // tempStartTestButton.disabled = true; // Disable the button to prevent multiple clicks
-        // console.log(`test button gets disabled`);
-        const submitTestButton = document.getElementById('submit-test-btn');
-        if (submitTestButton.disabled) {
-            submitTestButton.disabled = false;
-        }
-
-    }
-    //startTest(); // Invoke the startTest function
-    //updateTimer(); // Start the timer
-    console.log('Test is in progress!');
-}
-
-//-----------------------------------------------------------------------
-// Function to submit the test data to the server
-function submitTest() {
-    console.log('Submitting test data to server');
-    submitTestToServer(testData);
-
-}
-
-function submitTestToServer(testData) {
-    // Define the URL to which you want to send the POST request
-    const url = '/test';
-
-    // Define the request options
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json' // Specify the content type as JSON
-        },
-        body: JSON.stringify(testData) // Convert the test data object to JSON string
-    };
-
-    // Make the POST request using fetch
-    fetch(url, options)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Parse the JSON response
-        })
-        .then(data => {
-            console.log('Test submitted successfully:', data);
-            // Optionally, perform any action after successful submission
-            // Reload the page
-            window.location.reload();
-        })
-        .catch(error => {
-            console.error('Error submitting test:', error);
-            // Optionally, handle errors
-        });
-}
-
-// Implement your logic to collect the user's answers and submit them to the server
-// For example:
-// 1. Collect the user's answers from the checkboxes
-// 2. Prepare the test data to send to the server (e.g., an array of objects containing question IDs and selected answers)
-// 3. Send an HTTP POST request to the server endpoint (e.g., '/test') with the test data
-
+document.getElementById('submit-test-btn')
+    .addEventListener('click', () => handleSubmitTestButtonClick());
+// End of File

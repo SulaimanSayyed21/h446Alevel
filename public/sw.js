@@ -10,7 +10,7 @@ const precacheManifest = [
     // './signup',
     // '/practice',
     // '/test',
-    '/stylesheets/styles.css',
+    //'/stylesheets/styles.css',
     // '/javascripts/topicScript.js',
     // '/javascripts/practiceScript.js',
     '/favicon.ico',

@@ -1,8 +1,12 @@
 <body>
    <header class="bg-gradient text-dark text-center py-3 fixed-top">
     <div class="container">
-          <span class="header-text"><i class="<%= iconClass %>"></i><%= headerTitle %></span>
-    </div>
+      <span class="header-text"><i class="<%= iconClass %>"></i><%= headerTitle %></span>
+      <% if (showLogout) { %>
+      <a href="/logout" class="anchor logout">
+      <i class="bi bi-door-closed"></i>Logout</a>
+      <% } %>
+  </div>
     <div class="col-auto">
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="topicsDropdown"

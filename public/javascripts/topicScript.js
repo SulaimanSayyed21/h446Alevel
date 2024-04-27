@@ -29,9 +29,7 @@ function handleButtonClick(topic, title, lessonNumber) {
 function createLessonButtonsForFourLessons(topic, title) {
   const buttonGroup = document.createElement('div');
   buttonGroup.classList.add('btn-group', 'd-flex');
-
   const lessons = topic.lessons;
-
   lessons.forEach((lesson) => {
     const buttonText = "Lesson " + lesson.lesson_number;
     const onClick = () => handleButtonClick(topic, title, lesson.lesson_number);
