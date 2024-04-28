@@ -3,72 +3,82 @@
 ## TABLE OF CONTENTS <!-- omit from toc -->
 
 - [Introduction: 1.0](#introduction-10)
-  - [Overview of the 11 Plus Examination  1.1](#overview-of-the-11-plus-examination--11)
-    - [Content of the Exam 1.2](#content-of-the-exam-12)
-    - [Who Takes It and Where? (Stakeholders) 1.3](#who-takes-it-and-where-stakeholders-13)
-    - [Why It's a Big Deal 1.4](#why-its-a-big-deal-14)
-    - [The reason to select this competition test exam 1.5](#the-reason-to-select-this-competition-test-exam-15)
+  - [Overview of the 11 Plus Examination (1.1)](#overview-of-the-11-plus-examination-11)
+    - [Content of the Exam (1.2)](#content-of-the-exam-12)
+    - [Who Takes It and Where? (Stakeholders) (1.3)](#who-takes-it-and-where-stakeholders-13)
+    - [Why It’s a Big Deal (1.4)](#why-its-a-big-deal-14)
+    - [The Reason to Select This Competitive Test Exam (1.5)](#the-reason-to-select-this-competitive-test-exam-15)
 - [ANALYSIS 2.0](#analysis-20)
-  - [Problem identification 2.1](#problem-identification-21)
-  - [Introduction of Proposed Solution and Stakeholder Needs 2.2](#introduction-of-proposed-solution-and-stakeholder-needs-22)
-  - [Describing and Justifying Computational Approach 2.3](#describing-and-justifying-computational-approach-23)
-  - [Identifying and Justifying Specific Features 2.4](#identifying-and-justifying-specific-features-24)
-  - [How to implement the Proposed Solution 2.5](#how-to-implement-the-proposed-solution-25)
-  - [Limitations of the proposed Solution 2.6](#limitations-of-the-proposed-solution-26)
-  - [Justifying Hardware and Software Choices 2.7](#justifying-hardware-and-software-choices-27)
-  - [Identifying and justifying measurable success criteria for the proposed solution 2.8](#identifying-and-justifying-measurable-success-criteria-for-the-proposed-solution-28)
-  - [Requirements for such a project 2.9](#requirements-for-such-a-project-29)
-    - [Why Node.js? 2.9.1](#why-nodejs-291)
-    - [How a simple nodejs server is created? 2.9.2](#how-a-simple-nodejs-server-is-created-292)
-    - [MVC ( MOdel-View-Controller) architecture 2.9.3](#mvc--model-view-controller-architecture-293)
-    - [Key Principles 2.9.4](#key-principles-294)
-- [Project Application Design 3.0](#project-application-design-30)
-  - [Design: Part-A 3.1](#design-part-a-31)
-  - [Design: Part-B 3.2](#design-part-b-32)
-  - [Design: Part-C 3.3](#design-part-c-33)
-- [Working on the design Part-A  4.0](#working-on-the-design-part-a--40)
-  - [Starting project application setup 4.1](#starting-project-application-setup-41)
-    - [Setting up express nodejs framework 4.1.1](#setting-up-express-nodejs-framework-411)
-    - [Generating the application skeleton 4.1.2](#generating-the-application-skeleton-412)
-    - [Initialising git and linking it to the GitHub repo 4.1.3](#initialising-git-and-linking-it-to-the-github-repo-413)
-  - [Analysing the express skeleton structure 4.2](#analysing-the-express-skeleton-structure-42)
-    - [Interrogating the functionality of the www Script 4.2.1](#interrogating-the-functionality-of-the-www-script-421)
-    - [Examining app.js code 4.2.2](#examining-appjs-code-422)
-    - [What lies under views folder ? 4.2.3](#what-lies-under-views-folder--423)
-    - [Examining route folder 4.2.4](#examining-route-folder-424)
-  - [Implementing Design Part-A Step-1: Creating Home Page 4.3](#implementing-design-part-a-step-1-creating-home-page-43)
-    - [Analysing the above code and creating new folders 4.3.1](#analysing-the-above-code-and-creating-new-folders-431)
-    - [Creating homepage header 4.3.2](#creating-homepage-header-432)
-    - [Applying styles to home page using styles.css 4.3.3](#applying-styles-to-home-page-using-stylescss-433)
-    - [Applying bootstrap icons in header 4.3.4](#applying-bootstrap-icons-in-header-434)
-    - [Adding Login and Signup pages 4.3.5](#adding-login-and-signup-pages-435)
-    - [Testing UI 4.3.6](#testing-ui-436)
-    - [Evaluating UI 4.3.7](#evaluating-ui-437)
-    - [Testing Page loading performance 4.3.8](#testing-page-loading-performance-438)
-  - [Implementing Design Part-A  Step-2: Setting up Database locally and online 4.4](#implementing-design-part-a--step-2-setting-up-database-locally-and-online-44)
-    - [Establishing database connection from the application 4.4.1](#establishing-database-connection-from-the-application-441)
-    - [Adding a user schema for the database 4.4.2](#adding-a-user-schema-for-the-database-442)
-    - [Handling incoming POST request when submit button is pressed 4.4.3](#handling-incoming-post-request-when-submit-button-is-pressed-443)
-    - [Registering user from the signup page 4.4.4](#registering-user-from-the-signup-page-444)
-      - [Testing registration process: 1 -\> Locall Database  4.4.4.1](#testing-registration-process-1---locall-database--4441)
-    - [Logging the user 4.4.5](#logging-the-user-445)
-      - [Testing Login procedure 4.4.5.1](#testing-login-procedure-4451)
-    - [Registering the user on online database 4.4.6](#registering-the-user-on-online-database-446)
-  - [Implementing Design Part-B Step-1: Creating practice page 4.5](#implementing-design-part-b-step-1-creating-practice-page-45)
-    - [Designing and implementing the practice page 4.5.1](#designing-and-implementing-the-practice-page-451)
-      - [Populating questions from the topic.json file 4.5.1.1](#populating-questions-from-the-topicjson-file-4511)
-    - [Interacting with user activities 4.5.2](#interacting-with-user-activities-452)
-  - [Implementing Design Part-B Step-2: Creating test page 4.6](#implementing-design-part-b-step-2-creating-test-page-46)
-    - [Shuffling lessons 4.6.1](#shuffling-lessons-461)
-    - [Shuffling Questions present in each lesson 4.6.2](#shuffling-questions-present-in-each-lesson-462)
-    - [Selecting 20 unique question from the pool 4.6.3](#selecting-20-unique-question-from-the-pool-463)
-    - [Populating questions 4.6.4](#populating-questions-464)
-    - [The state of the repository](#the-state-of-the-repository)
-  - [Implementing Design Part-B Step 3: Deling with test page interacton 4.7](#implementing-design-part-b-step-3-deling-with-test-page-interacton-47)
+  - [Problem Identification (2.1)](#problem-identification-21)
+  - [Introduction of Proposed Solution and Stakeholder Needs (2.2)](#introduction-of-proposed-solution-and-stakeholder-needs-22)
+  - [Describing and Justifying Computational Approach (2.3)](#describing-and-justifying-computational-approach-23)
+  - [Identifying and Justifying Specific Features (2.4)](#identifying-and-justifying-specific-features-24)
+  - [How to Implement the Proposed Solution (2.5)](#how-to-implement-the-proposed-solution-25)
+  - [Limitations of the Proposed Solution (2.6)](#limitations-of-the-proposed-solution-26)
+  - [Justifying Hardware and Software Choices (2.7)](#justifying-hardware-and-software-choices-27)
+  - [Identifying and Justifying Success Criteria for the Proposed Solution (2.8)](#identifying-and-justifying-success-criteria-for-the-proposed-solution-28)
+  - [Requirements for Such a Project (2.9)](#requirements-for-such-a-project-29)
+    - [Why Node.js? (2.9.1)](#why-nodejs-291)
+    - [How a Simple Node.js Server Is Created? (2.9.2)](#how-a-simple-nodejs-server-is-created-292)
+    - [MVC (Model-View-Controller) Architecture (2.9.3)](#mvc-model-view-controller-architecture-293)
+    - [Key Principles (2.9.4)](#key-principles-294)
+- [Project Design and Implementation Overview (3.0)](#project-design-and-implementation-overview-30)
+  - [Design  And Implementation Stages (3.1)](#design--and-implementation-stages-31)
+  - [Different  Design Parts (3.2)](#different--design-parts-32)
+    - [Analysis of  Design Part A:  (3.2.1)](#analysis-of--design-part-a--321)
+    - [Analysis of Design Part B (3.2.2)](#analysis-of-design-part-b-322)
+    - [Analysis of Design Part C (3.2.3)](#analysis-of-design-part-c-323)
+- [Starting Project Application Setup (4.0)](#starting-project-application-setup-40)
+  - [Setting Up the Express Node.js Framework (4.1)](#setting-up-the-express-nodejs-framework-41)
+    - [Generating the Application Skeleton (4.1.2)](#generating-the-application-skeleton-412)
+    - [Initializing Git and Linking It to the GitHub Repo (4.1.3)](#initializing-git-and-linking-it-to-the-github-repo-413)
+    - [Establishing Connection with Remote Repository (4.1.4)](#establishing-connection-with-remote-repository-414)
+    - [Setting Up Application Dependencies and Running the Script (4.1.5)](#setting-up-application-dependencies-and-running-the-script-415)
+    - [Implementing Nodemon for Automatic Server Updates (4.1.6)](#implementing-nodemon-for-automatic-server-updates-416)
+  - [Analysing the express skeleton structure (4.2)](#analysing-the-express-skeleton-structure-42)
+    - [Analysis of Express Project Structure (4.2.1)](#analysis-of-express-project-structure-421)
+    - [Examining www Script (4.2.2)](#examining-www-script-422)
+    - [Examining app.js Code (4.2.3)](#examining-appjs-code-423)
+    - [Examining Views Folder  (4.2.4)](#examining-views-folder--424)
+    - [Examining Route Folder (4.2.5)](#examining-route-folder-425)
+- [Implementing Design Part-A Step-1: Creating Home Page (4.3)](#implementing-design-part-a-step-1-creating-home-page-43)
+  - [Creating a Home Page (4.3.1)](#creating-a-home-page-431)
+  - [Analysing the Above Code  (4.3.2)](#analysing-the-above-code--432)
+  - [Creating Homepage Header Layout (4.3.3)](#creating-homepage-header-layout-433)
+  - [Applying styles to home page using styles.css (4.3.4)](#applying-styles-to-home-page-using-stylescss-434)
+  - [Applying bootstrap icons in header (4.3.5)](#applying-bootstrap-icons-in-header-435)
+  - [Adding Login and Signup pages (4.3.6)](#adding-login-and-signup-pages-436)
+  - [Testing UI (4.3.7)](#testing-ui-437)
+  - [Evaluating UI (4.3.8)](#evaluating-ui-438)
+  - [Testing Page Loading Performance (4.3.9)](#testing-page-loading-performance-439)
+- [Implementing Design Part-A  Step-2: Setting up Database Locally and Online (4.4)](#implementing-design-part-a--step-2-setting-up-database-locally-and-online-44)
+  - [Establishing database connection from the application (4.4.1)](#establishing-database-connection-from-the-application-441)
+  - [Adding a User Schema for the Database (4.4.2)](#adding-a-user-schema-for-the-database-442)
+  - [Handling Incoming POST Request (4.4.3)](#handling-incoming-post-request-443)
+  - [Registering User from the Signup Page (4.4.4)](#registering-user-from-the-signup-page-444)
+    - [Testing Registration Process From Local Database  (4.4.4.1)](#testing-registration-process-from-local-database--4441)
+  - [Logging the user (4.4.6)](#logging-the-user-446)
+    - [Testing Login procedure (4.4.6.1)](#testing-login-procedure-4461)
+  - [Registering the User on Online Database (4.4.7)](#registering-the-user-on-online-database-447)
+- [Implementing Design Part-B Step-1: Creating Dashboard and Practice page (4.5)](#implementing-design-part-b-step-1-creating-dashboard-and-practice-page-45)
+    - [Designing and Implementing the Practice Page (4.5.1)](#designing-and-implementing-the-practice-page-451)
+    - [Populating Questions from the topic.json File (4.5.2)](#populating-questions-from-the-topicjson-file-452)
+    - [Interacting with User Activities (4.5.3)](#interacting-with-user-activities-453)
+- [Implementing Design Part-C Step-1: Creating Test Page (4.6)](#implementing-design-part-c-step-1-creating-test-page-46)
+  - [Shuffling Lessons (4.6.1)](#shuffling-lessons-461)
+  - [Shuffling Questions Present in Each Lesson (4.6.2)](#shuffling-questions-present-in-each-lesson-462)
+  - [Selecting 20 Unique Question from the Pool (4.6.3)](#selecting-20-unique-question-from-the-pool-463)
+  - [Populating Questions (4.6.4)](#populating-questions-464)
+  - [The state of the repository (4.6.5)](#the-state-of-the-repository-465)
+- [Implementing Design Part-B Step 3: Page Interaction (4.7)](#implementing-design-part-b-step-3-page-interaction-47)
+  - [Adding Session Management Logic (4.7.1)](#adding-session-management-logic-471)
+- [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
+  - [Writing the logic to attach the application with the service worker](#writing-the-logic-to-attach-the-application-with-the-service-worker)
   - [Creating a service worker : Service worker vs client/server architecture](#creating-a-service-worker--service-worker-vs-clientserver-architecture)
   - [Creating and attaching manifest file](#creating-and-attaching-manifest-file)
   - [Watching Chrome behaviour after registering the service worker](#watching-chrome-behaviour-after-registering-the-service-worker)
     - [Passing Google service requirements for PWA](#passing-google-service-requirements-for-pwa)
+  - [Design: Part](#design-part)
 - [What is Progressive Web Application?](#what-is-progressive-web-application)
   - [How to clone this repository on local machine](#how-to-clone-this-repository-on-local-machine)
   - [References](#references)
@@ -81,27 +91,30 @@
 - [Appendix-E](#appendix-e)
 - [Appendix-f](#appendix-f)
 
-<div class="page"/>
+
+
+<div page="/">
 
 ## Introduction: 1.0
 
-### Overview of the 11 Plus Examination  1.1
+### Overview of the 11 Plus Examination (1.1)
 
 The 11 plus, or Eleven Plus, exam is a big deal for children in England and Northern Ireland when they're about 11 years old. It's like a ticket to selective secondary schools, such as grammar schools and some private ones.
 
-#### Content of the Exam 1.2
+#### Content of the Exam (1.2)
 
-Depending on where you take it, the test covers `English, Math, verbal reasoning, and non-verbal reasoning`. It's all about seeing how well one can solve problems and show better cognition abilities.
+Depending on where you take it, the test covers `English, Maths, verbal reasoning, and non-verbal reasoning`. It's all about seeing how well one can solve problems and show better cognition abilities.
 
-#### Who Takes It and Where? (Stakeholders) 1.3
+#### Who Takes It and Where? (Stakeholders) (1.3)
 
 The number of children taking the 11-plus exams changes a lot depending on where you are in the UK. Some places still use it to decide who gets into certain schools, but others have different systems.
 
-#### Why It's a Big Deal 1.4
+#### Why It’s a Big Deal (1.4)
 
 People talk a lot about the 11-plus because it's seen as a big deal for children's futures. A better School means a better education one gets and more chances available to learn and compete with the elite class in the future where thousands of pounds fee is required.
 
-#### The reason to select this competition test exam 1.5
+#### The Reason to Select This Competitive Test Exam (1.5)
+
 
 I have undertaken this examination, as has one of my sisters. Within our community, it enjoys considerable popularity, with numerous students competing for placements in esteemed grammar schools. Presently, freely accessible practice materials are scarce online. While various websites, such as [Bond 11 Plus](https://www.bond11plus.co.uk) offer packages for online practice via their digital platforms, they typically require purchase. However, some platforms, like [11 Plus Guide](https://www.11plusguide.com) permit the download of sample papers for manual practice. Additionally, I have [compiled a list](#compiled-list-of-11-websites) of other relevant online resources, along with several books and papers available in my personal collection. Notably, one of the frequently consulted books is published by NelSon-Thrones of Oxford University Press[^1](#references).
 
@@ -111,13 +124,13 @@ The diverse content covered in the aforementioned examination offers significant
 
 ## ANALYSIS 2.0
 
-### Problem identification 2.1
+### Problem Identification (2.1)
 
 The prevailing challenge in this area lies in the scarcity of accessible and comprehensive resources for students preparing for the 11+ Exams. While traditional textbooks exist, they often lack interactivity and cost-effectiveness in digital formats. Furthermore, existing platforms typically require students to purchase packages, limiting access based on financial constraints. 
 
 > Note: There  exist  no platform where those who can contribute time and resources  to help  11+ students digitally as no such repository online is present.
 
-### Introduction of Proposed Solution and Stakeholder Needs 2.2
+### Introduction of Proposed Solution and Stakeholder Needs (2.2)
 
 To address this issue, a proposed solution focuses on creating a digital platform specifically tailored for 11+ Verbal Reasoning practices. While other areas may be equally important, this project intentionally focuses solely on Verbal Reasoning to remain within the scope of an A-Level project. Here are the key features and benefits of this solution:
 
@@ -138,9 +151,9 @@ In summary, the proposed solution aims to bridge the gap by providing a free, in
 
 > Note: This solution is not going to be a static website built by any Static Site Generators
 
-[//]: # (After engaging in discussions with stakeholders, including students, parents, and educators, and reflecting on my personal experience of taking these exams, it has become evident that there is a significant demand for accessible, engaging, and effective resources for 11+ exam preparation. To support this assertion, I offer an example from my own family, wherein my parents sought to provide us with ample assistance. However, as previously mentioned, both my sister and I encountered challenges in accessing the necessary support, highlighting the existing gap in available resources.)
+[//]:# (After engaging in discussions with stakeholders, including students, parents, and educators, and reflecting on my personal experience of taking these exams, it has become evident that there is a significant demand for accessible, engaging, and effective resources for 11+ exam preparation. To support this assertion, I offer an example from my own family, wherein my parents sought to provide us with ample assistance. However, as previously mentioned, both my sister and I encountered challenges in accessing the necessary support, highlighting the existing gap in available resources.)
 
-### Describing and Justifying Computational Approach 2.3
+### Describing and Justifying Computational Approach (2.3)
 
 1. Verbal Reasoning questions are inherently structured and can be systematically analysed by computational methods.
 2. Computational methods allow for the creation of dynamic and interactive question formats, personalized practice sessions, and adaptive learning experiences tailored to individual student needs.
@@ -148,20 +161,20 @@ In summary, the proposed solution aims to bridge the gap by providing a free, in
 4. By leveraging computational methods, we can automate the generation of practice questions, provide instant feedback to students, and track their progress over time, enhancing the effectiveness and efficiency of exam preparation.
 5. By integrating computational methods into the solution, we can harness the power of technology to address the challenges of 11+ exam preparation, making it more engaging, accessible, and personalized for students.
 
-### Identifying and Justifying Specific Features 2.4
+### Identifying and Justifying Specific Features (2.4)
 
 1. Comprehensive coverage of Verbal Reasoning topics.
 2. Designing interactive question formats dynamically using JavaScript in conjunction with HTML and CSS.
 3. These question formats can include  `multiple-choice, matching, fill-in-the-blank, underlining, choosing words from groups and pairs`.
 4. More complex question formats can be designed for example presenting users with more than two categories and asking them to select a number of words belonging to a specific category.
 
-### How to implement the Proposed Solution 2.5
+### How to Implement the Proposed Solution (2.5)
 
 1. The front end of the app will utilize technologies like HTML, CSS, and Bootstrap to handle the user interface (UI). For server support, Node.js and its extensive libraries will be employed on the back end. Project structure and module installation will be managed using NPM.
 2. A templating engine will simplify HTML code creation, while JavaScript will manage computational logic such as verifying selected answers. JavaScript can also read content from JSON files containing practice and mock data.
 3. To streamline Node.js development, the `express` module will be utilized, though alternative frameworks like `React Angular` are viable options.
 4. When creating test or exercise content, two approaches are feasible: dynamically generating content with JavaScript or designing the user interface with placeholders filled by JavaScript logic.
-5. Sound files may enhance user interaction by signaling success or failure.
+5. Sound files may enhance user interaction by signalling success or failure.
 6. Data will be stored in JSON format, commonly used with JavaScript libraries.
 7. The solution will be device-agnostic, prioritizing compatibility with all devices rather than specific mobile app technologies like Swift or Java.
 8. Utilizing Progressive Web Apps (PWAs) will offer a mobile app-like experience, accessible through web browsers with features like offline support, push notifications, and home screen installation.
@@ -171,15 +184,15 @@ In summary, the proposed solution aims to bridge the gap by providing a free, in
 12. Responsive design using Bootstrap will guarantee compatibility across various devices, including desktops, laptops, tablets, and smartphones.
 13. User-friendly interfaces and optimized performance will be prioritized to deliver a seamless user experience across different hardware and software configurations.
 
-### Limitations of the proposed Solution 2.6
+### Limitations of the Proposed Solution (2.6)
 
 1. While much has been proposed as a potential solution, several challenges lie ahead, particularly in tailoring the website or app for personalized use. This entails the incorporation of distinct logic for each individual user and the secure storage of their credentials within the database.
-2. Though There exist many open-source platform, like `GitLab, GitHub( no longer an open source ) and  Bitbucket` that offers features for managing code repositories yet publishing the repository on clounds to make it available online requires funding.
-3. Some platform offers a small chuck of their cloud space to be used and here it is hoped that such an applicatio can enter and find a place.
+2. Though There exist many open-source platform, like `GitLab, GitHub( no longer an open source ) and  Bitbucket` that offers features for managing code repositories yet publishing the repository on clouds to make it available online requires funding.
+3. Some platform offers a small chuck of their cloud space to be used and here it is hoped that such an application can enter and find a place.
 
 > Note: I plan to commence the project with a focus on simplicity to meet the requirements outlined in H446 OCR A Level Computer Science (NEA: Non-exam assessment). This approach will allow for a gradual progression, ensuring that the project remains manageable and aligned with the specified criteria.
 
-### Justifying Hardware and Software Choices 2.7
+### Justifying Hardware and Software Choices (2.7)
 
 **What technologies are needed for a developer**:
 
@@ -194,7 +207,7 @@ The hardware technologies required  to create websites or PWAs do not necessitat
 7. [GitHub](https://github.com/) to upload the repository on the clouds and free hosing.
 8. [Mongoose Database]([https://](https://www.mongodb.com/)) to store user credentials safely.
 
-### Identifying and justifying measurable success criteria for the proposed solution 2.8
+### Identifying and Justifying Success Criteria for the Proposed Solution (2.8)
 
 1. The success of the proposed website can be measured through various quantifiable criteria that directly reflect its effectiveness in addressing the identified problem and meeting stakeholder needs.
 2. Firstly, the website's user engagement metrics, such as the number of active users, session duration, and frequency of visits, can serve as indicators of its popularity and usefulness among students, parents, and other users.
@@ -204,29 +217,29 @@ The hardware technologies required  to create websites or PWAs do not necessitat
 
 <div class="page"/>
 
-### Requirements for such a project 2.9
+### Requirements for Such a Project (2.9)
 
 1. Websites typically follow a client-server architecture, where the client refers to the user's web browser (such as Chrome, Firefox, or Safari), and the server refers to a remote computer that hosts the website's files and data. When a user visits a website, their browser sends a request to the server, asking for the website's content. These request uses HTTP verbs such as `GET` method for the page navigation.
 2. Similarly when a user submits a form on a webpage (such as a login form, registration form, or search form), the browser sends a request to the server to process the form data. This request can use either the HTTP GET or POST method, depending on the form's configuration and the type of data being submitted.
-3. Web pages often contain resources such as images, stylesheets, scripts, and fonts that are loaded asynchronously from the server. Each of these resources triggers a separate request to the server, allowing the browser to fetch and render them independently while the rest of the page loads.
+3. Web pages often contain resources such as images, style sheets, scripts, and fonts that are loaded asynchronously from the server. Each of these resources triggers a separate request to the server, allowing the browser to fetch and render them independently while the rest of the page loads.
 4. Modern web applications frequently interact with remote APIs (Application Programming Interfaces) to retrieve data, perform actions, or integrate with external services. These API requests can be initiated from the client side using various techniques, such as AJAX, the fetch API, or client-side libraries/frameworks.
 5. All the above usually refers to a term commonly known as `Client/Server` architecture.  
 6. **Client-Side Activities**: Client-side activities refer to tasks and operations that are performed within the user's web browser. This includes rendering HTML, executing JavaScript code, and handling user interactions such as clicks and form submissions. Client-side activities are responsible for creating the user interface and providing interactivity to the user.
-7. **Server-Side Activities**: Server-side activities, on the other hand, are performed on the server, typically using server-side technologies like Node.js. These activities include processing user requests, executing business logic, interacting with databases, and generating dynamic content. Server-side activities are responsible for handling the backend operations of the application, such as user authentication, data validation, and database management.
+7. **Server-Side Activities**: Server-side activities, on the other hand, are performed on the server, typically using server-side technologies like Node.js. These activities include processing user requests, executing business logic, interacting with databases, and generating dynamic content. Server-side activities are responsible for handling the Backend operations of the application, such as user authentication, data validation, and database management.
 8. **Role of Node.js in Client-Server Communication**:Node.js plays a crucial role in facilitating communication between the client-side and server-side components of web applications. It serves as the backend infrastructure for handling client requests, processing data, and sending responses back to the client. By leveraging the power of Node.js, developers can build fast, scalable, and real-time web applications that deliver a seamless user experience across different devices and platforms.
 
 <div class="page"/>
 
-#### Why Node.js? 2.9.1
+#### Why Node.js? (2.9.1)
 
 1. **JavaScript Everywhere**: With Node.js, developers can use JavaScript for both client-side and server-side development, enabling a consistent and unified codebase.
 2. **Event-Driven Architecture**: Node.js utilizes an event-driven, non-blocking I/O model, which allows for efficient handling of concurrent requests and real-time applications.
 3. **Vibrant Ecosystem**: Node.js has a large and active community, providing a wealth of libraries and tools to streamline development.
 4. **Scalability**: Node.js applications can easily scale to handle large numbers of concurrent connections, making it suitable for building robust and scalable web applications.
 
-#### How a simple nodejs server is created? 2.9.2
+#### How a Simple Node.js Server Is Created? (2.9.2)
 
-The following code creates  a simple nodejs server that is run locally for developing environment.
+The following code creates  a simple Node.js server that is run locally for developing environment.
 
 ```js
 // Import the 'http' module
@@ -278,7 +291,7 @@ app.listen(port, () => {
 
 If we see the above code closely there is not much difference except that express module is used and GET request is handled by a route. This is not we intend to achieve from express but we want our code to be modular and properly structured. For this purpose we use an MVC ( modal view controller ) architecture where components of a websites are treated separately.
 
-#### MVC ( MOdel-View-Controller) architecture 2.9.3
+#### MVC (Model-View-Controller) Architecture (2.9.3)
 
 1. it is a design pattern commonly used in software development to organize code and separate concerns.
 2. **Model**: The model represents the data and business logic of the application. It encapsulates the application's data and defines how it can be manipulated.In a database-driven web application, models often interact with the database to perform CRUD (Create, Read, Update, Delete) operations.View.
@@ -299,7 +312,7 @@ graph TD;
     SendHTTPResponse-->Client;
 ```
 
-#### Key Principles 2.9.4
+#### Key Principles (2.9.4)
 
 1. Separation of Concerns: MVC separates the application logic into distinct components, making it easier to understand, maintain, and extend.
 2. Modularity: Each component (model, view, controller) can be developed, tested, and modified independently, promoting code reusability and scalability.
@@ -310,82 +323,121 @@ Overall, MVC architecture provides a robust foundation for building complex soft
 
 <div class="page"/>
 
-## Project Application Design 3.0
 
-It is to be designed in a local repository which can be linked to online server. Since the project application promises to provide the full functional website as a digital platform hosted in a cloud server, its design and implementation consist of many steps. It is divided into four design parts. They are further divided into several steps.
+## Project Design and Implementation Overview (3.0)
 
-1. Design Part-A consist of making a user interface then providing interaction between them and testing the website.
-2. Design Part-B consist of making the website to work as [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app). 
+The project's design and implementation entail developing a fully functional website as a digital platform hosted on a cloud server. This comprehensive process is divided into multiple stages, each comprising various sub-steps for thorough execution and management.
 
-### Design: Part-A 3.1
+### Design  And Implementation Stages (3.1)
 
-The Part-A consist of four separate stages, they are referred here as steps. Ste-2 and Step-3 overlaps eachother.
+1. **Local Machine Setup:**
+    This involves choosing the appropriate physical machine and operating system installed and configured with software tools to be used.
 
-1. GUI interface.
-2. Setting up database for the project.
-3. Making UI elements interactive by connecting to the database.
-4. Testing interaction between pages and database.
+2. **Local And Remote Repository Setup:**
+   This initial phase involves setting up a local repository to facilitate development and version control. The local repository serves as the primary workspace for designing and refining the project's components before deployment to the online server.
 
-**Step-1**: The website shows an interface to the user to interact with so that one can login or register. Here a GUI ( Graphical User Interface ) for this purpose is designed.
+3. **Project Application Setup:**
+   Once it is done project is started and when finished it is to be deployed.
 
-```mermaid
-graph TD;
-    HomePage-->LoginPage;
-    HomePage-->SignupPage;
-    LoginPage-->HomePage;
-    SignupPage-->HomePage;
-```
+4. **Website Development:**
+   In this phase, the website's frontend and backend components are developed, encompassing UI/UX design, database integration, and application logic implementation. The development process adheres to industry best practices and standards to deliver a seamless and responsive user experience.
 
-These three pages initial sketch is designed and  shown in the following diagram.
+5. **Cloud Server Configuration:**
+   The subsequent step focuses on configuring the cloud server infrastructure to host the website. This includes selecting an appropriate cloud service provider, provisioning server resources, and configuring server settings to ensure optimal performance and scalability.
 
-![app-design-01](images\\docs\\app-design-01.jpg)<br>
-*figure-1*
+6. **Deployment and Testing:**
+   The final part involves deploying the developed website to the cloud server and conducting rigorous testing to validate its functionality, performance, and security. Deployment strategies are employed to ensure smooth transition from the local environment to the production server, followed by comprehensive testing procedures to identify and address any issues or vulnerabilities.
 
-**Step-2**: Setting up database locally and online to store and retrieve the user credentials. [Mongodb](https://www.mongodb.com/) database is chosen for this purpose.
+### Different  Design Parts (3.2)
 
-**Step-3**: Make UI parts interactive so that communication is enabled among different pages using HTTP protocol. Following flow diagram shows such an interaction which happens through this protocol.
+It is divided into four design parts as shown below:
 
-```mermaid
-graph TD
-    A[User visits website] -->|GET| B{Login or Signup}
-    B -->|Signup| C[Client-side email criteria checked]-->C
-    C -->|Validate email format| D[Submit form]
-    D -->|POST| E[Redirect to Login page, HTTP GET]
-    D -->|Validation failure| B
-    B -->|Login| F[Client-side password confirm criteria checked]-->F
-    F -->|Validate password criteria| G[Submit form]
-    G -->|POST| H[Redirect to dashboard, HTTP GET]
-    G -->|Failure| B
-```
+   1. **Design Part-A:** It consist of making a user interface then providing interaction between them and testing the website.
+      1. *Step-1*: UI elements of application entry point.
+      2. *Step-2*: Database setup.
+      3. *Step-3*: Database interaction 
+      4. *Step-4*: Testing 
+   
+   2. **Design Part-B:** It consist of creating a dashboard and practice page to allow a user to engage with activities
+      1. *Step-1*: UI elements of Dashboard and Practice page.
+      2. *Step-2*: Providing contents dynamically.
+      3. *Step-3*: Testing interaction.
+  
+   3. **Design Part-C:** It consist of creating a test page, attaching necessary UI elements and Providing logic to work with each other.
+      1. *Step-1*: UI elements fo test page.
+      2. *Step-2*: Designing algorithm to populate test page contents.
+      3. *Step-3*: Conducting the test with a time period
+      4. *Step-5*: Submitting to the server 
+      5. *Step-6*: Testing 
+   
+   4. **Application deployment in the Clouds:** Choosing the right platform for such an application.
+   
+   5. **Making the application Progressive Web App:**
+      1. *Step-1*: It consist of making the website to work as [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/What_is_a_progressive_web_app). 
+      2. *Step-2*:
+
+#### Analysis of  Design Part A:  (3.2.1)
+
+Part-A of the project encompasses four distinct stages, each comprising essential tasks aimed at developing and refining the user interface and database integration. These stages are referred to as **steps**, starting with Step-1, Step-2 and Step-3 etc., exhibiting overlapping functionalities:
+
+1. **Step-1: GUI  Development of Home Page** 
+   This initial stage focuses on crafting the graphical user interface (GUI), ensuring intuitive layout and user-friendly navigation. Design considerations include visual elements, layout structure, and interactive components to optimize user experience.
+
+2. **Step-2: Database Setup**
+   The second step involves configuring and establishing the database for the project. Database setup encompasses tasks such as defining database schema, creating collections ( Non SQL database ), and configuring data storage mechanisms, ensuring seamless integration with the application.
+
+3. **Step-3: Interactive UI Elements**
+   In Step-3, the focus shifts to enhancing user interaction by integrating UI elements with the database. This stage involves implementing functionalities that enable dynamic data retrieval, manipulation, and presentation. UI elements are programmed to interact with the underlying database, facilitating real-time data updates and (user feedback).
+
+4. **Step-4:Page-Database Interaction Testing:**
+   The final stage involves rigorous testing to validate the interaction between different pages/modules and the database. Testing scenarios encompass data retrieval, insertion, updating, and operations, ensuring consistency and accuracy in data handling. Comprehensive testing protocols are employed to identify and rectify any anomalies or discrepancies in page-database interactions.
+
+#### Analysis of Design Part B (3.2.2)
+
+Designing various user interface (UI) pages involves creating intuitive layouts and functionalities for different aspects of the application:
+   
+
+1. **Step-1: GUI Development of Dashboard and Practice Page**
+   The dashboard serves as the central hub for users upon successful login. Here, users are presented with options to engage in practice activities or initiate a test session, providing them with seamless navigation to different sections of the application. Emphasis is placed on designing and refining the graphical user interface (GUI) for the practice page, ensuring intuitive layout and seamless navigation.
+
+2. **Step-2: Injecting Contents dynamically**
+   This involves implementing dynamic content injection mechanisms, enabling the practice page to dynamically populate the UI place-holders with relevant topics, lessons, and questions based on user interactions. Within the practice page, users are offered a selection of topics to choose from. Each topic comprises multiple lessons, typically ranging from 1 to 4. These lessons are structured to contain sets of questions and answers, with data stored locally in JSON format. Each lesson consists of 10 questions, providing users with ample practice opportunities.
+
+3. **Step-3: Testing Interaction**
+   This involves rigorous testing protocols are employed to validate the interaction between the practice page and underlying functionalities, ensuring seamless user experience and robust functionality.
+
+
+#### Analysis of Design Part C (3.2.3)
+
+1. **Step-1: UI Elements for Test Page**
+   During Step-1, meticulous attention is given to designing and implementing the user interface (UI) elements for the test page, ensuring an intuitive layout and interactive features conducive to effective test-taking.
+
+2. **Step-2: Designing Algorithm to Populate Test Page Contents**
+   In Step-2, the focus shifts to designing and implementing algorithms responsible for dynamically populating the test page with relevant content, including randomized questions, ensuring variability and adaptability in each test session.
+
+3. **Step-3: Conducting the Test with Time Limitations**
+   Step-3 involves implementing time limitations for test sessions, simulating real-world examination conditions and fostering time management skills among users, thereby enhancing the authenticity and efficacy of the testing process.
+
+4. **Step-4: Submitting the Test to the Server**
+   During Step-4, mechanisms are devised and implemented to enable users to submit their completed tests to the server seamlessly, facilitating efficient data transmission and processing for subsequent analysis and evaluation.
+
+5. **Step-5: Testing the Whole Process**
+   Step-5 entails comprehensive testing of the entire test-taking process, from UI functionality to content generation and submission mechanisms, ensuring robustness, reliability, and optimal performance across diverse user scenarios.
+
+---
+
+
 
 **Step-4**: Application is to be tested to make sure it passes all HTTP requests made by the user, to do so either [Postman](https://www.postman.com/),[insomnia](https://insomnia.rest/) or Vscode extension name [thunderclient](https://www.thunderclient.com/) will be used to debug and test APIs.
 
 ---
 
-### Design: Part-B 3.2 
+-->  Implementing The Design Part-A  (4.0)
 
-- Designing  other UI pages including dashboard, practice and test page. The dashboad page is where the user will be redirected once successfully logged into the website. From here choice is given to either use practice activities or take a test.
-- While practicing user is presented different topics to choose from, in turn each topic would have 1-4 lessons, where each lesson is comprised of 10 questions and answer format data locally saved in JSON format.
-- It is also divided in different step as well.
-
-
-### Design: Part-C 3.3
-
-**Step-1**: The website is to be implemented as Progressive Web application and tested on hand-held devices. It has to pass full criteria to be the candidate for PWA. Testing is to be done using available technologies.
-
-- Write down what is to come here ! 
-
-- At first we only design the user interface for the user to login or register to the website.the site to provide us the working websites that includes a home page providing the option of `Login` and `Signup` facilities. Once this stage is passed, testing is done,we will continue to the next stage.
-- The project also promises that such a project should be used on mobile devices, thus it would try to achieve this functionality using Progressive Web App technologies before going to the next stage.
-
----
-
-## Working on the design Part-A  4.0
-
-- As discussed above we are to use the MVC architecture of express node module. In MVC architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
+- As discussed above in section (2.9.3), we are to use the MVC architecture of express node module. In MVC architecture `views` represents the interface or the webpages that user can interact with. When users presses or clicks on these interfaces client initiates the request to navigate to a different page, this requests is handled by the MVC architecture using `routes`. Similarly what is to be done in response to the request can be handled by the `controller` components.
 - Express frame work makes our job easy to keep all these components of the web developing environment by providing us separate folders to keep the work modular while working behind the scene providing the logic to interact with each other.
 
-### Starting project application setup 4.1
+## Starting Project Application Setup (4.0)
 
 1. Windows 10/11 machines are used equipped with dual processors running 16 threads with a raid setup. VSCode has been set up with the required extensions activated. Extensions used are shown in [Appendix-A](#appendix-a).
 
@@ -400,13 +452,13 @@ graph TD
 5. An empty online remote repository with the same name has been created to connect with the local machine.
 6. The next step involves configuring the Express framework.
 
-#### Setting up express nodejs framework 4.1.1
+### Setting Up the Express Node.js Framework (4.1)
 
-- Though the folder structure can be created manually but `express` provides a CLI (command line interface) to ease the work.
-- To use the express cli, it has been installed using `npm install -g express-generator`.
-- Express allows us to use different templating engine for the html code, I have chosen `ejs` as my template engine.
+Although the folder structure can be manually created, the express framework offers a Command-Line Interface (CLI) to streamline this process.
+The express CLI is installed globally using the following npm command: `npm install -g express-generator`.
+Express enables the utilization of various templating engines for HTML rendering purposes. In this context, the `ejs` templating engine has been selected for its compatibility and features.
 
-#### Generating the application skeleton 4.1.2
+#### Generating the Application Skeleton (4.1.2)
 
 1. The command `express --view=ejs h446` creates a skeleton folder structure. The out put is shown below.
 
@@ -455,21 +507,32 @@ d----        08/04/2024     12:53                  views
 
 - The application project folder name is provided above as `h446`. The above command also sets the html templating engine to be `ejs`.
 
-#### Initialising git and linking it to the GitHub repo 4.1.3
 
-1. First we initialised the `git`into the `h446` folder, using the following command.
-2. Second contents of the folder are added to staging area.
-3. The commit is made giving some comments.
+#### Initializing Git and Linking It to the GitHub Repo (4.1.3)
 
-```Git
-> git init .
-> git aa 
-> git cm "initial commit: express app generated using express cli setting templating engine as ejs"
-```
+1. **Initializing Git in the Project Folder:** 
 
-- Note: in above command `git aa` and `git cm` are git aliases set to ease the work, the details of these shortcuts is provided in the [Appendix-B](#appendix-b).
+   The `git` version control system was initialized within the `h446` folder using the following command:
 
-- Taking a git log shows the out put of repo state.
+   ```bash
+   > git init
+   ```
+
+2. **Adding Contents to the Staging Area:** Following initialization, the contents of the project folder were added to the staging area using the command:
+  
+  ```git
+  > git aa
+  ```
+
+3. **Committing Changes with Comments:** Upon staging the changes, a commit was made with descriptive comments to track the progress of the project: is made giving some comments.
+  
+  ```git
+  > git cm "initial commit: express app generated using express cli, setting templating engine as ejs"
+  ```
+
+In above commands, `git aa` and `git cm` are aliases set up for Git commands to streamline the workflow. These aliases offer shortcuts for commonly used Git commands, enhancing efficiency in project management. Aliases were defined for Git commands by modifying the Git configuration file, they are shown in [Appendix-B](#appendix-b).
+
+Taking a git log shows the out put of repo state.
 
 ```git
 > git log
@@ -478,10 +541,31 @@ Author: SulaimanSayyed21 <sullisayyed21@outlook.com>
 Date:   Mon Apr 8 12:59:25 2024 +0100
 ```
 
-- Link is established between local and remote repository using `git remote add origin https://github.com/SulaimanSayyed21/h446Alevel.git`.
-- Setting a branch name `git branch -M main`.
-- Pushing the local repo to remote using `git push -u origin main`.
-- The out put is shown below.
+#### Establishing Connection with Remote Repository (4.1.4)
+
+To establish a connection between the local repository and its remote counterpart on GitHub, the following steps were executed:
+
+1. **Adding Remote Repository:**
+
+   The local repository was linked to the remote repository hosted on GitHub using the command:
+
+   ```bash
+   git remote add origin https://github.com/SulaimanSayyed21/h446Alevel.git
+   ```
+   This command specifies the URL of the remote repository (https://github.com/SulaimanSayyed21/h446Alevel.git) and assigns it the name origin.
+
+2. **Setting Branch Name:** To set the branch name to main, the following command was executed:
+  
+  ```bash
+  git branch -M main
+  ```
+3. **Pushing Changes to Remote:** Finally, the local repository was pushed to the remote repository on GitHub using the command:
+  
+  ```bash
+  > git push -u origin main
+  ```
+
+This command uploads local commits to the remote repository, establishing synchronization between the two. Upon executing the push command, the output confirming the successful transmission of changes to the remote repository is displayed in the terminal.
 
 ```git
  > git push -u origin main
@@ -523,10 +607,9 @@ Having pushed the local repo to the remote, following is the snapshot of the rem
 }
 ```
 
-- The above has set the name of the app along with other information. A script is provided to run the application. In dependencies folder it telss us that this project depends upon these libraries. They are not yet installed. The first step is to install them by using `npm install`.
-- When this command is run, npm install all the libraries under `node_modules` folder. It is time to see if our skeleton app is working or not.
-- Using `npm run start` the script is started at `port 3000`.
-- Terminal output is shown below.
+#### Setting Up Application Dependencies and Running the Script (4.1.5)
+
+The preceding steps have configured the application's name and associated details. Additionally, a script has been provided to execute the application. Within the dependencies folder, it indicates the libraries upon which this project relies. However, these dependencies have not been installed yet. The initial step involves installing them using the command `npm install`. Upon executing this command, `npm` installs all the required libraries, placing them within the `node_modules` folder. Subsequently, it becomes essential to verify the functionality of our application skeleton. By employing the command `npm run start`, the script is initiated, running the application on port 3000. Below is the terminal output for reference:
 
 ```txt
 > npm run start
@@ -541,16 +624,15 @@ GET /stylesheets/style.css 200 2.111 ms - 111
 GET /favicon.ico 404 2.472 ms - 993
 ```
 
-- The above information shows us that server is run from `./bin/www` directory and different `GET` requests are made, the last one status shows `404` means that there was no `favicon` found. As the project goes along details will be provided of what is happening.
-- The server running on port 3000 snapshot is shown below.
+- The above information shows us that server is run from `./bin/www` directory and different `GET` requests are made, the last one status shows `404` means that there was no `favicon` found. As the project goes along details will be provided of what is happening. The server running on port 3000 snapshot is shown below.
 
 ![localhost-01.jpg](images\\docs\\localhost-01.jpg)<br>
 *figure-3*
 
-- At this state we install another npm library called `nodemon` so that while we work the server is updated automatically. The nodemon watches any live changes in the code and as the files are saved it updates the server without letting us stop and restart the server.
-- To do so we use `npm i nodemon`. It can be installed globally or locally in this project. I have installed it globally as it helps me in other projects.
-- Adding a script in `project.json` file using this line of code `"dev":"nodemon --ext js,ejs,json,css ./bin/www"`. It lets us start the script using `npm run dev` where the word `dev` represents our development environment while the script `nodemon --ext js,ejs,json,css` are instructions given to nodemon to watch the changes in these file.
-- Staring the server using `npm run dev`, following is the output of this command.
+#### Implementing Nodemon for Automatic Server Updates (4.1.6)
+
+To streamline our development process, the `npm` library `nodemon` is incorporated. This library facilitates automatic server updates while we work on our project. By continuously monitoring any changes in the codebase, `nodemon` promptly updates the server upon saving files, eliminating the need for manual server restarts. The installation of `nodemon` is achieved via the command `npm i nodemon`. It is noteworthy that `nodemon` can be installed either globally or locally within the project. In this instance, a global installation is opted for, providing versatility across various projects. Subsequently, a script is added to the `project.json` file, specifying the line of code: `"dev":"nodemon --ext js,ejs,json,css ./bin/www"`. This script, labelled as `dev`, signifies our development environment. The command `npm run dev` initiates this script, wherein `nodemon` is instructed to monitor changes in files with extensions: `.js`, `.ejs`, `.json`, and `.css`. Upon executing `npm run dev` to start the server, the following output is observed:
+
 
 ```txt
 > npm run dev
@@ -564,17 +646,14 @@ GET /favicon.ico 404 2.472 ms - 993
 [nodemon] starting `node ./bin/www`
 ```
 
-- Since we have added the node_modules and it is a git project we create a `.gitignore` file so that node_modules is not included in our project. It is a common practice as it includes thousand of libraries folders. When anyone else clone this repository, one has to only run `npm install` and all dependencies are installed and project can be run. Also adding `Readme.md` file.
-- Readme.md is a markdown file which can be rendered on any browser, it frees you to write contents in html file using different elements as `<h1>` etc.
-- A commit is made to save the state of the repository.
+- Since we have added the `node_modules` and it is a git project we create a `.gitignore` file so that `node_modules` folder is not included in our project. It is a common practice as it includes thousand of libraries folders. When anyone else clone this repository, one has to only run `npm install` and all dependencies are installed and project is run. Also adding `Readme.md` file. Readme.md is a markdown file which can be rendered on any browser, it frees us to write contents in html file using different elements as `<h1>` etc. A commit is made to save the state of the repository.
 
-> Note: So far we have created a nodejs express skeleton app that gives us a server which is running on the local machine on the port 3000. No code for the required app is written.
+> Note: So far we have created a `Node.js` express skeleton app that gives us a server which is running on the local machine on the port 3000. No code for the required app is written.
 
-### Analysing the express skeleton structure 4.2
+### Analysing the express skeleton structure (4.2)
 
-- The first job for us to understand and analyse how express server is working. Where and how our webpages to be written, where are styles and JavaScript code along with other static files such as images if we have any, are to be placed.
-- Second writing the logic or code for our application. Also deciding in which folder it has to go and how to provide the logic for express to understand what we intend to do so that it can work accordingly.
-- Let see what folder structure is created by express for us, it is shown below using the `tree /F` command on terminal.
+
+Before delving into the development process, it's imperative to comprehend the structure and functioning of the Express server. This entails identifying the designated locations for webpages, stylesheets, JavaScript code, and other static files such as images. Subsequently, the development entails writing the logic or code for our application. This involves determining the appropriate folder structure and implementing the necessary logic for Express to interpret and execute our intended functionalities effectively.To gain insight into the folder structure generated by Express, the `tree /F` command is utilized in the terminal. The resulting structure is depicted below:
 
 ```txt
 K:.
@@ -599,13 +678,29 @@ K:.
         index.ejs
 ```
 
-- The above structure tells us that the main application name is `app.js` which is present at the root of our project.
-- Public folder is a place where static files are to be placed. static files are the one which are not changed dynamically when the application is run.
-- Views provide the place where html pages are to be written and kept. It is the frontend part of the client/sever architecture.
-- Routes folder where routing logic is to be created for the navigation of the pages. It represents the backend of the client/server architecture.
-- The bin directory has a www file without any extensions but it is js script which creates the server, since it is created by an express server it provides the logic ro `run, debug and listen to the server along with any error detailed if encountered. Following is code from this file.
+#### Analysis of Express Project Structure (4.2.1)
+
+The examination of the project structure reveals crucial insights into the organization and functionality of various components:
+
+1. **Main Application File (`app.js`):**
+   Positioned at the root of the project, `app.js` serves as the primary application file, orchestrating the execution flow and integrating various modules.
+
+2. **Public Folder:**
+   The public folder serves as a repository for static files that remain unchanged during runtime. These files, such as stylesheets and client-side scripts, contribute to the user interface's presentation and behaviour.
+
+3. **Views Directory:**
+   Within the views directory, HTML pages are authored and stored. This directory constitutes the frontend aspect of the client/server architecture, housing the visual elements presented to users.
+
+4. **Routes Directory:**
+   The routes directory houses the routing logic responsible for directing navigation within the application. It represents the backend functionality of the client/server architecture, handling requests and generating appropriate responses.
+
+5. **Bin Directory and `www` Script:**
+   The bin directory accommodates the `www` file, a JavaScript script devoid of extensions. Despite its unassuming name, `www` holds significant importance as it is responsible for creating the server instance. This script, generated by the Express server, facilitates server management tasks such as execution, debugging, and error handling.
+
+Below is an excerpt from the `www` script:
 
 > Note: It was possible to delete all the contents provided by the express framework and starts writing the logic from the beginning but it would have been useless as express only provides the basic logic which we would have to write again. To delete and write the same code is not a good practice in software engineering and referred as reinventing the wheel.
+
 
 ```js
 #!/usr/bin/env node
@@ -667,7 +762,7 @@ function onListening() {
 }
 ```
 
-#### Interrogating the functionality of the www Script 4.2.1
+#### Examining www Script (4.2.2)
 
 1. **Shebang**: `#!/usr/bin/env node` - This line specifies that the script should be executed by the Node.js runtime. The symbol `#!` is shell environment is known as `Shebang` and must be the first part of the first line of the script for the script to run successfully.
 2. **Module Dependencies**: The script requires necessary modules:
@@ -691,7 +786,7 @@ function onListening() {
 
 > Note: in short express has provided much more sophisticated logic to handle the errors and encountering possible mistakes. The same task was earlier provided by simple logic as shown above under the heading "How a simple nodejs server is created".
 
-#### Examining app.js code 4.2.2
+#### Examining app.js Code (4.2.3)
 
 - It is the main entry point for an Express application. It is where the application is configured, routes are defined, middleware is applied, and the server is started. Lets examine this code.
 
@@ -762,7 +857,7 @@ Similarly `app.use('/users', usersRouter)`: Mounts the users router at the '/use
 
 Overall, app.js sets up an Express application, configures middleware, defines routes, and handles errors to create a robust web server.
 
-#### What lies under views folder ? 4.2.3
+#### Examining Views Folder  (4.2.4)
 
 1. As mentioned earlier it is this folder which represents the front end of our website. Express provides us with two files. One is `error.js` which contains nothing but three lines logic to show the error messages and express uses this file to show an error if encounters. The code is shown below.
 2. Since we are using ejs templating engine its notation `<% %> or <%- %> or <%= %>` is used in above code. We will leave this file as it is.
@@ -793,7 +888,7 @@ The second file is `index.ejs` which serves as our home page. Earlier when we ra
 
 Before we start to work we will also see what is present in our `route` folder.
 
-#### Examining route folder 4.2.4
+#### Examining Route Folder (4.2.5)
 
 The route folder has two files containing the code of handling the navigation of home page and the users. We first look at the `index.js` or home page routing code.
 
@@ -839,12 +934,43 @@ Before going any further vscode snapshot is taken to show how work is done in it
 
 <div class="page"/>
 
-### Implementing Design Part-A Step-1: Creating Home Page 4.3
+## Implementing Design Part-A Step-1: Creating Home Page (4.3)
 
-The application should adhere to the layout outlined in Part-A, comprising three distinct pages: the homepage, login page, and signup page. Each page should seamlessly link to the others, ensuring smooth navigation between them.
+The website shows an interface to the user to interact with so that one can login or register. Here a GUI for this purpose is designed.
+
+```mermaid
+graph TD;
+    HomePage-->LoginPage;
+    HomePage-->SignupPage;
+    LoginPage-->HomePage;
+    SignupPage-->HomePage;
+```
+
+These three pages initial sketch is designed and  shown in the following diagram.
+
+![app-design-01](images\\docs\\app-design-01.jpg)<br>
+*figure-1*
 
 
-1. Starting from the home page: the contents of `index.ejs` are removed. A new folder named `layout` is created in views folder and `header.ejs` template is created. The contents of the this file is shown below.
+```mermaid
+graph TD
+    A[User visits website] -->|GET| B{Login or Signup}
+    B -->|Signup| C[Client-side email criteria checked]-->C
+    C -->|Validate email format| D[Submit form]
+    D -->|POST| E[Redirect to Login page, HTTP GET]
+    D -->|Validation failure| B
+    B -->|Login| F[Client-side password confirm criteria checked]-->F
+    F -->|Validate password criteria| G[Submit form]
+    G -->|POST| H[Redirect to dashboard, HTTP GET]
+    G -->|Failure| B
+```
+
+The application should adhere to the layout outlined in Part-A, comprising three distinct pages: the homepage, login page, and Signup page. Each page should seamlessly link to the others, ensuring smooth navigation between them.
+
+
+### Creating a Home Page (4.3.1)
+
+Starting from the home page: the contents of `index.ejs` are removed. A new folder named `layout` is created in views folder and `header.ejs` template is created. The contents of the this file is shown below.
 
 ```html
 // index.js 
@@ -868,7 +994,7 @@ The application should adhere to the layout outlined in Part-A, comprising three
 
 - The reason to create the head layout is that this app has three different pages so far and they all have to have the above code in those files. By creating the template we ony need to insert the template reference and they will be rendered.
 
-#### Analysing the above code and creating new folders 4.3.1
+### Analysing the Above Code  (4.3.2)
 
 - `<!doctype html>`: Declares the document type and version of HTML being used.
 - `<html lang="en">`: Defines the root element of the HTML document and specifies the language of the content (English).
@@ -888,7 +1014,7 @@ The above sets up the basic structure and styling for an HTML document in this a
 
 The contests of the  `style.css` provided by express are deleted. An `icons` folder is also created to keep the application related icons.
 
-> Note: A local commit is made and contents arre pushed to the github.
+> Note: A local commit is made and contents are pushed to the github.
 
 ```git
 > git lol
@@ -897,7 +1023,7 @@ The contests of the  `style.css` provided by express are deleted. An `icons` fol
 ffeff25 Readme.md updated, design diagrams added
 7500e32 normal commit: Readme updated, table of contents added
 60388d4 documentation done in Readme.md and output taken in pdf-output
-cbf038a (origin/main)  vscode worksapce is added, Readme.pdf genertated automatically by the extension, one image added.
+cbf038a (origin/main)  vscode worksapce is added, Readme.pdf generated automatically by the extension, one image added.
 1e05319  nodemon installed globally, script added in package.json fi.e, readme.md added, server is working
 50e4c93 initial commit: express app generated using express cli setting templating engine as ejs
 
@@ -919,7 +1045,7 @@ To github.com-SulaimanSayyed21:SulaimanSayyed21/h446Alevel.git
 ![github-02.jpg](images\\docs\\github-02.jpg)<br>
 *figure-6*
 
-#### Creating homepage header 4.3.2
+### Creating Homepage Header Layout (4.3.3)
 
 > Note: header.ejs name is changed to head.ejs as head and header represent different sections of html page .
 
@@ -994,7 +1120,7 @@ footer template
 *figure-7*
 
 - It is to be noted that what happens when the page is not found a `404` page is shown, since express provides the logic to show the error output handling in www script where the server is run, it outputs its logic on the webpage which is convenient for the developer. The error shows that it does not find the file `footer.ejs`.
-- Found the typo in the file name, it was `foter` changed to `footer.ejs`. The following is displayed on `localhost:3000`.
+- Found the typo in the file name, it was `footer` changed to `footer.ejs`. The following is displayed on `localhost:3000`.
 
 ![localhost-02.jpg](images\\docs\\localhost-02.jpg)<br>
 *figure-8*
@@ -1033,7 +1159,7 @@ The following 1,2 and numbered 3 lines contains CSS ( Cascading Style Sheets ) c
 
 - Similarly the `footer.ejs` contents are same and have been discussed above, with one exception that it shows the different text or message.
 
-#### Applying styles to home page using styles.css 4.3.3 
+### Applying styles to home page using styles.css (4.3.4) 
 
 - As we have seen in figure-8 that our footer is not aligned to the bottom of the page. The reason being that the header or the footer tags are HTML semantics tags which allows user to use them in their code to convey the meaning of the HTML elements, it is the job of the developer to provide its styles. Following code is written in `styles.css`
   
@@ -1090,7 +1216,7 @@ footer {
 
 - The padding values makes sure that there is some distance present between the items.
 
-#### Applying bootstrap icons in header 4.3.4
+### Applying bootstrap icons in header (4.3.5)
 
 - Since the page is presented to the user to login or register, it is a good idea to have some icons presented here. Three different icons are used in loginheader template, their respective classes are shown below.
 
@@ -1152,7 +1278,7 @@ The following figure shows the different title and favicon in the title of the w
 
 ---
 
-#### Adding Login and Signup pages 4.3.5 
+### Adding Login and Signup pages (4.3.6) 
 
 - Two files are created `login.ejs` and `signup.ejs` in `views` folder where home page layout `index.ejs` is already present.
 - Following the design shown in [figure-1](#design-part-a), first a template file named `normalheader.ejs`is created which will be injected in both login and signup template.
@@ -1318,7 +1444,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 - Design Part-A step-1 is achieved which consisted of providing a user interface.
 
-#### Testing UI 4.3.6 
+### Testing UI (4.3.7) 
 
 - Three browsers `Google chrome, Microsoft edge and mozilla firefox are used`.
   
@@ -1328,12 +1454,12 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ![ui-testing-01.jpg](images\\docs\\ui-testing-01.jpg)<br>
 *figure-19 - Home page*
 
-- To avoid it happening the `.anchor` class property ` padding: 0px 10px 0px 10px; /* top, right, bottom, left */` values were chaged from `15` to `10`. The problem is corrected. as shown below.
+- To avoid it happening the `.anchor` class property ` padding: 0px 10px 0px 10px; /* top, right, bottom, left */` values were changed from `15` to `10`. The problem is corrected. as shown below.
 
 ![ui-testing-02.jpg](images\\docs\\ui-testing-02.jpg)<br>
 *figure-20 - Home page*
 
- Checking Login and Signup pages. They are displayed correctly in all three  browsers as shwon below.
+ Checking Login and Signup pages. They are displayed correctly in all three  browsers as shown below.
 
 ![ui-testing-login-03.jpg](images\\docs\\ui-testing-login-03.jpg)<br>
 *figure-21 - Login page*
@@ -1341,7 +1467,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ![ui-testing-signup-03.jpg](images\\docs\\ui-testing-signup-03.jpg)<br>
 *figure-22 - Signup page*
 
-#### Evaluating UI 4.3.7 
+### Evaluating UI (4.3.8) 
 
 | Testing              | Issues |
 | -------------------- | ------ |
@@ -1351,20 +1477,20 @@ no changes added to commit (use "git add" and/or "git commit -a")
 | 4. Responsive design | No     |
 
 
-#### Testing Page loading performance 4.3.8
+### Testing Page Loading Performance (4.3.9)
 
 Using developers tool provided by chrome, all three pages were loaded and network tab is used to see the performance, there were no bottleneck issues were found, the load time varies from `54ms to 93ms` when page is cached and without cache from `150ms to 180ms`. Following figure shows the Network tab activity fo the Login page from developers tools.
 
 ![performance-testing-01.jpg](images\\docs\\performance-testing-01.jpg)<br>
 *figure-23*
-The following page shows the `performance tab` from Google chrome devlopers tools. At the bottom section summary informs how much time it has taken to laod the pages.
+The following page shows the `performance tab` from Google chrome developers tools. At the bottom section summary informs how much time it has taken to load the pages.
 
 ![performance-testing-02.jpg](images\\docs\\performance-testing-02.jpg)<br>
 *figure-24*
 
 <div class="page"/>
 
-### Implementing Design Part-A  Step-2: Setting up Database locally and online 4.4 
+## Implementing Design Part-A  Step-2: Setting up Database Locally and Online (4.4) 
 
 - Mongodb server and clients utilities are installed on the local machine. Two client utilities are installed one is a mongo shell called `mongosh` and second one is GUI called `Compass`.
 - Both are shown to be running in the following figure. Mongo shell can be opened in Compass or separately
@@ -1437,7 +1563,7 @@ MONGODB_URI='mongodb+srv://sulli:21March@usersname0.r4rl0vd.mongodb.net/vrusers?
 MONGODB_URI='mongodb://localhost:27017/vrusers'
 ```
 
-#### Establishing database connection from the application 4.4.1
+### Establishing database connection from the application (4.4.1)
 
 To start the mongoose server from our application two lines are added at the top section of  `app.js` file and one in the middle. To start this service  `connectMongoDb();` function is used. This function is exported exported by `dbconfig/connection.js` file and it is loaded or required in `app.js`.
 
@@ -1473,7 +1599,7 @@ Connected to  MongoDB database!
 
 ```
 
-#### Adding a user schema for the database 4.4.2 
+### Adding a User Schema for the Database (4.4.2) 
 
 - The structure of the database depends upon the schema and it is to be added in our application. To do so a `schema` is to be created which provided a skeleton of the fields that are to be created. This is our modal in terms of express `MVC` architecture.
 - For this purpose we create a folder name `modal` under `h446` working directory and in this modal a file name `user.js` is created which will represent the modal. Following are the contents of the `user.js`:
@@ -1514,7 +1640,7 @@ module.exports = collection;
 
 > Note: So far we have setup a database system locally and online, crated a database name `vrusers` with one collection named `credentials`. The application connection has been established. Now the code logic is to be added into the app so that when user enters the detail to register, it is added into our local or online database.
 
-#### Handling incoming POST request when submit button is pressed 4.4.3 
+### Handling Incoming POST Request (4.4.3)
 
 - In our application views and routes are present a modal has also been created yet we do not have controller. It is time to implement MVC architecture fully to keep the code modular and maintainable this approach also adheres to the separation of concern principle where each component  (routes, controllers, models) has its specific role and responsibility.
 - A `controllers` folder is created and two files are added `loginController.js and signupController.js`.
@@ -1581,7 +1707,7 @@ In the above code, [asynchronous](#appendix-c) function named `handlePostRequest
 ![localdatabase-empty](images\\docs\\localdatabase-empty.jpg)<br>
 *figure-26*
 
-#### Registering user from the signup page 4.4.4
+### Registering User from the Signup Page (4.4.4)
 
 - The app is running on port 3000, and first user signs up to the site, when submit button is pressed, the data is entered successfully into local database name `vrusers`. MonogoDB is a non relational database that records what is called `documents` in `collections`. Here first document is created, it is shown below.
 
@@ -1606,20 +1732,27 @@ POST /signup 200 144.009 ms - 2270
 
 - The hash password is shown as it has been hashed by the code. The code having shown the data on console takes the user to `login` page so that one can login to the site.
 
-##### Testing registration process: 1 -> Locall Database  4.4.4.1
+#### Testing Registration Process From Local Database  (4.4.4.1)
 
-This test is done when nodejs express server is running locally on `port:3000` and connected to local instance of mongodb client application called compasss.
+This test is done when nodejs express server is running locally on `port:3000` and connected to local instance of mongodb client application called `Compasss`.
 
-1. When the same name is tried to register and tested locally, it successfully sends the string back fron the its controller `signupController`. The string is shown below.
+1. When the same name is tried to register and tested locally, it successfully sends the string back from its controller `signupController`. The string is shown in the header of the browser, where user neters the address to navigate. This string is shown below.
 
 ```txt
+Email already exists. Please choose a different email.
+```
+
+The above happens because of this logic present in the code.
+
+```js
+//signupController.js
+
 if (existingEmail) {
       return res.status(400).send("Email already exists. Please choose a different email.");
     }
-Email already exists. Please choose a different email. <--- string returned.
 ```
 
-#### Logging the user 4.4.5
+### Logging the user (4.4.6)
 
 To handle POST request coming from login page,  `login.js` route is amended to delegates all incoming POST request to `loginController`. It is done by adding the following code.
 
@@ -1683,7 +1816,7 @@ module.exports = {
 };
 ```
 
-##### Testing Login procedure 4.4.5.1
+#### Testing Login procedure (4.4.6.1)
 
 The above code using mongoose module library uses `findOne()` methods to find the user name and email in the database against the message coming in the `req.body.username`. If it fails it sends back the proper message in the header to inform the user of what information is wrong. Similarly the module `bcrypt.compare()` API compares the entered password with the password already present in the database and gives the result. Errors are shown to the user in the address bar.
 
@@ -1693,7 +1826,7 @@ http://localhost:3000/login?error=email_not_found
 http://localhost:3000/login?error=wrong_password
 ```
 
-- When login procedure is completed, the `dashboard` page is rendered. A new template `dashboard.ejs` is created in a `views` folder.  Also, a new route is created under `route` folder named `dashboard.js` both contents are shown below. The contents of dashboad will change with some message and links.
+- When login procedure is completed, the `dashboard` page is rendered. A new template `dashboard.ejs` is created in a `views` folder.  Also, a new route is created under `route` folder named `dashboard.js` both contents are shown below. The contents of dashboard will change with some message and links.
 
 ```html
 // dashboard.ejs
@@ -1720,7 +1853,7 @@ router.get('/dashboard', function (req, res, next) {
 });
 module.exports = router;
 ```
-#### Registering the user on online database 4.4.6
+### Registering the User on Online Database (4.4.7)
 
 - The connection string in `.env` file is changed to point to the online database name `vruser` and a new user is added. By using `console.log()`, it is printed to console to make sure that local machine register the environment variable. The log below, third line shows it is successfully loaded into the machine environment. The message `connected to online Mongo database is shown`.
 
@@ -1729,7 +1862,7 @@ module.exports = router;
 LOCALAPPDATA: 'C:\\Users\\books\\AppData\\Local',
 LOGONSERVER: '\\\\SAS-DESKTOP',
 MONGODB_URI:    <--- Variable inserted in local environment
-'mongodb+srv://sulli:21March@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0',
+'mongodb+srv://sulli:<password>@usersname0.r4rl0vd.mongodb.net/vrusers?retryWrites=true&w=majority&appName=usersName0',
 NODE: 'C:\\Program Files\\nodejs\\node.exe',
 NODE_EXE: 'C:\\Program Files\\nodejs\\\\node.exe',
 NPM_CLI_JS: 'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
@@ -1754,7 +1887,7 @@ Upon successful registration it is redirected to login page where the same crede
 <dev class="page"/>
 
 
-### Implementing Design Part-B Step-1: Creating practice page 4.5
+## Implementing Design Part-B Step-1: Creating Dashboard and Practice page (4.5)
 
 When user successfully logged in, it is redirected to `Dashboard` page. This page will take him to either to practice the test or or to take a test. It only contains tow links to take the user to other pages. Its design and details are not given below and can be see in online repo. The following state digram shows the simple scenario.
 
@@ -1767,17 +1900,17 @@ stateDiagram
     Dashboard --> Test
 ```
 
-The dashboard page initially job is to provide the option to the user, whihc would take him to the practice or play ground page.
+The dashboard page initially job is to provide the option to the user, which would take him to the practice/play ground page ot to the test page.
   
 ![playground-01.jpg](images\\docs\\playground-01.jpg)<br>
 *figure-29*
 
 - The above diagram shows different phases of the practice page which is labelled as `Playground`.
-- It consist of UI design consisting of `header` as in other previous pages and a footer. There is a dropdown menu present in the header which shwos the list of topic available to practice. Just below the header a messge is shown with some instructions about the lesson being displayed.
+- It consist of UI design consisting of `header` as in other previous pages and a footer. There is a dropdown menu present in the header which shows the list of topic available to practice. Just below the header a message is shown with some instructions about the lesson being displayed.
 -  When a topic is chosen by the user , it adds four buttons to display the lessons, and when lesson is pressed accordion is used to display different questions which are scrollable and presents the choice to the user.
 -  At the bottom there is an answer button which tells if the user has been successful or not.
 
-#### Designing and implementing the practice page 4.5.1
+#### Designing and Implementing the Practice Page (4.5.1)
 
 - Besides header and footer it has four main parts followed by a link to navigate to the previous page. 
 
@@ -1785,7 +1918,7 @@ The dashboard page initially job is to provide the option to the user, whihc wou
 //practice.ejs
 <main id="accordion-page" class="container">
 <div class="accordion-topic"><label for="topic" id="topicid">Choose The topic</label></div>
-<!-- pladce holder for message -->
+<!-- place holder for message -->
 <div class="row">
     <div class="mx-auto">
         <div class="d-flex align-items-center justify-content-evenly">
@@ -1795,9 +1928,9 @@ The dashboard page initially job is to provide the option to the user, whihc wou
 </div>
 ```
 
-1. The `<div>` with unique id `topicid` and a class `.d-flex` is used in the script to get the handle to these placeholders and UI elements are injected dynamically. The reason being that the contents of the heading and number of lessons and the message shown on the message bar depands upon the data which is independent of the `view`.
+1. The `<div>` with unique id `topicid` and a class `.d-flex` is used in the script to get the handle to these placeholders and UI elements are injected dynamically. The reason being that the contents of the heading and number of lessons and the message shown on the message bar depends upon the data which is independent of the `view`.
 
-2. To structure questions and answers, an accordion compoent of the bootstrap is used. To avoid being written 10 times manually, an `ejs for` loop is used. Similarly, all these items are to be injected with data, requirign to have a need of referening to them. Their unique `ids` are also build using `.ejs`. For example `<Label for="q-<%= i %>-optional">` builds `Label` elements attributes dynamically using a for loop. It is shown below.
+2. To structure questions and answers, an accordion component of the bootstrap is used. To avoid being written 10 times manually, an `ejs for` loop is used. Similarly, all these items are to be injected with data, requiring to have a need of refereeing to them. Their unique `ids` are also build using `.ejs`. For example `<Label for="q-<%= i %>-optional">` builds `Label` elements attributes dynamically using a for loop. It is shown below.
 
 ```html
 //practice.ejs
@@ -1840,7 +1973,7 @@ The dashboard page initially job is to provide the option to the user, whihc wou
 </div>
 ```
 
-To use above structure and be filled with values two scripts are used and mentioned at the bottom of this file as shown below. The button element `button` givign every button a unique id is also attached with `onClick` event handler which is used in the scripts.
+To use above structure and be filled with values two scripts are used and mentioned at the bottom of this file as shown below. The button element `button` giving every button a unique id is also attached with `onClick` event handler which is used in the scripts.
 
 ```html
 //practice.ejs
@@ -1850,12 +1983,12 @@ To use above structure and be filled with values two scripts are used and mentio
 </html>
 ```
 
-The above scripts named `topicScript.js` and `practiceScript.js` are created under `public/javascripts/` directory. The first script reads a file named `topics.json` and traverse through the data and upon finding a unique object `topics.lessons.title` reads its value and fills in a list of tipics which is made dynamically on the fly for the user to select the topics. A dropdown item is shown below. This script `topicScript.js` is used by both pages `practice.ejs and test.ejs`. When creating some buttons, it checks to see call is coming from which page.
+The above scripts named `topicScript.js` and `practiceScript.js` are created under `public/javascripts/` directory. The first script reads a file named `topics.json` and traverse through the data and upon finding a unique object `topics.lessons.title` reads its value and fills in a list of topics which is made dynamically on the fly for the user to select the topics. A dropdown item is shown below. This script `topicScript.js` is used by both pages `practice.ejs and test.ejs`. When creating some buttons, it checks to see call is coming from which page.
 
 ![topic-dropdown-01.jpg](images\\docs\\topic-dropdown-01.jpg)<br>
 *figure-*
 
- When `practice.ejs` template is loaded number of  ineractions happens which are indicated by the numbers in sequenceDiagram shown below. DOM functions used are described in [Appendix-D](#appendix-d)
+ When `practice.ejs` template is loaded number of  interactions happens which are indicated by the numbers in sequenceDiagram shown below. DOM functions used are described in [Appendix-D](#appendix-d)
 
 > Note: Interaction number 4 shows that the page gets a reference to a unique id named `topicList`, it is present in a header section of this practice page. Then the dynamically generated list is attached to the header.
  
@@ -1900,7 +2033,7 @@ function fetchTopicsData() {
 }
 ```
 
-When user clciks on topic item, it goes through number of activities and either create four buttons for the lessons or if does not find the lesson says not implmented. The code snippets from `topicScript.js` shown below. All code for the app can be downloaded from the online repository.
+When user clicks on topic item, it goes through number of activities and either create four buttons for the lessons or if does not find the lesson says not implemented. The code snippets from `topicScript.js` shown below. All code for the app can be downloaded from the online repository.
 
 ```js
 // topicScript.js
@@ -1926,11 +2059,11 @@ function createLessonButtons(topic, title) {
   }
 }
 ```
-- To create four lesson buttons for each lesson follwoing function is used. This function takes help from other helper function both are shown below.
+- To create four lesson buttons for each lesson following function is used. This function takes help from other helper function both are shown below.
   
 ```js
 // topicScript.js
-// Functin to create four lessons on practice page
+// Function to create four lessons on practice page
 function createLessonButtonsForFourLessons(topic, title) {
   const buttonGroup = document.createElement('div');
   buttonGroup.classList.add('btn-group', 'd-flex');
@@ -1959,7 +2092,7 @@ function createButton(text, onClick, id) {
 }
 ```
 
-The script `topicScript.js` also makes three calls to outside files to be handled. The reason being that this script is shared between `practiceScript.js` and `testScript.js`. These two scripts provides functionality for two different purpose, one is used in practicing while the other is used in taking a test. The third call which is handled by `recordtestScript.js` is the one which records all the activity when test button is pressed.
+The script `topicScript.js` also makes three calls to outside files to be handled. The reason being that this script is shared between `practiceScript.js` and `testScript.js`. These two scripts provides functionality for two different purpose, one is used in practising while the other is used in taking a test. The third call which is handled by `recordtestScript.js` is the one which records all the activity when test button is pressed.
 
 ```mermaid
 sequenceDiagram
@@ -1990,9 +2123,9 @@ sequenceDiagram
     topicScript.js-->>DOM: Render buttons to DOM
 ```
 
-The above sequenceDiagram shows that `topicScript.js` invoke three functions present in another file called `practiceScript.js, testScript.js and recordtestScript.js`. These files handle and implement these fucntions as needed. 
+The above sequenceDiagram shows that `topicScript.js` invoke three functions present in another file called `practiceScript.js, testScript.js and recordtestScript.js`. These files handle and implement these functions as needed. 
 
-##### Populating questions from the topic.json file 4.5.1.1
+#### Populating Questions from the topic.json File (4.5.2)
 
 To understand the process of populating the questions and the code used to populate each question, the data  arrangement in `topic.json` kept in JSON format is shown below.
 
@@ -2023,9 +2156,9 @@ To understand the process of populating the questions and the code used to popul
                             ]
 ```
 
-There are ten different topics, each topic title is denoted by the field `title` or `Key:value` pair. The `Opposites` being the first topic. The topic `Opposites` has four lessons, every lesson accessed as `topics.lessons.lesson_number` by traversing from the top to reach a particualre item.
+There are ten different topics, each topic title is denoted by the field `title` or `Key:value` pair. The `Opposites` being the first topic. The topic `Opposites` has four lessons, every lesson accessed as `topics.lessons.lesson_number` by traversing from the top to reach a particular item.
   
-Similarly every lesson_number has 10 unique questions kept in an array. And each question has two arrays one for `words` and one for the correct answer as `asnwer`.
+Similarly every lesson_number has 10 unique questions kept in an array. And each question has two arrays one for `words` and one for the correct answer as `answer`.
 
 > Note: Not only accordion component being a place holder is drawn dynamically first by using `.ejs` template but now it is being populated dynamically when the call comes to get this job done to `practiceScript.js`.
 
@@ -2037,11 +2170,11 @@ Four buttons gets created on the fly, as each topic has four lessons.
 
 ![topic-dropdown-03.jpg](images\\docs\\topic-dropdown-03.jpg)<br>
 
-Thoubh the buttons to generate the lessons have been created but the accordion is empty as shown in figure below.
+Though the buttons to generate the lessons have been created but the accordion is empty as shown in figure below.
 
 ![localhost-13.jpg](images\\docs\\localhost-13.jpg)
 
-And when from these lessons, user clicks on any lesson, say `Lesson-1` indicated by a button, then all the questions present in that particulare lessons are populated in the accordion using a `ForEach` loop applied on array object as shown in code snippet given below.
+And when from these lessons, user clicks on any lesson, say `Lesson-1` indicated by a button, then all the questions present in that particular lessons are populated in the accordion using a `ForEach` loop applied on array object as shown in code snippet given below.
 
 ```js
 //practiceScript.js
@@ -2073,13 +2206,13 @@ const populateQuestion = (question) => {
 };
 ```
 
-#### Interacting with user activities 4.5.2
+#### Interacting with User Activities (4.5.3)
 
-In above fundtion a reference to the button clicked is passed with this argument `clickedLesson`. By using this information only specific data can be  referenced using `const clickedLessonData = topic.lessons[clickedLesson - 1];` instead of going through the whole data. To get to first lesson we need to choose `topic.lessons[0]` that is the first elment of the array `lesson[0]`. As the argument `clickedLesson` represents the `lesson_number`. And to get to the first lesson being number `1` is represented by the index zero in an array, this substraction is done `clickedLesson-1`.
+In above function a reference to the button clicked is passed with this argument `clickedLesson`. By using this information only specific data can be  referenced using `const clickedLessonData = topic.lessons[clickedLesson - 1];` instead of going through the whole data. To get to first lesson we need to choose `topic.lessons[0]` that is the first element of the array `lesson[0]`. As the argument `clickedLesson` represents the `lesson_number`. And to get to the first lesson being number `1` is represented by the index zero in an array, this subtraction is done `clickedLesson-1`.
 
-Then by iterating all the questions present in clicked lesson, the data is read and populated in the accordion. The tric used to access to the right place holder is to use the correct `question.id` from the data and constructing checkboxId using a loop. Once it is constructed, the code `checkbox.nextElementSibling.textContent = words[i];` does the assignment of the words present in an array `words`.
+Then by iterating all the questions present in clicked lesson, the data is read and populated in the accordion. The trick used to access to the right place holder is to use the correct `question.id` from the data and constructing checkboxId using a loop. Once it is constructed, the code `checkbox.nextElementSibling.textContent = words[i];` does the assignment of the words present in an array `words`.
 
-When all the questions are populated, user can start to do the activity, for example in topic one being `opposites`, it is asked to selected two most opposites words. The anser can be checked promptly by clicking the anser button as a succes or failure sound and the color of the answer button gets triggered. The rest of the code for `practiceScript.js` is shown below.
+When all the questions are populated, user can start to do the activity, for example in topic one being `opposites`, it is asked to selected two most opposites words. The answer can be checked promptly by clicking the answer button as a success or failure sound and the color of the answer button gets triggered. The rest of the code for `practiceScript.js` is shown below.
 
 ```js
 //practice.js
@@ -2201,22 +2334,22 @@ checkbox.addEventListener('change', handleCheckboxChange);
 // End of file.
 ```
 
-### Implementing Design Part-B Step-2: Creating test page 4.6
+## Implementing Design Part-C Step-1: Creating Test Page (4.6)
 
 - There is no change in practice and test page except when the script `topicScript.js` finds out that the call is coming from the `test.ejs` template, two buttons are drawn one to generate the questions and the other one is to start the test.
-- When taking a test 20 questions are  presented instead of 10 and when Answer button is pressed no indicatin is given the choice being right or wrong.
+- When taking a test 20 questions are  presented instead of 10 and when Answer button is pressed no indication is given the choice being right or wrong.
 
 - To make the test interesting shuffling is done in the following manner:
     1. All four lessons are shuffled first so if the were in the order of `1,2,3 and 4` they are present in a different random order.
-    2. Then every lesson having 10 questions is dealth with and all questions present in each lesson are shuffled.
-    3. A pool is created and all questions are saved. The idea is that the question generator should generate radom questions from the total available questions.
+    2. Then every lesson having 10 questions is dealt with and all questions present in each lesson are shuffled.
+    3. A pool is created and all questions are saved. The idea is that the question generator should generate random questions from the total available questions.
 
-- Since we have four lessons for each topic and each lesson has 10 question. Total questions available to the generator functions are `40` where duplicate keys are present. For example, each lesson has first question being represented as `id:q-1` woud be repeated four times so are others.
-- Out of fourty questions only 20 unique questions are chosen. It is also made sure that one questins which has been picked up randomly does not get to be chosen again.
+- Since we have four lessons for each topic and each lesson has 10 question. Total questions available to the generator functions are `40` where duplicate keys are present. For example, each lesson has first question being represented as `id:q-1` would be repeated four times so are others.
+- Out of forty questions only 20 unique questions are chosen. It is also made sure that one questions which has been picked up randomly does not get to be chosen again.
 
-#### Shuffling lessons 4.6.1
+### Shuffling Lessons (4.6.1)
 
-1. When `Generate Questions` button is pressed, the call comes to `testScript.js` fucntion `handleGenerateQuestions` shown below. 
+1. When `Generate Questions` button is pressed, the call comes to `testScript.js` function `handleGenerateQuestions` shown below. 
 
 ```js
 //testScript.js
@@ -2224,7 +2357,7 @@ function handleGenerateQuestions(topic, title) {
     try {
         const randomQuestions = generateRandomQuestions(topic, title);
         populateQuestions(randomQuestions);
-        questionsGenereated = true;
+        questionsGenerated = true;
         const buttonTemp = document.getElementById('generate-questions-btn');
         buttonTemp.disabled = true;
         disableAnswerButtons();
@@ -2312,7 +2445,7 @@ Activity: Generating Random Questions
 
 ```
 
-Using developer mode and logging output following figures are acquired to show what hapens during questions being generated.
+Using developer mode and logging output following figures are acquired to show what happens during questions being generated.
 
 ![test-01.jpg](images\\docs\\test-01.jpg)<br>
 
@@ -2322,29 +2455,29 @@ The above shows that the lessons are present in memory as it is, when they were 
 
 Next each lesson is taken and its questions are shuffled. 
 
-#### Shuffling Questions present in each lesson 4.6.2
+### Shuffling Questions Present in Each Lesson (4.6.2)
 
 To hold the shuffled questions a local variable named `shuffledQuestions` is used in a for loop which runs four times, as only four lessons being present. The following figure shows the state before and after shuffling.
 
 ![test-04.jpg](images\\docs\\test-04.jpg)<br>
 
-These questions are to be stored in a new array, so a global varibale `slectedQuestions[]` is used to hold these questions, a pool of all fourty questions is created where all questions are shuffled completely as shown in the figure below. They no longer belong to any unique lesson but by being having a uniqe `Key:value` format the array would contain `id:q-1` at least four times so are other questions id being repreated four times.
+These questions are to be stored in a new array, so a global variable `slectedQuestions[]` is used to hold these questions, a pool of all forty questions is created where all questions are shuffled completely as shown in the figure below. They no longer belong to any unique lesson but by being having a unique `Key:value` format the array would contain `id:q-1` at least four times so are other questions id being repeated four times.
 
 ![test-05.jpg](images\\docs\\test-05.jpg)<br>
 
-#### Selecting 20 unique question from the pool 4.6.3
+### Selecting 20 Unique Question from the Pool (4.6.3)
 
-Now only 20 questions are to be selected from the the pool, a local variable `uniqueQuestions[]` is decalred  and first 20 questions have been chosen.
+Now only 20 questions are to be selected from the the pool, a local variable `uniqueQuestions[]` is declared  and first 20 questions have been chosen.
 
-> Note: The idea to pickup random questions is to have them suffled first and pick from the top of the stack. While picking up 20 questions it is also made sure that duplicate answer array having same contents is not present, which is not possible, as the data does not contain any answer that is repeated, but it is still checked.
+> Note: The idea to pickup random questions is to have them shuffled first and pick from the top of the stack. While picking up 20 questions it is also made sure that duplicate answer array having same contents is not present, which is not possible, as the data does not contain any answer that is repeated, but it is still checked.
 
-Following shows 20 slected questions where each question with the same id is repeated twice by virtue of lessons sharing the `key:value` pair. The followign firgure also shows two questions of `id:q-4` having different words and answer.
+Following shows 20 selected questions where each question with the same id is repeated twice by virtue of lessons sharing the `key:value` pair. The following figure also shows two questions of `id:q-4` having different words and answer.
 
 ![test-06.jpg](images\\docs\\test-06.jpg)<br>
 
-#### Populating questions 4.6.4
+### Populating Questions (4.6.4)
 
-When questions are populated, they are populated as present in `uniqueQuestions` array shown above. The very first element presnet in this array at `index[0]` is `q-4` which is going to be populated in the first accordion where this question is represented as `q-1`. According to the figure above the second and thrid accordion would have `q-2 and q-9` contents present in coming accordion being represented as `Question-2 and Question-3` labels.
+When questions are populated, they are populated as present in `uniqueQuestions` array shown above. The very first element present in this array at `index[0]` is `q-4` which is going to be populated in the first accordion where this question is represented as `q-1`. According to the figure above the second and third accordion would have `q-2 and q-9` contents present in coming accordion being represented as `Question-2 and Question-3` labels.
 
 | Accordion Questions order | UniqueQuestions Array order |
 | ------------------------- | --------------------------- |
@@ -2353,7 +2486,7 @@ When questions are populated, they are populated as present in `uniqueQuestions`
 | Question-3                | q-9                         |
 
 
-The above concern comes when we have to find the correct answer as previously when in practice page, questions were not shuffled and order was same so by comparing the first accordion to the first key in an array and comparing the answer have no issues. Similarly in test page 20 questions are presented, these questions contains two different sets of questions answer represented by the same `key:value` pair. To address this issue two global variables were dcalard and used `qustionsMap, questionIdMapping`. The array `questionMap` holds the set of array represented by the same `id:value`. This map is searched when finding the correct answer by first getting the original question id from the `questionIdMapping`.
+The above concern comes when we have to find the correct answer as previously when in practice page, questions were not shuffled and order was same so by comparing the first accordion to the first key in an array and comparing the answer have no issues. Similarly in test page 20 questions are presented, these questions contains two different sets of questions answer represented by the same `key:value` pair. To address this issue two global variables were declared and used `questionsMap, questionIdMapping`. The array `questionsMap` holds the set of array represented by the same `id:value`. This map is searched when finding the correct answer by first getting the original question id from the `questionIdMapping`.
 
 ![test-08.jpg](images\\docs\\test-08.jpg)<br>
 
@@ -2392,13 +2525,13 @@ The above function runs a `forEach` loop and before inserting the values makes s
 ![test-09.jpg](images\\docs\\test-09.jpg)<br>
 
 
-All the questions have been populated into bootstrap accordion compoent for the test page. Here is how the application test page renders.
+All the questions have been populated into bootstrap accordion component for the test page. Here is how the application test page renders.
 
 ![localhost-14.jpg](images\\docs\\localhost-14.jpg)<br>
 
-#### The state of the repository
+### The state of the repository (4.6.5)
 
-- Since the basic application structure has been designed and working. A new git branch is checkedout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working proplery with no issues, it is merges with the main which is supposed to be running in the cloud.
+- Since the basic application structure has been designed and working. A new git branch is checkout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working properly with no issues, it is merged with the main which is not  supposed to be touched if used in deployment, running in the cloud. It all depends upon which strategy is used to deploy the application. Modern [Jamstack]() application uses `CICD` ( Continuous Interaction, Continuous Development) strategy to develop and deploy Web applications.
 - Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
 
 ```git
@@ -2409,20 +2542,18 @@ git br
   main
 ```
 
-- The above inofrms that there are four total branches and the head is on `issue/implement-session`. This is the brach we are working to solve the sessin issue.
-- The other branch `issue/test-button-fex` was checked out earlier to fix buttons shown on practice page not rendering well on some hand deld device. The solution was implmented so that intead of using button element an  anchor element was used to make it more light weight. Ammendments made in the code is shown in [appendix-E](#appendix-e).
+- The above informs that there are four total branches and the head is on `issue/implement-session`. This is the branch we are working to solve the session issue.
+- The other branch `issue/test-button-fix` was checked out earlier to fix buttons shown on practice page not rendering well on some hand-held device. The solution was implemented so that instead of using button element an  anchor element was used to make it more light weight. Amendments made in the code is shown in [appendix-E](#appendix-e).
 
 
-### Implementing Design Part-B Step 3: Deling with test page interacton 4.7
+## Implementing Design Part-B Step 3: Page Interaction (4.7)
 
-When user starts to take a test, first 20 questions are generated randomly and start button is pressed. As the user selects different options and press enter and goes on doing it until all questions are attempted or time runs out and in this case data is submitted automaticlly.
+When user starts to take a test, first 20 questions are generated randomly and start button is pressed. As the user selects different options and press answer button to enter the choices and goes on doing it until all questions are attempted or time runs out and in this case data is submitted automatically. No indication of success or failure is given.
 
-- To provide this logic the first information nedded is about the user who is logged in. And from this point score can be assigned to him and records can be maintanined. To deale with the infomatin about the user who is logged in and who is logged out, a technolgoy called `sessions` come into play. 
-- Sessions are request which are sent from the client to the server in a given time period. Since the activites happens using HTTP protocol and it is a stateless protocal, neither cleint nor server know abut them. And to deal with issues sessions are sued. Session allows server to keep track of the user activites. Storing informatin about the user can also be achieved by using what is called `cookies` but it is easily accessible by anyone so sessions are used to store sensitive information.
--   To achieve this facility a node module called `express-session` is to be  installed.
+- To provide this logic the first information needed is about the user who is logged in. And from this point score can be assigned to him and records can be maintained. To deal with the information about the user who is logged in and who is logged out, a library called `express-sessions` is installed and used.
+- Sessions are request which are sent from the client to the server in a given time period. Since the activates happens using HTTP protocol and it is a stateless protocol, neither client nor server know abut them. And to deal with issues sessions are sued. Session allows server to keep track of the user activates. Storing information about the user can also be achieved by using what is called `cookies` but it is easily accessible by anyone so sessions are used to store sensitive information.
 
-
-- Before it is done, since the basic application structure has been designed and working. A new git branch is checkedout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working proplery with no issues, it is merges with the main which is supposed to be running in the cloud.
+- A new git branch is checkout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working properly with no issues, it is merges with the main which is supposed to be running in the cloud.
 - Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
 
 ```git
@@ -2432,24 +2563,58 @@ git br
   issue/test-button-fix
   main
 ```
-
-
   
 - A new module `express-session` is installed and main application `app.js` is informed by injecting this code.
 
 ```js
-const session = require('express-session');
+//app.js
 app.use(session({
-    secret: 'your-secret-key',
-    resave: false,
-    saveUninitialized: true
+  secret: 'aaadfeadfdkfjadfkwerewoiadfkjdkfjweirefj',
+  resave: false,
+  saveUninitialized: false,
+  cookie :{ maxAge : 60000 * 30 } // 30 minutes
 }));
----
+```
+
+The above code  configures session management middleware in app.js.
+
+- The `secret`  is a string used to sign the session ID cookie to prevent tampering. It should be a long, random string to enhance security. It works as a mask to hide login or other details.
+- The `resave` variable is set to true, to forces the session to be saved back to the session store, even if the session was never modified during the request. Setting it to false prevents unnecessary session updates.
+- Similarly the `saveUninitialized` is also set to be true to forces a session that is "uninitialized" to be saved to the store. An uninitialized session is a new session that has not been modified. Setting it to false prevents saving sessions that haven't been modified.
+- The `cookie.maxAge` variable option sets the maximum age of the session cookie in milliseconds. In this case, it's set to 30 minutes (60000 milliseconds * 30). After 30 minutes, the session expires and user is logged out automatically.
+  
+
+### Adding Session Management Logic (4.7.1)
+
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class='page'/>
 
 ---
+
 ## Implementing Designing Part-C: Making the Web App a PWA
 
 To make a web application a [progressive web app](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps), following steps are taken.
@@ -2571,7 +2736,7 @@ There are three mains job done above after importing the `Workbox` from `workbox
 2. Tell `Workbox` about all the routes used in the application. They are one by one declared above.
 3. `Workbox` is informed what caching mechanisms to use. There are many ways a `Workbox` service can provide caching mechanisms. The above uses `CacheFirst(), NetworkFirst(), StaleWhileRevalidate()`. They do the job as they say by the name of their functions. Having inject the service worker, express frame work notification changes from `404` to `200` indicating the success in finding the file in root of the application.
 
-Though the details of the assests to be cached are provided in the service worker yet this informatin is noth enough. Service worker needs to know where are these assest present in the local folder, along with other deatils required by the PWA. All these information are kept in a file named `manifest.json`.
+Though the details of the assets to be cached are provided in the service worker yet this information is noth enough. Service worker needs to know where are these assest present in the local folder, along with other details required by the PWA. All these information are kept in a file named `manifest.json`.
 
 
 ### Creating and attaching manifest file
@@ -2667,6 +2832,14 @@ Starting from the `manifest.json`, it takes the application long and short name 
   
 ---
 
+### Design: Part
+
+**Step-1**: The website is to be implemented as Progressive Web application and tested on hand-held devices. It has to pass full criteria to be the candidate for PWA. Testing is to be done using available technologies.
+
+- Write down what is to come here ! 
+
+- At first we only design the user interface for the user to login or register to the website.the site to provide us the working websites that includes a home page providing the option of `Login` and `Signup` facilities. Once this stage is passed, testing is done,we will continue to the next stage.
+- The project also promises that such a project should be used on mobile devices, thus it would try to achieve this functionality using Progressive Web App technologies before going to the next stage.
 
 ## What is Progressive Web Application?
 
@@ -2770,20 +2943,20 @@ logg = log --graph --decorate --oneline --all
   ```js
 
   ```
-2. **Asynchronous function**: It is a part of `promised` based APIs, it works in conjuntion with `await` returning a new proimse. As the name suggest this function is designed to be used in places where a thread is not to be blocked because some job has not been finished, so the code inside the function can wait.
+2. **Asynchronous function**: It is a part of `promised` based APIs, it works in conjunction with `await` returning a new promise. As the name suggest this function is designed to be used in places where a thread is not to be blocked because some job has not been finished, so the code inside the function can wait.
 
 
 ---
 
 ## Appendix-D
 
-| DOM Method                  | Description                                                        |
-|-----------------------------|--------------------------------------------------------------------|
-| `document.getElementById()` | Retrieves an element from the document with specified ID attribute. |
-| `document.createElement()`  | Creates a new HTML element specified by the `tagName` parameter.   |
-| `element.addEventListener()`| Registers an event listener on the specified element,vent occurs. |
-| `element.appendChild()`     | Appends a node as the last child of a specified parent node.       |
-| `element.innerHTML`         | Gets or sets the HTML or XML markup contained within the element.  |
+| DOM Method                   | Description                                                         |
+| ---------------------------- | ------------------------------------------------------------------- |
+| `document.getElementById()`  | Retrieves an element from the document with specified ID attribute. |
+| `document.createElement()`   | Creates a new HTML element specified by the `tagName` parameter.    |
+| `element.addEventListener()` | Registers an event listener on the specified element,vent occurs.   |
+| `element.appendChild()`      | Appends a node as the last child of a specified parent node.        |
+| `element.innerHTML`          | Gets or sets the HTML or XML markup contained within the element.   |
 
 
 ---

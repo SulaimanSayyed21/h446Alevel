@@ -1,7 +1,7 @@
 // testScript.js
 
 let selectedQuestions = [];
-let questionsGenereated = false;
+let questionsGenerated = false;
 let questionsMap = {};
 let questionIdMapping = {};
 
@@ -131,7 +131,7 @@ function handleGenerateQuestions(topic, title) {
     //clearPreviousData() if needed! 
     //console.log('In handleGenerateQuestions :')
     // console.log(topic);
-    if (!questionsGenereated) {
+    if (!questionsGenerated) {
         try {
             const randomQuestions = generateRandomQuestions(topic, title);
             console.log(' Questions have been genreated : ');
@@ -139,7 +139,7 @@ function handleGenerateQuestions(topic, title) {
             console.log(' Questions present in map ');
             console.log(questionsMap);
             populateQuestions(randomQuestions);
-            questionsGenereated = true;
+            questionsGenerated = true;
             //const buttonTemp = document.getElementById('generate-questions-btn');
             //buttonTemp.disabled = true;
             // disable all answer buttons untill test starts.
