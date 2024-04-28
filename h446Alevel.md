@@ -2550,8 +2550,9 @@ git br
 
 When user starts to take a test, first 20 questions are generated randomly and start button is pressed. As the user selects different options and press answer button to enter the choices and goes on doing it until all questions are attempted or time runs out and in this case data is submitted automatically. No indication of success or failure is given.
 
-- To provide this logic the first information needed is about the user who is logged in. And from this point score can be assigned to him and records can be maintained. To deal with the information about the user who is logged in and who is logged out, a library called `express-sessions` is installed and used.
-- Sessions are request which are sent from the client to the server in a given time period. Since the activates happens using HTTP protocol and it is a stateless protocol, neither client nor server know abut them. And to deal with issues sessions are sued. Session allows server to keep track of the user activates. Storing information about the user can also be achieved by using what is called `cookies` but it is easily accessible by anyone so sessions are used to store sensitive information.
+- To deal with a particular user and store his score, we need to have authorisation and authentication in place so that the user cna securely log in and can be logged out. There are number of ways these two issues are handled by utilising different tools.
+-  To provide this logic the first information needed is about the user who is logged in. And from this point use test score can be assigned to him and records can be maintained. To deal with the information about the user who is logged in and who is logged out, a library called `express-sessions` is installed and used.
+- Sessions are request which are sent from the client to the server in a given time period. Since the activates happens using HTTP protocol and it is a completely stateless protocol that is it has no idea who is requesting the information. Neither client nor server know abut them. And to deal with issues sessions are sued. Session allows server to keep track of the user activates. Storing information about the user can also be achieved by using what is called `cookies` but it is easily accessible by anyone so sessions are used to store sensitive information.
 
 - A new git branch is checkout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working properly with no issues, it is merges with the main which is supposed to be running in the cloud.
 - Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
@@ -2586,7 +2587,34 @@ The above code  configures session management middleware in app.js.
 
 ### Adding Session Management Logic (4.7.1)
 
-- 
+- When user tries to log in the credentials are checked again the saved details in database. Once they are checked, the following code simply stores the user name in session variable using `req.session.username = username; `. It is shown in the code from the `loginController.js` that handles the authentication.
+  
+```js
+//loginController.js
+try {
+      const isPasswordMatch = await bcrypt.compare(req.body.password, checkUser.password);
+      if (isPasswordMatch) {
+        //store username in session
+        const username =  req.body.username;
+        req.session.username = username;
+        console.log(`${username} has logged in :` );
+       // res.send('Logged in successfully');
+        return res.render('dashboard', { title: 'Dashboard' , username: username });
+      } else {
+        return res.redirect('/login?error=wrong_password');
+      }
+```
+
+- With this one line of code express creates a session object internally and using the information we provided earlier about the secret key and the timing , creates a cookie and sends it to the user. The following figure shows the Home page in developer mode where no cookies is present. And no session information is saved either in login page .
+
+![session-02.jpg](images\\docs\\session-02.jpg)<br>
+
+The above figure right part also shows that once a user logged in, he is sent to the Dashboard page and a cookie is present there. This cookie is prepared by the express server using the secret key and is sent back to the user. Note once the allowed timing is expires, the user is automatically logged out. At this point the user has been authenticated using a `bcrypt` hasing mechanisms and authorised using session management.
+
+
+
+
+
 
 
 
