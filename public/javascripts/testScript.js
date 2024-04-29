@@ -1,9 +1,11 @@
 // testScript.js
 
-let selectedQuestions = [];
-let questionsGenerated = false;
-let questionsMap = {};
-let questionIdMapping = {};
+//--------global variable needed----
+let selectedQuestions = []; // 
+let questionsGenerated = false; // flag to disable the button
+let questionsMap = {}; // To keep track of the questions
+let questionIdMapping = {}; // Needed to track the questions Ids
+//-----------------------------------
 
 // Define a function to generate questions for a given topic ID
 function generateRandomQuestions(topicData, title) {
@@ -143,7 +145,7 @@ function handleGenerateQuestions(topic, title) {
             //const buttonTemp = document.getElementById('generate-questions-btn');
             //buttonTemp.disabled = true;
             // disable all answer buttons untill test starts.
-            disableAnswerButtons();
+            //disableAnswerButtons();
         } catch (error) {
             console.log('error in populating questions');
         }
@@ -160,5 +162,10 @@ function disableAnswerButtons() {
         button.disabled = true;
     });
 }
+
+window.onload = function() {
+    disableAnswerButtons();
+}
+   
 
 // End of file

@@ -1,6 +1,6 @@
 // recordtestScript.js
 
-// Global variables neede --------------------------
+// Global variables needed --------------------------
 let topics = {}; // reference to json object passed
 let lessonName; // To hold lesson name
 let correctAnswer = []; // hold original answers
@@ -9,16 +9,44 @@ let answer = {}; // to hold user's answer
 // Keep track of answered questions
 const answeredQuestions = new Set(); 
 let timerInterval; // Reference to timer
-let userName; // need so correct user db updated
+let studentName; // need so correct user db updated
 let  points = []; // store 1 or 0
 let totalScore = 0; // test score
+let startTestButtonClicked = false;
 //-----------------------------------------------------
 
 // To initialise from the test file
 const recordtestScript = {
     initialise: function (username) {
-        userName = username;
+        studentName = username;
     }
+}
+
+//------------------------------------------------------------
+// handle click event of the "Start Test" button
+function handleStartTestButtonClick(topic, title) {
+    // check to see if it has not been pressed before !
+   
+      if (!startTestButtonClicked) {
+            startTestButtonClicked = true;
+        // Firest enable all the button in accordion 
+        enableAnswerButton();
+        topics = topic;
+        lessonName = title;
+        
+        // If a guest is taking the test disable the submit button.
+        if( studentName === 'guest') {
+            const submitTestButton = document.getElementById('submit-test-btn');
+            if (!submitTestButton.disabled) {
+                submitTestButton.disabled = true;
+            }
+        }
+        console.log('Starting test...');
+        const testMessage = new bootstrap.Modal(document.getElementById('instructions'));
+        testMessage.show();
+        startTimer(5); // Start the timer
+    }
+    console.log('Test in progress!');
 }
 
 // Function to handle the click event of the "Answer" button
@@ -63,28 +91,6 @@ function construcTestData() {
     return answers;
 }
 
-//------------------------------------------------------------
-// handle click event of the "Start Test" button
-function handleStartTestButtonClick(topic, title) {
-    // check to see if it has not been pressed before !
-    let startTestButtonClicked = false;
-      if (!startTestButtonClicked) {
-            startTestButtonClicked = true;
-        // Firest enable all the button in accordion 
-        enableAnswerButton();
-        topics = topic;
-        lessonName = title;
-        console.log('Starting test...');
-        startTimer(5); // Start the timer
-        // const submitTestButton = document.getElementById('submit-test-btn');
-        // if (submitTestButton.disabled) {
-        //     submitTestButton.disabled = false;
-        // }
-    }
-    //startTest(); // Invoke the startTest function
-    //updateTimer(); // Start the timer
-    //console.log('Test is in progress!' + getUserName() + ' is logged in');
-}
 
 
 //------------------------------------------------------------
@@ -101,7 +107,8 @@ function handleSubmitTestButtonClick() {
     // Gather result values to submit
     const results = construcTestData();
     submitTestToServer(results); // Wait for the result before proceeding   
-    console.log('Test submitted successfully by ' + userName);
+    console.log('Test submitted successfully by ' + studentName);
+    startTestButtonClicked = false;
 }
 
 // Submit result with POST method
@@ -114,7 +121,7 @@ async function submitTestToServer(answers) {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ userName, answers }) // Convert the number to a JSON string
+        body: JSON.stringify({ studentName, answers }) // Convert the number to a JSON string
     };
     try {
         const response = await fetch(url, options);
@@ -123,7 +130,7 @@ async function submitTestToServer(answers) {
         }
         const data = await response.json();
         console.log('Test submitted successfully:', data);
-        window.location.reload(); //  reload the page after submission
+        window.location.href="/logout"; //  reload the page after submission
     } catch (error) {
         console.error('Error submitting test:', error);
         throw error; // Propagate the error for better error handling
@@ -257,4 +264,26 @@ document.querySelectorAll('input[type="checkbox"]')
 // Get the handle to submit button
 document.getElementById('submit-test-btn')
     .addEventListener('click', () => handleSubmitTestButtonClick());
+
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == testMessage) {
+//       testMessage.style.display = "none";
+//     }
+//   }
+
+
+
 // End of File
+
+
+
+
+
+
+
+
+
+// const testMessage = document.getElementById('instructions')
+//     .addEventListener('shown.bs.modal', () => {
+// });

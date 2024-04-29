@@ -72,14 +72,15 @@ function getSelectedLabels() {
 function handleCorrectAnswer(answerButton) {
     answerButton.classList.add("btn-success");
     playSuccessSound();
-    resetLabelsAndAnswers();
+    resetLabelsAndAnswers(answerButton,'btn-success');
 }
 
 // Function to handle an incorrect answer
 function handleIncorrectAnswer(answerButton) {
     answerButton.classList.add("btn-danger");
     playFailureSound();
-    resetLabelsAndAnswers();
+    resetLabelsAndAnswers(answerButton,'btn-danger');
+    
 }
 
 // Function to play a success sound
@@ -95,9 +96,14 @@ function playFailureSound() {
 }
 
 // Function to reset labels and answers
-function resetLabelsAndAnswers() {
-    selectedLabels = [];
-    correctAnswer = [];
+function resetLabelsAndAnswers(answerButton, btnClass) {
+    // Revert the color back to its original color after 2 seconds
+    setTimeout(function () {
+        answerButton.classList.remove(btnClass);
+    }, 3000);
+    
+    //selectedLabels = [];
+    //correctAnswer = [];
 }
 
 // Function to compare two arrays

@@ -43,10 +43,10 @@
     - [Examining Route Folder (4.2.5)](#examining-route-folder-425)
 - [Implementing Design Part-A Step-1: Creating Home Page (4.3)](#implementing-design-part-a-step-1-creating-home-page-43)
   - [Creating a Home Page (4.3.1)](#creating-a-home-page-431)
-  - [Analysing the Above Code  (4.3.2)](#analysing-the-above-code--432)
+  - [Analysing the Code  (4.3.2)](#analysing-the-code--432)
   - [Creating Homepage Header Layout (4.3.3)](#creating-homepage-header-layout-433)
-  - [Applying styles to home page using styles.css (4.3.4)](#applying-styles-to-home-page-using-stylescss-434)
-  - [Applying bootstrap icons in header (4.3.5)](#applying-bootstrap-icons-in-header-435)
+  - [Applying Styles Using styles.css (4.3.4)](#applying-styles-using-stylescss-434)
+  - [Applying Bootstrap Icons in Header (4.3.5)](#applying-bootstrap-icons-in-header-435)
   - [Adding Login and Signup pages (4.3.6)](#adding-login-and-signup-pages-436)
   - [Testing UI (4.3.7)](#testing-ui-437)
   - [Evaluating UI (4.3.8)](#evaluating-ui-438)
@@ -72,6 +72,10 @@
   - [The state of the repository (4.6.5)](#the-state-of-the-repository-465)
 - [Implementing Design Part-B Step 3: Page Interaction (4.7)](#implementing-design-part-b-step-3-page-interaction-47)
   - [Adding Session Management Logic (4.7.1)](#adding-session-management-logic-471)
+  - [Visual Elements on Home and Dashboard Page (4.7.2)](#visual-elements-on-home-and-dashboard-page-472)
+  - [Access to Test Page (4.7.3)](#access-to-test-page-473)
+  - [Taking a Test (4.7.4)](#taking-a-test-474)
+  - [Handling Test Submission POST Request (4.7.5)](#handling-test-submission-post-request-475)
 - [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
   - [Writing the logic to attach the application with the service worker](#writing-the-logic-to-attach-the-application-with-the-service-worker)
   - [Creating a service worker : Service worker vs client/server architecture](#creating-a-service-worker--service-worker-vs-clientserver-architecture)
@@ -90,6 +94,7 @@
 - [Appendix-D](#appendix-d)
 - [Appendix-E](#appendix-e)
 - [Appendix-f](#appendix-f)
+
 
 
 
@@ -520,21 +525,21 @@ d----        08/04/2024     12:53                  views
 
 2. **Adding Contents to the Staging Area:** Following initialization, the contents of the project folder were added to the staging area using the command:
   
-  ```git
-  > git aa
-  ```
+   ```bash
+   > git aa
+   ```
 
 3. **Committing Changes with Comments:** Upon staging the changes, a commit was made with descriptive comments to track the progress of the project: is made giving some comments.
   
-  ```git
-  > git cm "initial commit: express app generated using express cli, setting templating engine as ejs"
-  ```
+   ```bash
+   > git cm "initial commit: express app generated using express cli, setting templating engine as ejs"
+   ```
 
 In above commands, `git aa` and `git cm` are aliases set up for Git commands to streamline the workflow. These aliases offer shortcuts for commonly used Git commands, enhancing efficiency in project management. Aliases were defined for Git commands by modifying the Git configuration file, they are shown in [Appendix-B](#appendix-b).
 
 Taking a git log shows the out put of repo state.
 
-```git
+```bash
 > git log
 commit 50e4c936f0a8cb1783dd76e199da7e1ac346f487 (HEAD -> main)
 Author: SulaimanSayyed21 <sullisayyed21@outlook.com>
@@ -547,27 +552,29 @@ To establish a connection between the local repository and its remote counterpar
 
 1. **Adding Remote Repository:**
 
-   The local repository was linked to the remote repository hosted on GitHub using the command:
+The local repository was linked to the remote repository hosted on GitHub using the command:
 
-   ```bash
-   git remote add origin https://github.com/SulaimanSayyed21/h446Alevel.git
-   ```
-   This command specifies the URL of the remote repository (https://github.com/SulaimanSayyed21/h446Alevel.git) and assigns it the name origin.
+```bash
+> git remote add origin https://github.com/SulaimanSayyed21/h446Alevel.git
+```
+
+This command specifies the URL of the remote repository (https://github.com/SulaimanSayyed21/h446Alevel.git) and assigns it the name origin.
 
 2. **Setting Branch Name:** To set the branch name to main, the following command was executed:
   
-  ```bash
-  git branch -M main
-  ```
+```bash
+ > git branch -M main
+```
+
 3. **Pushing Changes to Remote:** Finally, the local repository was pushed to the remote repository on GitHub using the command:
   
-  ```bash
-  > git push -u origin main
-  ```
+```bash
+ > git push -u origin main
+```
 
 This command uploads local commits to the remote repository, establishing synchronization between the two. Upon executing the push command, the output confirming the successful transmission of changes to the remote repository is displayed in the terminal.
 
-```git
+```bash
  > git push -u origin main
 Enumerating objects: 15, done.
 Counting objects: 100% (15/15), done.
@@ -994,7 +1001,7 @@ Starting from the home page: the contents of `index.ejs` are removed. A new fold
 
 - The reason to create the head layout is that this app has three different pages so far and they all have to have the above code in those files. By creating the template we ony need to insert the template reference and they will be rendered.
 
-### Analysing the Above Code  (4.3.2)
+### Analysing the Code  (4.3.2)
 
 - `<!doctype html>`: Declares the document type and version of HTML being used.
 - `<html lang="en">`: Defines the root element of the HTML document and specifies the language of the content (English).
@@ -1159,7 +1166,7 @@ The following 1,2 and numbered 3 lines contains CSS ( Cascading Style Sheets ) c
 
 - Similarly the `footer.ejs` contents are same and have been discussed above, with one exception that it shows the different text or message.
 
-### Applying styles to home page using styles.css (4.3.4) 
+### Applying Styles Using styles.css (4.3.4) 
 
 - As we have seen in figure-8 that our footer is not aligned to the bottom of the page. The reason being that the header or the footer tags are HTML semantics tags which allows user to use them in their code to convey the meaning of the HTML elements, it is the job of the developer to provide its styles. Following code is written in `styles.css`
   
@@ -1216,7 +1223,7 @@ footer {
 
 - The padding values makes sure that there is some distance present between the items.
 
-### Applying bootstrap icons in header (4.3.5)
+### Applying Bootstrap Icons in Header (4.3.5)
 
 - Since the page is presented to the user to login or register, it is a good idea to have some icons presented here. Three different icons are used in loginheader template, their respective classes are shown below.
 
@@ -1385,7 +1392,7 @@ module.exports = router;
 ![localhost-10](images\\docs\\localhost-10.jpg)<br>
 *figure-15*
 
-- Signup page is not added yet, if it is clicked express server sends the request to get it since it is not present we get the error. The developing setup shows this scenario by telling us `404` error.
+- Signup page is not added yet, if it is clicked express server sends the request to get it, since it is not present we get the error. The developing setup shows this scenario by telling us `404` error.
 
 ![terminal-output-01](images\\docs\\terminal-output-01.jpg)<br>
 *figure-16*
@@ -1414,15 +1421,10 @@ module.exports = router;
 ![localhost-11](images\\docs\\localhost-11.jpg)<br>
 *figure-17*
 
-> Note: Upon visual inspection a mistake is detected, the above page wrongly shows the `Confirm Password` label and filed, it is corrected and made sure the this code is present in `login.ejs` layout and not in `signup.js`. The corrected pages are shown below.
-
-![localhost-12](images\\docs\\localhost-12.jpg)<br>
-*figure-18*
-
-- A commit is made indicating the changes. First we take the state of our stage using `git st` shown below and make a commit. Also removed `.form-group` classes and unnecessary `divs` from both files.
+- A commit is made indicating the changes. First we take the state of our stage using `git st` shown below and make a commit. Also removed `.form-group` classes and unnecessary `divs` from both files, they were introduced to give styles but not used.
 
 ```git
-git st                             pwsh  17:16:52 On branch main
+git st
 Your branch is ahead of 'origin/main' by 1 commit.
   (use "git push" to publish your local commits)
 
@@ -1479,14 +1481,15 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 ### Testing Page Loading Performance (4.3.9)
 
-Using developers tool provided by chrome, all three pages were loaded and network tab is used to see the performance, there were no bottleneck issues were found, the load time varies from `54ms to 93ms` when page is cached and without cache from `150ms to 180ms`. Following figure shows the Network tab activity fo the Login page from developers tools.
+Using developers tool provided by chrome, all three pages were loaded and network tab is used to see the performance, there were no bottleneck issues were found, the load time varies from `54ms to 180ms` when page is cached and without cache from `250-330ms`. Following figure shows the Network tab activity for the Signup page from developers tools.
 
 ![performance-testing-01.jpg](images\\docs\\performance-testing-01.jpg)<br>
 *figure-23*
-The following page shows the `performance tab` from Google chrome developers tools. At the bottom section summary informs how much time it has taken to load the pages.
+
+<!-- The following page shows the `performance tab` from Google chrome developers tools. At the bottom section summary informs how much time it has taken to load the pages.
 
 ![performance-testing-02.jpg](images\\docs\\performance-testing-02.jpg)<br>
-*figure-24*
+*figure-24* -->
 
 <div class="page"/>
 
@@ -2336,16 +2339,18 @@ checkbox.addEventListener('change', handleCheckboxChange);
 
 ## Implementing Design Part-C Step-1: Creating Test Page (4.6)
 
-- There is no change in practice and test page except when the script `topicScript.js` finds out that the call is coming from the `test.ejs` template, two buttons are drawn one to generate the questions and the other one is to start the test.
-- When taking a test 20 questions are  presented instead of 10 and when Answer button is pressed no indication is given the choice being right or wrong.
+The structure of both the practice and test pages remains largely unchanged. However, when the script `topicScript.js `detects a call from the `test.ejs` template, it dynamically generates two buttons: one to populate the questions and another to commence the test.
 
-- To make the test interesting shuffling is done in the following manner:
-    1. All four lessons are shuffled first so if the were in the order of `1,2,3 and 4` they are present in a different random order.
-    2. Then every lesson having 10 questions is dealt with and all questions present in each lesson are shuffled.
-    3. A pool is created and all questions are saved. The idea is that the question generator should generate random questions from the total available questions.
+During the test phase, the user is presented with 20 questions instead of the usual 10. Upon pressing the Answer button, no immediate feedback is provided regarding the correctness of the selected choice. The layout of the accordion interface remains consistent throughout this process.
 
-- Since we have four lessons for each topic and each lesson has 10 question. Total questions available to the generator functions are `40` where duplicate keys are present. For example, each lesson has first question being represented as `id:q-1` would be repeated four times so are others.
-- Out of forty questions only 20 unique questions are chosen. It is also made sure that one questions which has been picked up randomly does not get to be chosen again.
+To enhance the test-taking experience, shuffling is implemented in the following sequence:
+  1. Firstly, all four lessons undergo shuffling, ensuring that their original order (e.g., 1, 2, 3, and 4) is randomized.
+  2. Subsequently, each lesson, containing 10 questions, is individually shuffled to ensure variety.
+  3. A pool is then formed, housing all the questions in a randomized order. This approach enables the question generator to draw from a diverse set of questions.
+   
+With four lessons per topic, each containing 10 questions, the total pool available to the question generator comprises 40 questions. It's important to note that duplicate keys would exist within this pool ( but not the contents ). For instance, the initial question in each lesson is denoted as `q-1` and is replicated four times, as are subsequent questions.
+
+From the pool of 40 questions, only 20 unique questions are selected. Furthermore, measures are implemented to prevent the re-selection of a question once it has been chosen randomly. This ensures a varied and engaging test-taking experience for the user.
 
 ### Shuffling Lessons (4.6.1)
 
@@ -2367,7 +2372,7 @@ function handleGenerateQuestions(topic, title) {
 }
 ```
 
-2. This function in turns call `generateRandomQuestions` shown below.
+2. This function in turns call `generateRandomQuestions` shown below which in truns call a function to shuffle the given array.
 
 ```js
 // Define a function to generate questions for a given topic ID
@@ -2389,7 +2394,7 @@ try { var lessons = [];
          if (!selectedQuestions.some(q => q.answer === question.answer)) {
              selectedQuestions.push(question);
          }else {
-                 console.log('duplicate tried to be pushed!!1');
+                 console.log('duplicate tried to be pushed!!|');
          }
      });
      console.log(selectedQuestions);
@@ -2424,6 +2429,20 @@ try { var lessons = [];
     return []; // Return an empty array if an error occurs
 }
 }
+
+// Function to shuffle an array
+function shuffleArray(array) {
+    console.log('In shuffle array functions:');
+    console.log('before shuffling ');
+    console.log(array);
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    console.log('After shuffling :');
+    console.log(array);
+    return array;
+}
 ```
 
 It is this function which does number of jobs, the pseudocode is shown below.
@@ -2431,13 +2450,13 @@ It is this function which does number of jobs, the pseudocode is shown below.
 ```txt 
 Activity: Generating Random Questions
 
-1. User triggers random question generation.
-2. Call shuffleArray(lessons) to shuffle the lessons array.
+1. User triggers random question generation by pressing  UI button
+2. Call shuffleArray(lessons) to shuffle the items passed in an array.
 3. Initialize selectedQuestions array.
-4. Loop over shuffled lessons:
+4. Loop over shuffled items:
    a. Call shuffleArray(lesson.questions) to shuffle the questions array.
-   b. Select the first 10 unique questions.
-   c. Check if each question is unique.
+   b. Select the first 10  questions.
+   c. Check if each question is unique.(though, not necessary yet added!)
    d. If unique, push the question to the selectedQuestions array.
 5. Ensure there are only 20 unique questions.
 6. Push the unique questions to the questionsMap.
@@ -2457,7 +2476,7 @@ Next each lesson is taken and its questions are shuffled.
 
 ### Shuffling Questions Present in Each Lesson (4.6.2)
 
-To hold the shuffled questions a local variable named `shuffledQuestions` is used in a for loop which runs four times, as only four lessons being present. The following figure shows the state before and after shuffling.
+To hold the shuffled questions of each lesson, a local variable named `shuffledQuestions` is used in a for loop which runs four times, as only four lessons being present. It is done by using the `shuffleArray(lesson.questions)` function again passing questions this time. The following figure shows the state before and after shuffling.
 
 ![test-04.jpg](images\\docs\\test-04.jpg)<br>
 
@@ -2531,7 +2550,7 @@ All the questions have been populated into bootstrap accordion component for the
 
 ### The state of the repository (4.6.5)
 
-- Since the basic application structure has been designed and working. A new git branch is checkout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working properly with no issues, it is merged with the main which is not  supposed to be touched if used in deployment, running in the cloud. It all depends upon which strategy is used to deploy the application. Modern [Jamstack]() application uses `CICD` ( Continuous Interaction, Continuous Development) strategy to develop and deploy Web applications.
+- Since the basic application structure has been designed and working. A new git branch is checkout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working properly with no issues, it is merged with the main which is not  supposed to be touched if used in deployment, running in the cloud. It all depends upon which strategy is used to deploy the application. Modern [Jamstack](https://jamstack.org/) application uses `CICD` ( Continuous Integration, Continuous Deployment) strategy to develop and deploy Web applications.
 - Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
 
 ```git
@@ -2548,22 +2567,15 @@ git br
 
 ## Implementing Design Part-B Step 3: Page Interaction (4.7)
 
-When user starts to take a test, first 20 questions are generated randomly and start button is pressed. As the user selects different options and press answer button to enter the choices and goes on doing it until all questions are attempted or time runs out and in this case data is submitted automatically. No indication of success or failure is given.
 
-- To deal with a particular user and store his score, we need to have authorisation and authentication in place so that the user cna securely log in and can be logged out. There are number of ways these two issues are handled by utilising different tools.
--  To provide this logic the first information needed is about the user who is logged in. And from this point use test score can be assigned to him and records can be maintained. To deal with the information about the user who is logged in and who is logged out, a library called `express-sessions` is installed and used.
-- Sessions are request which are sent from the client to the server in a given time period. Since the activates happens using HTTP protocol and it is a completely stateless protocol that is it has no idea who is requesting the information. Neither client nor server know abut them. And to deal with issues sessions are sued. Session allows server to keep track of the user activates. Storing information about the user can also be achieved by using what is called `cookies` but it is easily accessible by anyone so sessions are used to store sensitive information.
+When a user begins a test, the system randomly generates the first 20 questions, and the test commences upon pressing the start button. The user selects different options and submits their answers by pressing the answer button. This process continues until all questions are attempted or the allotted time expires, at which point the data is automatically submitted. Currently, no feedback indicating success or failure is provided.
 
-- A new git branch is checkout from a `dev` branch. A `dev` or development branch is where all the work goes on and once it is working properly with no issues, it is merges with the main which is supposed to be running in the cloud.
-- Any feature, issues or bug fixing branch comes out of dev branch. The state of our repository is shown below.
+To manage user authentication and securely store their scores, robust authorization measures must be implemented. Various tools and methods exist for addressing these concerns.
 
-```git
-git br
-  dev
-* issue/implement-session
-  issue/test-button-fix
-  main
-```
+Central to implementing this logic is identifying the logged-in user. Once authenticated, the user's test scores can be assigned and records maintained. To facilitate user authentication and session management, the express-session library is employed.
+
+Sessions serve as communication channels between the client and server within a specified timeframe. Given that the HTTP protocol is stateless, meaning it lacks intrinsic knowledge of client identities, sessions are vital for tracking user activities. While storing user information using cookies is possible, cookies are easily accessible, hence sessions are preferred for storing sensitive data.
+
   
 - A new module `express-session` is installed and main application `app.js` is informed by injecting this code.
 
@@ -2587,7 +2599,8 @@ The above code  configures session management middleware in app.js.
 
 ### Adding Session Management Logic (4.7.1)
 
-- When user tries to log in the credentials are checked again the saved details in database. Once they are checked, the following code simply stores the user name in session variable using `req.session.username = username; `. It is shown in the code from the `loginController.js` that handles the authentication.
+- When a user attempts to log in, their credentials are validated against the stored information in the database. Upon successful validation, the user's username is stored in a session variable using the code `req.session.username = username;`. This functionality is implemented in the `loginController.js` file, which manages the authentication process.
+- 
   
 ```js
 //loginController.js
@@ -2609,8 +2622,402 @@ try {
 
 ![session-02.jpg](images\\docs\\session-02.jpg)<br>
 
-The above figure right part also shows that once a user logged in, he is sent to the Dashboard page and a cookie is present there. This cookie is prepared by the express server using the secret key and is sent back to the user. Note once the allowed timing is expires, the user is automatically logged out. At this point the user has been authenticated using a `bcrypt` hasing mechanisms and authorised using session management.
+The right part of the figure illustrates that upon logging in, the user is directed to the Dashboard page, and a cookie is generated by the Express server using a secret key, which is then sent back to the user. It's important to note that once the permitted time period elapses, the user is automatically logged out. This authentication process involves utilizing a bcrypt hashing mechanism for authentication and session management for authorization.
 
+### Visual Elements on Home and Dashboard Page (4.7.2)
+
+- It can be noticed that both home page and a dashboard page has some contents, they wre added to provide navigation between the pages. Following code snippets were added in `index.ejs and dashboard.ejs`. Bootstrap cards are used as being Responsive.
+
+```html
+// index.ejs
+<main>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Practice</h5>
+            <p class="card-text">Not ready for login? Do practice only</p>
+            <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+// dashboard.ejs
+<h5 class="card-title">Practice</h5>
+    <p class="card-text">Get ready for the test by practising!</p>
+    <a href="/practice" class="btn btn-primary">Practice Now</a>
+
+<h5 class="card-title">Take the Test</h5>
+    <p class="card-text">Ready to test your knowledge? Take the test!</p>
+    <a href="/test" class="btn btn-success">Take the Test</a>
+```
+
+### Access to Test Page (4.7.3)
+
+Initially access to test page is kept for the logged-in user and it is handled with session management. When the user wants to access the test page, it is first checked if he is logged in or not by checking its entry into session, if not the user is sent back to the login or home page. The logic above also deals with the post request coming from the test page and delegate the job tot the `testController.js`.The following code snippet of a route shows this logic.
+
+```js
+// test.js 
+
+/* GET Test page. */
+router.get('/test', function (req, res, next) {
+  console.log('In test get route')
+  // Check to see if user is logged in 
+  const username = req.session.username;
+  if (!username) {
+    console.log('username:' + username + 'does not exit ')
+    res.redirect(302, 'login');
+  } else {
+    res.render('test', { Title: 'Test page', username: username, showLogout : true});
+  }
+});
+/* Delegate the responsibility to the login controller*/
+router.post('/test', testController.handleTestRequest);
+```
+
+- The code `res.render('test', { Title: 'Test page', username: username, showLogout : true});` does number of jobs, using `res` parameter it renders the `test.ejs` page by providing values of three variables. These are `Title, username, and showLogout`. They are handled in different places. The `Title` variable is used in `head.ejs` template where it sets the title of the pge being rendered. The other two are used in other templates, lets first examine the `test.ejs` template.
+
+  
+```html
+// test.ejs 
+<%- include('layout/head.ejs'); %>
+<%- include('layout/practiceheader.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Take the test' }) %>
+<body>
+```
+
+- When the test page is rendered, it first come across two `ejs` partials from layout folder as shown above. The second partial `practiceheader.ejs` receive the `showLogout` value in the header to decide if the logout label is to be shown or not as shown below.
+
+```html
+//practiceheader.ejs
+<div class="container">
+ <span class="header-text"><i class="<%= iconClass %>"></i><%= headerTitle %></span>
+ <% if (showLogout) { %>
+ <a href="/logout" class="anchor logout">
+ <i class="bi bi-door-closed"></i>Logout</a>
+ <% } %>
+</div>
+```
+
+The last but not least, the variable `username` value, it is passed to  `test.ejs`, when the page is rendered. It is used by the test page in two places, first to show the message by welcoming the user, and second in the end to pass to the script which needs it.
+
+```html
+// test.ejs
+  <!-- Timer display -->
+<div class="mb-4">
+   <p>Welcome <%= username %>, Generate questions first, then take a test! Time remaining: <span id="timer-1" class="clock">00:00</span> seconds</p>
+</div>
+
+
+<!-- Link to JavaScript file -->
+ <script src="../bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+ <script src="../javascripts/topicScript.js" type="text/javascript"></script>
+ <script src="../javascripts/testScript.js" type="text/javascript"></script>
+ <script src="../javascripts/recordtestScript.js" type="text/javascript"></script>
+ <script>
+  const username = "<%= username %>"; // Retrieve username from EJS template
+  recordtestScript.initialise(username); // Pass username to client-side script
+ </script>
+</body>
+</html>
+```
+
+- The reason to pass the `username` from this template is to be absolutely sure that the value is coming from the server and then it is passed to the `recordtestScript.js` where it is used in submitting the test to the server. These measures are taken so that server knows that an authorised person is taking the test.
+
+- To securely log the user out from the website, an icon and label is added in the header bar. Its route is created in the folder. Following shows the contents of `logout.js` created in `route`folder. It simply destroys the session variable created during login.
+
+```js 
+//loguout.js
+var express = require('express');
+var router = express.Router();
+/* GET logout page. */
+
+/
+router.get('/logout', function (req, res, next) {
+    //Destroy the session 
+    req.session.destroy((err) => {
+        if(err) {
+            console.error('Error destroying session: ', err);
+        }else {
+            res.redirect('/login');  
+        }
+    })
+});
+module.exports = router;
+```
+
+- Having implemented with the session management this repository is merged with the `dev` branch, this is shown below. Others files were also touched and errors were corrected. A clickable sound was added too to produce look and feel when a user clicks the answer button without giving any indication of being right or wrong.
+  
+![git-session-01.jpg](images\\docs\\git-session-01.jpg)
+
+> Since the application is intended to be used by students at free of cost. A guest option is also introduce, so if one does not want to register or login, is able to take the test but wont be able to submit the test. Though the application is either way free to be used but it is just by design that the user is encouraged to register and can keep track of its progress.
+
+
+### Taking a Test (4.7.4)
+
+The `testScript.js` was used to populate the contents of the JSON into place holders using `EJS` templating engine. The logic to shuffle array in different ways and selecting unique questions was also done there. To start the test and record the activities of a user taking a test and then securely submitting is done using a new script created in a new file called `recordtestScript.js`, as usuall it is kept under `public/javascripts` folder.
+
+Following shows the activity that happens during the test taking session.
+
+```txt
+Start: The user navigates to the test page (test.ejs).
+  Page loaded it initialises StudentName Variable:
+    The StudentName variable is set to the username passed by the page.
+  User Clicks the Start Button:
+    The handleStartTestButtonClick() function is invoked.
+      Inside handleStartTestButtonClick():
+        Flag Creation:
+        A flag (startTestButtonClicked) created to prevent
+        multiple clicks during the test. It is set to true.
+      Enable Answer Buttons:
+        All AnswerButtons within accordions are enabled.
+      Copy Arguments to Global Variables:
+        Arguments passed are copied to use within this script.
+      Check User Type:
+        Determine if the user taking the test is a guest.
+          If it’s a guest, disable the submitTestButton.
+      Show Instruction Modal:
+        Display a small Bootstrap modal dialogue box with instructions.
+  Start the test.
+End: The test begins.
+```
+
+The above activities are shown below from the `recordtestScript.js` file.
+
+```js
+// recordtestScript.js
+
+// Global variables needed --------------------------
+let topics = {}; // reference to json object passed
+let lessonName; // To hold lesson name
+let correctAnswer = []; // hold original answers
+let selectedLabels = []; // user selected labels
+let answer = {}; // to hold user's answer
+// Keep track of answered questions
+const answeredQuestions = new Set(); 
+let timerInterval; // Reference to timer
+let studentName; // need so correct user db updated
+let  points = []; // store 1 or 0
+let totalScore = 0; // test score
+let startTestButtonClicked = false;
+//-----------------------------------------------------
+// To initialise from the test file
+const recordtestScript = {
+    initialise: function (username) {
+        studentName = username;
+    }
+}
+//------------------------------------------------------------
+// handle click event of the "Start Test" button
+function handleStartTestButtonClick(topic, title) {
+// check to see if it has not been pressed before !
+   
+if (!startTestButtonClicked) {
+      startTestButtonClicked = true;
+// First enable all answer button in accordion 
+  enableAnswerButton();
+  topics = topic;
+  lessonName = title;
+// If a guest, disable the submit button.
+if( studentName === 'guest') {
+    const submitTestButton = document.getElementById('submit-test-btn');
+    if (!submitTestButton.disabled) {
+        submitTestButton.disabled = true;
+    }
+}
+console.log('Starting test...');
+const testMessage;
+testMessage = new bootstrap.Modal(document.getElementById('instructions'));
+testMessage.show();
+startTimer(5); // Start the timer
+}
+console.log('Test in progress!');
+}
+```
+
+- When user starts to take a test, both buttons to generate questions and starting a test button are made non functional. The clock is started ticking. The function startTimer(5) starts the timer for five minutes, its code is shown below.
+
+```js
+// recordtestScript.js
+// Function to start the timer with a specified duration
+function startTimer(durationInMinutes) {
+ let totalSeconds = durationInMinutes * 60;
+ // Update the display every second
+ timerInterval = setInterval(function() {
+   // Calculate minutes and seconds
+   let minutes = Math.floor(totalSeconds / 60);
+   let seconds = totalSeconds % 60;
+   // Format the time
+   const formattedTime = `${minutes.toString()
+    .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+   // Get all elements with the timer class
+   const timerElements = document.querySelectorAll('.clock');
+   // Update the content of each timer element
+   timerElements.forEach(function(timerElement) {
+       timerElement.innerText = formattedTime;
+   });
+   // Stop the timer if time runs out
+   if (totalSeconds <= 0) {
+       clearInterval(timerInterval);
+       console.log('Time iss up!');
+       handleSubmitTestButtonClick()
+   }
+   // Decrement totalSeconds
+   totalSeconds--;
+  }, 1000); // Update every second
+}
+```
+
+- To display the timing or the timer on the test page, two place holders were assigned the CSS class named `.clock` in `test.ejs`. One on the top and one at the bottom. This class is selected and its element `innerText ` property is updated to show the clock.
+- This script `recordtestScript.js` has many other helper functions for example when accordion is collapsed and expanded some cleaning is done. The user is restricted to take only two options etc.
+- When user selects the two options out of  five given and press `Answer` button, call comes to the following function.
+
+```js
+//recordtestScript.js 
+// Function to handle the click event of the "Answer" button
+function checkAnswer(questionId) {
+   // A small click is needed
+    playClickSound(); 
+    // get user selected labels
+    getSelectedLabels();
+    // Only deals question if it hasn't been clicked before.
+    if(!answeredQuestions.has(questionId)) {
+        //first add it to set
+        answeredQuestions.add(questionId);
+    // helper function passing user selected with the question id
+    const isCorrect = checkWithSelectedLabels(selectedLabels, questionId);
+    // Push 1 being correct else 0 and increment the score or leave
+    isCorrect ? (points.push(1), totalScore++) : (points.push(0), totalScore);
+    } else {
+    /* do not do anything it has already been handled,
+     In digital test it is not allowed
+     as it needs to improve attention to detail.*/
+    }
+}
+```
+
+- The above functions main job is to gather user choice and then call another function by passing the selectedLabels information with `questionId` parameters. It is this function which does the checking and returns the answer in a boolean format.
+- The next line increases the `totalScore` variables using `++` short form to increase the counter and also pushes `1` or `0` into an array named `points`.
+- When test is taken and submit button is pressed the call comes to `handleSubmitTestButtonClick()` which is shown below.
+
+```js
+//recordtestScript.js 
+function handleSubmitTestButtonClick() {
+    // Stop the timer by clearing the interval
+    clearInterval(timerInterval);
+    console.log('Submitting the test...');
+    // Disable the submit button to prevent multiple clicks
+    const submitTestButton = document.getElementById('submit-test-btn');
+    submitTestButton.disabled = true;
+    // Gather result values to submit
+    const results = construcTestData();
+    submitTestToServer(results); // Wait for the result before proceeding   
+    console.log('Test submitted successfully by ' + studentName);
+    startTestButtonClicked = false;
+}
+```
+
+This function, `clearInterval(timerInterval)`, is a JavaScript built-in function that stops the ticking of an interval or clock referenced by the variable `timerInterval`. It's typically used alongside the `setInterval()` function. After the timer is stopped, the submit button is disabled, and a helper function called `constructTestData()` gathers data including `totalScore` and `points`, along with `timestamps`. This data is stored in a local variable called` results`, which is then passed to the `submitTestToServer(results)` function for submission. The logic of this function is shown below along with the helper function.
+
+```js
+//recordtestScript.js
+// helper function
+function construcTestData() {
+    const timeStamp = new Date();
+    const answers = [{ timeStamp, totalScore, points }];
+    return answers;
+}
+// Submit result with POST method
+async function submitTestToServer(answers) {
+ //  send the POST request
+ const url = '/test';
+ //  options to set , needs application/json
+ const options = {
+     method: 'POST',
+     headers: {
+         'Content-Type': 'application/json'
+     },
+     // Convert the number to a JSON string
+     body: JSON.stringify({ studentName, answers })
+ };
+ try {
+     const response = await fetch(url, options);
+     if (!response.ok) {
+         throw new Error('Network response was not ok');
+     }
+     const data = await response.json();
+     console.log('Test submitted successfully:', data);
+     //  redirect the page after submission
+     window.location.href="/logout"; 
+ } catch (error) {
+     console.error('Error submitting test:', error);
+     throw error; 
+ }
+}
+```
+
+The above `submitTestToServer(answers)` function handles submitting test results to the server using a POST request.
+First, it sets the URL to /test.
+Second, sets the request headers to specify Content-Type as `application/json` which is must.
+Third, converts the `answers` object (including studentName) to a JSON string.
+And then makes the POST request using `fetch` JavaScript builtin  method.
+If the response is not OK (status code other than 200), an error is thrown.
+If successful, it logs the response data and redirects the page to /logout.
+If there’s an error during the process, it logs the error and propagates it for better error handling.
+
+> Note: In above functions a simple Bootstrap modal was used. For this to appear, a partial template `modal.ejs` is created under `views/layout` directory and referenced in `test.ejs`.
+
+### Handling Test Submission POST Request (4.7.5)
+
+- To handle the POST request from the test page, `testController.js` is created under `controllers` folder. The `test.js` route delegate POST request to this file. The contents are shown below.
+
+```js
+var express = require('express');
+var collection = require('../modal/user');
+var router = express.Router();
+
+const handleTestRequest = async (req, res) => {
+try {
+const username = req.session.username;
+console.log(`from session username is ${username}`);
+const { studentName } = req.body; 
+console.log(`From test page: username is ${studentName}`);
+if (studentName === username) {
+  console.log('Same person is taking a test:', username);
+  const answers = req.body.answers; 
+  // Extract 'results' array from 'answers'
+  const results = answers.map(answer => ({
+    timeStamp: answer.timeStamp,
+    totalScore: answer.totalScore,
+    points: answer.points
+  }));
+  const updatedUser = await collection.findOneAndUpdate(
+    { name: username }, 
+    { $push: { results: { $each: results } } }, 
+    { new: true } 
+  );
+  res.status(200).json({ message: 'Test result saved successfully' });
+} else {
+  res.status(403).json({ error: 'Unauthorized: Student name does not match' });
+}
+} catch (error) {
+    console.error('Error saving test result:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+module.exports = {
+  handleTestRequest
+};
+```
+
+- The above first  defines an Express route handler `handleTestRequest()` for processing test-related requests. It  then gather the username from the session variable and from the `req.body` and compares both of them. If both matches it allows the changes to be made into the database.
+
+- The data is then  extracted into a local variable `answers` from the request body and constructs a `results` array by mapping every variable one by one so that no information is lost.
+
+- Once an array is constructed, mongodb `findOneAndUpdate()` function is called upon `collection` variable. This is a reference achieved at the top,  to get to the database collection. this functions find the user's name with `username` variable and if succeeds pushes an array `result` into the database collection. This process updates the database. Then handling of error is done with messages. Two layers of errors are implemented, first one ensures that the data is pushed safely and second deals with Network errors. If the names don’t match, it returns an unauthorized error.
+Any errors during the process are caught and handled with appropriate status codes.
 
 
 
@@ -2683,7 +3090,7 @@ if ('serviceWorker' in navigator) {
 
 The above code register the running application using an arrow [`=>`](#appendix-c) function expression with a service worker file `sw.js`. It is not yet present and can be noticed. When the application or express framework is started from the terminal the activities are shown there, the application  now tries to find this file  `sw.js` file in the root of the website since it is not present, express frame work rightly displays the `404` message as shown in the following figure.
 
-![sw-01jpg](images\\docs\\sw-01.jpg)<br>
+![sw-01.jpg](images\\docs\\sw-01.jpg)<br>
 *figure-30*
 
 
