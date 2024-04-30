@@ -1,3 +1,4 @@
+// dashboard.js
 var express = require('express');
 var router = express.Router();
 
@@ -10,5 +11,4 @@ router.get('/dashboard', function (req, res, next) {
   // Pass user information to dashboard template
   res.render('dashboard', { title: 'Dashboard', username: username });
 });
-
 module.exports = router;

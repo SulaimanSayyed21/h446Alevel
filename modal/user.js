@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-
 var loginSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -27,7 +26,5 @@ var loginSchema = new mongoose.Schema({
     }]
 
 }, { timestamps: true });
-
 const collection = mongoose.model('credentials', loginSchema);
-
 module.exports = collection;

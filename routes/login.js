@@ -1,5 +1,4 @@
 // login route
-
 var express = require('express');
 var router = express.Router();
 var loginController = require('../controllers/loginController');
@@ -13,6 +12,5 @@ router.get('/login', function (req, res, next) {
 });
 
 /* Delegate the responsibility to the login controller*/
-
 router.post('/login', loginController.handleLoginRequest);
 module.exports = router;

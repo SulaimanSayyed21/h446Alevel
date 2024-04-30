@@ -8,5 +8,4 @@ router.get('/practice', function (req, res, next) {
        const loggedIn = req.session.username ? true : false;
     res.render('practice', {title: 'Practice', loggedIn: loggedIn , showLogout : false});
 });
-
 module.exports = router;

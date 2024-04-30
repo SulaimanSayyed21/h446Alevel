@@ -13,13 +13,10 @@ function generateRandomQuestions(topicData, title) {
     try {
         // Get the handle to the array
         var lessons = [];
-
         if (topicData.title === title) {
             lessons = topicData.lessons;
         }
-
         // First shuffle the array 
-
         // console.log('In generateRandomQuestions : before shuffling');
         console.log(lessons);
         const shuffledLessons = shuffleArray(lessons);
@@ -27,7 +24,6 @@ function generateRandomQuestions(topicData, title) {
         // console.log(shuffledLessons);
         //console.log();
         const selectedQuestions = [];
-
         // Iterate over each lesson 
         for (let i = 0; i < shuffledLessons.length; i++) {
             console.log('Topic : ' + title + ' Lesson Number : ' + shuffledLessons[i].lesson_number);
@@ -88,7 +84,6 @@ function generateRandomQuestions(topicData, title) {
     }
 }
 
-
 // Function to shuffle an array
 function shuffleArray(array) {
     console.log('In shuffle array functions:');
@@ -103,6 +98,7 @@ function shuffleArray(array) {
     return array;
 }
 
+// Function to populate questions
 function populateQuestions(randomQuestions) {
     // Initialize an object to store the mapping between shuffled and original question IDs
     randomQuestions.forEach((question, index) => {
@@ -128,7 +124,7 @@ function populateQuestions(randomQuestions) {
     console.log(questionIdMapping);
 }
 
-
+// Functin to generate questions
 function handleGenerateQuestions(topic, title) {
     //clearPreviousData() if needed! 
     //console.log('In handleGenerateQuestions :')
@@ -142,10 +138,6 @@ function handleGenerateQuestions(topic, title) {
             console.log(questionsMap);
             populateQuestions(randomQuestions);
             questionsGenerated = true;
-            //const buttonTemp = document.getElementById('generate-questions-btn');
-            //buttonTemp.disabled = true;
-            // disable all answer buttons untill test starts.
-            //disableAnswerButtons();
         } catch (error) {
             console.log('error in populating questions');
         }
@@ -173,6 +165,5 @@ window.onload = function() {
     disableAnswerButtons();
     disableSubmitButton();
 }
-   
 
 // End of file

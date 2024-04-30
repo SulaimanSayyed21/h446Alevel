@@ -1,10 +1,9 @@
 // signup route
-
 var express = require('express');
 var router = express.Router();
 var signupController = require('../controllers/signupController');
 
-/* GET login page. */
+/* GET Signup page. */
 router.get('/signup', function(req, res, next) {
   res.render('signup',{ title: 'Signup' });
 });

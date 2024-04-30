@@ -93,8 +93,6 @@ function construcTestData() {
     return answers;
 }
 
-
-
 //------------------------------------------------------------
 function handleSubmitTestButtonClick() {
     // Stop the timer by clearing the interval
@@ -282,15 +280,6 @@ document.querySelectorAll('input[type="checkbox"]')
 // Get the handle to submit button
 document.getElementById('submit-test-btn')
     .addEventListener('click', () => handleSubmitTestButtonClick());
-
-// // When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == testMessage) {
-//       testMessage.style.display = "none";
-//     }
-//   }
-
-
 
 // End of File
 

@@ -12,7 +12,6 @@ const handleRegisterRequest = async (req, res) => {
     if (!username || !useremail || !password) {
       return res.status(400).send("Please provide all required fields.");
     }
-
     // Check if user or email already exists
     const existingUser = await collection.findOne({ name: username });
     const existingEmail = await collection.findOne({ email: useremail });
@@ -22,7 +21,6 @@ const handleRegisterRequest = async (req, res) => {
     if (existingEmail) {
       return res.status(400).send("Email already exists. Please choose a different email.");
     }
-
     // Hash password and save user data
     const saltRounds = 10; // Number of salt rounds for bcrypt
     const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -38,7 +36,6 @@ const handleRegisterRequest = async (req, res) => {
     res.status(500).send("An error occurred during signup. Please try again later.");
   }
 };
-
 module.exports = {
   handleRegisterRequest
 };
