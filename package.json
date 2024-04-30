@@ -1,6 +1,6 @@
 {
   "name": "h446",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "nodemon --ext js,ejs,json,css ./bin/www",
@@ -17,5 +17,6 @@
     "http-errors": "~1.6.3",
     "mongoose": "^8.3.1",
     "morgan": "~1.9.1"
-  }
+  },
+  "license": "MIT"
 }
