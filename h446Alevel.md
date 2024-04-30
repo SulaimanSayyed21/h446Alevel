@@ -77,7 +77,7 @@
   - [Taking a Test (4.7.4)](#taking-a-test-474)
   - [Handling Test Submission POST Request (4.7.5)](#handling-test-submission-post-request-475)
     - [Updating Modal Schema (4.7.5.1)](#updating-modal-schema-4751)
-- [Applicatin Deployment (5.0)](#applicatin-deployment-50)
+- [Application Deployment (5.0)](#application-deployment-50)
 - [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
   - [Writing the logic to attach the application with the service worker](#writing-the-logic-to-attach-the-application-with-the-service-worker)
   - [Creating a service worker : Service worker vs client/server architecture](#creating-a-service-worker--service-worker-vs-clientserver-architecture)
@@ -3062,16 +3062,47 @@ var loginSchema = new mongoose.Schema({
 
 ---
 
-## Applicatin Deployment (5.0)
+## Application Deployment (5.0)
 
-- The above application is written in git repository locally and maintained on GitHub. To deploy the applicaion in the clouds, different platforms exist. A list of available options is shown below.
+The above application is written in git repository locally and maintained on GitHub. To deploy the application in the clouds, different platforms exist. A list of available options is shown below.
+  
+ | Platforms                    | Brief Specification                                                                                 |
+ | --------------------------- | --------------------------------------------------------------------------------------------------- |
+ | Heroku                      | User to offers a free tier with limited resources but suitable for small projects.                          |
+ | Netlify                     | Great for static sites and offers continuous deployment from Git for free.                          |
+ | GitHub Pages                | Host static websites directly from your GitHub repositories.                                        |
+ | Vercel                      | Provides free hosting for serverless functions and static sites, with easy integration with GitHub. |
+ | Firebase Hosting            | Offers free hosting for web apps, with additional features like authentication and database.        |
+ | Surge                       | Simple platform for hosting static sites, with a free plan available.                               |
+ | AWS Free Tier               | Amazon Web Services offers a free tier with limited resources for hosting applications.             |
+ | Google Cloud Platform (GCP) | GCP offers a free tier with $300 credit for new users, suitable for hosting web applications.       |
+ | DigitalOcean                | Offers a limited free tier with $100 credit for new users, suitable for hosting small applications. |
+ | Glitch                      | Platform for hosting and collaborating on web projects, with a free tier available.                 |
+ | Render                      | Offers free hosting for web applications with seamless scaling and automatic SSL.                   |
 
 
-- Chossing [Render](https://render.com/) to deploy the application. It offers number of hosting options and supports variety of web applications.
-- An account is opened in Render for this purpose and a free instance is created. An instance in Render refer to what service one requires ( Web Service is selected ). Once a service is selected its type is to be chosen, the type referes to available resources for the application. A free instance type is choosen which does not provide much memory or CPU power but serves the prupose.
-- A Web Application that is hosted can use number of backend technologies, since this application uses `Node.js and Express` Render allows thier templates to be used.
-- But this application is hosted in GitHub and it is to be deployed from the GitHub directly.
-- When this process of creating a service starts, the Render asks number of options which inclcudes, Name to identify the service, Region where it will run, the git branch name `dev,main etc` then Runtime environment, build command and start command.
+**Choosing Render for Deployment**:
+   - Render provides various hosting options and supports a wide range of web applications.
+   - We create an account on Render specifically for this purpose and set up a free instance.
+   - In Render, an "instance" refers to the service you need (in this case, a web service).
+   - We choose a free instance type, which may have limited memory and CPU power but serves our purpose.
+
+**Backend Technologies and Templates**:
+   - Web applications hosted on Render can use various backend technologies.
+   - Since our application uses Node.js and Express, Render allows us to use their templates.
+
+**Deployment from GitHub**:
+   - Our application is hosted on GitHub, and we'll deploy it directly from there.
+   - We only need to give access to Render to reach the GitHub repositories.
+
+**Creating a Render Service**:
+   - When setting up a service on Render:
+     - We provide a name to identify the service.
+     - Choose the region where it will run.
+     - Specify the Git branch name (e.g., `dev`, `main`).
+     - Define the runtime environment, build command, and start command.
+
+
   
 
 
