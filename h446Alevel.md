@@ -76,6 +76,8 @@
   - [Access to Test Page (4.7.3)](#access-to-test-page-473)
   - [Taking a Test (4.7.4)](#taking-a-test-474)
   - [Handling Test Submission POST Request (4.7.5)](#handling-test-submission-post-request-475)
+    - [Updating Modal Schema (4.7.5.1)](#updating-modal-schema-4751)
+- [Applicatin Deployment (5.0)](#applicatin-deployment-50)
 - [Implementing Designing Part-C: Making the Web App a PWA](#implementing-designing-part-c-making-the-web-app-a-pwa)
   - [Writing the logic to attach the application with the service worker](#writing-the-logic-to-attach-the-application-with-the-service-worker)
   - [Creating a service worker : Service worker vs client/server architecture](#creating-a-service-worker--service-worker-vs-clientserver-architecture)
@@ -2929,7 +2931,7 @@ This function, `clearInterval(timerInterval)`, is a JavaScript built-in function
 // helper function
 function construcTestData() {
     const timeStamp = new Date();
-    const answers = [{ timeStamp, totalScore, points }];
+    const answers = [{ lessonName, timeStamp, totalScore, points }];
     return answers;
 }
 // Submit result with POST method
@@ -2990,6 +2992,7 @@ if (studentName === username) {
   const answers = req.body.answers; 
   // Extract 'results' array from 'answers'
   const results = answers.map(answer => ({
+    lessonName: answer.lessonName,
     timeStamp: answer.timeStamp,
     totalScore: answer.totalScore,
     points: answer.points
@@ -3020,6 +3023,56 @@ module.exports = {
 
 - Once an array is constructed, mongodb `findOneAndUpdate()` function is called upon `collection` variable. This is a reference achieved at the top,  to get to the database collection. this functions find the user's name with `username` variable and if succeeds pushes an array `result` into the database collection. This process updates the database. Then handling of error is done with messages. Two layers of errors are implemented, first one ensures that the data is pushed safely and second deals with Network errors. If the names don’t match, it returns an unauthorized error.
 Any errors during the process are caught and handled with appropriate status codes.
+
+#### Updating Modal Schema (4.7.5.1)
+
+- For the above logic to work, the modal schema is to be amended so it accommodates the changes. A new snippet is added into `modal/user.js` schema as shown below.
+
+```js 
+// user.js 
+var loginSchema = new mongoose.Schema({
+........ previous enteries
+    password: {
+        type: String,
+        required: true
+    },
+    results : [{
+        lessonName : { type: String, required: true},
+        timeStamp: { type: Date, default: Date.now },
+        totalScore : { type: Number, required: true },
+        points: [Number] 
+    }]
+
+}, { timestamps: true });
+```
+
+- When a user logs in and take a test, it gets stored in the database. Following figure shows user name `Marry` document where a new field `results` is shown to have been added.
+
+![data-added-02.jpg](images\\docs\\data-added-02.jpg)<br>
+
+- Another figure below shows the entries of tests which have been taken.
+
+![data-added-03.jpg](images\\docs\\data-added-03.jpg)<br>
+
+- The figure above tells us that a user have taken number of tests of different topics. The last two being of lesson name `Opposites` and `Similar-to`.
+- All four results fields can be seen starting from lesson's name to the points. Point is an arry of points achieved by the user in individual questions. The first entery tells us that the user has only attempted four questins and scored one in lesson name `Opposites` while taking a test in lesson `Similar-to`, only seven questions were attempted and scored `5`.
+  
+> Note: 
+
+
+---
+
+## Applicatin Deployment (5.0)
+
+- The above application is written in git repository locally and maintained on GitHub. To deploy the applicaion in the clouds, different platforms exist. A list of available options is shown below.
+
+
+- Chossing [Render](https://render.com/) to deploy the application. It offers number of hosting options and supports variety of web applications.
+- An account is opened in Render for this purpose and a free instance is created. An instance in Render refer to what service one requires ( Web Service is selected ). Once a service is selected its type is to be chosen, the type referes to available resources for the application. A free instance type is choosen which does not provide much memory or CPU power but serves the prupose.
+- A Web Application that is hosted can use number of backend technologies, since this application uses `Node.js and Express` Render allows thier templates to be used.
+- But this application is hosted in GitHub and it is to be deployed from the GitHub directly.
+- When this process of creating a service starts, the Render asks number of options which inclcudes, Name to identify the service, Region where it will run, the git branch name `dev,main etc` then Runtime environment, build command and start command.
+  
 
 
 
