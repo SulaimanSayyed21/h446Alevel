@@ -2,6 +2,7 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 /* Default header styles */
@@ -36,9 +37,6 @@ header {
   z-index: 1000; /* Ensure header appears above other content */
 }
 
-
-
-
 /* Media query for smaller screens */
 @media screen and (max-width: 768px) {
   header {
@@ -52,8 +50,6 @@ header {
     font-size: 0.8rem; /* Further decrease font size for very small screens */
   }
 }
-
-
 
 footer {
   background-color: #b4b4e5;
@@ -106,6 +102,8 @@ footer {
 
 main {
   padding-top:30px;
+  min-height: calc(100% - 60px);
+ position: relative;
 }
 /**************************************************************************/
 /* Following styles are used in practice.js */

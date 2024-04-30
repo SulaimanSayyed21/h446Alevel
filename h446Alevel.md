@@ -2021,18 +2021,16 @@ To fetch the data from a JSON file, code used is shown below with comments. It u
 ```js
 //topicScript.JS 
 // Function to fetch topics data from JSON file
-function fetchTopicsData() {
-  // Start fetching the JSON file
-  return fetch('./data/topics.json')
-    // Parse the response as JSON
-    .then(response => response.json())
-    // Catch and handle any errors
-    .catch(error => {
-      // Log the error to the console
-      console.error('Error fetching JSON:', error);
-      // Return an object with an empty topics array
-      return { topics: [] };
-    });
+async function fetchTopicsData() {
+// Start fetching the JSON file
+  try {
+    const response = await fetch('./data/topics.json');
+     // Parse the response as JSON
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching JSON:', error);
+    return { topics: [] };
+  }
 }
 ```
 
@@ -2770,8 +2768,10 @@ Start: The user navigates to the test page (test.ejs).
         Flag Creation:
         A flag (startTestButtonClicked) created to prevent
         multiple clicks during the test. It is set to true.
-      Enable Answer Buttons:
-        All AnswerButtons within accordions are enabled.
+      Enable  Buttons:
+        All Answer Buttons within accordions are enabled.
+        Submit button is also enabled
+        Didable dropdownLIst during the test
       Copy Arguments to Global Variables:
         Arguments passed are copied to use within this script.
       Check User Type:
@@ -2817,6 +2817,8 @@ if (!startTestButtonClicked) {
       startTestButtonClicked = true;
 // First enable all answer button in accordion 
   enableAnswerButton();
+  enableSubmitButton();
+  disableDropdownList();
   topics = topic;
   lessonName = title;
 // If a guest, disable the submit button.
@@ -2915,10 +2917,12 @@ function handleSubmitTestButtonClick() {
     submitTestToServer(results); // Wait for the result before proceeding   
     console.log('Test submitted successfully by ' + studentName);
     startTestButtonClicked = false;
+    enableDropdownList();
+    window.location.href="/logout"; 
 }
 ```
 
-This function, `clearInterval(timerInterval)`, is a JavaScript built-in function that stops the ticking of an interval or clock referenced by the variable `timerInterval`. It's typically used alongside the `setInterval()` function. After the timer is stopped, the submit button is disabled, and a helper function called `constructTestData()` gathers data including `totalScore` and `points`, along with `timestamps`. This data is stored in a local variable called` results`, which is then passed to the `submitTestToServer(results)` function for submission. The logic of this function is shown below along with the helper function.
+This function, `clearInterval(timerInterval)`, is a JavaScript built-in function that stops the ticking of an interval or clock referenced by the variable `timerInterval`. It's typically used alongside the `setInterval()` function. After the timer is stopped, the submit button is disabled, and a helper function called `constructTestData()` gathers data including `totalScore` and `points`, along with `timestamps`. This data is stored in a local variable called` results`, which is then passed to the `submitTestToServer(results)` function for submission. Upon returning, flat is reset, drop down list is enabled and the user is redirected to `logout` page. `The submitTestToServer()` is shown below along with the helper function.
 
 ```js
 //recordtestScript.js
@@ -2948,8 +2952,6 @@ async function submitTestToServer(answers) {
      }
      const data = await response.json();
      console.log('Test submitted successfully:', data);
-     //  redirect the page after submission
-     window.location.href="/logout"; 
  } catch (error) {
      console.error('Error submitting test:', error);
      throw error; 
@@ -2963,7 +2965,7 @@ Second, sets the request headers to specify Content-Type as `application/json` w
 Third, converts the `answers` object (including studentName) to a JSON string.
 And then makes the POST request using `fetch` JavaScript builtin  method.
 If the response is not OK (status code other than 200), an error is thrown.
-If successful, it logs the response data and redirects the page to /logout.
+If successful, it logs the response data.
 If there’s an error during the process, it logs the error and propagates it for better error handling.
 
 > Note: In above functions a simple Bootstrap modal was used. For this to appear, a partial template `modal.ejs` is created under `views/layout` directory and referenced in `test.ejs`.
@@ -2979,7 +2981,7 @@ var router = express.Router();
 
 const handleTestRequest = async (req, res) => {
 try {
-const username = req.session.username;
+const username = req.session.username;FF
 console.log(`from session username is ${username}`);
 const { studentName } = req.body; 
 console.log(`From test page: username is ${studentName}`);

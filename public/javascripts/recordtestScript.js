@@ -31,6 +31,8 @@ function handleStartTestButtonClick(topic, title) {
             startTestButtonClicked = true;
         // Firest enable all the button in accordion 
         enableAnswerButton();
+        enableSubmitButton();
+        disableDropdownList();
         topics = topic;
         lessonName = title;
         
@@ -109,6 +111,8 @@ function handleSubmitTestButtonClick() {
     submitTestToServer(results); // Wait for the result before proceeding   
     console.log('Test submitted successfully by ' + studentName);
     startTestButtonClicked = false;
+    enableDropdownList();
+    window.location.href="/logout"; //  reload the page after submission
 }
 
 // Submit result with POST method
@@ -130,7 +134,7 @@ async function submitTestToServer(answers) {
         }
         const data = await response.json();
         console.log('Test submitted successfully:', data);
-        window.location.href="/logout"; //  reload the page after submission
+       
     } catch (error) {
         console.error('Error submitting test:', error);
         throw error; // Propagate the error for better error handling
@@ -176,6 +180,20 @@ function enableAnswerButton() {
     answerButtons.forEach(button => {
         button.disabled = false;
     });
+}
+
+function enableSubmitButton() {
+    const submitButton = document.getElementById('submit-test-btn');
+    submitButton.disabled = false;
+}
+
+//
+function disableDropdownList() {
+    document.getElementById("topicsDropdown").disabled = true;
+}
+
+function enableDropdownList() {
+    document.getElementById("topicsDropdown").disabled = false;
 }
 
 // Function to get the selected labels

@@ -116,14 +116,16 @@ function createTopicListItem(topic, title) {
 }
 
 // Function to fetch topics data from JSON file
-function fetchTopicsData() {
-  return fetch('./data/topics.json')
-    .then(response => response.json())
-    .catch(error => {
-      console.error('Error fetching JSON:', error);
-      return { topics: [] };
-    });
+async function fetchTopicsData() {
+  try {
+    const response = await fetch('./data/topics.json');
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching JSON:', error);
+    return { topics: [] };
+  }
 }
+
 
 // Function to populate the dropdown list with topics
 async function populateDropdown() {

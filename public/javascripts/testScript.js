@@ -163,8 +163,15 @@ function disableAnswerButtons() {
     });
 }
 
+//Function to disable submit button
+function disableSubmitButton(){
+    const submitButton = document.getElementById('submit-test-btn');
+    submitButton.disabled = true;
+}
+
 window.onload = function() {
     disableAnswerButtons();
+    disableSubmitButton();
 }
    
 

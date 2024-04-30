@@ -14,9 +14,9 @@ router.get('/test', function (req, res, next) {
       res.redirect(302, 'login');
   } else if (source === 'guest') {
       console.log('Guest logged in');
-      res.render('test', { Title: 'Test page', username: source, showLogout: false });
+      res.render('test', { title: 'Test page', username: source, showLogout: false });
   } else {
-      res.render('test', { Title: 'Test page', username: username, showLogout: true });
+      res.render('test', { title: 'Test page', username: username, showLogout: true });
   } 
 });
 
