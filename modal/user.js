@@ -19,15 +19,8 @@ var loginSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    testsTaken : [{
-        timeStamp: { type: Date, default: Date.now },
-        totalScore : { type: Number, required: true },
-        results: [{ 
-            questionId: {type : String, required: true },
-            score: { type : Number, required: true },
-        }],
-    }],
     results : [{
+        lessonName : { type: String, required: true},
         timeStamp: { type: Date, default: Date.now },
         totalScore : { type: Number, required: true },
         points: [Number] 

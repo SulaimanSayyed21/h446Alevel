@@ -17,6 +17,7 @@ const handleTestRequest = async (req, res) => {
 
       // Extract 'results' array from 'answers'
       const results = answers.map(answer => ({
+        lessonName: answer.lessonName,
         timeStamp: answer.timeStamp,
         totalScore: answer.totalScore,
         points: answer.points

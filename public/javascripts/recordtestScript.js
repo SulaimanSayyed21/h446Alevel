@@ -89,7 +89,7 @@ function checkWithSelectedLabels(selectedLabels, questionId) {
 // helper function
 function construcTestData() {
     const timeStamp = new Date();
-    const answers = [{ timeStamp, totalScore, points }];
+    const answers = [{ lessonName, timeStamp, totalScore, points }];
     return answers;
 }
 
