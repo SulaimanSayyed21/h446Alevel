@@ -6,37 +6,34 @@ const User = require('../modal/user');
 router.get('/profile', async (req, res) => {
     const username = req.session.username;
     //const source = req.query.source;
-  if (!username) {
-      console.log('User does not exist');
-      res.redirect(302, 'login');
+  if (username) {
+    try {
+        // Fetch the user's data from MongoDB
+        const user = await User.findOne({name:username});
+
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+
+        // Extract required data from the results array
+        const profileData = user.results.map(result => ({
+            timeStamp: result.timeStamp,
+            lessonName: result.lessonName,
+            totalScore: result.totalScore
+        }));
+        console.log(profileData);
+
+       res.render('profile', { title: 'Profile', username: username, showLogout: true, profileData: profileData });
+    }catch (error) {
+        console.error('Error fetching profile data:', error);
+        res.status(500).send('Internal Server Error');
+    }
   } else {
-      //console.log('Guest logged in');
-      res.render('profile', { title: 'Profile page', username: username, showLogout: true });
+            console.log('User does not exist');
+            res.redirect(302, 'login');
   } 
 });
 module.exports = router;    
     
-    
-    
-    
-    
-    
-    
-    
-//     try {
-//         // Retrieve user information from the database based on session
-//         //const user = await User.findOne({ username: req.session.username });
-
-//         if (user) {
-//             // Render the profile page with user information
-//             res.render('profile', { user: user });
-//         } else {
-//             // Handle case where user is not found
-//             res.status(404).send('User not found');
-//         }
-//     } catch (error) {
-//         console.error('Error fetching user profile:', error);
-//         res.status(500).send('Internal server error');
-//     }
-// });
+ 
 

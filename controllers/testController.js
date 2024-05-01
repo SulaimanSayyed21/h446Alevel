@@ -9,7 +9,7 @@ const handleTestRequest = async (req, res) => {
     const { studentName } = req.body; 
     console.log(`From test page: username is ${studentName}`);
     if (studentName === username) {
-      console.log('Same person is taking a test:', username);
+      console.log('The correct user has taken a test:', username);
       const answers = req.body.answers; 
       // Extract 'results' array from 'answers'
       const results = answers.map(answer => ({

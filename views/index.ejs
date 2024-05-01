@@ -1,6 +1,27 @@
 <%- include('layout/head.ejs'); %>
   <%- include('layout/loginheader.ejs',{iconClass: 'bi bi-lock-fill' , headerTitle: 'Verbal Reasoning' }); %>
-    <main>
+  <main>
+    <section class="bg-light py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-4 mb-3">Welcome to 11+ Verbal Reasoning</h1>
+                    <p class="lead">
+                        Here young minds embark on an exhilarating journey of intellectual exploration and cognitive mastery.
+                        Dive into a world where words dance and ideas flourish, as curated lessons empower students to unravel
+                        the mysteries of language, decode complex patterns, and unleash their potential for logical deduction.
+                        Join us in cultivating not just knowledge, but a deep-rooted love for learning, as we pave the way for
+                        academic excellence and intellectual growth.
+                    </p>
+                    <p>Login or Register! Not ready? Get in as guest <a href="/guest/login" class="text-success">Dashboard</a></p>
+                    <!-- <a href="/guest/login" class="btn btn-primary btn-lg">Enter as guest</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- <main>
       <div class="container mt-5">
         <div class="row">
           <div class="col-md-6">
@@ -20,7 +41,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </main> -->
     <!-- Call to Action-->
     <%- include('layout/footer.ejs'); %>
       <script src="bootstrap-5.0.2/js/bootstrap.bundle.min.js"></script>

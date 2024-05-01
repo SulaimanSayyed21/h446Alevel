@@ -8,7 +8,6 @@ function sessionMiddleware() {
         uri: process.env.MONGODB_URI,
         collection: 'sessions',
     });
-
     const mongoSession = session({
         secret: 'aaadfeadfdkfjadfkwerewoiadfkjdkfjweirefj',
         resave: false,
@@ -19,8 +18,4 @@ function sessionMiddleware() {
 
     return mongoSession;
 }
-
 module.exports = sessionMiddleware;
-
-  
-

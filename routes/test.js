@@ -9,10 +9,10 @@ router.get('/test', function (req, res, next) {
   const username = req.session.username;
   const guest = req.session.guest;
    if(username){
-    console.log(`${username} has logged in`);
+    console.log(`${username} is taking a test`);
     res.render('test', { title: 'Test page', username: username , showLogout: true });
    }else if(guest) {
-    console.log('Guest logged in');
+    console.log('Guest is taking a test');
     res.render('test', { title: 'Test Page', username: 'guest', showLogout: true });
    }else {
     console.log('User does not exist');

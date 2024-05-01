@@ -20,7 +20,7 @@ const handleLoginRequest = async (req, res) => {
         
         //store username in session
         const username =  req.body.username;
-        console.log(username + '  from req.body.username');
+        //console.log(username + '  from req.body.username');
         req.session.username = req.body.username;
         console.log(`${req.session.username} has logged in :` );
        // res.send('Logged in successfully');

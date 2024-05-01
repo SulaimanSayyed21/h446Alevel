@@ -1,6 +1,5 @@
 <%- include('layout/head.ejs'); %>
     <%- include('layout/practiceheader.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Take the test' }) %>
-
         <body>
             <!-- Main content -->
             <main id="accordion-page" class="container message">
@@ -20,8 +19,6 @@
                     <p>Welcome <%= username %>! Generate questions first, then take a test! Time remaining: <span
                                 id="timer-1" class="clock">00:00</span> seconds</p>
                 </div>
-
-
                 <div class="accordion mt-4">
                     <% for (let i=1; i <=20; i++) { %>
                         <div class="accordion-item" id="accord-item-<%= i %>">
@@ -65,12 +62,9 @@
                 <div class="mb-4">
                     <p>Time remaining: <span id="timer-2" class="clock">00:00</span></p>
                 </div>
+                <div><a href="/dashboard" class="btn btn-link">Dashboard</a></div>
             </main>
             <hr>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <a href="/dashboard" class="btn btn-light">Go back to dashboard</a>
             </div>
             <br><br>
             <%- include('layout/modal.ejs'); %>
@@ -85,5 +79,4 @@
                         recordtestScript.initialise(username); // Pass username to your client-side script
                     </script>
         </body>
-
         </html>

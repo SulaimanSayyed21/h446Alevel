@@ -7,10 +7,10 @@ let correctAnswer = []; // hold original answers
 let selectedLabels = []; // user selected labels
 let answer = {}; // to hold user's answer
 // Keep track of answered questions
-const answeredQuestions = new Set(); 
+const answeredQuestions = new Set();
 let timerInterval; // Reference to timer
 let studentName; // need so correct user db updated
-let  points = []; // store 1 or 0
+let points = []; // store 1 or 0
 let totalScore = 0; // test score
 let startTestButtonClicked = false;
 //-----------------------------------------------------
@@ -26,18 +26,17 @@ const recordtestScript = {
 // handle click event of the "Start Test" button
 function handleStartTestButtonClick(topic, title) {
     // check to see if it has not been pressed before !
-   
-      if (!startTestButtonClicked) {
-            startTestButtonClicked = true;
+
+    if (!startTestButtonClicked) {
+        startTestButtonClicked = true;
         // Firest enable all the button in accordion 
         enableAnswerButton();
         enableSubmitButton();
         disableDropdownList();
         topics = topic;
         lessonName = title;
-        
         // If a guest is taking the test disable the submit button.
-        if( studentName === 'guest') {
+        if (studentName === 'guest') {
             const submitTestButton = document.getElementById('submit-test-btn');
             if (!submitTestButton.disabled) {
                 submitTestButton.disabled = true;
@@ -53,22 +52,22 @@ function handleStartTestButtonClick(topic, title) {
 
 // Function to handle the click event of the "Answer" button
 function checkAnswer(questionId) {
-   // A small click is needed
-    playClickSound(); 
+    // A small click is needed
+    playClickSound();
     // get user selected labels
     getSelectedLabels();
     // Only deals question if it hasn't been clicked before.
-    if(!answeredQuestions.has(questionId)) {
+    if (!answeredQuestions.has(questionId)) {
         //first add it to set
         answeredQuestions.add(questionId);
-    // helper function passing user selected with the question id
-    const isCorrect = checkWithSelectedLabels(selectedLabels, questionId);
-    // Push 1 being correct else 0 and increment the score or leave
-    isCorrect ? (points.push(1), totalScore++) : (points.push(0), totalScore);
+        // helper function passing user selected with the question id
+        const isCorrect = checkWithSelectedLabels(selectedLabels, questionId);
+        // Push 1 being correct else 0 and increment the score or leave
+        isCorrect ? (points.push(1), totalScore++) : (points.push(0), totalScore);
     } else {
-    /* do not do anything it has already been handled,
-     In digital test it is not allwed
-     as it needs to improve attentin to detail.*/
+        /* do not do anything it has already been handled,
+         In digital test it is not allwed
+         as it needs to improve attentin to detail.*/
     }
 }
 
@@ -81,7 +80,7 @@ function checkWithSelectedLabels(selectedLabels, questionId) {
     const correctAnswers = questionsMap[originalQuestionId];
     // Check if any correct answer matches selected labels
     const isCorrect = correctAnswers.some(item =>
-         compareArrays(item.answer, selectedLabels)
+        compareArrays(item.answer, selectedLabels)
     );
     return isCorrect;
 }
@@ -132,7 +131,6 @@ async function submitTestToServer(answers) {
         }
         const data = await response.json();
         console.log('Test submitted successfully:', data);
-       
     } catch (error) {
         console.error('Error submitting test:', error);
         throw error; // Propagate the error for better error handling
@@ -145,7 +143,7 @@ function startTimer(durationInMinutes) {
     let totalSeconds = durationInMinutes * 60;
 
     // Update the display every second
-    timerInterval = setInterval(function() {
+    timerInterval = setInterval(function () {
         // Calculate minutes and seconds
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = totalSeconds % 60;
@@ -157,7 +155,7 @@ function startTimer(durationInMinutes) {
         const timerElements = document.querySelectorAll('.clock');
 
         // Update the content of each timer element
-        timerElements.forEach(function(timerElement) {
+        timerElements.forEach(function (timerElement) {
             timerElement.innerText = formattedTime;
         });
 
@@ -264,33 +262,21 @@ function handleCheckboxChange(event) {
 
 document.querySelectorAll('.accordion-button')
     .forEach((button) => {
-    button.addEventListener('click', handleAccordionExpand);
-});
+        button.addEventListener('click', handleAccordionExpand);
+    });
 
 document.querySelectorAll('.accordion-item')
     .forEach((item) => {
-    item.addEventListener('hidden.bs.collapse', handleAccordionCollapse);
-});
+        item.addEventListener('hidden.bs.collapse', handleAccordionCollapse);
+    });
 
 document.querySelectorAll('input[type="checkbox"]')
     .forEach((checkbox) => {
-    checkbox.addEventListener('change', handleCheckboxChange);
-});
+        checkbox.addEventListener('change', handleCheckboxChange);
+    });
 
 // Get the handle to submit button
 document.getElementById('submit-test-btn')
     .addEventListener('click', () => handleSubmitTestButtonClick());
 
 // End of File
-
-
-
-
-
-
-
-
-
-// const testMessage = document.getElementById('instructions')
-//     .addEventListener('shown.bs.modal', () => {
-// });

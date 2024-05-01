@@ -1,49 +1,105 @@
 <!-- profile.ejs -->
 <%- include('layout/head.ejs'); %>
-<%- include('layout/normalheader.ejs', {iconClass: 'bi bi-lock-fill', headerTitle: 'Profile'}); %>
-<body>
-    <h1>User Profile</h1>
-<section class="vh-100" style="background-color: #9de2ff;">
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col col-md-9 col-lg-7 col-xl-5">
-          <div class="card" style="border-radius: 15px;">
-            <div class="card-body p-4">
-              <div class="d-flex text-black">
-                <div class="flex-shrink-0">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                    alt="Generic placeholder image" class="img-fluid"
-                    style="width: 180px; border-radius: 10px;">
+  <%- include('layout/normalheader.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Profile' }); %>
+
+    <body>
+      <section class="vh-100" style="background-color: #061922;">
+        <div class="container py-5">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body p-4">
+                            <div class="d-flex flex-column flex-md-row align-items-center">
+                                <div class="me-md-4 mb-3 mb-md-0">
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp" alt="Avatar" class="img-fluid" style="width: 120px; border-radius: 10px;">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h5 class="mb-1">Username: <%= username %></h5>
+                                    <p class="mb-2 pb-1" style="color: #2b2a2a;">Student</p>
+                                    <div class="d-flex justify-content-between align-items-center rounded-3 p-2 mb-2" style="background-color: #efefef;">
+                                        <% if (profileData && profileData.length > 0) { %>
+                                            <!-- Display the first test result -->
+                                            <div class="px-3">
+                                                <p class="small text-muted mb-1">Date</p>
+                                                <p class="mb-0"><%= profileData[0].timeStamp.toDateString() %></p>
+                                            </div>
+                                            <div class="px-3">
+                                                <p class="small text-muted mb-1">Lesson</p>
+                                                <p class="mb-0"><%= profileData[0].lessonName %></p>
+                                            </div>
+                                            <div>
+                                                <p class="small text-muted mb-1">Total Score</p>
+                                                <p class="mb-0"><%= profileData[0].totalScore %></p><%= Math.round(profileData[0].totalScore / 20 * 100) %>%
+                                            </div>
+                          
+                                        <% } else { %>
+                                            <p>No test results available.</p>
+                                        <% } %>
+                                    </div>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                        <button id="showAll" type="button" class="btn btn-outline-primary me-md-2 mb-2 mb-md-0">Full Report</button>
+                                        <a href="/dashboard" class="btn btn-link">Dashboard</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex-grow-1 ms-3">
-                  <h5 class="mb-1"><h5>Username: <%= username %></h5>
-                  <p class="mb-2 pb-1" style="color: #2b2a2a;">Senior Journalist</p>
-                  <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
-                    style="background-color: #efefef;">
-                    <div>
-                      <p class="small text-muted mb-1">Tests Taken</p>
-                      <p class="mb-0"><% %></p>
-                    </div>
-                    <div class="px-3">
-                      <p class="small text-muted mb-1">Total Percentage</p>
-                      <p class="mb-0"><% %></p>
-                    </div>
-                    <div>
-                      <p class="small text-muted mb-1">Overall progress</p>
-                      <p class="mb-0"><% %></p>
-                    </div>
+            </div>
+        </div>
+    </section>
+    <%- include('layout/footer.ejs'); %>
+      <style>
+        #allResult {
+          display: none;
+        }
+      </style>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          const showAllButton = document.getElementById('showAll');
+          const allResultSection = document.getElementById('allResult');
+
+          showAllButton.addEventListener('click', function () {
+            if (allResultSection.style.display === 'none') {
+              allResultSection.style.display = 'block';
+            } else {
+              allResultSection.style.display = 'none';
+            }
+          });
+        });
+      </script>
+      <hr>
+
+      <!-- <div class="card-footer">
+        <button id="nextButton" class="btn btn-primary">Show all result</button>
+      </div> -->
+
+      <div id="allResult">
+        <div class="container mt-5">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Test Results</h5>
+            </div>
+            <div class="card-body">
+              <% if (profileData.length> 0) { %>
+                <% profileData.forEach(result=> { %>
+                  <div class="mb-3">
+                    <p>Date: <%= result.timeStamp.toDateString() %>
+                    </p>
+                    <p>Lesson: <%= result.lessonName %>
+                    </p>
+                    <p>Total Score: <%= result.totalScore %> / 20 (Percentage: <%= Math.round(result.totalScore / 20 *
+                          100) %>%)</p>
                   </div>
-                  <div class="d-flex pt-1">
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-outline-primary me-1 flex-grow-1">Show Test Report</button>
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary flex-grow-1">Analyse</button>
-                  </div>
-                </div>
-              </div>
+                  <hr>
+                  <% }); %>
+                    <% } else { %>
+                      <p>No test results available.</p>
+                      <% } %>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</body>
-</html>
+    </body>
+
+    </html>
