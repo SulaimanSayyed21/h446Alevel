@@ -5,7 +5,7 @@ var router = express.Router();
 const handleTestRequest = async (req, res) => {
   try {
     const username = req.session.username;
-    console.log(`from session username is ${username}`);
+    console.log(`from testController session username is ${username}`);
     const { studentName } = req.body; 
     console.log(`From test page: username is ${studentName}`);
     if (studentName === username) {

@@ -4,13 +4,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
-const session = require('express-session');
+var session = require('express-session');
 var connectMongoDb = require('./dbconfig/connection');
+var sessionMiddleware = require('./dbconfig/session');
 // router
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
+var profileRouter = require('./routes/profile');
 var dashboardRouter = require('./routes/dashboard');
 var practiceRouter = require('./routes/practice');
 var testRouter = require('./routes/test');
@@ -34,13 +36,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname + '/views/'));
 
-app.use(session({
-  secret: 'aaadfeadfdkfjadfkwerewoiadfkjdkfjweirefj',
-  resave: false,
-  saveUninitialized: false,
-  cookie :{ maxAge : 60000 * 30 } // 30 minutes
-}));
 
+connectMongoDb();
+
+app.use(sessionMiddleware());
+
+// Routes
 app.use('/', indexRouter);
 app.use('/', loginRouter);
 app.use('/', signupRouter);
@@ -48,11 +49,11 @@ app.use('/', dashboardRouter);
 app.use('/', practiceRouter);
 app.use('/', testRouter);
 app.use('/', logoutRouter);
+app.use('/', profileRouter);
 
 app.use('/users', usersRouter);
 
 // Start the mongoose server
-connectMongoDb();
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -5,11 +5,18 @@ var loginController = require('../controllers/loginController');
 
 /* GET login page. */
 router.get('/login', function (req, res, next) {
-  // check to see if the user is already logged in 
-  const loggedIn = req.session.username ? true : false;
+  const username = req.session.username;
 
-  res.render('login', { title: 'Login', loggedIn: loggedIn });
+  res.render('login', { title: 'Login', showLogout: true, username: username });
 });
+
+/* GET for guest */
+router.get('/guest/login', function (req, res, next) {
+  req.session.guest = true;
+
+  res.render('dashboard', { title: 'Dashboard', showLogout:true, username: 'guest'  });
+});
+
 
 /* Delegate the responsibility to the login controller*/
 router.post('/login', loginController.handleLoginRequest);

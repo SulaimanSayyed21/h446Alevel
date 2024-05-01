@@ -1,6 +1,6 @@
 <%- include('layout/head.ejs'); %>
     <body>
-        <%- include('layout/normalheader.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Dashboard' }) %>
+        <%- include('layout/dash-nav.ejs', {iconClass: 'bi bi-unlock' , headerTitle: 'Dashboard'}) %>
             <main>
                 <!-- Main content -->
                 <div class="container mt-5">
@@ -23,20 +23,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card mb-3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Do not want to login! </h5>
-                                    <p class="card-text">Enter as a guest. Your result will not be submitted!</p>
-                                    <a href="/test?source=guest" class="btn btn-info">Take me to the Test page.</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </main>
             <br><br>
             <%- include('layout/footer.ejs'); %>
-                <script src="../bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+            <script src="../bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
     </body>
     </html>

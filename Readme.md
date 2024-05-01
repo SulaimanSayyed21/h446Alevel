@@ -14,7 +14,7 @@ git clone https://github.com/SulaimanSayyed21/h446Alevel
 
 - Use `npm i` to install the dependencies. 
 - Run the project either using `node app.js` or run the script `npm run start`.
-- To run it in develper mode use `npm run dev`.
+- To run it in developer mode use `npm run dev`.
 - If `nodemon` package is not installed, install it locally or globally using `npm install nodemon`.
   
 
