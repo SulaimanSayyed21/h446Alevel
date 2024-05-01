@@ -1,6 +1,6 @@
 {
   "name": "h446",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "nodemon --ext js,ejs,json,css ./bin/www",
