@@ -13,6 +13,7 @@ router.get('/login', function (req, res, next) {
 /* GET for guest */
 router.get('/guest/login', function (req, res, next) {
   req.session.guest = true;
+  console.log('guest is in!')
 
   res.render('dashboard', { title: 'Dashboard', showLogout:true, username: 'guest'  });
 });
