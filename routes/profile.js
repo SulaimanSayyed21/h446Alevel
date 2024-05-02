@@ -19,7 +19,7 @@ router.get('/profile', async (req, res) => {
             lessonName: result.lessonName,
             totalScore: result.totalScore
         }));
-        console.log(profileData);
+        //console.log(profileData);
        res.render('profile', { title: 'Profile', username: username, showLogout: true, profileData: profileData });
     }catch (error) {
         console.error('Error fetching profile data:', error);

@@ -4,7 +4,7 @@ importScripts(
 
   // Precache manifest
 const precacheManifest = [
-    '/',
+    //'/',
     //'/login',
     //'/guest/login',
     //'/signup',
@@ -51,7 +51,6 @@ const precacheManifest = [
     new workbox.strategies.CacheFirst()
   );
   
-  
   workbox.routing.registerRoute(
     ({ request }) => request.destination === 'script' || request.destination === 'style',
     new workbox.strategies.StaleWhileRevalidate()
@@ -65,7 +64,7 @@ const precacheManifest = [
   //
   workbox.routing.registerRoute(
     ({ url }) => url.pathname === '/',
-    new workbox.strategies.NetworkFirst()
+    new workbox.strategies.CacheFirst()
 );
 
 workbox.routing.registerRoute(
