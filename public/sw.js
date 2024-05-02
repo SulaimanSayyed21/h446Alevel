@@ -4,20 +4,36 @@ importScripts(
 
   // Precache manifest
 const precacheManifest = [
-    //  icon paths to be cached
-    //'./',
-    // './login',
-    // './signup',
-    // '/practice',
-    // '/test',
-    //'/stylesheets/styles.css',
-    // '/javascripts/topicScript.js',
-    // '/javascripts/practiceScript.js',
+    '/',
+    '/login',
+    '/guest/login',
+    '/signup',
+    '/dashboard',
+    '/practice',
+    '/test',
+    '/profile',
+    '/data/topics.json',
+    '/stylesheets/styles.css',
+    '/bootstrap-5.0.2/css/bootstrap.min.css',
+    '/bootstrap-5.0.2/css/bootstrap.min.css.map',
+    '/bootstrap-5.0.2/js/bootstrap.bundle.min.js',
+    '/bootstrap-5.0.2/js/bootstrap.bundle.min.js.map',
+    '/javascripts/topicScript.js',
+    '/javascripts/practiceScript.js',
+    '/javascripts/testScript.js',
+    '/javascripts/recordtestScript.js',
     '/favicon.ico',
-    '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png',
+    '/icons/icon-16x16.png',
+    '/icons/icon-24x24.png',
+    '/icons/icon-48x48.png',
     '/icons/icon-72x72.png',
-    '/icons/icon-144x144.png'
+    '/icons/icon-192x192.png',
+    '/icons/icon-144x144.png',
+    '/icons/icon-512x512.png',
+    '/images/avatar.jpg',
+    '/sounds/buzz.wav',
+    '/sounds/click.wav',
+    '/sounds/success.wav'
   ];
   
   // Set up Workbox to precache assets
@@ -61,11 +77,8 @@ workbox.routing.registerRoute(
     ({ url }) => url.pathname.startsWith('/signup'),
     new workbox.strategies.NetworkFirst()
 );
+
 workbox.routing.registerRoute(
-    ({ url }) => url.pathname.startsWith('/practice'),
-    new workbox.strategies.CacheFirst()
-);
-workbox.routing.registerRoute(
-  ({ url }) => url.pathname.startsWith('/test'),
-  new workbox.strategies.CacheFirst()
+    ({ url }) => url.pathname.startsWith('/profile'),
+    new workbox.strategies.NetworkFirst()
 );
