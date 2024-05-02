@@ -109,7 +109,7 @@ function handleSubmitTestButtonClick() {
     console.log('Test submitted successfully by ' + studentName);
     startTestButtonClicked = false;
     enableDropdownList();
-    window.location.href="/logout"; //  reload the page after submission
+    window.location.href="/dashboard"; //  reload the page after submission
 }
 
 // Submit result with POST method
