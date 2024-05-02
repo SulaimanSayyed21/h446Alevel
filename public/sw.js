@@ -5,13 +5,13 @@ importScripts(
   // Precache manifest
 const precacheManifest = [
     '/',
-    '/login',
-    '/guest/login',
-    '/signup',
-    '/dashboard',
-    '/practice',
-    '/test',
-    '/profile',
+    //'/login',
+    //'/guest/login',
+    //'/signup',
+    //'/dashboard',
+    //'/practice',
+    //'/test',
+    //'/profile',
     '/data/topics.json',
     '/stylesheets/styles.css',
     '/bootstrap-5.0.2/css/bootstrap.min.css',
@@ -78,7 +78,3 @@ workbox.routing.registerRoute(
     new workbox.strategies.NetworkFirst()
 );
 
-workbox.routing.registerRoute(
-    ({ url }) => url.pathname.startsWith('/profile'),
-    new workbox.strategies.NetworkFirst()
-);
