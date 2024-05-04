@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Page</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <!-- Link to bootstrap -->
+    <link rel="stylesheet" href="./resources/bootstrap-5.0.2/css/bootstrap.min.css">
+    <!-- Link to Custom CSS -->
+    <link rel="stylesheet" href="./resources/custom-css/styles.css">
+    <link rel="stylesheet" href="./resources/custom-css/test.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Verbal Reasoning for 11+ Exam</h1>
+    </header>
+    <div class="div-ui-custom">
+        <h4>Practise by chossing one pair of two most opposites </h4>
+    </div>
+    <hr>
+    <!-- Content Section -->
+    <main id="accordion-page" class="container">
+        <!-- Accordion to display questions and answers -->
+        <!-- Bootstrap Accordion -->
+        <div class="accordion mt-4">
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item" id="accord-item-1">
+                <h2 class="accordion-header" id="headingOne">
+                    <button id="Question1" class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question1-option1"> <label
+                                    for="Question1-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question1-option2"> <label
+                                    for="Question1-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question1-option3"> <label
+                                    for="Question1-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question1-option4"> <label
+                                    for="Question1-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question1-option5"> <label
+                                    for="Question1-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question1-option6"> <label
+                                    for="Question1-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question1-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question1')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item" id="accord-item-2">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button id="Question2" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <!--placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question2-option1"> <label
+                                    for="Question2-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question2-option2"> <label
+                                    for="Question2-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question2-option3"> <label
+                                    for="Question2-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question2-option4"> <label
+                                    for="Question2-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question2-option5"> <label
+                                    for="Question2-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question2-option6"> <label
+                                    for="Question2-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question2-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question2')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item" id="accord-item-3">
+                <h2 class="accordion-header" id="headingThree">
+                    <button id="Question3" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <!--placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question3-option1"> <label
+                                    for="Question3-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question3-option2"> <label
+                                    for="Question3-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question3-option3"> <label
+                                    for="Question3-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question3-option4"> <label
+                                    for="Question3-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question3-option5"> <label
+                                    for="Question3-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question3-option6"> <label
+                                    for="Question3-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question3-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question3')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Accordion Item 4 -->
+            <div class="accordion-item" id="accord-item-4">
+                <h2 class="accordion-header" id="headingFour">
+                    <button id="Question4" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question4-option1"> <label
+                                    for="Question4-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question4-option2"> <label
+                                    for="Question4-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question4-option3"> <label
+                                    for="Question4-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question4-option4"> <label
+                                    for="Question4-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question4-option5"> <label
+                                    for="Question4-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question4-option6"> <label
+                                    for="Question4-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question4-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question4')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="accord-item-5">
+                <h2 class="accordion-header" id="headingFive">
+                    <button id="Question5" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question5-option1"> <label
+                                    for="Question5-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question5-option2"> <label
+                                    for="Question5-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question5-option3"> <label
+                                    for="Question5-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question5-option4"> <label
+                                    for="Question5-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question5-option5"> <label
+                                    for="Question5-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question5-option6"> <label
+                                    for="Question5-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question5-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question5')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="accord-item-6">
+                <h2 class="accordion-header" id="headingSix">
+                    <button id="Question6" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question6-option1"> <label
+                                    for="Question6-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question6-option2"> <label
+                                    for="Question6-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question6-option3"> <label
+                                    for="Question6-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question6-option4"> <label
+                                    for="Question6-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question6-option5"> <label
+                                    for="Question6-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question6-option6"> <label
+                                    for="Question6-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question6-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question6')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="accord-item-7">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button id="Question7" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question7-option1"> <label
+                                    for="Question7-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question7-option2"> <label
+                                    for="Question7-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question7-option3"> <label
+                                    for="Question7-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question7-option4"> <label
+                                    for="Question7-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question7-option5"> <label
+                                    for="Question7-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question7-option6"> <label
+                                    for="Question7-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question7-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question7')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item" id="accord-item-8">
+                <h2 class="accordion-header" id="headingEight">
+                    <button id="Question8" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question8-option1"> <label
+                                    for="Question8-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question8-option2"> <label
+                                    for="Question8-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question8-option3"> <label
+                                    for="Question8-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question8-option4"> <label
+                                    for="Question8-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question8-option5"> <label
+                                    for="Question8-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question8-option6"> <label
+                                    for="Question8-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question8-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question8')">Answer</button>
+                    </div>
+                </div>
+            </div>
+            <!-- accordion item 9 -->
+            <div class="accordion-item" id="accord-item-9">
+                <h2 class="accordion-header" id="headingNine">
+                    <button id="Question9" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question9-option1"> <label
+                                    for="Question9-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question9-option2"> <label
+                                    for="Question9-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question9-option3"> <label
+                                    for="Question9-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question9-option4"> <label
+                                    for="Question9-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question9-option5"> <label
+                                    for="Question9-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question9-option6"> <label
+                                    for="Question9-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question9-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question9')">Answer</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" id="accord-item-10">
+                <h2 class="accordion-header" id="headingTen">
+                    <button id="Question10" class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                        <!-- placeholder for question -->
+                    </button>
+                </h2>
+                <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li class="list-group-item"><input type="checkbox" id="Question10-option1"> <label
+                                    for="Question10-option1"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question10-option2"> <label
+                                    for="Question10-option2"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question10-option3"> <label
+                                    for="Question10-option3"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question10-option4"> <label
+                                    for="Question10-option4"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question10-option5"> <label
+                                    for="Question10-option5"><!-- placeholder --></label></li>
+                            <li class="list-group-item"><input type="checkbox" id="Question10-option6"> <label
+                                    for="Question10-option6"><!-- placeholder --></label></li>
+                        </ul>
+                        <button id="answer-Question10-btn" class="btn btn-primary mt-3"
+                            onclick="checkAnswer('Question10')">Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+<hr><hr>
+
+        <!-- Additional accordion items can be added here -->
+    
+    </main>
+    <footer class="footer">
+        <a href="mainui.html" class="anchor">Back to Main UI</a>
+    </footer>
+    <!-- Link to JavaScript file -->
+    <script src="./resources/bootstrap-5.0.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <script src="./resources/scripts/script-3.js"></script>
+    <!--test script loaded -->
+    <script src="./test/test.js"></script>
+</body>
+
+</html>

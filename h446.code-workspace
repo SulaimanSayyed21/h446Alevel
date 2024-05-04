@@ -11,7 +11,7 @@
 		],
 		"markdown-pdf.stylesRelativePathFile": true,
 		//"markdown-pdf.highlightStyle": "a11y-dark.css",
-		"markdown-pdf.highlightStyle": "a11y-light.css",
+		//"markdown-pdf.highlightStyle": "a11y-light.css",
 		//"markdown-pdf.highlightStyle": "color-brewer.css",
 		"markdown-pdf.margin.left": "20mm",
 		"markdown-pdf.margin.bottom": "15mm",
